@@ -6,22 +6,6 @@
     return;
   }
 
-  const typeLookup = Object.fromEntries(corpus.intelligenceTypes.map((item) => [item.id, item]));
-  const perspectiveLookup = Object.fromEntries(corpus.perspectives.map((item) => [item.id, item]));
-  const signalLookup = Object.fromEntries(corpus.signals.map((item) => [item.id, item]));
-  const typeCountLookup = Object.fromEntries(corpus.typeCounts.map((item) => [item.id, item]));
-  const perspectiveCountLookup = Object.fromEntries(corpus.perspectiveCounts.map((item) => [item.id, item]));
-  const signalCountLookup = Object.fromEntries(corpus.signals.map((item) => [item.id, item]));
-  const originLookup = {
-    types: Object.fromEntries(corpus.origins.types.map((item) => [item.id, item])),
-    perspectives: Object.fromEntries(corpus.origins.perspectives.map((item) => [item.id, item])),
-    signals: Object.fromEntries(corpus.origins.signals.map((item) => [item.id, item])),
-  };
-  const openAlexByDoi = Object.fromEntries(
-    Object.entries(openAlex?.citationsByDoi || {}).map(([doi, value]) => [doi.toLowerCase(), value]),
-  );
-  let evidenceDeskController = null;
-
   const signalFallbackMeta = {
     language: {
       label: "Language and semiotics",
@@ -75,6 +59,96 @@
     },
   };
 
+  const typeLookup = Object.fromEntries(corpus.intelligenceTypes.map((item) => [item.id, item]));
+  const perspectiveLookup = Object.fromEntries(corpus.perspectives.map((item) => [item.id, item]));
+  const signalLookup = Object.fromEntries(corpus.signals.map((item) => [item.id, item]));
+  const definitionLookup = Object.fromEntries(corpus.definitionFrames.map((item) => [item.id, item]));
+  const recognitionLookup = Object.fromEntries(corpus.recognitionModes.map((item) => [item.id, item]));
+  const locationLookup = Object.fromEntries(corpus.locationFrames.map((item) => [item.id, item]));
+  const subjectLookup = Object.fromEntries(corpus.subjectFrames.map((item) => [item.id, item]));
+
+  const familyConfigs = {
+    types: {
+      label: "Intelligence types",
+      articleKey: "intelligenceTypes",
+      bucketKey: "types",
+      definitions: corpus.intelligenceTypes,
+      counts: corpus.typeCounts,
+      trends: corpus.trends.types,
+      lookup: typeLookup,
+    },
+    perspectives: {
+      label: "Perspectives",
+      articleKey: "perspectives",
+      bucketKey: "perspectives",
+      definitions: corpus.perspectives,
+      counts: corpus.perspectiveCounts,
+      trends: corpus.trends.perspectives,
+      lookup: perspectiveLookup,
+    },
+    signals: {
+      label: "Signals",
+      articleKey: "signals",
+      bucketKey: "signals",
+      definitions: corpus.signals.map((item) => ({
+        ...item,
+        label: item.label || signalFallbackMeta[item.id]?.label || item.id,
+        description: item.description || signalFallbackMeta[item.id]?.description || "Adjacent corpus signal.",
+        cues: item.cues || signalFallbackMeta[item.id]?.cues || [],
+      })),
+      counts: corpus.signals,
+      trends: corpus.trends.signals,
+      lookup: signalLookup,
+    },
+    definitions: {
+      label: "Definition frames",
+      articleKey: "definitionFrames",
+      bucketKey: "definitions",
+      definitions: corpus.definitionFrames,
+      counts: corpus.conceptualQuestions.definitions.counts,
+      trends: corpus.conceptualQuestions.definitions.trends,
+      lookup: definitionLookup,
+    },
+    recognition: {
+      label: "Recognition modes",
+      articleKey: "recognitionModes",
+      bucketKey: "recognition",
+      definitions: corpus.recognitionModes,
+      counts: corpus.conceptualQuestions.recognition.counts,
+      trends: corpus.conceptualQuestions.recognition.trends,
+      lookup: recognitionLookup,
+    },
+    locations: {
+      label: "Location frames",
+      articleKey: "locationFrames",
+      bucketKey: "locations",
+      definitions: corpus.locationFrames,
+      counts: corpus.conceptualQuestions.locations.counts,
+      trends: corpus.conceptualQuestions.locations.trends,
+      lookup: locationLookup,
+    },
+    subjects: {
+      label: "Subjects",
+      articleKey: "subjectFrames",
+      bucketKey: "subjects",
+      definitions: corpus.subjectFrames,
+      counts: corpus.conceptualQuestions.subjects.counts,
+      trends: corpus.conceptualQuestions.subjects.trends,
+      lookup: subjectLookup,
+    },
+  };
+
+  const familyCountLookup = Object.fromEntries(
+    Object.entries(familyConfigs).map(([key, config]) => [key, Object.fromEntries(config.counts.map((item) => [item.id, item]))]),
+  );
+  const originLookup = Object.fromEntries(
+    Object.entries(corpus.origins).map(([key, rows]) => [key, Object.fromEntries(rows.map((item) => [item.id, item]))]),
+  );
+  const openAlexByDoi = Object.fromEntries(
+    Object.entries(openAlex?.citationsByDoi || {}).map(([doi, value]) => [doi.toLowerCase(), value]),
+  );
+  let evidenceDeskController = null;
+
   function formatNumber(value) {
     return new Intl.NumberFormat("en-US").format(value);
   }
@@ -88,7 +162,15 @@
   }
 
   function lookupAnyLabel(id) {
-    return typeLookup[id]?.label || perspectiveLookup[id]?.label || lookupSignalLabel(id);
+    return (
+      typeLookup[id]?.label ||
+      perspectiveLookup[id]?.label ||
+      definitionLookup[id]?.label ||
+      recognitionLookup[id]?.label ||
+      locationLookup[id]?.label ||
+      subjectLookup[id]?.label ||
+      lookupSignalLabel(id)
+    );
   }
 
   function currentDecade(article) {
@@ -106,6 +188,35 @@
     technology: ["technology", "media", "digital", "computer", "game", "film", "ai"],
     care: ["care", "wellbeing", "stress", "resilience", "mindfulness"],
     place: ["place", "ecology", "relational", "environment", "nonhuman"],
+    measurable_faculty: ["measurement", "ability", "score", "test", "psychometric"],
+    creative_capacity: ["creativity", "imagination", "originality", "invention"],
+    perceptual_sensitivity: ["perception", "seeing", "visual", "sensitivity"],
+    interpretive_meaning: ["interpretation", "symbolic", "language", "meaning", "critique"],
+    situated_practice: ["social", "cultural", "community", "identity", "relation"],
+    embodied_attunement: ["embodied", "affective", "emotion", "tacit", "mindful"],
+    machinic_relation: ["digital", "machine", "ai", "computation", "network"],
+    testing_scoring: ["tests", "scores", "measurement", "instrument"],
+    developmental_observation: ["development", "observation", "growth", "stages"],
+    making_performance: ["artwork", "drawing", "making", "studio"],
+    judgment_critique: ["judgment", "critique", "evaluation", "criticism"],
+    language_reflection: ["language", "reflection", "conversation", "interview"],
+    participation_relation: ["participation", "collaboration", "engagement", "community"],
+    technical_fluency: ["technical", "digital", "media", "ai"],
+    mind_concepts: ["mind", "concept", "cognition", "understanding"],
+    vision_perception: ["vision", "perception", "seeing", "visual"],
+    body_affect: ["body", "affect", "emotion", "tacit"],
+    artworks_materials: ["artwork", "drawing", "image", "material"],
+    relations_culture: ["relations", "culture", "identity", "community"],
+    pedagogical_institutions: ["classroom", "teaching", "curriculum", "school"],
+    media_machines: ["media", "machine", "digital", "ai"],
+    place_ecology: ["place", "ecology", "environment", "nonhuman"],
+    children_students: ["children", "students", "learners", "adolescents"],
+    teachers_educators: ["teachers", "educators", "preservice", "faculty"],
+    artists_makers: ["artists", "makers", "designers", "practitioners"],
+    communities_publics: ["communities", "publics", "museum", "families"],
+    disabled_gifted_subjects: ["gifted", "disabled", "autistic", "neurodiverse"],
+    identity_marked_subjects: ["race", "gender", "queer", "decolonial"],
+    machines_nonhumans: ["machines", "ai", "nonhuman", "animals"],
   };
 
   function normalizeForSearch(value) {
@@ -124,19 +235,21 @@
       .filter((token) => token.length > 2);
   }
 
-  const conceptCatalog = [
-    ...corpus.intelligenceTypes.map((item) => ({ ...item, family: "types" })),
-    ...corpus.perspectives.map((item) => ({ ...item, family: "perspectives" })),
-    ...corpus.signals.map((item) => ({
+  const conceptCatalog = Object.entries(familyConfigs)
+    .flatMap(([family, config]) =>
+      config.definitions.map((item) => ({
+        ...item,
+        family,
+        label: family === "signals" ? lookupSignalLabel(item.id) : item.label,
+        description:
+          item.description ||
+          (family === "signals" ? signalFallbackMeta[item.id]?.description || "Adjacent corpus signal." : ""),
+      })),
+    )
+    .map((item) => ({
       ...item,
-      label: lookupSignalLabel(item.id),
-      description: item.description || signalFallbackMeta[item.id]?.description || "Adjacent corpus signal.",
-      family: "signals",
-    })),
-  ].map((item) => ({
-    ...item,
-    search: normalizeForSearch(`${item.label} ${item.description || ""} ${(customAliases[item.id] || []).join(" ")}`),
-  }));
+      search: normalizeForSearch(`${item.label} ${item.description || ""} ${(customAliases[item.id] || []).join(" ")}`),
+    }));
 
   function compareArticlesByImportance(a, b) {
     const aCitations = openAlexByDoi[a.doi]?.citedByCount || 0;
@@ -153,7 +266,17 @@
     const profiles = Object.fromEntries(
       allDecades.map((decade) => [
         decade,
-        { articleCount: 0, articles: [], types: {}, perspectives: {}, signals: {} },
+        {
+          articleCount: 0,
+          articles: [],
+          types: {},
+          perspectives: {},
+          signals: {},
+          definitions: {},
+          recognition: {},
+          locations: {},
+          subjects: {},
+        },
       ]),
     );
 
@@ -171,6 +294,18 @@
       });
       article.signals.forEach((id) => {
         profile.signals[id] = (profile.signals[id] || 0) + 1;
+      });
+      article.definitionFrames.forEach((id) => {
+        profile.definitions[id] = (profile.definitions[id] || 0) + 1;
+      });
+      article.recognitionModes.forEach((id) => {
+        profile.recognition[id] = (profile.recognition[id] || 0) + 1;
+      });
+      article.locationFrames.forEach((id) => {
+        profile.locations[id] = (profile.locations[id] || 0) + 1;
+      });
+      article.subjectFrames.forEach((id) => {
+        profile.subjects[id] = (profile.subjects[id] || 0) + 1;
       });
     });
 
@@ -221,10 +356,9 @@
   }
 
   function articleMatchesFamily(article, family, id) {
-    if (family === "types") return article.intelligenceTypes.includes(id);
-    if (family === "perspectives") return article.perspectives.includes(id);
-    if (family === "signals") return article.signals.includes(id);
-    return false;
+    const config = familyConfigs[family];
+    if (!config) return false;
+    return article[config.articleKey].includes(id);
   }
 
   function articlesForFamily(family, id) {
@@ -237,10 +371,7 @@
   }
 
   function countForFamily(family, id) {
-    if (family === "types") return typeCountLookup[id]?.count || 0;
-    if (family === "perspectives") return perspectiveCountLookup[id]?.count || 0;
-    if (family === "signals") return signalCountLookup[id]?.count || 0;
-    return 0;
+    return familyCountLookup[family]?.[id]?.count || 0;
   }
 
   function detailTagMarkup(ids) {
@@ -259,6 +390,12 @@
     const emphasis = options.emphasis?.length
       ? `<p class="evidence-why"><strong>Matched here through:</strong> ${escapeHtml(options.emphasis.join(", "))}</p>`
       : "";
+    const conceptualDetails = options.showConcepts !== false
+      ? `
+        <div class="detail-tags detail-tags-subtle">${detailTagMarkup(article.definitionFrames)}${detailTagMarkup(article.recognitionModes)}</div>
+        <div class="detail-tags detail-tags-subtle">${detailTagMarkup(article.locationFrames)}${detailTagMarkup(article.subjectFrames)}</div>
+      `
+      : "";
 
     return `
       <article class="explorer-card">
@@ -268,9 +405,37 @@
         ${emphasis}
         <div class="detail-tags">${detailTagMarkup(article.intelligenceTypes)}</div>
         <div class="detail-tags detail-tags-subtle">${detailTagMarkup(article.perspectives)}${detailTagMarkup(article.signals)}</div>
+        ${conceptualDetails}
         <p class="evidence-meta">${article.doi ? `DOI: ${escapeHtml(article.doi)}` : "DOI not available in extracted metadata."}</p>
       </article>
     `;
+  }
+
+  function inspectConceptInEvidenceDesk(family, id) {
+    if (!evidenceDeskController) return;
+    const nextState = {
+      search: "",
+      decade: "",
+      type: "",
+      perspective: "",
+      signal: "",
+      definition: "",
+      recognition: "",
+      location: "",
+      subject: "",
+      sort: "cited",
+    };
+
+    if (family === "types") nextState.type = id;
+    if (family === "perspectives") nextState.perspective = id;
+    if (family === "signals") nextState.signal = id;
+    if (family === "definitions") nextState.definition = id;
+    if (family === "recognition") nextState.recognition = id;
+    if (family === "locations") nextState.location = id;
+    if (family === "subjects") nextState.subject = id;
+
+    evidenceDeskController.setFilters(nextState);
+    document.getElementById("evidence-desk-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   function topLabels(counter, limit) {
@@ -401,40 +566,16 @@
   }
 
   function getComparisonFamilyConfig(family) {
-    if (family === "perspectives") {
-      return {
-        bucketKey: "perspectives",
-        articleKey: "perspectives",
-        label: "perspectives",
-        rows: corpus.perspectives.map((item) => ({
-          id: item.id,
-          label: item.label,
-          description: item.description,
-        })),
-      };
-    }
-
-    if (family === "signals") {
-      return {
-        bucketKey: "signals",
-        articleKey: "signals",
-        label: "signals",
-        rows: corpus.signals.map((item) => ({
-          id: item.id,
-          label: lookupSignalLabel(item.id),
-          description: "Adjacent motif in the corpus.",
-        })),
-      };
-    }
-
+    const config = familyConfigs[family] || familyConfigs.types;
     return {
-      bucketKey: "types",
-      articleKey: "intelligenceTypes",
-      label: "intelligence types",
-      rows: corpus.intelligenceTypes.map((item) => ({
+      bucketKey: config.bucketKey,
+      articleKey: config.articleKey,
+      label: config.label.toLowerCase(),
+      rows: config.definitions.map((item) => ({
         id: item.id,
-        label: item.label,
-        description: item.description,
+        label: family === "signals" ? lookupSignalLabel(item.id) : item.label,
+        description:
+          item.description || (family === "signals" ? signalFallbackMeta[item.id]?.description || "Adjacent motif in the corpus." : ""),
       })),
     };
   }
@@ -832,6 +973,118 @@
     });
   }
 
+  function renderConceptualQuestions() {
+    const targets = {
+      definitions: {
+        bars: document.getElementById("definition-bars"),
+        note: document.getElementById("definition-note"),
+        highlights: document.getElementById("definition-highlights"),
+        tone: "warm",
+        noteText:
+          "These are heuristic frames for what intelligence is taken to mean. Articles can carry several at once, so the totals show recurrence rather than mutually exclusive types.",
+      },
+      recognition: {
+        bars: document.getElementById("recognition-bars"),
+        note: document.getElementById("recognition-note"),
+        highlights: document.getElementById("recognition-highlights"),
+        tone: "cool",
+        noteText:
+          "This lens tracks what counts as evidence of intelligence in the article: a score, an artwork, a reflection, a relation, or a technical practice.",
+      },
+      locations: {
+        bars: document.getElementById("location-bars"),
+        note: document.getElementById("location-note"),
+        highlights: document.getElementById("location-highlights"),
+        tone: "warm",
+        noteText:
+          "Location frames show where intelligence is imagined to reside. The same article can place it in more than one site at once.",
+      },
+      subjects: {
+        bars: document.getElementById("subject-bars"),
+        note: document.getElementById("subject-note"),
+        highlights: document.getElementById("subject-highlights"),
+        tone: "cool",
+        noteText:
+          "Subject positions show who is being centered as intelligent or intelligible. They indicate explicit attention, not the full set of people implied by every article.",
+      },
+    };
+
+    Object.entries(targets).forEach(([family, target]) => {
+      const question = corpus.conceptualQuestions[family];
+      if (!question || !target.bars || !target.highlights || !target.note) {
+        return;
+      }
+
+      createBarRows(target.bars, question.counts, target.tone);
+      target.note.textContent = target.noteText;
+      target.highlights.innerHTML = "";
+      const riserId = [...question.trends.rows].sort((a, b) => b.delta - a.delta)[0]?.id;
+      const declinerId = [...question.trends.rows].sort((a, b) => a.delta - b.delta)[0]?.id;
+
+      question.highlights.forEach((item, index) => {
+        const card = document.createElement("article");
+        card.className = "thread-card";
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "ghost-button question-button";
+        const focusId = index === 0 ? question.counts[0]?.id : index === 1 ? riserId : declinerId;
+        button.textContent = "Inspect evidence";
+        if (focusId) {
+          button.addEventListener("click", () => inspectConceptInEvidenceDesk(family, focusId));
+        } else {
+          button.disabled = true;
+        }
+        card.innerHTML = `<h3>${item.title}</h3><p>${item.body}</p>${renderExampleList(item.examples)}`;
+        card.append(button);
+        target.highlights.append(card);
+      });
+    });
+  }
+
+  function renderMeaningShifts() {
+    const storyTarget = document.getElementById("meaning-shift-stories");
+    const periodTarget = document.getElementById("meaning-periods");
+
+    if (!storyTarget || !periodTarget) {
+      return;
+    }
+
+    storyTarget.innerHTML = "";
+    corpus.meaningShifts.stories.forEach((story) => {
+      const card = document.createElement("article");
+      card.className = "thread-card";
+      card.innerHTML = `<h3>${story.title}</h3><p>${story.body}</p>${renderExampleList(story.examples)}`;
+      storyTarget.append(card);
+    });
+
+    periodTarget.innerHTML = "";
+    corpus.meaningShifts.periods.forEach((period) => {
+      const card = document.createElement("article");
+      card.className = "period-card";
+      card.innerHTML = `
+        <h3>${period.label}</h3>
+        <p>${formatNumber(period.articleCount)} articles</p>
+        <div class="period-section">
+          <h4>Defined as</h4>
+          <p>${period.families.definitions.map((item) => `${item.label} (${formatPercent(item.share)})`).join(" · ") || "No strong dominant frame."}</p>
+        </div>
+        <div class="period-section">
+          <h4>Recognized through</h4>
+          <p>${period.families.recognition.map((item) => `${item.label} (${formatPercent(item.share)})`).join(" · ") || "No strong dominant mode."}</p>
+        </div>
+        <div class="period-section">
+          <h4>Located in</h4>
+          <p>${period.families.locations.map((item) => `${item.label} (${formatPercent(item.share)})`).join(" · ") || "No strong dominant site."}</p>
+        </div>
+        <div class="period-section">
+          <h4>Centered on</h4>
+          <p>${period.families.subjects.map((item) => `${item.label} (${formatPercent(item.share)})`).join(" · ") || "No strong dominant subject."}</p>
+        </div>
+      `;
+      periodTarget.append(card);
+    });
+  }
+
   function renderScorecards() {
     const rising = document.getElementById("trend-risers");
     const fading = document.getElementById("trend-decliners");
@@ -1020,11 +1273,12 @@
     }
 
     const prompts = [
-      "How is disability discussed over time?",
+      "How is intelligence defined over time?",
+      "How is intelligence recognized in these articles?",
+      "Where is intelligence located in the corpus?",
+      "Whose intelligence counts here?",
       "Which articles connect AI and intelligence?",
       "What are the biggest blind spots in the corpus?",
-      "How does the 1960s compare with the 2020s?",
-      "Which themes are rising fastest?",
     ];
 
     suggestions.innerHTML = "";
@@ -1052,18 +1306,14 @@
         .map((article) => {
           let score = 0;
           const haystack = normalizeForSearch(
-            `${article.title} ${article.excerpt} ${article.intelligenceTypes.join(" ")} ${article.perspectives.join(" ")} ${article.signals.join(" ")} ${article.year} ${currentDecade(article)}`,
+            `${article.title} ${article.excerpt} ${article.intelligenceTypes.join(" ")} ${article.perspectives.join(" ")} ${article.signals.join(" ")} ${article.definitionFrames.join(" ")} ${article.recognitionModes.join(" ")} ${article.locationFrames.join(" ")} ${article.subjectFrames.join(" ")} ${article.year} ${currentDecade(article)}`,
           );
           tokens.forEach((token) => {
             if (haystack.includes(token)) score += 1;
             if (normalizeForSearch(article.title).includes(token)) score += 2;
           });
           concepts.forEach((concept) => {
-            if (
-              article.intelligenceTypes.includes(concept.id) ||
-              article.perspectives.includes(concept.id) ||
-              article.signals.includes(concept.id)
-            ) {
+            if (articleMatchesFamily(article, concept.family, concept.id)) {
               score += 3;
             }
           });
@@ -1087,10 +1337,7 @@
       }
 
       const bullets = concepts.slice(0, 3).map((concept) => {
-        const source =
-          corpus.trends.types.rows.find((row) => row.id === concept.id) ||
-          corpus.trends.perspectives.rows.find((row) => row.id === concept.id) ||
-          corpus.trends.signals.rows.find((row) => row.id === concept.id);
+        const source = familyConfigs[concept.family]?.trends?.rows.find((row) => row.id === concept.id);
         if (!source) return `${concept.label} appears in the corpus, but the trend summary is weak.`;
         return `${concept.label}: ${formatPercent(source.earlyShare)} → ${formatPercent(source.lateShare)} (${source.direction}).`;
       });
@@ -1104,9 +1351,7 @@
         bullets,
         evidence: concepts
           .flatMap((concept) => {
-            const source =
-              corpus.trends.types.rows.find((row) => row.id === concept.id) ||
-              corpus.trends.perspectives.rows.find((row) => row.id === concept.id);
+            const source = familyConfigs[concept.family]?.trends?.rows.find((row) => row.id === concept.id);
             return source?.examples?.late || [];
           })
           .slice(0, 4),
@@ -1146,7 +1391,15 @@
     }
 
     function buildOriginAnswer(concepts) {
-      const pools = [...corpus.origins.types, ...corpus.origins.perspectives, ...corpus.origins.signals];
+      const pools = [
+        ...corpus.origins.types,
+        ...corpus.origins.perspectives,
+        ...corpus.origins.signals,
+        ...corpus.origins.definitions,
+        ...corpus.origins.recognition,
+        ...corpus.origins.locations,
+        ...corpus.origins.subjects,
+      ];
       const rows = concepts.length
         ? pools.filter((row) => concepts.some((concept) => concept.id === row.id))
         : pools.slice(0, 6);
@@ -1163,6 +1416,10 @@
       const typeCounts = {};
       const perspectiveCounts = {};
       const signalCounts = {};
+      const definitionCounts = {};
+      const recognitionCounts = {};
+      const locationCounts = {};
+      const subjectCounts = {};
       sample.forEach((article) => {
         article.intelligenceTypes.forEach((id) => {
           typeCounts[id] = (typeCounts[id] || 0) + 1;
@@ -1173,10 +1430,26 @@
         article.signals.forEach((id) => {
           signalCounts[id] = (signalCounts[id] || 0) + 1;
         });
+        article.definitionFrames.forEach((id) => {
+          definitionCounts[id] = (definitionCounts[id] || 0) + 1;
+        });
+        article.recognitionModes.forEach((id) => {
+          recognitionCounts[id] = (recognitionCounts[id] || 0) + 1;
+        });
+        article.locationFrames.forEach((id) => {
+          locationCounts[id] = (locationCounts[id] || 0) + 1;
+        });
+        article.subjectFrames.forEach((id) => {
+          subjectCounts[id] = (subjectCounts[id] || 0) + 1;
+        });
       });
       const topType = Object.entries(typeCounts).sort((a, b) => b[1] - a[1])[0];
       const topPerspective = Object.entries(perspectiveCounts).sort((a, b) => b[1] - a[1])[0];
       const topSignal = Object.entries(signalCounts).sort((a, b) => b[1] - a[1])[0];
+      const topDefinition = Object.entries(definitionCounts).sort((a, b) => b[1] - a[1])[0];
+      const topRecognition = Object.entries(recognitionCounts).sort((a, b) => b[1] - a[1])[0];
+      const topLocation = Object.entries(locationCounts).sort((a, b) => b[1] - a[1])[0];
+      const topSubject = Object.entries(subjectCounts).sort((a, b) => b[1] - a[1])[0];
       return {
         title: "Best-matching answer",
         summary: matchedArticles.length
@@ -1186,6 +1459,10 @@
           topType ? `Most common type in the match set: ${lookupAnyLabel(topType[0])} (${topType[1]} of the top matches).` : null,
           topPerspective ? `Most common perspective: ${lookupAnyLabel(topPerspective[0])} (${topPerspective[1]}).` : null,
           topSignal ? `Most recurrent adjacent signal: ${lookupAnyLabel(topSignal[0])} (${topSignal[1]}).` : null,
+          topDefinition ? `Dominant definition frame: ${lookupAnyLabel(topDefinition[0])} (${topDefinition[1]}).` : null,
+          topRecognition ? `Most common recognition mode: ${lookupAnyLabel(topRecognition[0])} (${topRecognition[1]}).` : null,
+          topLocation ? `Most common location frame: ${lookupAnyLabel(topLocation[0])} (${topLocation[1]}).` : null,
+          topSubject ? `Most visible subject position: ${lookupAnyLabel(topSubject[0])} (${topSubject[1]}).` : null,
           concepts.length ? `Detected themes: ${concepts.map((concept) => concept.label).join(", ")}.` : null,
         ].filter(Boolean),
         evidence: matchedArticles.slice(0, 5),
@@ -1274,13 +1551,11 @@
     const selected = new Set();
 
     function familyOptions() {
-      if (familySelect.value === "perspectives") {
-        return corpus.perspectives.map((item) => ({ id: item.id, label: item.label }));
-      }
-      if (familySelect.value === "signals") {
-        return corpus.signals.map((item) => ({ id: item.id, label: lookupSignalLabel(item.id) }));
-      }
-      return corpus.intelligenceTypes.map((item) => ({ id: item.id, label: item.label }));
+      const config = familyConfigs[familySelect.value] || familyConfigs.types;
+      return config.definitions.map((item) => ({
+        id: item.id,
+        label: familySelect.value === "signals" ? lookupSignalLabel(item.id) : item.label,
+      }));
     }
 
     function fillPicker(reset = false) {
@@ -1316,7 +1591,8 @@
           ...item,
           points: allDecades.map((decade) => {
             const profile = decadeProfiles[decade];
-            const value = profile[familySelect.value][item.id] || 0;
+            const bucketKey = familyConfigs[familySelect.value]?.bucketKey || "types";
+            const value = profile[bucketKey][item.id] || 0;
             return {
               decade,
               count: value,
@@ -1564,6 +1840,10 @@
     const type = document.getElementById("explorer-type");
     const perspective = document.getElementById("explorer-perspective");
     const signal = document.getElementById("explorer-signal");
+    const definition = document.getElementById("explorer-definition");
+    const recognition = document.getElementById("explorer-recognition");
+    const location = document.getElementById("explorer-location");
+    const subject = document.getElementById("explorer-subject");
     const sort = document.getElementById("explorer-sort");
     const summary = document.getElementById("explorer-summary");
     const results = document.getElementById("explorer-results");
@@ -1573,6 +1853,10 @@
     populateSelect(type, corpus.intelligenceTypes.map((item) => item.id), lookupAnyLabel);
     populateSelect(perspective, corpus.perspectives.map((item) => item.id), lookupAnyLabel);
     populateSelect(signal, corpus.signals.map((item) => item.id), lookupAnyLabel);
+    populateSelect(definition, corpus.definitionFrames.map((item) => item.id), lookupAnyLabel);
+    populateSelect(recognition, corpus.recognitionModes.map((item) => item.id), lookupAnyLabel);
+    populateSelect(location, corpus.locationFrames.map((item) => item.id), lookupAnyLabel);
+    populateSelect(subject, corpus.subjectFrames.map((item) => item.id), lookupAnyLabel);
 
     function currentDecade(article) {
       return `${article.year - (article.year % 10)}s`;
@@ -1589,6 +1873,10 @@
               article.intelligenceTypes.map((id) => lookupAnyLabel(id)).join(" "),
               article.perspectives.map((id) => lookupAnyLabel(id)).join(" "),
               article.signals.map((id) => lookupAnyLabel(id)).join(" "),
+              article.definitionFrames.map((id) => lookupAnyLabel(id)).join(" "),
+              article.recognitionModes.map((id) => lookupAnyLabel(id)).join(" "),
+              article.locationFrames.map((id) => lookupAnyLabel(id)).join(" "),
+              article.subjectFrames.map((id) => lookupAnyLabel(id)).join(" "),
             ].join(" "),
           );
           if (!haystack.includes(query)) return false;
@@ -1597,6 +1885,10 @@
         if (type.value && !article.intelligenceTypes.includes(type.value)) return false;
         if (perspective.value && !article.perspectives.includes(perspective.value)) return false;
         if (signal.value && !article.signals.includes(signal.value)) return false;
+        if (definition.value && !article.definitionFrames.includes(definition.value)) return false;
+        if (recognition.value && !article.recognitionModes.includes(recognition.value)) return false;
+        if (location.value && !article.locationFrames.includes(location.value)) return false;
+        if (subject.value && !article.subjectFrames.includes(subject.value)) return false;
         return true;
       });
 
@@ -1613,7 +1905,9 @@
         return b.year - a.year || a.title.localeCompare(b.title);
       });
 
-      const emphasis = [type.value, perspective.value, signal.value].filter(Boolean).map((id) => lookupAnyLabel(id));
+      const emphasis = [type.value, perspective.value, signal.value, definition.value, recognition.value, location.value, subject.value]
+        .filter(Boolean)
+        .map((id) => lookupAnyLabel(id));
       summary.textContent =
         rows.length > 24
           ? `${formatNumber(rows.length)} articles match the current filters. Showing the first 24 evidence cards.`
@@ -1638,12 +1932,16 @@
         type.value = nextState.type ?? "";
         perspective.value = nextState.perspective ?? "";
         signal.value = nextState.signal ?? "";
+        definition.value = nextState.definition ?? "";
+        recognition.value = nextState.recognition ?? "";
+        location.value = nextState.location ?? "";
+        subject.value = nextState.subject ?? "";
         sort.value = nextState.sort ?? "cited";
         refresh();
       },
     };
 
-    [search, decade, type, perspective, signal, sort].forEach((element) => {
+    [search, decade, type, perspective, signal, definition, recognition, location, subject, sort].forEach((element) => {
       element.addEventListener("input", refresh);
       element.addEventListener("change", refresh);
     });
@@ -1665,41 +1963,47 @@
         label: "Intelligence types",
         description:
           "These categories describe what kind of intelligence is being foregrounded in the article, not a single fixed essence of the work.",
-        items: corpus.intelligenceTypes,
+        items: familyConfigs.types.definitions,
       },
       perspectives: {
         label: "Perspectives",
         description:
           "These categories describe the interpretive lens through which intelligence is discussed, from pedagogy to disability studies and philosophy.",
-        items: corpus.perspectives,
+        items: familyConfigs.perspectives.definitions,
       },
       signals: {
         label: "Signals",
         description:
           "Signals are adjacent motifs that cluster around intelligence discourse without functioning as the main type or perspective labels.",
-        items: corpus.signals.map((item) => ({
-          ...item,
-          label: lookupSignalLabel(item.id),
-          description: item.description || signalFallbackMeta[item.id]?.description || "",
-          cues: item.cues || signalFallbackMeta[item.id]?.cues || [],
-        })),
+        items: familyConfigs.signals.definitions,
+      },
+      definitions: {
+        label: "Definition frames",
+        description:
+          "These categories describe what intelligence is taken to be: a measurable faculty, a creative capacity, a social relation, or another conceptual frame.",
+        items: familyConfigs.definitions.definitions,
+      },
+      recognition: {
+        label: "Recognition modes",
+        description:
+          "These categories describe how intelligence becomes recognizable in the article: by tests, making, critique, language, participation, or media fluency.",
+        items: familyConfigs.recognition.definitions,
+      },
+      locations: {
+        label: "Location frames",
+        description:
+          "These categories describe where intelligence is placed: in minds, bodies, artworks, relations, pedagogy, machines, or ecology.",
+        items: familyConfigs.locations.definitions,
+      },
+      subjects: {
+        label: "Subjects",
+        description:
+          "These categories describe who is centered as intelligent or intelligible in the article.",
+        items: familyConfigs.subjects.definitions,
       },
     };
 
-    let activeFamily = "types";
-
-    function inspectConcept(family, id) {
-      if (!evidenceDeskController) return;
-      evidenceDeskController.setFilters({
-        search: "",
-        decade: "",
-        type: family === "types" ? id : "",
-        perspective: family === "perspectives" ? id : "",
-        signal: family === "signals" ? id : "",
-        sort: "cited",
-      });
-      document.getElementById("evidence-desk-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    let activeFamily = "definitions";
 
     function renderFamilyButtons() {
       familyTarget.innerHTML = "";
@@ -1740,7 +2044,7 @@
         card.innerHTML = `
           <div class="codebook-head">
             <div>
-              <div class="insight-kind">${escapeHtml(config.label.slice(0, -1))}</div>
+              <div class="insight-kind">${escapeHtml(config.label)}</div>
               <h3>${escapeHtml(definition.label)}</h3>
             </div>
             <button type="button" class="ghost-button">Inspect evidence</button>
@@ -1778,7 +2082,7 @@
             </ul>
           </div>
         `;
-        card.querySelector(".ghost-button")?.addEventListener("click", () => inspectConcept(activeFamily, definition.id));
+        card.querySelector(".ghost-button")?.addEventListener("click", () => inspectConceptInEvidenceDesk(activeFamily, definition.id));
         grid.append(card);
       });
     }
@@ -1806,6 +2110,8 @@
 
   function init() {
     renderHeroStats();
+    renderConceptualQuestions();
+    renderMeaningShifts();
     createBarRows(document.getElementById("type-bars"), corpus.typeCounts, "cool");
     createBarRows(document.getElementById("perspective-bars"), corpus.perspectiveCounts, "warm");
     renderTrendGroup("type-trends", "type-trend-note", corpus.trends.types);

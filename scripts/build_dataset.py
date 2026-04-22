@@ -375,6 +375,362 @@ SIGNALS = [
 ]
 
 
+DEFINITION_FRAMES = [
+    {
+        "id": "measurable_faculty",
+        "label": "As measurable faculty",
+        "description": "Intelligence is defined as an ability that can be tested, scored, staged, or compared.",
+        "cues": ["ability", "measurement", "score", "developmental stage"],
+        "keywords": [
+            r"\bability\b",
+            r"\babilities\b",
+            r"\bmeasure",
+            r"\bmeasurement\b",
+            r"\bscore\b",
+            r"\bpsychometric\b",
+            r"\bintelligence test\b",
+            r"\biq\b",
+            r"\bcriteria\b",
+            r"\bdevelopmental stage\b",
+        ],
+    },
+    {
+        "id": "creative_capacity",
+        "label": "As creative capacity",
+        "description": "Intelligence is defined as imagination, originality, invention, or creative production.",
+        "cues": ["creativity", "imagination", "divergence", "originality"],
+        "keywords": [
+            r"\bcreativ",
+            r"\bimagin",
+            r"\bdivergent\b",
+            r"\boriginality\b",
+            r"\binvention\b",
+            r"\bartistic creativity\b",
+        ],
+    },
+    {
+        "id": "perceptual_sensitivity",
+        "label": "As perceptual sensitivity",
+        "description": "Intelligence is defined as heightened seeing, perception, differentiation, or visual sensitivity.",
+        "cues": ["perception", "seeing", "differentiation", "visual sensitivity"],
+        "keywords": [
+            r"\bpercept",
+            r"\bseeing\b",
+            r"\bvisual[- ]spatial\b",
+            r"\bdifferentiat",
+            r"\bsensitivity\b",
+            r"\baesthetic perception\b",
+            r"\battention\b",
+        ],
+    },
+    {
+        "id": "interpretive_meaning",
+        "label": "As symbolic / interpretive meaning-making",
+        "description": "Intelligence is defined through language, interpretation, criticism, and symbolic meaning.",
+        "cues": ["language", "meaning", "semiotics", "criticism"],
+        "keywords": [
+            r"\blanguage\b",
+            r"\bmeaning\b",
+            r"\bsemiotic\b",
+            r"\bmetaphor\b",
+            r"\bcriticism\b",
+            r"\bresponding\b",
+            r"\bconversation\b",
+        ],
+    },
+    {
+        "id": "situated_practice",
+        "label": "As situated social / cultural practice",
+        "description": "Intelligence is defined as relational, cultural, communal, or identity-based practice.",
+        "cues": ["culture", "community", "identity", "relation"],
+        "keywords": [
+            r"\bsocial\b",
+            r"\bcultural\b",
+            r"\bcommunity\b",
+            r"\bidentity\b",
+            r"\brelational\b",
+            r"\bcollective\b",
+            r"\bsocial justice\b",
+        ],
+    },
+    {
+        "id": "embodied_attunement",
+        "label": "As embodied / affective attunement",
+        "description": "Intelligence is defined as affective, tacit, bodily, mindful, or emotionally attuned knowing.",
+        "cues": ["embodiment", "affect", "tacit knowing", "emotion"],
+        "keywords": [
+            r"\bembod",
+            r"\baffect",
+            r"\btacit\b",
+            r"\bemotion",
+            r"\bmindful",
+            r"\bself-efficacy\b",
+            r"\bresilien",
+        ],
+    },
+    {
+        "id": "machinic_relation",
+        "label": "As technological / machinic relation",
+        "description": "Intelligence is defined through digital media, computation, AI, and human-machine relation.",
+        "cues": ["digital media", "computation", "AI", "machine relation"],
+        "keywords": [
+            r"\bcomputer",
+            r"\bcomputing\b",
+            r"\bdigital\b",
+            r"\bartificial intelligence\b",
+            r"\bai\b",
+            r"\bmachine\b",
+            r"\bnetwork\b",
+            r"\bgame\b",
+            r"\bsynthography\b",
+        ],
+    },
+]
+
+
+RECOGNITION_MODES = [
+    {
+        "id": "testing_scoring",
+        "label": "Through tests and scores",
+        "description": "Intelligence becomes visible through instruments, scores, measurement, and assessment.",
+        "cues": ["tests", "scores", "measurement", "instrument"],
+        "keywords": [r"\btest", r"\bscore\b", r"\bmeasurement\b", r"\binstrument\b", r"\bassessment\b", r"\bcriteria\b"],
+    },
+    {
+        "id": "developmental_observation",
+        "label": "Through developmental observation",
+        "description": "Intelligence is recognized through observation of stages, growth, personality, or developmental change.",
+        "cues": ["development", "observation", "growth", "personality"],
+        "keywords": [r"\bdevelopment", r"\bobserve", r"\bgrowth\b", r"\bpersonality\b", r"\blongitudinal\b", r"\bstage\b"],
+    },
+    {
+        "id": "making_performance",
+        "label": "Through artworks and making",
+        "description": "Intelligence is recognized in drawing, studio work, artmaking, or produced artifacts.",
+        "cues": ["drawing", "artmaking", "studio practice", "production"],
+        "keywords": [
+            r"\bdrawing",
+            r"\bartwork",
+            r"\bart making\b",
+            r"\bartmaking\b",
+            r"\bstudio\b",
+            r"\bproduction\b",
+            r"\bpractice\b",
+            r"\bportfolio\b",
+        ],
+    },
+    {
+        "id": "judgment_critique",
+        "label": "Through judgment and critique",
+        "description": "Intelligence is recognized through evaluation, criticism, judgment, or critique.",
+        "cues": ["judgment", "critique", "evaluation", "criticism"],
+        "keywords": [r"\bjudg", r"\bcriticism\b", r"\bcritique\b", r"\bevaluat", r"\breview\b"],
+    },
+    {
+        "id": "language_reflection",
+        "label": "Through language and reflection",
+        "description": "Intelligence is recognized through talk, writing, verbal explanation, interview, and reflection.",
+        "cues": ["language", "verbal explanation", "interview", "reflection"],
+        "keywords": [
+            r"\blanguage\b",
+            r"\bverbal",
+            r"\binterview\b",
+            r"\bconversation\b",
+            r"\breflect",
+            r"\bresponding\b",
+            r"\bnarrative\b",
+        ],
+    },
+    {
+        "id": "participation_relation",
+        "label": "Through participation and relation",
+        "description": "Intelligence is recognized through participation, collaboration, community membership, or public engagement.",
+        "cues": ["participation", "collaboration", "community", "engagement"],
+        "keywords": [
+            r"\bparticipat",
+            r"\bcollabor",
+            r"\bcommunity\b",
+            r"\bengagement\b",
+            r"\bpublic\b",
+            r"\bdialog",
+            r"\bcollective\b",
+            r"\bmuseum\b",
+        ],
+    },
+    {
+        "id": "technical_fluency",
+        "label": "Through media and technical fluency",
+        "description": "Intelligence is recognized through digital, media, computational, or AI-enabled fluency.",
+        "cues": ["digital", "media fluency", "computation", "AI"],
+        "keywords": [r"\bcomputer", r"\bdigital\b", r"\bmedia\b", r"\bfilm\b", r"\bgame\b", r"\bai\b", r"\bartificial intelligence\b"],
+    },
+]
+
+
+LOCATION_FRAMES = [
+    {
+        "id": "mind_concepts",
+        "label": "In the mind and concepts",
+        "description": "Intelligence is located in cognition, concepts, intellect, and mental processing.",
+        "cues": ["cognition", "concepts", "intellect", "understanding"],
+        "keywords": [r"\bcognit", r"\bconcept", r"\bintellect", r"\bmental\b", r"\bthinking\b", r"\bunderstanding\b"],
+    },
+    {
+        "id": "vision_perception",
+        "label": "In vision and perception",
+        "description": "Intelligence is located in seeing, visual-spatial reasoning, attention, and perceptual sensitivity.",
+        "cues": ["seeing", "vision", "attention", "perception"],
+        "keywords": [r"\bpercept", r"\bseeing\b", r"\bvisual\b", r"\battention\b", r"\baesthetic perception\b"],
+    },
+    {
+        "id": "body_affect",
+        "label": "In the body and affect",
+        "description": "Intelligence is located in emotion, embodiment, tacit knowing, and affective attunement.",
+        "cues": ["body", "emotion", "affect", "tacit knowing"],
+        "keywords": [r"\bembod", r"\bemotion", r"\baffect", r"\btacit\b", r"\bmindful", r"\bstress\b"],
+    },
+    {
+        "id": "artworks_materials",
+        "label": "In artworks and materials",
+        "description": "Intelligence is located in images, drawings, artifacts, materials, and studio practice.",
+        "cues": ["artworks", "drawings", "materials", "studio practice"],
+        "keywords": [
+            r"\bdrawing",
+            r"\bartwork",
+            r"\bimage\b",
+            r"\bmaterial",
+            r"\bstudio\b",
+            r"\bobject\b",
+            r"\bpractice\b",
+        ],
+    },
+    {
+        "id": "relations_culture",
+        "label": "In relations and culture",
+        "description": "Intelligence is located in social relations, cultural life, identity, and community.",
+        "cues": ["relations", "culture", "identity", "community"],
+        "keywords": [r"\bsocial\b", r"\bcultural\b", r"\bcommunity\b", r"\bidentity\b", r"\brelational\b", r"\bcollective\b"],
+    },
+    {
+        "id": "pedagogical_institutions",
+        "label": "In classrooms and pedagogical systems",
+        "description": "Intelligence is located in teaching, curriculum, classrooms, and educational institutions.",
+        "cues": ["classroom", "curriculum", "teaching", "school"],
+        "keywords": [r"\bcurriculum\b", r"\bclassroom\b", r"\bteaching\b", r"\bteacher\b", r"\bschool\b", r"\binstruction\b"],
+    },
+    {
+        "id": "media_machines",
+        "label": "In media and machines",
+        "description": "Intelligence is located in digital systems, media infrastructures, computation, and AI.",
+        "cues": ["digital systems", "media", "computation", "AI"],
+        "keywords": [r"\bcomputer", r"\bdigital\b", r"\bmedia\b", r"\bai\b", r"\bartificial intelligence\b", r"\bnetwork\b"],
+    },
+    {
+        "id": "place_ecology",
+        "label": "In place and ecology",
+        "description": "Intelligence is located in place, ecology, environment, and nonhuman relation.",
+        "cues": ["place", "ecology", "environment", "nonhuman"],
+        "keywords": [r"\bplace\b", r"\becology\b", r"\benvironment", r"\bnonhuman\b", r"\banimal", r"\brelational world\b"],
+    },
+]
+
+
+SUBJECT_FRAMES = [
+    {
+        "id": "children_students",
+        "label": "Children and students",
+        "description": "Intelligence is most explicitly attached to children, students, adolescents, and learners.",
+        "cues": ["children", "students", "adolescents", "learners"],
+        "keywords": [r"\bchildren\b", r"\bchild\b", r"\bstudent", r"\blearner", r"\badolescent", r"\bpreschool"],
+    },
+    {
+        "id": "teachers_educators",
+        "label": "Teachers and educators",
+        "description": "Intelligence is centered in teachers, preservice educators, and professional pedagogical formation.",
+        "cues": ["teachers", "preservice", "educators", "professional formation"],
+        "keywords": [r"\bteacher", r"\bpreservice\b", r"\beducator", r"\bfaculty\b"],
+    },
+    {
+        "id": "artists_makers",
+        "label": "Artists and makers",
+        "description": "Intelligence is centered in artists, designers, practitioners, or makers.",
+        "cues": ["artists", "designers", "practitioners", "makers"],
+        "keywords": [r"\bartist", r"\bdesigner", r"\bpractitioner", r"\bmaker", r"\bmakers\b"],
+    },
+    {
+        "id": "communities_publics",
+        "label": "Communities and publics",
+        "description": "Intelligence is centered in communities, museum publics, families, and lifelong learners beyond the classroom.",
+        "cues": ["communities", "publics", "museum visitors", "older adults"],
+        "keywords": [r"\bcommunity\b", r"\bpublic\b", r"\bmuseum\b", r"\bfamil", r"\bolder adults\b", r"\blifelong\b"],
+    },
+    {
+        "id": "disabled_gifted_subjects",
+        "label": "Gifted, disabled, and neurodiverse subjects",
+        "description": "Intelligence is centered in gifted, disabled, autistic, or otherwise neurodiverse subjects.",
+        "cues": ["giftedness", "disability", "autism", "neurodiversity"],
+        "keywords": [
+            r"\bgifted\b",
+            r"\btalented\b",
+            r"\bdisabil",
+            r"\bautis",
+            r"\bhearing impaired\b",
+            r"\bneuro",
+        ],
+    },
+    {
+        "id": "identity_marked_subjects",
+        "label": "Identity-marked and marginalized subjects",
+        "description": "Intelligence is centered in subjects marked by race, gender, sexuality, decoloniality, or other identity positions.",
+        "cues": ["race", "gender", "queer", "decoloniality"],
+        "keywords": [r"\bracial\b", r"\bqueer", r"\bgender\b", r"\bfeminis", r"\bdecolon", r"\bmulticultural\b", r"\bindigenous\b"],
+    },
+    {
+        "id": "machines_nonhumans",
+        "label": "Machines and nonhumans",
+        "description": "Intelligence is centered in AI, machines, nonhuman animals, or more-than-human agencies.",
+        "cues": ["AI", "machines", "nonhuman", "animals"],
+        "keywords": [r"\bai\b", r"\bartificial intelligence\b", r"\bmachine\b", r"\bnonhuman\b", r"\banimal", r"\balgorithm\b"],
+    },
+]
+
+
+CONCEPTUAL_FAMILIES = [
+    {
+        "id": "definitions",
+        "articleKey": "definitionFrames",
+        "bucketKey": "definitions",
+        "title": "How intelligence is defined",
+        "noun": "definition frame",
+        "definitions": DEFINITION_FRAMES,
+    },
+    {
+        "id": "recognition",
+        "articleKey": "recognitionModes",
+        "bucketKey": "recognition",
+        "title": "How intelligence is recognized",
+        "noun": "recognition mode",
+        "definitions": RECOGNITION_MODES,
+    },
+    {
+        "id": "locations",
+        "articleKey": "locationFrames",
+        "bucketKey": "locations",
+        "title": "Where intelligence is located",
+        "noun": "location frame",
+        "definitions": LOCATION_FRAMES,
+    },
+    {
+        "id": "subjects",
+        "articleKey": "subjectFrames",
+        "bucketKey": "subjects",
+        "title": "Whose intelligence counts",
+        "noun": "subject position",
+        "definitions": SUBJECT_FRAMES,
+    },
+]
+
+
 RAW_TYPE_OVERRIDES = {
     "A Nonverbal Ability Test": ["communicative", "cognitive", "assessment"],
     "A Typology of Creativity in the Visual Arts": ["creative", "cognitive", "philosophy"],
@@ -392,6 +748,51 @@ RAW_TYPE_OVERRIDES = {
     "Judging Children’s Drawings as Measures of Art Abilities": ["perceptual", "creative", "assessment"],
 }
 
+RAW_CONCEPT_OVERRIDES = {
+    "A Nonverbal Ability Test": {
+        "definitionFrames": ["measurable_faculty"],
+        "recognitionModes": ["testing_scoring"],
+        "locationFrames": ["mind_concepts"],
+        "subjectFrames": ["children_students"],
+    },
+    "Creative and Critical Entanglements With AI in Art Education": {
+        "definitionFrames": ["machinic_relation", "situated_practice"],
+        "recognitionModes": ["technical_fluency", "participation_relation"],
+        "locationFrames": ["media_machines", "relations_culture"],
+        "subjectFrames": ["machines_nonhumans", "identity_marked_subjects"],
+    },
+    "The Physics of Art Education: New Materialism, AI, and the Tacit Knowledge of Visual Culture": {
+        "definitionFrames": ["machinic_relation", "embodied_attunement"],
+        "recognitionModes": ["technical_fluency", "making_performance"],
+        "locationFrames": ["media_machines", "place_ecology", "body_affect"],
+        "subjectFrames": ["machines_nonhumans"],
+    },
+    "On “Nadia’s Drawings: Theorizing about an Autistic Child’s Phenomenal Ability”": {
+        "definitionFrames": ["perceptual_sensitivity", "measurable_faculty"],
+        "recognitionModes": ["making_performance", "developmental_observation"],
+        "locationFrames": ["artworks_materials", "vision_perception"],
+        "subjectFrames": ["disabled_gifted_subjects", "children_students"],
+    },
+    "Nadia’s Drawings: Theorizing about an Autistic Child’s Phenomenal Ability": {
+        "definitionFrames": ["perceptual_sensitivity", "measurable_faculty"],
+        "recognitionModes": ["making_performance", "developmental_observation"],
+        "locationFrames": ["artworks_materials", "vision_perception"],
+        "subjectFrames": ["disabled_gifted_subjects", "children_students"],
+    },
+    "Identification of the Gifted in Art": {
+        "definitionFrames": ["measurable_faculty", "creative_capacity"],
+        "recognitionModes": ["testing_scoring", "judgment_critique"],
+        "locationFrames": ["mind_concepts"],
+        "subjectFrames": ["disabled_gifted_subjects", "children_students"],
+    },
+    "An Historical Perspective on the Gifted and the Talented in Art": {
+        "definitionFrames": ["measurable_faculty", "creative_capacity"],
+        "recognitionModes": ["developmental_observation"],
+        "locationFrames": ["mind_concepts"],
+        "subjectFrames": ["disabled_gifted_subjects", "children_students"],
+    },
+}
+
 
 def title_key(value: str) -> str:
     normalized = value.replace("“", '"').replace("”", '"').replace("’", "'")
@@ -399,6 +800,7 @@ def title_key(value: str) -> str:
 
 
 TYPE_OVERRIDES = {title_key(key): value for key, value in RAW_TYPE_OVERRIDES.items()}
+CONCEPT_OVERRIDES = {title_key(key): value for key, value in RAW_CONCEPT_OVERRIDES.items()}
 
 
 COMMON_THREADS = [
@@ -536,6 +938,96 @@ def top_ids(matches: list[dict], maximum: int = 3) -> list[str]:
     return [item["id"] for item in matches[:maximum]]
 
 
+def unique_ids(values: list[str], maximum: int = 3) -> list[str]:
+    output: list[str] = []
+    for value in values:
+        if value and value not in output:
+            output.append(value)
+        if len(output) == maximum:
+            break
+    return output
+
+
+def fallback_definition_frames(type_ids: list[str], perspective_ids: list[str]) -> list[str]:
+    guesses = []
+    if "cognitive" in type_ids or "assessment" in perspective_ids or "developmental" in perspective_ids:
+        guesses.append("measurable_faculty")
+    if "creative" in type_ids:
+        guesses.append("creative_capacity")
+    if "perceptual" in type_ids:
+        guesses.append("perceptual_sensitivity")
+    if "communicative" in type_ids or "philosophy" in perspective_ids:
+        guesses.append("interpretive_meaning")
+    if "social" in type_ids or any(value in perspective_ids for value in ["critical", "community"]):
+        guesses.append("situated_practice")
+    if "affective" in type_ids:
+        guesses.append("embodied_attunement")
+    if "digital" in type_ids or "technology" in perspective_ids:
+        guesses.append("machinic_relation")
+    return unique_ids(guesses)
+
+
+def fallback_recognition_modes(type_ids: list[str], perspective_ids: list[str], signal_ids: list[str]) -> list[str]:
+    guesses = []
+    if "assessment" in perspective_ids:
+        guesses.append("testing_scoring")
+    if "developmental" in perspective_ids:
+        guesses.append("developmental_observation")
+    if any(value in type_ids for value in ["creative", "perceptual"]) or "materiality" in signal_ids:
+        guesses.append("making_performance")
+    if "philosophy" in perspective_ids:
+        guesses.append("judgment_critique")
+    if "communicative" in type_ids or "language" in signal_ids:
+        guesses.append("language_reflection")
+    if any(value in perspective_ids for value in ["community", "critical"]) or "museum" in signal_ids:
+        guesses.append("participation_relation")
+    if "digital" in type_ids or "technology" in perspective_ids:
+        guesses.append("technical_fluency")
+    if "pedagogy" in perspective_ids and not guesses:
+        guesses.append("making_performance")
+    return unique_ids(guesses)
+
+
+def fallback_location_frames(type_ids: list[str], perspective_ids: list[str], signal_ids: list[str]) -> list[str]:
+    guesses = []
+    if "cognitive" in type_ids:
+        guesses.append("mind_concepts")
+    if "perceptual" in type_ids:
+        guesses.append("vision_perception")
+    if "affective" in type_ids:
+        guesses.append("body_affect")
+    if "creative" in type_ids or "materiality" in signal_ids:
+        guesses.append("artworks_materials")
+    if "social" in type_ids or any(value in perspective_ids for value in ["critical", "community"]):
+        guesses.append("relations_culture")
+    if any(value in perspective_ids for value in ["pedagogy", "developmental"]):
+        guesses.append("pedagogical_institutions")
+    if "digital" in type_ids or "technology" in perspective_ids or "technology" in signal_ids:
+        guesses.append("media_machines")
+    if "place" in signal_ids:
+        guesses.append("place_ecology")
+    return unique_ids(guesses)
+
+
+def fallback_subject_frames(type_ids: list[str], perspective_ids: list[str], signal_ids: list[str]) -> list[str]:
+    guesses = []
+    if any(value in perspective_ids for value in ["developmental", "pedagogy"]):
+        guesses.append("children_students")
+    if "teacherhood" in signal_ids:
+        guesses.append("teachers_educators")
+    if "creative" in type_ids or "philosophy" in perspective_ids:
+        guesses.append("artists_makers")
+    if any(value in perspective_ids for value in ["community"]) or "museum" in signal_ids:
+        guesses.append("communities_publics")
+    if "exceptionality" in type_ids or "disability" in perspective_ids:
+        guesses.append("disabled_gifted_subjects")
+    if any(value in perspective_ids for value in ["critical"]) or any(value in signal_ids for value in ["identity", "equity"]):
+        guesses.append("identity_marked_subjects")
+    if "digital" in type_ids or "technology" in perspective_ids:
+        guesses.append("machines_nonhumans")
+    return unique_ids(guesses)
+
+
 def article_excerpt(text: str) -> str:
     text = re.sub(r"Submit your article to this journal.*?journalCode=usae20", " ", text, flags=re.IGNORECASE)
     text = re.sub(r"Article views:\s*[\d,]+", " ", text, flags=re.IGNORECASE)
@@ -563,6 +1055,7 @@ def build_articles(raw_records: list[dict]) -> list[dict]:
         first_page = normalize_text(record["firstPageText"])
         title = parse_title_from_citation(record["firstPageText"]) or clean_title(record["file"])
         metadata = parse_front_matter_numbers(first_page)
+        title_id = title_key(title)
 
         intelligence_matches = match_keywords(f"{title} {first_page[:4000]} {normalized[:14000]}", INTELLIGENCE_TYPES)
         perspective_matches = match_keywords(f"{title} {first_page[:5000]} {normalized[:18000]}", PERSPECTIVES)
@@ -570,7 +1063,7 @@ def build_articles(raw_records: list[dict]) -> list[dict]:
         type_ids = top_ids(intelligence_matches)
         perspective_ids = top_ids(perspective_matches)
 
-        overrides = TYPE_OVERRIDES.get(title_key(title))
+        overrides = TYPE_OVERRIDES.get(title_id)
         if overrides:
             type_ids = [value for value in overrides if value in {item["id"] for item in INTELLIGENCE_TYPES}]
             perspective_ids = [value for value in overrides if value in {item["id"] for item in PERSPECTIVES}]
@@ -587,6 +1080,29 @@ def build_articles(raw_records: list[dict]) -> list[dict]:
             if score:
                 signals.append({"id": signal["id"], "score": score})
         signals.sort(key=lambda item: (-item["score"], item["id"]))
+        signal_ids = [item["id"] for item in signals[:5]]
+
+        concept_text = f"{title} {first_page[:7000]} {normalized[:22000]}"
+        definition_ids = top_ids(match_keywords(concept_text, DEFINITION_FRAMES), maximum=3)
+        recognition_ids = top_ids(match_keywords(concept_text, RECOGNITION_MODES), maximum=3)
+        location_ids = top_ids(match_keywords(concept_text, LOCATION_FRAMES), maximum=3)
+        subject_ids = top_ids(match_keywords(concept_text, SUBJECT_FRAMES), maximum=3)
+
+        if not definition_ids:
+            definition_ids = fallback_definition_frames(type_ids, perspective_ids)
+        if not recognition_ids:
+            recognition_ids = fallback_recognition_modes(type_ids, perspective_ids, signal_ids)
+        if not location_ids:
+            location_ids = fallback_location_frames(type_ids, perspective_ids, signal_ids)
+        if not subject_ids:
+            subject_ids = fallback_subject_frames(type_ids, perspective_ids, signal_ids)
+
+        concept_overrides = CONCEPT_OVERRIDES.get(title_id, {})
+        if concept_overrides:
+            definition_ids = concept_overrides.get("definitionFrames", definition_ids)
+            recognition_ids = concept_overrides.get("recognitionModes", recognition_ids)
+            location_ids = concept_overrides.get("locationFrames", location_ids)
+            subject_ids = concept_overrides.get("subjectFrames", subject_ids)
 
         article = {
             "file": record["file"],
@@ -598,7 +1114,11 @@ def build_articles(raw_records: list[dict]) -> list[dict]:
             "citingArticlesPdf": metadata["citingArticlesPdf"],
             "intelligenceTypes": type_ids,
             "perspectives": perspective_ids,
-            "signals": [item["id"] for item in signals[:5]],
+            "signals": signal_ids,
+            "definitionFrames": definition_ids,
+            "recognitionModes": recognition_ids,
+            "locationFrames": location_ids,
+            "subjectFrames": subject_ids,
             "excerpt": article_excerpt(normalized),
         }
         articles.append(article)
@@ -681,33 +1201,43 @@ def build_timeline(articles: list[dict]) -> list[dict]:
 
 
 def build_signals(articles: list[dict]) -> list[dict]:
+    return build_family_counts(articles, "signals", SIGNALS)
+
+
+def build_family_counts(articles: list[dict], key: str, definitions: list[dict]) -> list[dict]:
     counter = Counter()
     for article in articles:
-        counter.update(article["signals"])
-    signal_lookup = {item["id"]: item for item in SIGNALS}
-    output = []
-    for signal_id, count in counter.most_common():
-        definition = signal_lookup[signal_id]
-        output.append(
-            {
-                "id": signal_id,
-                "label": definition["label"],
-                "description": definition["description"],
-                "cues": definition["cues"],
-                "count": count,
-            }
-        )
-    return output
+        counter.update(article[key])
+
+    lookup = index_lookup(definitions)
+    return [
+        {
+            "id": item_id,
+            "label": lookup[item_id]["label"],
+            "count": count,
+            "description": lookup[item_id]["description"],
+            "cues": lookup[item_id].get("cues", []),
+        }
+        for item_id, count in counter.most_common()
+    ]
 
 
 def build_windowed_counts(articles: list[dict]) -> tuple[list[str], dict]:
-    by_decade = defaultdict(lambda: {"articles": 0, "types": Counter(), "perspectives": Counter(), "signals": Counter()})
+    def empty_bucket() -> dict:
+        base = {"articles": 0, "types": Counter(), "perspectives": Counter(), "signals": Counter()}
+        for family in CONCEPTUAL_FAMILIES:
+            base[family["bucketKey"]] = Counter()
+        return base
+
+    by_decade = defaultdict(empty_bucket)
     for article in articles:
         decade = decade_label(article["year"])
         by_decade[decade]["articles"] += 1
         by_decade[decade]["types"].update(article["intelligenceTypes"])
         by_decade[decade]["perspectives"].update(article["perspectives"])
         by_decade[decade]["signals"].update(article["signals"])
+        for family in CONCEPTUAL_FAMILIES:
+            by_decade[decade][family["bucketKey"]].update(article[family["articleKey"]])
     decades = sorted(by_decade)
     return decades, by_decade
 
@@ -756,6 +1286,7 @@ def classify_delta(delta: float) -> str:
 def build_trend_rows(
     definitions: list[dict],
     bucket_key: str,
+    article_key: str,
     decades: list[str],
     by_decade: dict,
     articles: list[dict],
@@ -786,7 +1317,7 @@ def build_trend_rows(
                 "direction": classify_delta(delta),
                 "examples": sample_articles_for_bucket(
                     articles,
-                    "intelligenceTypes" if bucket_key == "types" else "perspectives",
+                    article_key,
                     definition["id"],
                     decades,
                 ),
@@ -919,6 +1450,139 @@ def build_trend_scorecards(type_trends: dict, perspective_trends: dict, signal_t
     return cards
 
 
+def build_question_highlights(question: dict, counts: list[dict], trends: dict, summary: dict) -> list[dict]:
+    if not counts:
+        return []
+
+    dominant = counts[0]
+    trend_lookup = {row["id"]: row for row in trends["rows"]}
+    dominant_row = trend_lookup[dominant["id"]]
+    riser = max(trends["rows"], key=lambda item: item["delta"])
+    decliner = min(trends["rows"], key=lambda item: item["delta"])
+
+    output = [
+        {
+            "title": f"{dominant['label']} is the dominant {question['noun']}",
+            "body": (
+                f"It appears in {dominant['count']} of {summary['articleCount']} articles "
+                f"({round((dominant['count'] / summary['articleCount']) * 100)}%), making it the strongest answer "
+                f"to the question {question['title'].lower()} across the corpus."
+            ),
+            "examples": dominant_row["examples"],
+        },
+        {
+            "title": f"{riser['label']} rises most over time",
+            "body": (
+                f"It grows from {round(riser['earlyShare'] * 100)}% of articles in "
+                f"{trends['earlyWindow'][0]}–{trends['earlyWindow'][-1]} to {round(riser['lateShare'] * 100)}% in "
+                f"{trends['lateWindow'][0]}–{trends['lateWindow'][-1]}."
+            ),
+            "examples": riser["examples"],
+        },
+    ]
+
+    if abs(decliner["delta"]) < 0.05:
+        output.append(
+            {
+                "title": f"{decliner['label']} stays comparatively steady",
+                "body": (
+                    f"Its share shifts only slightly across the early and late windows "
+                    f"({round(decliner['earlyShare'] * 100)}% to {round(decliner['lateShare'] * 100)}%), "
+                    f"which makes it a persistent rather than volatile way of framing intelligence."
+                ),
+                "examples": decliner["examples"],
+            }
+        )
+    else:
+        output.append(
+            {
+                "title": f"{decliner['label']} recedes most",
+                "body": (
+                    f"It falls from {round(decliner['earlyShare'] * 100)}% in "
+                    f"{trends['earlyWindow'][0]}–{trends['earlyWindow'][-1]} to {round(decliner['lateShare'] * 100)}% "
+                    f"in {trends['lateWindow'][0]}–{trends['lateWindow'][-1]}."
+                ),
+                "examples": decliner["examples"],
+            }
+        )
+
+    return output
+
+
+def build_period_windows(decades: list[str], groups: int = 3) -> list[list[str]]:
+    if len(decades) <= groups:
+        return [[decade] for decade in decades]
+
+    base = len(decades) // groups
+    remainder = len(decades) % groups
+    windows = []
+    cursor = 0
+    for index in range(groups):
+        size = base + (1 if index < remainder else 0)
+        windows.append(decades[cursor : cursor + size])
+        cursor += size
+    return [window for window in windows if window]
+
+
+def top_rows_for_window(definitions: list[dict], bucket_key: str, decades: list[str], by_decade: dict, limit: int = 2) -> list[dict]:
+    total = sum(by_decade[decade]["articles"] for decade in decades) or 1
+    rows = []
+    for definition in definitions:
+        count = sum(by_decade[decade][bucket_key][definition["id"]] for decade in decades)
+        if not count:
+            continue
+        rows.append(
+            {
+                "id": definition["id"],
+                "label": definition["label"],
+                "count": count,
+                "share": round(count / total, 3),
+            }
+        )
+    rows.sort(key=lambda item: (-item["share"], -item["count"], item["label"]))
+    return rows[:limit]
+
+
+def build_meaning_shifts(questions: dict, decades: list[str], by_decade: dict) -> dict:
+    windows = build_period_windows(decades, groups=3)
+    periods = []
+    for window in windows:
+        article_total = sum(by_decade[decade]["articles"] for decade in window)
+        period = {
+            "label": f"{window[0]}–{window[-1]}" if len(window) > 1 else window[0],
+            "articleCount": article_total,
+            "families": {},
+        }
+        for family in CONCEPTUAL_FAMILIES:
+            period["families"][family["id"]] = top_rows_for_window(
+                family["definitions"],
+                family["bucketKey"],
+                window,
+                by_decade,
+            )
+        periods.append(period)
+
+    stories = []
+    for family in CONCEPTUAL_FAMILIES:
+        question = questions[family["id"]]
+        riser = max(question["trends"]["rows"], key=lambda item: item["delta"])
+        decliner = min(question["trends"]["rows"], key=lambda item: item["delta"])
+        stories.append(
+            {
+                "title": family["title"],
+                "body": (
+                    f"The strongest rise is {riser['label']} "
+                    f"({round(riser['earlyShare'] * 100)}% → {round(riser['lateShare'] * 100)}%), while the strongest "
+                    f"{'decline' if decliner['delta'] <= -0.05 else 'countercurrent'} is {decliner['label']} "
+                    f"({round(decliner['earlyShare'] * 100)}% → {round(decliner['lateShare'] * 100)}%)."
+                ),
+                "examples": riser["examples"],
+            }
+        )
+
+    return {"periods": periods, "stories": stories}
+
+
 def build_blind_spots(
     type_counts: list[dict],
     perspective_counts: list[dict],
@@ -1012,15 +1676,24 @@ def build_blind_spots(
     return entries[:6]
 
 
-def build_origins(articles: list[dict], type_counts: list[dict], perspective_counts: list[dict], signals: list[dict]) -> dict:
+def build_origins(
+    articles: list[dict],
+    type_counts: list[dict],
+    perspective_counts: list[dict],
+    signals: list[dict],
+    question_counts: dict[str, list[dict]],
+) -> dict:
     type_lookup = {item["id"]: item for item in INTELLIGENCE_TYPES}
     perspective_lookup = {item["id"]: item for item in PERSPECTIVES}
     signal_lookup = {item["id"]: item for item in SIGNALS}
     signal_counts = {item["id"]: item["count"] for item in signals}
     count_lookup_types = {item["id"]: item["count"] for item in type_counts}
     count_lookup_perspectives = {item["id"]: item["count"] for item in perspective_counts}
+    question_count_lookup = {
+        family["id"]: {item["id"]: item["count"] for item in question_counts[family["id"]]} for family in CONCEPTUAL_FAMILIES
+    }
 
-    def earliest_for(bucket_ids: list[str], key: str) -> list[dict]:
+    def earliest_for(bucket_ids: list[str], key: str, family_id: str | None = None) -> list[dict]:
         rows = []
         for bucket_id in bucket_ids:
             matching = [article for article in articles if bucket_id in article[key]]
@@ -1034,8 +1707,14 @@ def build_origins(articles: list[dict], type_counts: list[dict], perspective_cou
                 label = perspective_lookup[bucket_id]["label"]
                 total = count_lookup_perspectives[bucket_id]
             else:
-                label = signal_lookup[bucket_id]["label"]
-                total = signal_counts.get(bucket_id, 0)
+                if family_id == "signals":
+                    label = signal_lookup[bucket_id]["label"]
+                    total = signal_counts.get(bucket_id, 0)
+                else:
+                    family_def = next(item for item in CONCEPTUAL_FAMILIES if item["id"] == family_id)
+                    definition_lookup = {item["id"]: item for item in family_def["definitions"]}
+                    label = definition_lookup[bucket_id]["label"]
+                    total = question_count_lookup[family_id].get(bucket_id, 0)
             rows.append(
                 {
                     "id": bucket_id,
@@ -1050,9 +1729,13 @@ def build_origins(articles: list[dict], type_counts: list[dict], perspective_cou
         return rows
 
     return {
-        "types": earliest_for([item["id"] for item in INTELLIGENCE_TYPES], "intelligenceTypes"),
-        "perspectives": earliest_for([item["id"] for item in PERSPECTIVES], "perspectives"),
-        "signals": earliest_for([signal["id"] for signal in SIGNALS], "signals"),
+        "types": earliest_for([item["id"] for item in INTELLIGENCE_TYPES], "intelligenceTypes", "types"),
+        "perspectives": earliest_for([item["id"] for item in PERSPECTIVES], "perspectives", "perspectives"),
+        "signals": earliest_for([signal["id"] for signal in SIGNALS], "signals", "signals"),
+        "definitions": earliest_for([item["id"] for item in DEFINITION_FRAMES], "definitionFrames", "definitions"),
+        "recognition": earliest_for([item["id"] for item in RECOGNITION_MODES], "recognitionModes", "recognition"),
+        "locations": earliest_for([item["id"] for item in LOCATION_FRAMES], "locationFrames", "locations"),
+        "subjects": earliest_for([item["id"] for item in SUBJECT_FRAMES], "subjectFrames", "subjects"),
     }
 
 
@@ -1178,7 +1861,7 @@ def build_methods() -> list[dict]:
         },
         {
             "title": "Plural coding",
-            "body": "Articles can belong to multiple intelligence types and multiple interpretive perspectives. That avoids forcing a single, reductive category onto complex scholarship.",
+            "body": "Articles can belong to multiple intelligence types, interpretive perspectives, definition frames, recognition modes, locations, and subject positions. That avoids forcing a single, reductive category onto complex scholarship.",
         },
         {
             "title": "Context over neutrality",
@@ -1206,22 +1889,51 @@ def build_dataset() -> dict:
     signals = build_signals(articles)
     summary = build_summary(articles)
     decades, by_decade = build_windowed_counts(articles)
-    type_trends = build_trend_rows(INTELLIGENCE_TYPES, "types", decades, by_decade, articles)
-    perspective_trends = build_trend_rows(PERSPECTIVES, "perspectives", decades, by_decade, articles)
+    type_trends = build_trend_rows(INTELLIGENCE_TYPES, "types", "intelligenceTypes", decades, by_decade, articles)
+    perspective_trends = build_trend_rows(PERSPECTIVES, "perspectives", "perspectives", decades, by_decade, articles)
     signal_trends = build_signal_trends(decades, by_decade)
     rare_pairs = build_rare_pairs(articles, matrix, type_counts, perspective_counts)
+    conceptual_questions = {}
+    conceptual_counts = {}
+    for family in CONCEPTUAL_FAMILIES:
+        counts = build_family_counts(articles, family["articleKey"], family["definitions"])
+        trends = build_trend_rows(
+            family["definitions"],
+            family["bucketKey"],
+            family["articleKey"],
+            decades,
+            by_decade,
+            articles,
+        )
+        conceptual_counts[family["id"]] = counts
+        conceptual_questions[family["id"]] = {
+            "title": family["title"],
+            "articleKey": family["articleKey"],
+            "bucketKey": family["bucketKey"],
+            "noun": family["noun"],
+            "definitions": family["definitions"],
+            "counts": counts,
+            "trends": trends,
+            "highlights": build_question_highlights(family, counts, trends, summary),
+        }
 
     dataset = {
         "summary": summary,
         "intelligenceTypes": INTELLIGENCE_TYPES,
         "perspectives": PERSPECTIVES,
+        "definitionFrames": DEFINITION_FRAMES,
+        "recognitionModes": RECOGNITION_MODES,
+        "locationFrames": LOCATION_FRAMES,
+        "subjectFrames": SUBJECT_FRAMES,
         "articles": articles,
         "typeCounts": type_counts,
         "perspectiveCounts": perspective_counts,
         "matrix": matrix,
         "timeline": build_timeline(articles),
         "signals": signals,
-        "origins": build_origins(articles, type_counts, perspective_counts, signals),
+        "conceptualQuestions": conceptual_questions,
+        "meaningShifts": build_meaning_shifts(conceptual_questions, decades, by_decade),
+        "origins": build_origins(articles, type_counts, perspective_counts, signals, conceptual_counts),
         "trends": {
             "types": type_trends,
             "perspectives": perspective_trends,
@@ -1253,6 +1965,12 @@ def main() -> None:
         print(f"  - {item['label']}: {item['count']}")
     print("Top perspectives:")
     for item in dataset["perspectiveCounts"][:6]:
+        print(f"  - {item['label']}: {item['count']}")
+    print("Top definition frames:")
+    for item in dataset["conceptualQuestions"]["definitions"]["counts"][:5]:
+        print(f"  - {item['label']}: {item['count']}")
+    print("Top subjects:")
+    for item in dataset["conceptualQuestions"]["subjects"]["counts"][:5]:
         print(f"  - {item['label']}: {item['count']}")
     print("Top cited from PDF front matter:")
     for article in dataset["topCited"][:10]:

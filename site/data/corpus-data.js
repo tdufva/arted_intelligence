@@ -367,6 +367,579 @@ window.CORPUS_DATA = {
       ]
     }
   ],
+  "definitionFrames": [
+    {
+      "id": "measurable_faculty",
+      "label": "As measurable faculty",
+      "description": "Intelligence is defined as an ability that can be tested, scored, staged, or compared.",
+      "cues": [
+        "ability",
+        "measurement",
+        "score",
+        "developmental stage"
+      ],
+      "keywords": [
+        "\\bability\\b",
+        "\\babilities\\b",
+        "\\bmeasure",
+        "\\bmeasurement\\b",
+        "\\bscore\\b",
+        "\\bpsychometric\\b",
+        "\\bintelligence test\\b",
+        "\\biq\\b",
+        "\\bcriteria\\b",
+        "\\bdevelopmental stage\\b"
+      ]
+    },
+    {
+      "id": "creative_capacity",
+      "label": "As creative capacity",
+      "description": "Intelligence is defined as imagination, originality, invention, or creative production.",
+      "cues": [
+        "creativity",
+        "imagination",
+        "divergence",
+        "originality"
+      ],
+      "keywords": [
+        "\\bcreativ",
+        "\\bimagin",
+        "\\bdivergent\\b",
+        "\\boriginality\\b",
+        "\\binvention\\b",
+        "\\bartistic creativity\\b"
+      ]
+    },
+    {
+      "id": "perceptual_sensitivity",
+      "label": "As perceptual sensitivity",
+      "description": "Intelligence is defined as heightened seeing, perception, differentiation, or visual sensitivity.",
+      "cues": [
+        "perception",
+        "seeing",
+        "differentiation",
+        "visual sensitivity"
+      ],
+      "keywords": [
+        "\\bpercept",
+        "\\bseeing\\b",
+        "\\bvisual[- ]spatial\\b",
+        "\\bdifferentiat",
+        "\\bsensitivity\\b",
+        "\\baesthetic perception\\b",
+        "\\battention\\b"
+      ]
+    },
+    {
+      "id": "interpretive_meaning",
+      "label": "As symbolic / interpretive meaning-making",
+      "description": "Intelligence is defined through language, interpretation, criticism, and symbolic meaning.",
+      "cues": [
+        "language",
+        "meaning",
+        "semiotics",
+        "criticism"
+      ],
+      "keywords": [
+        "\\blanguage\\b",
+        "\\bmeaning\\b",
+        "\\bsemiotic\\b",
+        "\\bmetaphor\\b",
+        "\\bcriticism\\b",
+        "\\bresponding\\b",
+        "\\bconversation\\b"
+      ]
+    },
+    {
+      "id": "situated_practice",
+      "label": "As situated social / cultural practice",
+      "description": "Intelligence is defined as relational, cultural, communal, or identity-based practice.",
+      "cues": [
+        "culture",
+        "community",
+        "identity",
+        "relation"
+      ],
+      "keywords": [
+        "\\bsocial\\b",
+        "\\bcultural\\b",
+        "\\bcommunity\\b",
+        "\\bidentity\\b",
+        "\\brelational\\b",
+        "\\bcollective\\b",
+        "\\bsocial justice\\b"
+      ]
+    },
+    {
+      "id": "embodied_attunement",
+      "label": "As embodied / affective attunement",
+      "description": "Intelligence is defined as affective, tacit, bodily, mindful, or emotionally attuned knowing.",
+      "cues": [
+        "embodiment",
+        "affect",
+        "tacit knowing",
+        "emotion"
+      ],
+      "keywords": [
+        "\\bembod",
+        "\\baffect",
+        "\\btacit\\b",
+        "\\bemotion",
+        "\\bmindful",
+        "\\bself-efficacy\\b",
+        "\\bresilien"
+      ]
+    },
+    {
+      "id": "machinic_relation",
+      "label": "As technological / machinic relation",
+      "description": "Intelligence is defined through digital media, computation, AI, and human-machine relation.",
+      "cues": [
+        "digital media",
+        "computation",
+        "AI",
+        "machine relation"
+      ],
+      "keywords": [
+        "\\bcomputer",
+        "\\bcomputing\\b",
+        "\\bdigital\\b",
+        "\\bartificial intelligence\\b",
+        "\\bai\\b",
+        "\\bmachine\\b",
+        "\\bnetwork\\b",
+        "\\bgame\\b",
+        "\\bsynthography\\b"
+      ]
+    }
+  ],
+  "recognitionModes": [
+    {
+      "id": "testing_scoring",
+      "label": "Through tests and scores",
+      "description": "Intelligence becomes visible through instruments, scores, measurement, and assessment.",
+      "cues": [
+        "tests",
+        "scores",
+        "measurement",
+        "instrument"
+      ],
+      "keywords": [
+        "\\btest",
+        "\\bscore\\b",
+        "\\bmeasurement\\b",
+        "\\binstrument\\b",
+        "\\bassessment\\b",
+        "\\bcriteria\\b"
+      ]
+    },
+    {
+      "id": "developmental_observation",
+      "label": "Through developmental observation",
+      "description": "Intelligence is recognized through observation of stages, growth, personality, or developmental change.",
+      "cues": [
+        "development",
+        "observation",
+        "growth",
+        "personality"
+      ],
+      "keywords": [
+        "\\bdevelopment",
+        "\\bobserve",
+        "\\bgrowth\\b",
+        "\\bpersonality\\b",
+        "\\blongitudinal\\b",
+        "\\bstage\\b"
+      ]
+    },
+    {
+      "id": "making_performance",
+      "label": "Through artworks and making",
+      "description": "Intelligence is recognized in drawing, studio work, artmaking, or produced artifacts.",
+      "cues": [
+        "drawing",
+        "artmaking",
+        "studio practice",
+        "production"
+      ],
+      "keywords": [
+        "\\bdrawing",
+        "\\bartwork",
+        "\\bart making\\b",
+        "\\bartmaking\\b",
+        "\\bstudio\\b",
+        "\\bproduction\\b",
+        "\\bpractice\\b",
+        "\\bportfolio\\b"
+      ]
+    },
+    {
+      "id": "judgment_critique",
+      "label": "Through judgment and critique",
+      "description": "Intelligence is recognized through evaluation, criticism, judgment, or critique.",
+      "cues": [
+        "judgment",
+        "critique",
+        "evaluation",
+        "criticism"
+      ],
+      "keywords": [
+        "\\bjudg",
+        "\\bcriticism\\b",
+        "\\bcritique\\b",
+        "\\bevaluat",
+        "\\breview\\b"
+      ]
+    },
+    {
+      "id": "language_reflection",
+      "label": "Through language and reflection",
+      "description": "Intelligence is recognized through talk, writing, verbal explanation, interview, and reflection.",
+      "cues": [
+        "language",
+        "verbal explanation",
+        "interview",
+        "reflection"
+      ],
+      "keywords": [
+        "\\blanguage\\b",
+        "\\bverbal",
+        "\\binterview\\b",
+        "\\bconversation\\b",
+        "\\breflect",
+        "\\bresponding\\b",
+        "\\bnarrative\\b"
+      ]
+    },
+    {
+      "id": "participation_relation",
+      "label": "Through participation and relation",
+      "description": "Intelligence is recognized through participation, collaboration, community membership, or public engagement.",
+      "cues": [
+        "participation",
+        "collaboration",
+        "community",
+        "engagement"
+      ],
+      "keywords": [
+        "\\bparticipat",
+        "\\bcollabor",
+        "\\bcommunity\\b",
+        "\\bengagement\\b",
+        "\\bpublic\\b",
+        "\\bdialog",
+        "\\bcollective\\b",
+        "\\bmuseum\\b"
+      ]
+    },
+    {
+      "id": "technical_fluency",
+      "label": "Through media and technical fluency",
+      "description": "Intelligence is recognized through digital, media, computational, or AI-enabled fluency.",
+      "cues": [
+        "digital",
+        "media fluency",
+        "computation",
+        "AI"
+      ],
+      "keywords": [
+        "\\bcomputer",
+        "\\bdigital\\b",
+        "\\bmedia\\b",
+        "\\bfilm\\b",
+        "\\bgame\\b",
+        "\\bai\\b",
+        "\\bartificial intelligence\\b"
+      ]
+    }
+  ],
+  "locationFrames": [
+    {
+      "id": "mind_concepts",
+      "label": "In the mind and concepts",
+      "description": "Intelligence is located in cognition, concepts, intellect, and mental processing.",
+      "cues": [
+        "cognition",
+        "concepts",
+        "intellect",
+        "understanding"
+      ],
+      "keywords": [
+        "\\bcognit",
+        "\\bconcept",
+        "\\bintellect",
+        "\\bmental\\b",
+        "\\bthinking\\b",
+        "\\bunderstanding\\b"
+      ]
+    },
+    {
+      "id": "vision_perception",
+      "label": "In vision and perception",
+      "description": "Intelligence is located in seeing, visual-spatial reasoning, attention, and perceptual sensitivity.",
+      "cues": [
+        "seeing",
+        "vision",
+        "attention",
+        "perception"
+      ],
+      "keywords": [
+        "\\bpercept",
+        "\\bseeing\\b",
+        "\\bvisual\\b",
+        "\\battention\\b",
+        "\\baesthetic perception\\b"
+      ]
+    },
+    {
+      "id": "body_affect",
+      "label": "In the body and affect",
+      "description": "Intelligence is located in emotion, embodiment, tacit knowing, and affective attunement.",
+      "cues": [
+        "body",
+        "emotion",
+        "affect",
+        "tacit knowing"
+      ],
+      "keywords": [
+        "\\bembod",
+        "\\bemotion",
+        "\\baffect",
+        "\\btacit\\b",
+        "\\bmindful",
+        "\\bstress\\b"
+      ]
+    },
+    {
+      "id": "artworks_materials",
+      "label": "In artworks and materials",
+      "description": "Intelligence is located in images, drawings, artifacts, materials, and studio practice.",
+      "cues": [
+        "artworks",
+        "drawings",
+        "materials",
+        "studio practice"
+      ],
+      "keywords": [
+        "\\bdrawing",
+        "\\bartwork",
+        "\\bimage\\b",
+        "\\bmaterial",
+        "\\bstudio\\b",
+        "\\bobject\\b",
+        "\\bpractice\\b"
+      ]
+    },
+    {
+      "id": "relations_culture",
+      "label": "In relations and culture",
+      "description": "Intelligence is located in social relations, cultural life, identity, and community.",
+      "cues": [
+        "relations",
+        "culture",
+        "identity",
+        "community"
+      ],
+      "keywords": [
+        "\\bsocial\\b",
+        "\\bcultural\\b",
+        "\\bcommunity\\b",
+        "\\bidentity\\b",
+        "\\brelational\\b",
+        "\\bcollective\\b"
+      ]
+    },
+    {
+      "id": "pedagogical_institutions",
+      "label": "In classrooms and pedagogical systems",
+      "description": "Intelligence is located in teaching, curriculum, classrooms, and educational institutions.",
+      "cues": [
+        "classroom",
+        "curriculum",
+        "teaching",
+        "school"
+      ],
+      "keywords": [
+        "\\bcurriculum\\b",
+        "\\bclassroom\\b",
+        "\\bteaching\\b",
+        "\\bteacher\\b",
+        "\\bschool\\b",
+        "\\binstruction\\b"
+      ]
+    },
+    {
+      "id": "media_machines",
+      "label": "In media and machines",
+      "description": "Intelligence is located in digital systems, media infrastructures, computation, and AI.",
+      "cues": [
+        "digital systems",
+        "media",
+        "computation",
+        "AI"
+      ],
+      "keywords": [
+        "\\bcomputer",
+        "\\bdigital\\b",
+        "\\bmedia\\b",
+        "\\bai\\b",
+        "\\bartificial intelligence\\b",
+        "\\bnetwork\\b"
+      ]
+    },
+    {
+      "id": "place_ecology",
+      "label": "In place and ecology",
+      "description": "Intelligence is located in place, ecology, environment, and nonhuman relation.",
+      "cues": [
+        "place",
+        "ecology",
+        "environment",
+        "nonhuman"
+      ],
+      "keywords": [
+        "\\bplace\\b",
+        "\\becology\\b",
+        "\\benvironment",
+        "\\bnonhuman\\b",
+        "\\banimal",
+        "\\brelational world\\b"
+      ]
+    }
+  ],
+  "subjectFrames": [
+    {
+      "id": "children_students",
+      "label": "Children and students",
+      "description": "Intelligence is most explicitly attached to children, students, adolescents, and learners.",
+      "cues": [
+        "children",
+        "students",
+        "adolescents",
+        "learners"
+      ],
+      "keywords": [
+        "\\bchildren\\b",
+        "\\bchild\\b",
+        "\\bstudent",
+        "\\blearner",
+        "\\badolescent",
+        "\\bpreschool"
+      ]
+    },
+    {
+      "id": "teachers_educators",
+      "label": "Teachers and educators",
+      "description": "Intelligence is centered in teachers, preservice educators, and professional pedagogical formation.",
+      "cues": [
+        "teachers",
+        "preservice",
+        "educators",
+        "professional formation"
+      ],
+      "keywords": [
+        "\\bteacher",
+        "\\bpreservice\\b",
+        "\\beducator",
+        "\\bfaculty\\b"
+      ]
+    },
+    {
+      "id": "artists_makers",
+      "label": "Artists and makers",
+      "description": "Intelligence is centered in artists, designers, practitioners, or makers.",
+      "cues": [
+        "artists",
+        "designers",
+        "practitioners",
+        "makers"
+      ],
+      "keywords": [
+        "\\bartist",
+        "\\bdesigner",
+        "\\bpractitioner",
+        "\\bmaker",
+        "\\bmakers\\b"
+      ]
+    },
+    {
+      "id": "communities_publics",
+      "label": "Communities and publics",
+      "description": "Intelligence is centered in communities, museum publics, families, and lifelong learners beyond the classroom.",
+      "cues": [
+        "communities",
+        "publics",
+        "museum visitors",
+        "older adults"
+      ],
+      "keywords": [
+        "\\bcommunity\\b",
+        "\\bpublic\\b",
+        "\\bmuseum\\b",
+        "\\bfamil",
+        "\\bolder adults\\b",
+        "\\blifelong\\b"
+      ]
+    },
+    {
+      "id": "disabled_gifted_subjects",
+      "label": "Gifted, disabled, and neurodiverse subjects",
+      "description": "Intelligence is centered in gifted, disabled, autistic, or otherwise neurodiverse subjects.",
+      "cues": [
+        "giftedness",
+        "disability",
+        "autism",
+        "neurodiversity"
+      ],
+      "keywords": [
+        "\\bgifted\\b",
+        "\\btalented\\b",
+        "\\bdisabil",
+        "\\bautis",
+        "\\bhearing impaired\\b",
+        "\\bneuro"
+      ]
+    },
+    {
+      "id": "identity_marked_subjects",
+      "label": "Identity-marked and marginalized subjects",
+      "description": "Intelligence is centered in subjects marked by race, gender, sexuality, decoloniality, or other identity positions.",
+      "cues": [
+        "race",
+        "gender",
+        "queer",
+        "decoloniality"
+      ],
+      "keywords": [
+        "\\bracial\\b",
+        "\\bqueer",
+        "\\bgender\\b",
+        "\\bfeminis",
+        "\\bdecolon",
+        "\\bmulticultural\\b",
+        "\\bindigenous\\b"
+      ]
+    },
+    {
+      "id": "machines_nonhumans",
+      "label": "Machines and nonhumans",
+      "description": "Intelligence is centered in AI, machines, nonhuman animals, or more-than-human agencies.",
+      "cues": [
+        "AI",
+        "machines",
+        "nonhuman",
+        "animals"
+      ],
+      "keywords": [
+        "\\bai\\b",
+        "\\bartificial intelligence\\b",
+        "\\bmachine\\b",
+        "\\bnonhuman\\b",
+        "\\banimal",
+        "\\balgorithm\\b"
+      ]
+    }
+  ],
   "articles": [
     {
       "file": "00-A Typology of Creativity in the Visual Arts.pdf",
@@ -386,6 +959,26 @@ window.CORPUS_DATA = {
       "signals": [
         "language",
         "materiality"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "measurable_faculty",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "making_performance",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "communities_publics"
       ],
       "excerpt": "Eisner Art education has long been concerned with the development of human creativity. Whitford.\" Lowenfeld,\" and Read' are but a few who have made pioneering efforts to understand creative behavior and to develop it in children. The interest that art education has in creativity is now being echoed in other areas."
     },
@@ -412,6 +1005,26 @@ window.CORPUS_DATA = {
         "materiality",
         "place"
       ],
+      "definitionFrames": [
+        "creative_capacity",
+        "measurable_faculty",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "judgment_critique",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "mind_concepts",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "disabled_gifted_subjects"
+      ],
       "excerpt": "Henrickson/Radford College Introduction The author was interested in the problem of manipulation with respect to the creative individual in a rather special sense. The indications that creative individuals (Torrance, 1959) tend to manipulate more than do less creative individuals leaves us wondering whether the creativ"
     },
     {
@@ -434,6 +1047,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "language"
+      ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "interpretive_meaning",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "testing_scoring",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "artists_makers",
+        "children_students"
       ],
       "excerpt": "Eisner/The University of Chicago \"Definitions Are Made Not Found\" The production of sophisticated scientific research by art educators, as well as the existence and growing popularity of this journal, has raised hopes among workers in this field that art education is emerging as a discipline and that from this research"
     },
@@ -460,6 +1093,26 @@ window.CORPUS_DATA = {
         "transfer",
         "materiality"
       ],
+      "definitionFrames": [
+        "creative_capacity",
+        "measurable_faculty",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "making_performance",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "pedagogical_institutions",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
+      ],
       "excerpt": "SCHISMOGENESIS IN CONTEMPORARY ART EDUCATION Vincent Lanier/University of Southern California While there is presently no way to measure the amount of influence research studies in art education exert on the teaching of art in the class- room, it would be safe to assume that some pressure does exist."
     },
     {
@@ -484,6 +1137,26 @@ window.CORPUS_DATA = {
         "transfer",
         "language",
         "place"
+      ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "creative_capacity",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "testing_scoring",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "communities_publics"
       ],
       "excerpt": "SOME EXPLORATIONS OF THE EFFECT OF CREATIVE VISUAL ART EXPERIENCES UPON THE POETRY WRITING QUALITY OF EIGHTH GRADE STUDENTS Leon Frankston/ The Pennsylvania State University A commonly held assumption of art education today is the belief of a transfer of the effects of creative art experiences to other phases of human"
     },
@@ -510,6 +1183,26 @@ window.CORPUS_DATA = {
         "language",
         "place"
       ],
+      "definitionFrames": [
+        "creative_capacity",
+        "interpretive_meaning",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "judgment_critique",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "pedagogical_institutions",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "SOME INADEQUATE DOCTRINES IN ART EDUCATION AND A PROPOSED RESOLUTION David W. Ecker/The Ohio State University Man is the only animal that laughs and weeps; [or he is the only animal that is struck by the difference between what things are and what they ought to be."
     },
     {
@@ -534,6 +1227,25 @@ window.CORPUS_DATA = {
         "care",
         "identity",
         "language"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "interpretive_meaning",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "judgment_critique",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "relations_culture",
+        "body_affect"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students"
       ],
       "excerpt": "Smith liberalism is not solely a matter of economic or political dimension; it is concerned with the general enrichment of the individual and may relate to his education, his religion, his thinking, his esthetic creativeness and appreciation. George Geiger, John Dewey in Perspective This article is devoted to a discuss"
     },
@@ -561,6 +1273,26 @@ window.CORPUS_DATA = {
         "materiality",
         "language"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "situated_practice",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "participation_relation",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "place_ecology"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
+      ],
       "excerpt": "the History of Educotlon, Paris The artist in society is a living reminder that, in spite of the merciless logic of daily life, the power to dream remains inviolate in man. Supervielle Art education must take a more and more important place in life and in contemporary education if we wish to survive the present critica"
     },
     {
@@ -585,6 +1317,26 @@ window.CORPUS_DATA = {
         "language",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "embodied_attunement",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "testing_scoring",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "media_machines",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "teachers_educators"
+      ],
       "excerpt": "THE DIMENSIONALITY OF DIFFERENTIAL CRITERlA IN THE ART PRODUCT: An Empirical Study* Gloria D. Bernheim / The Pennsylvania State University If a teacher wants to evaluate his effectiveness, he must first identify, in general, the kinds of human behavior that he believes he wants to effect by his teaching."
     },
     {
@@ -607,6 +1359,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "place"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "measurable_faculty",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "making_performance",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "communities_publics"
       ],
       "excerpt": "NEEDED RESEARCH AND THE ROLE OF DEFINITIONS IN ART EDUCATION* DONALD ARNSTINE / University of Wisconsin As parents, some of us have become familiar with questions like, \"Why is the sky blue?\" and, \"What holds the earth up?\" When they come in rapid succession, questions like these try our patience, because we know that"
     },
@@ -634,6 +1406,26 @@ window.CORPUS_DATA = {
         "place",
         "technology"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "perceptual_sensitivity",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "language_reflection",
+        "technical_fluency"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "artists_makers"
+      ],
       "excerpt": "Champlin / Wayne State University At the outset I would like to indicate very briefly some characteristics of philosophical inquiry and then go on to demonstrate how such inquiry might move with the theme of this convention. Neither the terms \"philo- sophical ideas\" nor the terms \"the means and ends of art education\" ("
     },
     {
@@ -656,6 +1448,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "language"
+      ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "perceptual_sensitivity",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "making_performance",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
       ],
       "excerpt": "THE EFFECTS OF PERCEPTUAL TRAINING AND MODES OF PERCEIVING UPON INDIVIDUAL DIFFERENCES IN ABILITY TO LEARN PERSPECTIVE DRAWING GORDON L. KENSLER / Illinois State University Introduction The aims of art education are usually directed toward developing indi- vidual modes of expression using various art materials."
     },
@@ -680,6 +1492,25 @@ window.CORPUS_DATA = {
       "signals": [
         "materiality",
         "language"
+      ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "measurable_faculty",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "testing_scoring",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "vision_perception",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "communities_publics"
       ],
       "excerpt": "THE EFFECTS OF PERCEPTUAL TRAINING UPON THE TWO-DIMENSIONAL DRA\\'\\TINGS OF CHILDREN R. SALOME / Illinois State University The Problem Current reemphases upon the contributions of art education to the development of visual perception result from psychological studies indi- cating that visual perception may be improved t"
     },
@@ -706,6 +1537,26 @@ window.CORPUS_DATA = {
         "place",
         "language"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "creative_capacity",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "judgment_critique",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "THE JANUS-HEADED PROSPECT: A REVIEW OF THE NSSE YEARBOOK, ART EDUCATION) AND THE NAEA REPORT OF THE COMMISSION ON ART EDUCATION HILDA PRESENT LEWIS / San Francisco State College Art Education, The Sixty-fourth Yearbook of the National Society for the Study of Education, Part II."
     },
     {
@@ -730,6 +1581,26 @@ window.CORPUS_DATA = {
         "equity",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "interpretive_meaning",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "developmental_observation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
+      ],
       "excerpt": "THE DEVELOPMENT OF INFORMATION AND ATTITUDE TOWARD ART AT THE SECONDARY AND COLLEGE LEVELS* ELLIOT W. EISNER / Stanford University This study represents an effort to understand the development of infor- mation and attitudes toward art among students from the ninth grade through the senior level in college."
     },
     {
@@ -752,6 +1623,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "museum"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "measurable_faculty",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "making_performance",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "relations_culture",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
       ],
       "excerpt": "THE VALUE-ORIENTATIONS OF ART STUDENTS AS DETERMINANTS OF ARTISTIC SPECIALIZATION AND CREATIVE PERFORMANCE* J. CSIKSZENTMIHALYI / Lake Forest College Problem That there is a relationship between value-orientations and cogmtrve behavior is well recognized. Gee found that Aesthetic and Theoretical values are related to h"
     },
@@ -779,6 +1670,26 @@ window.CORPUS_DATA = {
         "place",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "machinic_relation",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "developmental_observation",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "vision_perception",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "artists_makers"
+      ],
       "excerpt": "THREE BASES FOR RESEARCH AND TEACHING IN THE ARTS: SUBJECTIVE, OBJECTIVE, AND PROJECTIVE HUGH W. STUMBO Too often art teachers have received only part of the truth concerning aesthetic experiences. University art teachers seem to exhort their future teachers to direct their students either to sensuous responses to work"
     },
     {
@@ -804,6 +1715,26 @@ window.CORPUS_DATA = {
         "materiality",
         "identity"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "measurable_faculty",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "language_reflection",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "pedagogical_institutions",
+        "place_ecology"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "communities_publics"
+      ],
       "excerpt": "A STUDY OF CONTROLLED ATTENTION TO AESTHETIC QUALITIES IN WORKS OF ART BY NINTH-GRADE STUDENTS OF DIFFERING SOCIOECONOMIC ENVIRONMENTS CAROL ANNE DAVIS Theoretical Framework Increased inquiries into experience in the visual arts, insofar as it entails thought, affective response, and action, is emerging in art educatio"
     },
     {
@@ -825,6 +1756,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "museum"
+      ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "measurable_faculty",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "participation_relation",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "place_ecology",
+        "body_affect"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "communities_publics",
+        "teachers_educators"
       ],
       "excerpt": "AESTHETIC SENSITIVITYLPREVIOUS ART EXPERIENCES, AND PARTICIPATION IN THE SCHOLASTIC ART AWARDS FRANCES ELISABETH ANDERSON Aesthetic sensitivity has been a topic of research for over eighty years.' In spite of the number of variables that have been studied in relationship to it, no one to date has studied the relationsh"
     },
@@ -851,6 +1802,26 @@ window.CORPUS_DATA = {
         "museum",
         "technology"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "creative_capacity",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "judgment_critique",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "relations_culture",
+        "place_ecology"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "communities_publics"
+      ],
       "excerpt": "HEUSSENSTAMM A Seminar on the Role of the Arts in Meeting the Social and Educational Needs of the Disadvantaged. that the arts have become \"potent keys for unlocking the capacities of the poor and the disadvantaged.\" There is remarkable evidence that involving children in creative work can provide ghetto schools with a"
     },
     {
@@ -876,6 +1847,25 @@ window.CORPUS_DATA = {
         "care",
         "museum"
       ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "judgment_critique",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "artists_makers",
+        "communities_publics"
+      ],
       "excerpt": "THE COMPATIBILITY OF ART HISTORY AND STUDIO ART ACTIVITY IN THE JUNIOR HIGH SCHOOL ART PROGRAM MICHAEL D. DAY A Comparison of Two Methods of Teaching Art History The study of art history is an essential part of superior art curricula. Frankston maintained that the study of art history was a basic prerequisite for the \""
     },
     {
@@ -898,6 +1888,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "place"
+      ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "perceptual_sensitivity",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "developmental_observation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "vision_perception",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
       ],
       "excerpt": "EISNER / Stanford University One area of historic and contemporary research in the field of art education is the character and cause of children's art. In this article I would like to discuss three aspects of child art: first, to describe some of the major positions that have been formulated to account for child art; s"
     },
@@ -923,6 +1933,26 @@ window.CORPUS_DATA = {
         "museum",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "creative_capacity",
+        "measurable_faculty",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "developmental_observation",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "communities_publics",
+        "teachers_educators"
+      ],
       "excerpt": "THE EFFECTIVENESS OF A CHILDREN'S WORKSHOP IN THE CREATIVE ARTS IN FORWARDING PERSONAL AND INTELLECTUAL DEVELOPMENT1 FLORENCE RAND DIAMOND Can creative experiences in integrated children's art workshops help deprived children with learning difficulties overcome the ill effects of deprivation on their personal developme"
     },
     {
@@ -944,6 +1974,26 @@ window.CORPUS_DATA = {
         "philosophy"
       ],
       "signals": [],
+      "definitionFrames": [
+        "situated_practice",
+        "measurable_faculty",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "developmental_observation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "relations_culture",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "communities_publics",
+        "teachers_educators"
+      ],
       "excerpt": "CONCEPTUAL MODES OF CHILDREN IN RESPONDING TO ART OBJECTS HELEN ELIZABETH JANES THE PROBLEM According to Piaget's theory of the development of logical thinking in children, adults and children do not use the same cognitive systems in thinking and talking about art objects."
     },
     {
@@ -968,6 +2018,26 @@ window.CORPUS_DATA = {
         "language",
         "place"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "measurable_faculty",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "judgment_critique",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "artworks_materials",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
+      ],
       "excerpt": "DEVELOPMENTAL TRENDS IN SENSITIVITY TO PAINTING STYLE AND SUBJECT MATTER HOWARD GARDNER AND JUDITH GARDNER The Problem and Its Background Which of the diverse aspects of pictorial displays are noticed and which are preferred by children of different ages has long interested psychologists and educators."
     },
     {
@@ -991,6 +2061,26 @@ window.CORPUS_DATA = {
       "signals": [
         "materiality",
         "technology"
+      ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "perceptual_sensitivity",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "testing_scoring",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "disabled_gifted_subjects"
       ],
       "excerpt": "PERCEPTUAL STYLE, CREATIVITY, AND VARIOUS DRAWING ABILITIES* MARVIN GROSSMAN The development of perceptual skills is an often stated goal of art education. Both art educators and psychologists have referred to the relationship between perception and child art. Lowenfeld posits that the drawings of a child are a record"
     },
@@ -1017,6 +2107,26 @@ window.CORPUS_DATA = {
         "care",
         "materiality"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "embodied_attunement",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "developmental_observation",
+        "technical_fluency"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "artworks_materials",
+        "body_affect"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "communities_publics"
+      ],
       "excerpt": "PARSONS I The question of concern in this paper is whether Sir Herbert Read's ideas about art and education, and the connection between them, may properly be called \"anti-in- tellectual.\" This is not an uncommon charge or suspicion, I believe, because there are elements in his writing that seem, prima facie, to support"
     },
     {
@@ -1040,6 +2150,26 @@ window.CORPUS_DATA = {
       "signals": [
         "teacherhood",
         "materiality"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "interpretive_meaning",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "judgment_critique",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
       ],
       "excerpt": "TOWARD MORE EFFECTIVE CURRICULUM DEVELOPMENT PROJECTS IN ART DECKER F. WALKER Nationally financed ad hoc curriculum development groups have been the characteristic agencies for curriculum planning in this country for a decade. Begin- ning with secondary school science and mathematics in the mid-1950's, the phenomenon h"
     },
@@ -1066,6 +2196,26 @@ window.CORPUS_DATA = {
         "language",
         "materiality"
       ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "embodied_attunement",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "participation_relation",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
+      ],
       "excerpt": "SCHWAN Introduction Children who are classified as mentally retarded often are denied art experiences because the art teacher feels that the retarded cannot profit from art instruction. At the other extreme, retarded children are given an overabundance of art and other \"physical\" type activities to compensate for their"
     },
     {
@@ -1091,6 +2241,26 @@ window.CORPUS_DATA = {
         "language",
         "place"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "embodied_attunement",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "language_reflection",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "artworks_materials",
+        "media_machines"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "communities_publics",
+        "children_students"
+      ],
       "excerpt": "EISNER Throughout his career in art education, Manuel Barkan concerned himself with both the development of more adequate theory and the improvement of the art of teaching art. These concerns were evidence in his first book, A Foundation for Art Education, 1 and reappeared with regularity in the numer- ous articles, sp"
     },
     {
@@ -1115,6 +2285,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "place"
       ],
+      "definitionFrames": [
+        "creative_capacity",
+        "situated_practice",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "developmental_observation",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
+      ],
       "excerpt": "THE FUTURE ART EDUCATION ALLAN SHIELDS My thesis is that the ultimate appropriate goal for a university art department re- mains unchanged: to teach students what it means to become an educated person. The means change, the influences and conditions change, the times change."
     },
     {
@@ -1138,6 +2328,26 @@ window.CORPUS_DATA = {
       "signals": [
         "teacherhood",
         "technology"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "perceptual_sensitivity",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "participation_relation",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
       ],
       "excerpt": "TEMPLETON Undoubtedly the emotion was something less than that experienced by a 16th cen- tury European who finally accepted the idea that the sun and not the earth was at the center of our planetary system. Still, where there had been a firm belief in and persistent search for the structure of art in the object itself"
     },
@@ -1166,6 +2376,26 @@ window.CORPUS_DATA = {
         "materiality",
         "technology"
       ],
+      "definitionFrames": [
+        "creative_capacity",
+        "measurable_faculty",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "judgment_critique",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "vision_perception",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "47 THE DEVELOPMENT OF AN INSTRUMENT FOR MEASURING THE DEGREES OF DIVERGENT RESPONSES REVEALED IN CLAY IMAGES FORMED BY FIRST GRADE SCHOOL CHILDREN ROY E. The purpose of this study was to develop a test for measuring three- dimensional divergent visual responses as revealed in clay images formed by children on the first"
     },
     {
@@ -1188,6 +2418,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "language"
+      ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "perceptual_sensitivity",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "testing_scoring",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
       ],
       "excerpt": "27 A DESCRIPTION OF CHILDREN'S VERBAL RESPONSES TO WORKS OF ART IN SELECTED GRADES ONE THROUGH TWELVE BARRY E. MOORE THE PROBLEM Art education is commonly interpreted as education in the production and apprecia- tion of art objects. The major emphasis in practice has been upon the production of works of art, while the"
     },
@@ -1214,6 +2464,26 @@ window.CORPUS_DATA = {
         "language",
         "place"
       ],
+      "definitionFrames": [
+        "creative_capacity",
+        "measurable_faculty",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "making_performance",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "vision_perception",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "communities_publics",
+        "teachers_educators"
+      ],
       "excerpt": "18 STUDIES IN ART EDUCATION CREATIVE TEMPO IN CHILDREN'S ART PRODUCTION SANDRA PACKARD THE PROBLEM It was generally accepted that differences in a child's intellectual output could be attributed to the contents of his cognition, i.e. verbal repertoire, mediational diversity, and the possession of a set of logical rules"
     },
     {
@@ -1239,6 +2509,26 @@ window.CORPUS_DATA = {
         "language",
         "technology"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "measurable_faculty",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "developmental_observation",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "9 TESTING AN ADVANCE ORGANIZER MODEL IN THE DEVELOPMENT OF AESTHETIC PERCEPTION DA VID M. HYSELL David Ausubel' developed the concept of advance organizer to refer to instructional material that intends to \"mobilize existing relevant concepts and increase dis- criminability\" of new concepts in a learning situation."
     },
     {
@@ -1261,6 +2551,26 @@ window.CORPUS_DATA = {
       "signals": [
         "language",
         "museum"
+      ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "measurable_faculty",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "testing_scoring",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "relations_culture",
+        "media_machines"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "communities_publics",
+        "artists_makers"
       ],
       "excerpt": "ESTHETIC EVALUATIONS AND ART INVOLVEMENT IN AUSTRALIA, PAKISTAN, AND THAILAND FRANCES E. ANDERSON Although research in this country and in England has indicated the relationship between an interest and/ or involvement in art and esthetic judgments (Bulley, 1951; Eurich & Carroll, 1931; Valentine, 1962), it was not unti"
     },
@@ -1286,6 +2596,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "equity"
       ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "perceptual_sensitivity",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "testing_scoring",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "vision_perception",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "EFFECTS OF INSTRUCTION ON HIGH SCHOOL STUDENTS' ART PREFERENCES AND ART JUDGMENTS MICHAEL D. DAY One of the clearest trends in art educa- tion during the past decade has been the broadening of stated goals to include the historical and critical domains of art learning as well as the productive."
     },
     {
@@ -1308,6 +2638,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "language"
+      ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "measurable_faculty",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "developmental_observation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "mind_concepts",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "communities_publics"
       ],
       "excerpt": "THE CHILD AS IMAGE-MAKER: THE INVENTION OF REPRESENTATIONAL MODELS AND THE EFFECTS OF THE MEDIUM CLAIRE GOLOMB Psychologists, traditionally, have shown a great deal of interest in the young child's drawing of the human figure (Burt, 1921; Eng, 1931; Goodenough, 1926; Harris, 1963; Kroetzsch, 1917; Lukens, 1896; Luquet,"
     },
@@ -1333,6 +2683,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "language"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "creative_capacity",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "developmental_observation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "vision_perception",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
+      ],
       "excerpt": "BRIGHAM This paper proposes a conceptual- experiential basis for the integration of art with basic learning objectives in schools without loss of the central in- tegrity of art and without subordination of aesthetic values and processes of art to other subjects."
     },
     {
@@ -1355,6 +2725,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "place"
+      ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "embodied_attunement",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "developmental_observation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "place_ecology",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "communities_publics"
       ],
       "excerpt": "RELATING THE ARTS TO EDUCATION: THE HISTORY OF AN IDEA ARTHUR EFLAND The Arts, Education and Americans Panel Report, Coming to Our Senses. (1977)documents the worsening state of the arts within American schools. Though it describes a crisis engulfing the whole of American education in the 70's, a cursory reading of the"
     },
@@ -1380,6 +2770,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "language",
         "technology"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "interpretive_meaning",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "language_reflection",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
       ],
       "excerpt": "THE ARTS - WORKING TOGETHER TO MAKE EDUCATION WORK: AN IDEA WHOSE TIME HAS COME ROBERT J. SAUNDERS Werner Erhard, the founder of Erhard Seminar Training (EST), has quoted Victor Hugo's observation \"that all the forces in the world are not so powerful as an idea whose time has come\" (Erhard, 1977, p."
     },
@@ -1407,6 +2817,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "technology"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "interpretive_meaning",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "judgment_critique",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "pedagogical_institutions",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "USING OUR HEADS WHILE COMING TO OUR SENSES BETTE ACUFF All prospective classroom teachers should have experiences in a variety of arts and learn to relate them to each other and to other disciplines. Classroom teachers should be supported by an arts resource team composed of artists and specialists in such fields as mu"
     },
     {
@@ -1428,6 +2858,18 @@ window.CORPUS_DATA = {
         "language",
         "equity",
         "place"
+      ],
+      "definitionFrames": [
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students"
       ],
       "excerpt": "Youngblood Centuries of evidence document the human tendency to make marks, to describe phenomena graphically, and to construct three-dimensional representations. Our curiosity about visual thinking has prompted a concern with the visual world and how visual interpretations are formed."
     },
@@ -1451,6 +2893,25 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "care"
+      ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "perceptual_sensitivity",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "developmental_observation",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "pedagogical_institutions",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators"
       ],
       "excerpt": "An Art Appreciation Teaching Model for Visual Aesthetic Education Per Johansen Most art educators agree that some form of aesthetic education constitutes an impor- tant aspect of education in the visual arts. However, there is disagreement among aes- theticians and educators as to exactly what \"aesthetic education\" sta"
     },
@@ -1479,6 +2940,26 @@ window.CORPUS_DATA = {
         "identity",
         "transfer"
       ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "perceptual_sensitivity",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "developmental_observation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "vision_perception",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "communities_publics"
+      ],
       "excerpt": "52 Mental Functioning, Perceptual Differentiation, Personality, and Achievement among Art and Non-Art Majors Rex Dorethy and Dan Reeves A great deal of recent writing and research in physiology, psychology and art educa- tion has been concerned with the skills, qualities, and potentials of the two hemi- spheres composi"
     },
     {
@@ -1502,6 +2983,26 @@ window.CORPUS_DATA = {
       "signals": [
         "language"
       ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "situated_practice",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "developmental_observation",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "artworks_materials",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "disabled_gifted_subjects",
+        "teachers_educators"
+      ],
       "excerpt": "8 Cognitive Development, Personality and Drawing: Their Interrelationships in a Replicated Longitudinal Study Hilda P. Lewis and Norman Livson The Goodenough-Harris Test of Intellec- tual Maturity has been part of the psychometrician's standard armamen- tarium since it appeared in its initial form in 1926."
     },
     {
@@ -1522,6 +3023,20 @@ window.CORPUS_DATA = {
       "signals": [
         "teacherhood",
         "language"
+      ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "disabled_gifted_subjects",
+        "children_students"
       ],
       "excerpt": "38 sruDIES IN ART EDUCATION 22/2 An Historical Perspective on the Gifted and the Talented in Art Robin A. Alexander We are not so confident about the distri- bution of esthetic abilities as we are of verbal inteIIigence- measurements are inadequate as yet (Rugg, 1924, p."
     },
@@ -1544,6 +3059,21 @@ window.CORPUS_DATA = {
         "equity",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "disabled_gifted_subjects",
+        "children_students"
+      ],
       "excerpt": "Martha Zola Stalker The problem of identifying the gifted and talented in art has, in recent years, become a significant issue in education. This prob- lem has emerged out of a renewed general concern for educational opportunities for the gifted and talented. Current methods, such as portfolio review, are time ineffi-"
     },
     {
@@ -1565,6 +3095,22 @@ window.CORPUS_DATA = {
         "language",
         "place"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "disabled_gifted_subjects",
+        "children_students"
+      ],
       "excerpt": "20 Nadia's Drawings: Theorizing About An Autistic Child's Phenomenal Ability! David Pariser In this paper the drawings of a young girl, Nadia, who suffers from autism shall be examined. Autism is characterized by a lack of functional speech, social isolation, and an obsessive desire for physical order- linesss and temp"
     },
     {
@@ -1585,6 +3131,22 @@ window.CORPUS_DATA = {
       "signals": [
         "technology",
         "language"
+      ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "disabled_gifted_subjects",
+        "children_students"
       ],
       "excerpt": "70 On \"Nadia's Drawings: Theorizing About an Autistic Child's Phenomenal Ability' Martin Rayala Nadia is a child with two striking charac- teristics which make her different from other chlldren-s-she is autistic and from a very early age was able to draw with a high degree of accuracy and style."
     },
@@ -1611,6 +3173,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "place"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "creative_capacity",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "testing_scoring",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "pedagogical_institutions",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "disabled_gifted_subjects",
+        "teachers_educators"
+      ],
       "excerpt": "32 The Acquisition of Language Concepts by Hearing Impaired Children Through Selected Aspects of An Experimental Core Art Curriculum J. Hasselbring A review of art education literature reveals few specific attempts by art educators to devise curricula for young (K-3) hearing impaired populations."
     },
     {
@@ -1633,6 +3215,25 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "embodied_attunement",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "body_affect"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
       ],
       "excerpt": "Michael Viktor Lowenfeld was one of the pioneers who perceived the value, the efficacy, of creative art experiences in working with handicapped individuals. Possessed of sensitivity, understanding, and a great love for all persons, he was especially con- cerned for those with physical, mental, and emotional difficultie"
     },
@@ -1660,6 +3261,23 @@ window.CORPUS_DATA = {
         "materiality",
         "place"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "measurable_faculty",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "mind_concepts",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "artists_makers"
+      ],
       "excerpt": "STUDIES IN ART EDUCAnON 23/2/1982 Meaning and visual metaphor' Hermine Feinstein Langer contends that metaphor is not only an essentialprocess andproduct ofthought, but also that art is metaphor. Her views can serve to justify arts education on epistemological grounds, thus establishing arts education as basic to the c"
     },
     {
@@ -1684,6 +3302,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "language"
       ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "creative_capacity",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "participation_relation",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "communities_publics"
+      ],
       "excerpt": "STUDIES IN ART EDUCATION 23/2/1982 The relationship of task difficulty to mentally retarded students' interest in art Pamela Fine Miller and Sidney R. Miller The relationship of task difficulty to mentally retarded students' interest in four art activities and art products resulting from these activities was investigat"
     },
     {
@@ -1707,6 +3345,24 @@ window.CORPUS_DATA = {
       "signals": [
         "language",
         "technology"
+      ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "measurable_faculty",
+        "machinic_relation"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "language_reflection",
+        "technical_fluency"
+      ],
+      "locationFrames": [
+        "media_machines",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "communities_publics",
+        "machines_nonhumans"
       ],
       "excerpt": "STUDIES IN ART EDUCAnON 23/3/1982 EDITORIAL Videodiluvianism Federigo di Montefeltro, Duke of Urbino in the 15th century, is reputed to have refused to allow a printed book in his library. Federigo may have been motivated by pique, his elitist position as one of a few possessors of the re- corded word threatened by the"
     },
@@ -1733,6 +3389,26 @@ window.CORPUS_DATA = {
         "identity",
         "place"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "measurable_faculty",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "developmental_observation",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "mind_concepts",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "STUDIES IN ART EDUCATION 25/1/1983 Clarifying the decision-making process in art Gene A. Mittler Most art programs at the secondary level and beyond hope to produce students who canformulate sensitive and intelligent aesthetic judgments about many kinds of visual art forms."
     },
     {
@@ -1755,6 +3431,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "language"
+      ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "measurable_faculty",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "developmental_observation",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "relations_culture",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "disabled_gifted_subjects",
+        "children_students"
       ],
       "excerpt": "STUDIES IN ART EDUCATION 24/3/1983 Cognitive style revisited: Implications for research in art production and art criticism Jessie Lovano-Kerr The study ofindividual differences in cognition has been a sustainedfocus ofmany researchers in cognitive psychology. A number of theories have developed, among which is the Psy"
     },
@@ -1779,6 +3475,26 @@ window.CORPUS_DATA = {
       "signals": [
         "language",
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "situated_practice",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "judgment_critique",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "vision_perception",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "teachers_educators",
+        "communities_publics"
       ],
       "excerpt": "STUDIES IN ART EDUCATION 24/2/1983 Creativity research: Its sociological and educational limitations Joseph R. LaChapelle While creativity, its enhancement, and the understanding ofthe creativity ofothers are integral parts ofart education, problems still exist in understanding the creative process."
     },
@@ -1806,6 +3522,26 @@ window.CORPUS_DATA = {
         "place",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "machinic_relation",
+        "measurable_faculty",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "developmental_observation",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "media_machines",
+        "pedagogical_institutions",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "STUDIES IN ART EDUCATION 25/1/1983 If and where to plug in the computer: A conceptual framework for computer assisted art instruction Margaret K. DiBiasio Conceptual problems hinder the development ofcomputer-assisted art instruction. This paper presents a conceptual framework to guide the organization of instruction a"
     },
     {
@@ -1828,6 +3564,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "place"
+      ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "situated_practice",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "judgment_critique",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "place_ecology"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
       ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1984, 25 (4), 205-211 Copyright by The National Art Education Association Curriculum Concepts of The Penn State Seminar: An Evaluation in Retrospect Arthur D. Efland The Ohio State University The Penn State Seminar focused on the why of art education, the what,"
     },
@@ -1854,6 +3610,25 @@ window.CORPUS_DATA = {
         "language",
         "materiality"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "interpretive_meaning",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "language_reflection",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "vision_perception",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "machines_nonhumans"
+      ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1984,25 (2), 121-129 Copyright by The National Art Education Association Film and Cognition: A Critical Review of Current Theory! Dan Nadaner Simon Fraser University The field of art education is increasingly concerned with the viewer's cognition of the visual a"
     },
     {
@@ -1877,6 +3652,26 @@ window.CORPUS_DATA = {
       "signals": [
         "place",
         "language"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "measurable_faculty",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "language_reflection",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "relations_culture",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "communities_publics"
       ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1984, 26 (I). 5-13 Copyright by The National Art Education Association Toward a Conception of the Role of The Arts in Liberal Education Elizabeth Steiner Indiana University Guidelines for liberal education are presented."
     },
@@ -1903,6 +3698,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "care"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "creative_capacity",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "judgment_critique",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "relations_culture",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "artists_makers",
+        "communities_publics"
+      ],
       "excerpt": "STUDIES in An Education A Journal of Issues and Research 26141, 247252 Copyright hy The National An Education Association Some Thoughts on Arts Education Frank Hodsoll The majority of students should have basic literacy in the major art forms by graduation from high school."
     },
     {
@@ -1927,6 +3742,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "care",
         "place"
+      ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "perceptual_sensitivity",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "making_performance",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "vision_perception",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "disabled_gifted_subjects",
+        "artists_makers"
       ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1986, 28(1) 53.-60 Copyright by The National Art Education Association Recent Publications: Research and Issues Clark, Gilbert and Enid Zimmerman (1984). Miller Skidmore College Central to the authors' thesis is that we as a nation must make a commitment to educ"
     },
@@ -1954,6 +3789,26 @@ window.CORPUS_DATA = {
         "materiality",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "situated_practice",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "judgment_critique",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "mind_concepts",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "teachers_educators"
+      ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1986,27 (3) 140-148 Copyright by The National Art Education Association The Meaning and Use of Folk Speech in Art Criticism Kristin G. Congdon Bowling Green State University, Ohio The purpose of this article is to identify and analyze the use of folk speech in a"
     },
     {
@@ -1978,6 +3833,26 @@ window.CORPUS_DATA = {
         "language",
         "place",
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "perceptual_sensitivity",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "judgment_critique",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "mind_concepts",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "teachers_educators",
+        "communities_publics"
       ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1986,27 (3) 109·114 Copyright by The National Art Education Association To Eat Your Cake and Have It Too: A Response to Beyond Creating Vincent Lanier University of Arizona Despite a generally progressive professional orientation toward Discipline-Based Art Educ"
     },
@@ -2006,6 +3881,26 @@ window.CORPUS_DATA = {
         "place",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "machinic_relation",
+        "situated_practice",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "making_performance",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "media_machines",
+        "mind_concepts",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "teachers_educators",
+        "communities_publics"
+      ],
       "excerpt": "Possibly it was perceived that potentially poorer quality mural reproductions would detract from the sparkling facsimiles of the drawings; or maybe it was thought that by keeping only to drawing, the purity of the concept was preserved. Whatever the reason, when Tex Ritter's place in the Nashville mural, or Harry Truma"
     },
     {
@@ -2031,6 +3926,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "technology"
       ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "perceptual_sensitivity",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "testing_scoring",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "vision_perception",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "disabled_gifted_subjects",
+        "artists_makers",
+        "children_students"
+      ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1988, 29(3) 292-301 Copyright by the National Art Education Association A Comparative Study of Personality, Values, and Background Characteristics of Artistically Talented, Academically Talented, and Average 11th and 12th Grade Students Laurel E."
     },
     {
@@ -2054,6 +3969,26 @@ window.CORPUS_DATA = {
       "signals": [
         "care",
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "perceptual_sensitivity",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "developmental_observation",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "mind_concepts",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
       ],
       "excerpt": "andResearch 1988.30 (I) 28·38 Copyright by the National Art Education Association A Structure for Pedagogical Art Criticism TomAnderson The FloridaStateUniversity Amheim (1986) claims that the two basic interdependent procedures of intelligent cognition are intuition and intellect."
     },
@@ -2081,6 +4016,26 @@ window.CORPUS_DATA = {
         "identity",
         "place"
       ],
+      "definitionFrames": [
+        "machinic_relation",
+        "interpretive_meaning",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "language_reflection",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "media_machines",
+        "pedagogical_institutions",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
+      ],
       "excerpt": "and Researcll 1988,30(1)53-62 Copyright by National Art Education Association Art Education and Computing: Building a Perspective Linda F. Ettinger University of Oregon Art educators have been reporting various kinds of computer activity in our field for almost ten years."
     },
     {
@@ -2107,6 +4062,26 @@ window.CORPUS_DATA = {
         "care",
         "place"
       ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "interpretive_meaning",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "testing_scoring",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "communities_publics"
+      ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1988,29(3) 282-291 Copyright by the National Art Education Association Children's Philosophical Inquiry into Defining Art: A Quasi-experimental Study of Aesthetics in the Elementary Classroom Robert L. Russell University of Cincinnati A 14-item rating scale desi"
     },
     {
@@ -2128,6 +4103,26 @@ window.CORPUS_DATA = {
         "community"
       ],
       "signals": [],
+      "definitionFrames": [
+        "measurable_faculty",
+        "perceptual_sensitivity",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "developmental_observation",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "mind_concepts",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "communities_publics",
+        "machines_nonhumans"
+      ],
       "excerpt": "SnJDms in Art I!doacali<lll __ 1985, 29 (4) 211·211 The Drawings of Preschool Children: A Longitudinal Case Study and Four Experiments Scott M. Clare Garces MemorialHigh School Bakersfield,California A four-year longitudinal study of the drawings of a preschool boy preceded four experiments related to observations made"
     },
     {
@@ -2150,6 +4145,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "materiality"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "measurable_faculty",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "developmental_observation",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "mind_concepts",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
       ],
       "excerpt": "SnJDlES ill ArtBducatian A JounW of bouoo.mel 1988,29 (4) 203·210 To Copy or Not to Copy: A Review Paul Duncum Capricomia Institute, Rockhampton Queensland, Australia To copyor notto copy has long been a topic of debate by art educators. The debate has usually been presented as a two-sided argument, but a close reading"
     },
@@ -2177,6 +4192,26 @@ window.CORPUS_DATA = {
         "language",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "creative_capacity",
+        "machinic_relation"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "language_reflection",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "machines_nonhumans"
+      ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1989,30 (3) 157·163 Copyright by the National Art Education Association Art Education, Romantic Idealism, and Work: Comparing Ruskin's Ideas to Those Found in 19th Century Nova Scotia Patricia Amburgy The Pennsylvania State University Donald Soucy University of"
     },
     {
@@ -2202,6 +4237,26 @@ window.CORPUS_DATA = {
         "technology",
         "language",
         "place"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "embodied_attunement",
+        "machinic_relation"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "technical_fluency",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "relations_culture",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "communities_publics",
+        "teachers_educators"
       ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research Volume 30, Issue 3 Spring 1989 Editorial Art as Commodity: The Impoverishment of Art Education I begin with an ancient truism: the older I become, the more I realize how little I know. Where there were pronouncements, declarations of found truths, assertions of"
     },
@@ -2229,6 +4284,26 @@ window.CORPUS_DATA = {
         "place",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "machinic_relation",
+        "situated_practice",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "making_performance",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "communities_publics"
+      ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1989,30(4) 225-236 Copyright by the National Art Education Association Curriculum in Art Education: The Uncertainty Principle Graeme Sullivan City Art Institute, Sydney, New South Wales This paper identifies curriculum as the pivotal link between theory and prac"
     },
     {
@@ -2254,6 +4329,26 @@ window.CORPUS_DATA = {
         "materiality",
         "place"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "situated_practice",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "language_reflection",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "artists_makers"
+      ],
       "excerpt": "STUDIES in Art Education A Journal of fssues and Research 1989,30(3) 176-184 Copyright by the National Art Education Association Multi-Cultural Approaches to Art Criticism Kristin G. Congdon University of Central Florida This article looks at an criticism approaches which demonstrate recognition and acceptance of a var"
     },
     {
@@ -2276,6 +4371,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "technology"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "measurable_faculty",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "language_reflection",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "mind_concepts",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "communities_publics"
       ],
       "excerpt": "31 (1) 27-36 Copyright by the National Art Education Association Reflection-Impulsivity and the Performance of Fifth-Grade Children on Two Art Tasks Diane C. Gregory University of Northern Iowa The purpose of this study was to compare the performance of reflective (slow- accurate) and impulsive (fast-inaccurate) childr"
     },
@@ -2302,6 +4417,26 @@ window.CORPUS_DATA = {
         "care",
         "place"
       ],
+      "definitionFrames": [
+        "creative_capacity",
+        "situated_practice",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "developmental_observation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "pedagogical_institutions",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "STIJDlES in Art Education A Journal of Issues and Research 1989,30 (4) 197-211 Copyright by the National Art Education Association The Changing Face of Australian Art Education: New Horizons or Sub-Colonial Politics? Doug Boughton South Australian College of Advanced Education Underdale Campus, South Australia The deve"
     },
     {
@@ -2327,6 +4462,26 @@ window.CORPUS_DATA = {
         "care",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "creative_capacity",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "developmental_observation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "mind_concepts",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "teachers_educators",
+        "children_students"
+      ],
       "excerpt": "md Rcocucl1 1989,30(2) 84-92 Copyright by tho NationalArt EducationAasoclation The Subject is Art Irving Kaufman Visiting Professor of Art andEducation Teachers College, ColumbiaUniversity Onecan hardly fault the desirability of creativeand mental growth. It wasV*tor Lowenfeld's greatgoodfortune tolinkthesehuman proces"
     },
     {
@@ -2349,6 +4504,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "language"
+      ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "interpretive_meaning",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "making_performance",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "pedagogical_institutions",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "teachers_educators"
       ],
       "excerpt": "ondRcscm:h 1989,30(2) 71-83 Copyright by de NationalArt1ldw:ati0ll AJsociati.., Zero-Based Arts Education: An Introduction to ARTS PROPEL HowardGardner Project Zero,Harvard Graduate School of Education I. Introduction Any long-term participant in arts education in theUnited States should takesome pleasure in therecentl"
     },
@@ -2377,6 +4552,26 @@ window.CORPUS_DATA = {
         "museum",
         "place"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "creative_capacity",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "developmental_observation",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "vision_perception",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "communities_publics",
+        "teachers_educators"
+      ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1990,31 (4) 226-233 Copyright by the National Art Education Association A Social History of Art and Public Art Education in Quebec: The 1960s Suzanne Lemerise and Francine Couture Universite du Quebec aMontreal This paper has been written within the context of a"
     },
     {
@@ -2400,6 +4595,25 @@ window.CORPUS_DATA = {
       "signals": [
         "museum",
         "place"
+      ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "interpretive_meaning",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "judgment_critique",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "relations_culture",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "communities_publics",
+        "teachers_educators"
       ],
       "excerpt": "STIJDlES in Art Education AJournal of Issues and Research 1'1'1(1.31 (2) '1'/·105 Copyright by the National Art Education Association Changing Perspectives on Older Adults' Mental Abilities and Educational Needs: Implications for Art Education Heta Kauppinen The University of Georgia The purpose of this article is to e"
     },
@@ -2426,6 +4640,26 @@ window.CORPUS_DATA = {
         "place",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "creative_capacity",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "developmental_observation",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "place_ecology",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
+      ],
       "excerpt": "STIJDlES in Art Education A Journal of Issuesand Research 1990.31 (2) 69-77 Copyright by the National Art Education Associanon Implications of Gregory Bateson's Ideas for a Semiotic of Art Education C. Bowers University of Oregon This article examines how a classroom art lesson can reproduce a Cartesian pattern of thin"
     },
     {
@@ -2450,6 +4684,26 @@ window.CORPUS_DATA = {
         "language",
         "place",
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "creative_capacity",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "developmental_observation",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "place_ecology",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
       ],
       "excerpt": "STIJDlES in Art Education A Journal of Issuesand Research 1990.31 (2) 69-77 Copyright by the National Art Education Associanon Implications of Gregory Bateson's Ideas for a Semiotic of Art Education C. Bowers University of Oregon This article examines how a classroom art lesson can reproduce a Cartesian pattern of thin"
     },
@@ -2478,6 +4732,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "technology"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "situated_practice",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "judgment_critique",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "mind_concepts",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "communities_publics",
+        "children_students"
+      ],
       "excerpt": "STIJDI ES in Art Education A Journal of Issues and Research 1990.31 (2) 86-98 Copyright by the National Art Education Association Text Analysis as a Guide for Research in Art Education Linda F. Ettinger and Jane Maitland-Gholson University of Oregon Researchers in art education are pursuing complex questions in diverse"
     },
     {
@@ -2502,6 +4776,26 @@ window.CORPUS_DATA = {
         "materiality",
         "language",
         "museum"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "perceptual_sensitivity",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "language_reflection",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "pedagogical_institutions",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "communities_publics",
+        "children_students",
+        "identity_marked_subjects"
       ],
       "excerpt": "SlUDiES in Art Education A Journalof Issues and Research 1990, 32 (I) 47-54 Copyright by the National Art Education Association Women Doing Historical Research Diana Korzenik Massachusetts College of Art Questioning gender-related assumptions which have influenced the theory and prac- tice of research, this paper explo"
     },
@@ -2528,6 +4822,26 @@ window.CORPUS_DATA = {
         "technology",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "measurable_faculty",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "developmental_observation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "vision_perception",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1992.34 (I). 39-47 Copyright by the National Art Education Association An Analysis of Drawing Programs for Early Adolescents Larrie J. Moody Pittsburg State University, Kansas Teaching drawing to early adolescents can be challenging because of problems with lear"
     },
     {
@@ -2552,6 +4866,26 @@ window.CORPUS_DATA = {
         "language",
         "transfer",
         "museum"
+      ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "perceptual_sensitivity",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "making_performance",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "mind_concepts",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "communities_publics"
       ],
       "excerpt": "Koroscik, Georgianna Short, Carol Stavropoulos & Sylvie Fortin To cite this article: Judith S. STUDIES in Art Education A Journal of Issues and Research 1992, 33 (3) 154-164 Copyright by the National Art Education Association Frameworks for Understanding Art: The Function of Comparative Art Contexts and Verbal Cues Jud"
     },
@@ -2580,6 +4914,26 @@ window.CORPUS_DATA = {
         "materiality",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "creative_capacity",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "developmental_observation",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "artworks_materials",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "communities_publics"
+      ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1992.33 (4) 253-266 Copyright by the National Art Education Association Problems for a Philosophy of Art Education Ralph A. Smith University of Illinois at Urbana-Champaign A number of dichotomies exist in the philosophy of art education: essential \"versus\" pers"
     },
     {
@@ -2603,6 +4957,26 @@ window.CORPUS_DATA = {
       "signals": [
         "teacherhood",
         "museum"
+      ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "situated_practice",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "making_performance",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "artworks_materials",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "communities_publics"
       ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1993,34 (3), 141-148 Copyright by the National Art Education Association Art Education: Growing Old or Coming of Age? Mark Sidelnick Purdue University Traditional age-stage theories of visual development may not be fully adequate and should be amended in light o"
     },
@@ -2630,6 +5004,26 @@ window.CORPUS_DATA = {
         "technology",
         "identity"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "interpretive_meaning",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "making_performance",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "relations_culture",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "communities_publics"
+      ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1993,35 (I), 5-21 Copyright by the National Art Education Association Art-Based Art Education: Learning That is Meaningful, Authentic, Critical and Pluralist Graeme Sullivan University of New South Wales, Australia To understand the impact of influences on art e"
     },
     {
@@ -2649,6 +5043,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "perceptual_sensitivity",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "testing_scoring",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "vision_perception",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "disabled_gifted_subjects"
       ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1993, 34 (2), 72-81 Copyright by the National Art Education Association Judging Children's Drawings as Measures of Art Abilities Gilbert A. Clark Indiana University This paper includes a brief review of a past study of children's drawings and a discussion of a n"
     },
@@ -2675,6 +5089,26 @@ window.CORPUS_DATA = {
         "language",
         "place"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "embodied_attunement",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "judgment_critique",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "vision_perception",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1994, 35 (2), 90-104 Copyright by the National Art Education Association Imitative, Complementary, and Expansive: Three Roles of Visual Arts Curricula Liora Bresler University of Illinois at Urbana-Champaign Based on a three-year ethnographic study in three elem"
     },
     {
@@ -2698,6 +5132,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "language",
         "care"
+      ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "situated_practice",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "language_reflection",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "identity_marked_subjects",
+        "teachers_educators",
+        "artists_makers"
       ],
       "excerpt": "EXPLANATIONS OWED MY SISTER 69 Explanations Owed My Sister: A Reconsideration of Feminism in Art Education! Georgia Collins University of Kentucky Sisterhood is not all harmony and understanding. It is as painful as it is powerful because it is fraught with tension and conflict as well as with care and concern (Helgado"
     },
@@ -2724,6 +5178,26 @@ window.CORPUS_DATA = {
         "technology",
         "transfer"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "measurable_faculty",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "testing_scoring",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "artworks_materials",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "STUDIESIn Art Ednc:allon A Jaomalof IUd Reoeltdl __ 1996, 37(4), 197·209 Copyright by the NalionaJArt EducallonAaaocIatloo Effects of Art Education on Visual-Spatial Ability and Aesthetic Perception: A Quantitative Review Folkert Haanstra University of Amsterdam, The Netherlands Perceptual learning has long been an imp"
     },
     {
@@ -2745,6 +5219,24 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "place"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "embodied_attunement",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "artworks_materials",
+        "place_ecology"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "teachers_educators"
       ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research Volume 37, Issue 4 Summer 1996 Editorial Questions about Questions: Research in Art Education The new or renewed emphasis upon research within the National Art Education Association is a healthy sign for the field."
     },
@@ -2769,6 +5261,26 @@ window.CORPUS_DATA = {
       "signals": [
         "place",
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "situated_practice",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "language_reflection",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "mind_concepts",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
       ],
       "excerpt": "© Copyright 1997 by the NationalAn EducationAssociation Studit!in Art Education A Journalof IssuesandResearch 1997.39(1).74-88 Learning Artistic Creativity: A Case Study! 1This study was partially funded by a Getty Center for Education in the Arts Dissertation Fellowship."
     },
@@ -2797,6 +5309,26 @@ window.CORPUS_DATA = {
         "place",
         "materiality"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "creative_capacity",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "judgment_critique",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "artworks_materials",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "identity_marked_subjects",
+        "communities_publics"
+      ],
       "excerpt": "STUDIES in Art Education A Journal of Issues and Research 1997,38(2),80-95 Copyright by 'he National Art Education Association The Nostalgia of Art Education: Reinscribing the Master's Narrative jan jagodzinski University of Alberta This essay presents a socially critical, psychoanalytic critique of the Getty Center fo"
     },
     {
@@ -2821,6 +5353,26 @@ window.CORPUS_DATA = {
         "place",
         "identity",
         "museum"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "interpretive_meaning",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "language_reflection",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "place_ecology",
+        "relations_culture",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "communities_publics"
       ],
       "excerpt": "Copyright 1998by rhe National Art Education Association Studiesin Art Education A Journal of Issues and Research 1998, 39(3), 230-243 Art, Ecological Restoration, and Art Education Doug Blandy' University ofOregon Kristin G. Congdon' University ofCentralFlorida 1Inquiriesshouldbe addressed to the authors: Doug Blandy,"
     },
@@ -2847,6 +5399,26 @@ window.CORPUS_DATA = {
         "place",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "interpretive_meaning",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "technical_fluency",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "pedagogical_institutions",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "Parsons The Ohio State University' The growing interest in integrating the arts across the curriculum represents an important change from previous concerns about teaching the structure of individual disciplines. It will require a change in the concept of cognition in the arts that is currently dominant in our psycholog"
     },
     {
@@ -2870,6 +5442,26 @@ window.CORPUS_DATA = {
       "signals": [
         "place",
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "measurable_faculty",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "developmental_observation",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "artists_makers",
+        "children_students"
       ],
       "excerpt": "Copyright 1998 by the National Art Education Association Studiesin Art Education A Journalof Issues and Research 1998,39(4),371-375 Commentary: On Arguing From Authority Peter Smith! University ofNew Mexico The National Art Education Association has been involved in a major lCorrespondence con- research effort for abou"
     },
@@ -2896,6 +5488,26 @@ window.CORPUS_DATA = {
         "museum",
         "technology"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "machinic_relation",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "participation_relation",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "communities_publics"
+      ],
       "excerpt": "David Burton Virginia Commonwealth University' Research in art education is often conducted by independent researchers working without coordination or knowledge of other ongoing research studies. Zimmerman, in Briefing Papers: Creating A Visual Arts Research Agenda Toward the 21st Century (1996), notes, \"Both Davis (19"
     },
     {
@@ -2919,6 +5531,26 @@ window.CORPUS_DATA = {
       "signals": [
         "language",
         "place"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "creative_capacity",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "judgment_critique",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
       ],
       "excerpt": "Copyright 1998 by the NationalArtEducationAssociation Studiesin Art Education AJournal ofIssuesandResearch 1998,39)),197-214 Why Do We Teach Art Today? Conceptions ofArt Education and Their Justification Richard Siegesmund' Stanftrd University Different, and sometimes conflicting, justifications have been advanced for"
     },
@@ -2947,6 +5579,26 @@ window.CORPUS_DATA = {
         "equity",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "measurable_faculty",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "judgment_critique",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "relations_culture",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "In The Netherlands discussions of the role of arts education in relation to academic achievement take place on all school levels. In elementary education the effectiveness of special arts programs such as the extended school day is questioned. In secondary education the question has been raised whether choosing arts as"
     },
     {
@@ -2969,6 +5621,26 @@ window.CORPUS_DATA = {
         "language",
         "teacherhood",
         "technology"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "measurable_faculty",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "language_reflection",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "artists_makers"
       ],
       "excerpt": "Copyright 2000 by the National Art Education Association Studiesin Art Education A Journal of Issues and Research 2000.41(3),228-257 Learning In and Through the Arts: The Question of Transfer Judith M. Burton, Robert Horowitz, and Hal Abeles Center fOr Arts Education Research Teachers College, ColumbiaUniversity Corres"
     },
@@ -2997,6 +5669,26 @@ window.CORPUS_DATA = {
         "language",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "creative_capacity",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "language_reflection",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "mind_concepts",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
+      ],
       "excerpt": "I Maxine Greene begins her Preface to the new edition of John Dewey's How WeThink (I 999) by pointing out how far we are from the kind of edu- cational vision offered by Dewey in 1933. Burton Teachers College, Columbia University This paper offers a picture of children's minds engaged in the arts as makers and appraise"
     },
     {
@@ -3020,6 +5712,26 @@ window.CORPUS_DATA = {
       "signals": [
         "language",
         "equity"
+      ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "creative_capacity",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "making_performance",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "pedagogical_institutions",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "communities_publics"
       ],
       "excerpt": "Copyright 200 I by the NationalAn Education Association in Art Education AJournal of Issues and Research 2001, 42(4), 372-375 Correspondence concerningthis response should be addressed to the author at The Florida State University, Department of Art Education, School of Visual Arts and Dance, 126 MCH, Tallahassee, FL 3"
     },
@@ -3046,6 +5758,26 @@ window.CORPUS_DATA = {
         "place",
         "materiality",
         "technology"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "creative_capacity",
+        "machinic_relation"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "developmental_observation",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "place_ecology",
+        "artworks_materials",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "communities_publics",
+        "artists_makers",
+        "machines_nonhumans"
       ],
       "excerpt": "Copyright 200 I by the National An Education Association Studiesin Art Education A Journal of Issues and Research 2001,42(3),266-278 The co-authors of this article contributed equally to its conceptualization and presentation. Correspondence regarding this article should be addressed to Kristin G."
     },
@@ -3074,6 +5806,26 @@ window.CORPUS_DATA = {
         "materiality",
         "place"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "machinic_relation",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "judgment_critique",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "media_machines",
+        "body_affect"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "machines_nonhumans",
+        "identity_marked_subjects"
+      ],
       "excerpt": "Gaudelius Penn State University The authors of this article argue that cyborg myth serves as a critical metaphor by which to expose, examine, and critique the social, political, and aesthetic impact of information technology on the posthuman body and its identity."
     },
     {
@@ -3095,6 +5847,25 @@ window.CORPUS_DATA = {
         "transfer",
         "language",
         "place"
+      ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "situated_practice",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "participation_relation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "artworks_materials",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers"
       ],
       "excerpt": "Brown CollegeofFine Arts, The University afNew South Wales Redressing the marginalization of the arts is often linked with attempts to redefine and broaden their cognitive structure. Recent evidence of transferability between knowledge in the arts and other curriculum domains is currently advanced as one useful approac"
     },
@@ -3118,6 +5889,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "interpretive_meaning",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "language_reflection",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "vision_perception",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "teachers_educators",
+        "identity_marked_subjects"
       ],
       "excerpt": "Copyright 2002 by the National Art Education Association Studiesill Art Education A Journal of Issues and Research 2002,4](4).291-292 Editorial Duchamp, Dewey, and a Fountain of Knowledge Graeme Sullivan SeniorEditor Marcel Ducharnp's Fountain is one of the most enigmatic icons of the past century."
     },
@@ -3146,6 +5937,26 @@ window.CORPUS_DATA = {
         "identity",
         "materiality"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "measurable_faculty",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "language_reflection",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "artworks_materials",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "identity_marked_subjects"
+      ],
       "excerpt": "Copyright 2002 by the National An Education Association Studiesin Art Education A Journal of Issues and Research 2002.43(2).158-174 Responses to Art Attention-Training by English and Bilingual Spanish-Speaking Students With and Without ADHD Andres U. Wilbur Purdue University Correspondence regard- ing this article shou"
     },
     {
@@ -3172,6 +5983,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "technology"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "interpretive_meaning",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "participation_relation",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "vision_perception",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "communities_publics"
+      ],
       "excerpt": "Copyright 2003 by rhe National Art Education Association in Art Education A Journal ofIssues and Research 2003. Bolin University ofTexas Doug B1andy University ofOregon Author Note: The lisring ofauthors for this article is arbitrary. Correspondence regarding this commen- tary may be addressed to Doug Blandy, 5230 Univ"
     },
     {
@@ -3192,6 +6023,26 @@ window.CORPUS_DATA = {
       "signals": [
         "language",
         "technology"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "measurable_faculty",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "making_performance",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "mind_concepts",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "disabled_gifted_subjects"
       ],
       "excerpt": "Copyright 2003 hy the National Art Education Association in Art Education A Journal of Issues and Research 2003. 290-296 Commentary: Visual Culture, Visual Brain, and (Art) Education Anna M. Kindler TheHongKong Institute ofEducation Correspondence regarding this commentary should be addressed to the author at the Schoo"
     },
@@ -3219,6 +6070,26 @@ window.CORPUS_DATA = {
         "museum",
         "place"
       ],
+      "definitionFrames": [
+        "creative_capacity",
+        "embodied_attunement",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "participation_relation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "mind_concepts",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "communities_publics",
+        "teachers_educators"
+      ],
       "excerpt": "Copyright 2004 by the National Art EducationAssociation in Art Education AJournal of Issuesand Research 2004, 45(3), 189-205 Drawing on Experience: A Study ofVietnam Veteran Artists Karl F. Michel Western Carolina University This study is an exploration of the art produced by American veterans of the Vietnam War."
     },
     {
@@ -3244,6 +6115,26 @@ window.CORPUS_DATA = {
         "place",
         "language",
         "identity"
+      ],
+      "definitionFrames": [
+        "machinic_relation",
+        "situated_practice",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "making_performance",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "media_machines",
+        "vision_perception",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "artists_makers"
       ],
       "excerpt": "Sweeny Indiana University ofPennsylvania Correspondence regarding thisarticle shouldbe addressed to the author at The College of FineArts, Deparrment of An Education, 115 Sprowls Hall, Indiana,PA 15701. E-mail: sweenY@iup.edu Contemporary societies are in the process of developing digital technological networks that si"
     },
@@ -3272,6 +6163,26 @@ window.CORPUS_DATA = {
         "place",
         "technology"
       ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "situated_practice",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "judgment_critique",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "communities_publics",
+        "teachers_educators",
+        "children_students"
+      ],
       "excerpt": "45(4),343-358 Museum Education as Curriculum: Four Models, Leading to a Fifth Elizabeth Vallance NorthernIllinoisUniversity Though art educators in museums and in schools share content fields and professional backgrounds, they operate under quite different practical constraints."
     },
     {
@@ -3296,6 +6207,26 @@ window.CORPUS_DATA = {
         "language",
         "technology"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "interpretive_meaning",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "making_performance",
+        "technical_fluency"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "relations_culture",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "communities_publics"
+      ],
       "excerpt": "E-mail: pduncum@uiuc.edu 1wish to rhank my colleagues Robin Wills at the University of Tasmania and Angela Thomas at the University of Sydney for their invaluable assisrance in the devel- opment of this arride. The central claim of this article is that contemporary cultural forms such as tele- vision and the Internet i"
     },
     {
@@ -3318,6 +6249,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "materiality"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "situated_practice",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "making_performance",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
       ],
       "excerpt": "Copyright 2005 by the NationalAn Education Association in An Education A Journal of Issues and Research 2005. 211-226 Foundations for Design Education: Continuing the Bauhaus WJrkurs Vision Fern Lerner Teachers College, Columbia University The Bauhaus Vorkurs (Foundation Course) is discussed as a versatile, enduring pr"
     },
@@ -3345,6 +6296,26 @@ window.CORPUS_DATA = {
         "care",
         "technology"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "interpretive_meaning",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "developmental_observation",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "relations_culture",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "communities_publics",
+        "teachers_educators",
+        "children_students"
+      ],
       "excerpt": "Copyrighr 2005 by rhe National Arc Education Association in Art Education AJournal of Issues and Research 2005,46(2),150-169 Qualifications and the Professional Preparation and Development ofArt Museum Educators David Ebitz Pennsylvania State University Correspondence concerningthis article should be addressed to the a"
     },
     {
@@ -3370,6 +6341,26 @@ window.CORPUS_DATA = {
         "language",
         "identity",
         "place"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "interpretive_meaning",
+        "machinic_relation"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "participation_relation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "mind_concepts",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "identity_marked_subjects",
+        "communities_publics"
       ],
       "excerpt": "Smith-Shank Northern Illinois University The belief that art should not be a handmaiden to social studies has continued in art education discourse since the 1920s. We explore the handmaiden metaphor in art education and in popular texts. She is both needed and despised for her metaphorical acts of curriculum integratio"
     },
@@ -3398,6 +6389,26 @@ window.CORPUS_DATA = {
         "museum",
         "place"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "interpretive_meaning",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "participation_relation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "identity_marked_subjects",
+        "teachers_educators"
+      ],
       "excerpt": "102-117 \"Tupy or not tupy?\" Examining Hybridity in Contemporary Brazilian Art Flavia M. Bastos UniversityafCincinnati Correspondence regarding this article should be addressed to the author at School of Art, Universityof Cincinnati, P.O. E-mail: flavia.bastos@uc.edu Updating the 1920s notion of Anthropophagy developed"
     },
     {
@@ -3422,6 +6433,26 @@ window.CORPUS_DATA = {
         "place",
         "equity",
         "technology"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "machinic_relation",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "participation_relation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "place_ecology",
+        "relations_culture",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "communities_publics"
       ],
       "excerpt": "Graham BrighamYoung University In contemporary life and education, the local is marginalized in favor oflarge-scale economies ofconsumption thar are indifferent to ecological concerns. The conse- quences of neglecting local human and natural communities include a degraded habitat, loss of wilderness, alienation, rootle"
     },
@@ -3449,6 +6480,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "technology"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "embodied_attunement",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "language_reflection",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "place_ecology",
+        "relations_culture",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "communities_publics"
+      ],
       "excerpt": "E-mail: gradle@ siu.edu 1A susrainable education, according to educator Nel Noddings (2005), is a method that continually supports human activity, whether it is through preserva- tionist studies, the devel- opment of a concern for local/global connections, or one that builds on the phenomenon of lived place experiences"
     },
     {
@@ -3475,6 +6526,26 @@ window.CORPUS_DATA = {
         "materiality",
         "technology"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "perceptual_sensitivity",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "language_reflection",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "vision_perception",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "teachers_educators",
+        "children_students"
+      ],
       "excerpt": "Correspondence regarding this article may be sent to Julia Marshall at the Art Department, San Francisco State University, 1600 Holloway Avenue, San Francisco, CA 94132. This article explores how artmaking functions as research through the creation of visual images, especially images that picture concepts, to create ne"
     },
     {
@@ -3499,6 +6570,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "place",
         "materiality"
+      ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "situated_practice",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "developmental_observation",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "pedagogical_institutions",
+        "media_machines"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
       ],
       "excerpt": "Swann University of Northern Iowa Correspondence regarding this article may be sent to the author at Freeburg Program for Early Childhood Education, 1913 Heath Street, University of Northern Iowa, Waterloo IA, 50703. E-mail: annette.swann@ uni.edu Author's Note This article was part of a panel presen- tation \"Interpret"
     },
@@ -3526,6 +6617,26 @@ window.CORPUS_DATA = {
         "care",
         "equity"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "embodied_attunement",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "making_performance",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "place_ecology",
+        "relations_culture",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "identity_marked_subjects",
+        "teachers_educators"
+      ],
       "excerpt": "Correspondence regarding this article may be sent to the author at School of Art, Northern Illinois University, DeKalb, IL 60115. I combine place-based and visual culture art education with multicultural children's picture books to promote more connection and pleasure in the teaching and learning process."
     },
     {
@@ -3546,6 +6657,26 @@ window.CORPUS_DATA = {
       "signals": [
         "place",
         "identity"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "situated_practice",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "making_performance",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "mind_concepts",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
       ],
       "excerpt": "The present article written with over 60 years of hindsight, offers a gentle critique of Lowenfeld's theory of creative intelligence as exemplified within his concepts of developmental stages, growth components, and final outcomes. Yet, by paring away some of his outmoded surfaces, there lurks within Lowenfeld's semina"
     },
@@ -3572,6 +6703,26 @@ window.CORPUS_DATA = {
         "technology",
         "place"
       ],
+      "definitionFrames": [
+        "creative_capacity",
+        "situated_practice",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "technical_fluency",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "communities_publics"
+      ],
       "excerpt": "It accrues in its value in the micro-moments and recursive capitulations between the teacher and students in the genesis of possibilities and in the resolution of the artworks.\" Creativity in Artmaking as a Function of Misrecognition in Teacher-Student Relations in the Final Year of Schooling K e r r y T h om a s Unive"
     },
     {
@@ -3596,6 +6747,26 @@ window.CORPUS_DATA = {
         "place",
         "museum",
         "technology"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "measurable_faculty",
+        "machinic_relation"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "participation_relation",
+        "technical_fluency"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "relations_culture",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "communities_publics",
+        "identity_marked_subjects"
       ],
       "excerpt": "E-mail: funk.86@osu.edu 1 Sources consulted for this article include archives and text- books of the period. The Minneapolis Public Library Special Collections provided news clippings and ephemera about the Federal School (Bartholomew, 1914; Saunders, 1955). The Cartoon Research Library at The Ohio State University pro"
     },
@@ -3622,6 +6793,26 @@ window.CORPUS_DATA = {
         "place",
         "identity",
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "situated_practice",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "participation_relation",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "communities_publics",
+        "artists_makers"
       ],
       "excerpt": "Currently, creativity may not be a primary focus at National Art Education Association conferences or in its publications. There are recent indications that art education is a site where creativity can be developed and nurtured for all students with emphasis on both individual processes and cultural practices."
     },
@@ -3650,6 +6841,26 @@ window.CORPUS_DATA = {
         "language",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "embodied_attunement",
+        "creative_capacity",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "participation_relation",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "body_affect",
+        "pedagogical_institutions",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "teachers_educators"
+      ],
       "excerpt": "Amorino Kean University Author's Note The basis of this study was a doctoral dissertation completed at Columbia University Teachers College, 1999. Joseph Amorino, Art Education Program Coordinator, Kean University, VE 430, 1000 Morris Avenue, Union, NJ 07083-7133."
     },
     {
@@ -3676,6 +6887,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "language"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "perceptual_sensitivity",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "developmental_observation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "vision_perception",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "communities_publics"
+      ],
       "excerpt": "Recognizing African American underrepresentation in visual arts studies and professions, this article explores how African American youth conceptualize art as a pursuit, and \"artist\" as a possible identity. Aspects of the identity development process that are particularly salient to minority youth are found to play a s"
     },
     {
@@ -3700,6 +6931,26 @@ window.CORPUS_DATA = {
         "language",
         "place",
         "transfer"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "embodied_attunement",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "developmental_observation",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "relations_culture",
+        "body_affect"
+      ],
+      "subjectFrames": [
+        "disabled_gifted_subjects",
+        "children_students",
+        "communities_publics"
       ],
       "excerpt": "Synthesizing the perspectives of an array of disciplines, this theoretical investigation seeks to balance the empirical strengths and the theoretical richness of both the sciences and the humanities to achieve a more profound understanding of the role of artmaking in human experience and learning."
     },
@@ -3726,6 +6977,26 @@ window.CORPUS_DATA = {
         "museum",
         "place",
         "equity"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "machinic_relation",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "making_performance",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "pedagogical_institutions",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
       ],
       "excerpt": "PDF available from Wallace Foundation website: http://www.wallacefoundation.org/KnowledgeCenter/ KnowledgeTopics/CurrentAreasofFocus/ArtsParticipation/Documents/Qualities-of-Quality- Understanding-Excellence-Arts-Education.pdf B r e n t W il s o n Pennsylvania State University The Quality of Qualities The Wallace Found"
     },
@@ -3754,6 +7025,26 @@ window.CORPUS_DATA = {
         "museum",
         "place"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "creative_capacity",
+        "machinic_relation"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "participation_relation",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "pedagogical_institutions",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "communities_publics"
+      ],
       "excerpt": "\"In certain moments and at certain times we encounter a radical Otherness within ourselves. t A v i n The Ohio State University Employing Lacanian theory as a necessary supplement to contemporary approaches in art education, this article provides a critique and response to art education discourse around \"cognition.\" Th"
     },
     {
@@ -3780,6 +7071,26 @@ window.CORPUS_DATA = {
         "language",
         "place"
       ],
+      "definitionFrames": [
+        "embodied_attunement",
+        "measurable_faculty",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "making_performance",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "body_affect",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "communities_publics"
+      ],
       "excerpt": "Stressors unique to art education can cause teachers to lose heart in such a way that their ability to perform is compromised. To teach effectively, teachers must maintain resilience to cope with stress. Pedagogical humor, a theme of resilience, serves teachers socially, emotionally, and cognitively in classroom practi"
     },
     {
@@ -3805,6 +7116,26 @@ window.CORPUS_DATA = {
         "identity",
         "language",
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "embodied_attunement",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "language_reflection",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "relations_culture",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "disabled_gifted_subjects",
+        "artists_makers",
+        "children_students"
       ],
       "excerpt": "While art education has persistently supported special education since its inception, disability advocacy has advanced in the past two decades toward self-awareness, self-reliance, and self- expression. The article demonstrates how disability studies, as the academic manifestation of this trend, can critically elaborat"
     },
@@ -3833,6 +7164,26 @@ window.CORPUS_DATA = {
         "language",
         "place"
       ],
+      "definitionFrames": [
+        "embodied_attunement",
+        "interpretive_meaning",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "developmental_observation",
+        "technical_fluency"
+      ],
+      "locationFrames": [
+        "body_affect",
+        "pedagogical_institutions",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "teachers_educators"
+      ],
       "excerpt": "Combining the methods of microethnographic observations and phenomenological interviews to document the process of artistic schooling in situ, the author uncovered playful mindfulness among students while they completed the required skill acquisition in Singapore secondary schools."
     },
     {
@@ -3860,6 +7211,26 @@ window.CORPUS_DATA = {
         "identity",
         "language"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "perceptual_sensitivity",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "language_reflection",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "pedagogical_institutions",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "communities_publics",
+        "teachers_educators"
+      ],
       "excerpt": "This article provides a description of a community-based diversity project in which students develop knowledge, skills, and dispositions by participating in meetings and discourses with individuals or groups of people from other ethnic and racial backgrounds. The outcomes of the student projects are then conceptualized"
     },
     {
@@ -3885,6 +7256,26 @@ window.CORPUS_DATA = {
         "place",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "situated_practice",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "language_reflection",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "mind_concepts",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "communities_publics"
+      ],
       "excerpt": "The Pennsylvania State University S ch ul t e Reconceptualizing the relationship between a child/subject and the adult/researcher is necessary in order to begin unraveling the possibilities entangled in children's learning practices, particularly those articulated by/through children's drawing performances."
     },
     {
@@ -3909,6 +7300,26 @@ window.CORPUS_DATA = {
         "language",
         "identity",
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "perceptual_sensitivity",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "participation_relation",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "relations_culture",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "disabled_gifted_subjects",
+        "children_students",
+        "teachers_educators"
       ],
       "excerpt": "Art and Disability: The Social and Political Struggles Facing Education Wexler, A. This review comparatively discusses two recent books that inter- sect art and disability: Alice Wexler's (2009) Art and Disability: The Social and Political Struggles Facing Education and Beverly Gerber and Julia Kellman's (2010) edited"
     },
@@ -3936,6 +7347,26 @@ window.CORPUS_DATA = {
         "materiality",
         "technology"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "interpretive_meaning",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "language_reflection",
+        "technical_fluency"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "media_machines",
+        "place_ecology"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "communities_publics",
+        "machines_nonhumans"
+      ],
       "excerpt": "H i c k s In the novel Waterland, the narrator at one point says, \"Children, only animals live entirely in the Here and Now. Wherever he goes he wants to leave behind not a chaotic wake, not an empty space, but the comforting marker-buoys and trail-signs of stories."
     },
     {
@@ -3962,6 +7393,26 @@ window.CORPUS_DATA = {
         "technology",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "creative_capacity",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "participation_relation",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "place_ecology",
+        "mind_concepts",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "communities_publics",
+        "teachers_educators"
+      ],
       "excerpt": "The essay film, with its specific formulation through the self-portrait, operates as Rancière's \"third things\" in a pedagogical encounter that searches for new visibilities for urban childhood through a learner-centered model that acknowledges the creative capacities of urban children, their contributions to the urban"
     },
     {
@@ -3987,6 +7438,26 @@ window.CORPUS_DATA = {
         "museum",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "creative_capacity",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "developmental_observation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "mind_concepts",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "communities_publics",
+        "children_students",
+        "teachers_educators"
+      ],
       "excerpt": "L A P O R T E University of Arkansas, Fayetteville Quality community-based art education programs for older adults over the age of 50 should exploit the broad range of interests and cognitive abilities of participants by utilizing adult education theory, brain research, and the best practices of adult art education pro"
     },
     {
@@ -4010,6 +7481,26 @@ window.CORPUS_DATA = {
       "signals": [
         "technology",
         "language"
+      ],
+      "definitionFrames": [
+        "machinic_relation",
+        "situated_practice",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "language_reflection",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "pedagogical_institutions",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "communities_publics"
       ],
       "excerpt": "P a T T o n Virginia Commonwealth University This action research study examines the making of video games, using an integrated development environment software program called GameMaker, as art education curriculum for students between the ages of 8-13. Through a method I designed, students created video games using th"
     },
@@ -4036,6 +7527,26 @@ window.CORPUS_DATA = {
         "materiality",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "interpretive_meaning",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "developmental_observation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "artworks_materials",
+        "pedagogical_institutions"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "\" This can be understood in part as a supposed natural desire to see: to see things in particular ways, and to know things through specific practices of looking. The will to see is inherently self-justifying and tied tightly to the presup- position that the more we see, the more knowledge we gain (I see = I know)."
     },
     {
@@ -4060,6 +7571,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "identity",
         "language"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "perceptual_sensitivity",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "making_performance",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "artists_makers"
       ],
       "excerpt": "Interestingly, both accounts employ play as an advantageous tool for negotiating the often-contentious terrain of theory and practice. Pfeiler-Wunder and Tomel recruit the possibilities of play to push against curricular tensions and reconceptualize power relations in the classroom while Pariser relates instances in wh"
     },
@@ -4088,6 +7619,26 @@ window.CORPUS_DATA = {
         "museum",
         "place"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "situated_practice",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "testing_scoring",
+        "making_performance",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "mind_concepts",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "communities_publics"
+      ],
       "excerpt": "D I K E T William Carey University L I H U A X U University of Central Florida T H O M A S M . B R E W E R University of Central Florida The aspirational model resulted from the authors' secondary analysis of the Mother/Child (M/C) test block from the 2008 National Assessment of Educational Progress restricted data tha"
     },
     {
@@ -4112,6 +7663,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "language",
         "materiality"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "embodied_attunement",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "making_performance",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "relations_culture",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "disabled_gifted_subjects",
+        "communities_publics"
       ],
       "excerpt": "We analyze the history surrounding institutional art and the emergence of community art centers at the time of deinstitutionalization in the late 20th century. As a result of this synchronicity, art centers were able to offer the Arts as a means of communication, as well as to assist disabled people in making smooth tr"
     },
@@ -4140,6 +7711,26 @@ window.CORPUS_DATA = {
         "identity",
         "language"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "embodied_attunement",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "making_performance",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "media_machines",
+        "place_ecology",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
+      ],
       "excerpt": "Taking Nick Prior's (2010) notion of the \"new amateur\" as point of departure, I argue that new media and attendant production contexts offer an unprecedented occasion for rethinking the educational experiments of Joseph Jacotot (the subject of Rancière's The Ignorant Schoolmaster, 1991)."
     },
     {
@@ -4166,6 +7757,26 @@ window.CORPUS_DATA = {
         "care",
         "materiality"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "machinic_relation",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "technical_fluency",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "artworks_materials",
+        "media_machines"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "teachers_educators"
+      ],
       "excerpt": "Astute educators will also notice a changed attitude toward learning a learning culture that contrasts how schools get things done with how youth get things done. J O N E S Marana Unified School District, Fine and Performing Arts Academy, Tucson, AZ As social technologies burgeon, the pressure on education to respond a"
     },
     {
@@ -4188,6 +7799,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "interpretive_meaning",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "judgment_critique",
+        "participation_relation",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "mind_concepts",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "artists_makers",
+        "children_students"
       ],
       "excerpt": "P A U F L E R A U D R E Y A M R E I N - B E A R D S L E Y Arizona State University When you do things long enough and thoughtful enough, you change yourself. In fact, the role of education might be conceived of as the invention of yourself. Elliot Eisner distinguished artist, scholar, and professor emeritus at Stanford"
     },
@@ -4213,6 +7844,26 @@ window.CORPUS_DATA = {
         "equity",
         "teacherhood",
         "identity"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "interpretive_meaning",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "participation_relation",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "vision_perception",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "identity_marked_subjects",
+        "teachers_educators"
       ],
       "excerpt": "When this happens, teachers are dealing with difficult knowledge.\" Post Stereotypes: Deconstructing Racial Assumptions and Biases Through Visual Culture and Confrontational Pedagogy Y U H A J U N G The University of Kentucky The Post Stereotypes project embodies confrontational pedagogy and involves postcard artmaking"
     },
@@ -4241,6 +7892,26 @@ window.CORPUS_DATA = {
         "identity",
         "language"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "creative_capacity",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "participation_relation",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "artworks_materials",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "communities_publics"
+      ],
       "excerpt": "From the inclusion of local food to the removal of the hated sporks (the plastic fork-spoon implement), stu- dents worked with food instructor Johanna Gilligan at the New Orleans Food and Farm Network and chef Katie Bingham, veteran of Dante's Kitchen, to rethink the school cafeteria."
     },
     {
@@ -4265,6 +7936,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "care",
         "language"
+      ],
+      "definitionFrames": [
+        "embodied_attunement",
+        "situated_practice",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "participation_relation",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "body_affect",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "artists_makers"
       ],
       "excerpt": "Dispositions that contextualize these capacities come from the affective aptitudes of teachers' inner lives where feelings, perceptions, and beliefs reside (Klein, 2008). This article offers a theoretical, research-based interpre- tation of findings from a preceding study that observed a positive relationship between t"
     },
@@ -4291,6 +7982,26 @@ window.CORPUS_DATA = {
         "equity",
         "museum",
         "technology"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "creative_capacity",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "making_performance",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "pedagogical_institutions",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "teachers_educators",
+        "communities_publics"
       ],
       "excerpt": "Many of the metallic spinners were circular, but teardrops hung here and there. As I walked down the stairs, some shapes suggested sunbursts or multi-petaled blos- soms; other repeated circles like targets surrounded silhouettes of guns. Walking through the sparkling strings, I approached a cloudscape where masses of c"
     },
@@ -4319,6 +8030,26 @@ window.CORPUS_DATA = {
         "museum",
         "place"
       ],
+      "definitionFrames": [
+        "machinic_relation",
+        "embodied_attunement",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "making_performance",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "media_machines",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "communities_publics"
+      ],
       "excerpt": "At the time, I had just completed my doctoral studies in developmental psychology at Harvard University. I lived on grant money and recently became the father of Kerith (born 1969) and Jay (born 1971). As a student of Jean Piaget (1983), Jerome Bruner (Bruner, Olver, & Greenfield, 1966), and other developmental psychol"
     },
     {
@@ -4342,6 +8073,26 @@ window.CORPUS_DATA = {
       "signals": [
         "place",
         "equity"
+      ],
+      "definitionFrames": [
+        "measurable_faculty",
+        "situated_practice",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "language_reflection",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "artworks_materials",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "disabled_gifted_subjects",
+        "children_students"
       ],
       "excerpt": "In 2017, the lecture was presented in New York by Jennifer (Eisenhauer) Richardson, Associate Professor in the Department of Arts Administration, Education, and Policy at The Ohio State University. The Art and Politics of Artists With Mental Disabilities Experiencing Confinement J E N N I F E R ( E I S E N H A U E R )"
     },
@@ -4367,6 +8118,26 @@ window.CORPUS_DATA = {
         "equity",
         "materiality",
         "place"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "interpretive_meaning",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "judgment_critique",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "artworks_materials",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "teachers_educators",
+        "communities_publics"
       ],
       "excerpt": "His own work has provided my graduate students and me with hours of debate, argumentation, insight, and implications for practice. From my standpoint, discussion is one important use for all theorizing in an applied field like ours. Furthermore, given my frequent use of his writings as well as those he has coauthored w"
     },
@@ -4395,6 +8166,26 @@ window.CORPUS_DATA = {
         "language",
         "place"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "measurable_faculty",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "language_reflection",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "place_ecology",
+        "mind_concepts",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "machines_nonhumans",
+        "artists_makers",
+        "teachers_educators"
+      ],
       "excerpt": "I investigate the question of human nonhuman animal relationships by discussing the ideas of posthumanism and speciesism as forms of discrimination, similar to other forms of oppression. Challenging the grounds of discrimination leads to a better understanding of human relationships with nonhuman lives."
     },
     {
@@ -4420,6 +8211,26 @@ window.CORPUS_DATA = {
         "place",
         "language",
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "embodied_attunement",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "making_performance",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "relations_culture",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "communities_publics",
+        "teachers_educators"
       ],
       "excerpt": "By sharing a painting event I observed during an ethnographic case study in the arts-integrated kindergarten classroom of a university- affiliated childcare center in Pennsylvania, I examine how children negotiate the rules and roles imposed on them over the desire to work \"out of the lines.\" In doing so, I raise quest"
     },
@@ -4448,6 +8259,26 @@ window.CORPUS_DATA = {
         "language",
         "place"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "interpretive_meaning",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "language_reflection",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "media_machines",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "identity_marked_subjects",
+        "teachers_educators",
+        "children_students"
+      ],
       "excerpt": "Toward these goals, we present the results of a research project we developed for 29 preservice art teachers from an urban university that explored lesbian, gay, bisexual, transgender, queer, and other sexual and gender minorities (LGBTQ+) stereotypes in child- oriented media like animated movies and cartoons."
     },
     {
@@ -4474,6 +8305,26 @@ window.CORPUS_DATA = {
         "equity",
         "place"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "embodied_attunement",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "developmental_observation",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "disabled_gifted_subjects",
+        "artists_makers"
+      ],
       "excerpt": "GROSS Northern Illinois University In this article, I examine inclusion, disability, image making, and representation through case studies in a high school setting. K 12 school settings often focus on student deficits; however, the theories of disability studies provide a critical model for understanding language, disa"
     },
     {
@@ -4499,6 +8350,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "identity"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "interpretive_meaning",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "developmental_observation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "relations_culture",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "children_students",
+        "identity_marked_subjects"
+      ],
       "excerpt": "\"The inequalities and limitations experienced by non-Western cultures and minority populations in the global art environment are reversible through transmodernism' s deprimitivizing, decentralizing, and decolonizing \" essences. A D E J U M O The University of Texas at Austin In this article, I consider the artistic and"
     },
     {
@@ -4522,6 +8393,26 @@ window.CORPUS_DATA = {
       "signals": [
         "teacherhood",
         "place"
+      ],
+      "definitionFrames": [
+        "perceptual_sensitivity",
+        "creative_capacity",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "participation_relation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "vision_perception",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "artists_makers"
       ],
       "excerpt": "A case study of primary preservice generalist educators at a Spanish university was conducted to determine whether or not this perspective has evolved. It was of interest to examine whether preservice educators understand the way in which art education develops comprehensive and analytical skills."
     },
@@ -4550,6 +8441,26 @@ window.CORPUS_DATA = {
         "place",
         "care"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "machinic_relation",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "participation_relation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "pedagogical_institutions",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "teachers_educators",
+        "communities_publics"
+      ],
       "excerpt": "S W E E N Y The PBS series Finding Your Roots, hosted by Henry Louis Gates, Jr. (2012 present), combines personal family genealogies with advanced genetic science to present compelling, often dramatic views into the lives of prominent entertainers, authors, artists, and politicians."
     },
     {
@@ -4575,6 +8486,26 @@ window.CORPUS_DATA = {
         "place",
         "care"
       ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "embodied_attunement",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "language_reflection",
+        "developmental_observation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "communities_publics",
+        "children_students",
+        "teachers_educators"
+      ],
       "excerpt": "D O N A H U E University of San Francisco Art museum educators have drawn on contemporary learning theories emphasizing viewers' meaning-making as individual, constructed, con- textual, and subject to interpretation. This learner-centered turn toward meaning-making and away from the object and the discipline of art app"
     },
     {
@@ -4597,6 +8528,22 @@ window.CORPUS_DATA = {
         "technology",
         "language",
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "machinic_relation",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "media_machines",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "machines_nonhumans",
+        "identity_marked_subjects"
       ],
       "excerpt": "This article aims to envision how entanglements with nonhuman intelligences can unsettle and reshape pedagogical approaches in the field of art education. I argue for the need to reconceptualize relations between humans and artificial intelligence (AI) as collaborative and symbiotic relationships beyond instrumental un"
     },
@@ -4625,6 +8572,26 @@ window.CORPUS_DATA = {
         "language",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "creative_capacity",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "developmental_observation",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "place_ecology",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "communities_publics",
+        "teachers_educators"
+      ],
       "excerpt": "In 2022, the lecture was presented in New York City by James Haywood Rolling, Jr., of Syracuse University. This article, unearthing lessons from human social history about how cultural and industrial revolutions have been shaped in the wake of calamity, is based on the subject of that lecture."
     },
     {
@@ -4648,6 +8615,26 @@ window.CORPUS_DATA = {
       "signals": [
         "technology",
         "materiality"
+      ],
+      "definitionFrames": [
+        "machinic_relation",
+        "situated_practice",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "making_performance",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "media_machines",
+        "artworks_materials",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "machines_nonhumans",
+        "teachers_educators",
+        "artists_makers"
       ],
       "excerpt": "K N O C H E L The Pennsylvania State University With the release of artificial intelligence image-generation platforms to the broader public in 2022, there is an opportunity to evaluate how image-making practices may change and speculate how graphic design software, such as Photoshop, may evolve."
     },
@@ -4673,6 +8660,22 @@ window.CORPUS_DATA = {
         "technology",
         "place",
         "identity"
+      ],
+      "definitionFrames": [
+        "machinic_relation",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "media_machines",
+        "place_ecology",
+        "body_affect"
+      ],
+      "subjectFrames": [
+        "machines_nonhumans"
       ],
       "excerpt": "As new materialist Karen Barad argued, materiality is frequently regarded as nontheoretical it is seen as phys- ical, practical, and has been historically associated with the feminine. In part, materiality is seen as nontheoretical because much of the know- ledge humans construct from it is tacit, meaning that words ca"
     }
@@ -6068,122 +10071,3288 @@ window.CORPUS_DATA = {
     {
       "id": "language",
       "label": "Language and semiotics",
+      "count": 108,
       "description": "Language, verbal response, semiotics, and metaphor as adjacent frames for intelligence.",
       "cues": [
         "language",
         "verbal response",
         "semiotics",
         "metaphor"
-      ],
-      "count": 108
+      ]
     },
     {
       "id": "teacherhood",
       "label": "Teachers and professional formation",
+      "count": 93,
       "description": "Teachers, preservice formation, professional identity, and the conditions of teaching practice.",
       "cues": [
         "teacher",
         "preservice",
         "professional formation",
         "teacher stress"
-      ],
-      "count": 93
+      ]
     },
     {
       "id": "place",
       "label": "Place and ecology",
+      "count": 92,
       "description": "Place, ecology, environment, and relational world-making around intelligence discourse.",
       "cues": [
         "place",
         "ecology",
         "environment",
         "relational world"
-      ],
-      "count": 92
+      ]
     },
     {
       "id": "technology",
       "label": "Technology and media",
+      "count": 55,
       "description": "Technology, media, digital systems, film, games, and AI adjacent to intelligence.",
       "cues": [
         "digital",
         "computing",
         "AI",
         "film and games"
-      ],
-      "count": 55
+      ]
     },
     {
       "id": "materiality",
       "label": "Materiality",
+      "count": 43,
       "description": "Material culture, new materialism, and the agency of materials in art learning.",
       "cues": [
         "material culture",
         "new materialism",
         "materiality",
         "materials"
-      ],
-      "count": 43
+      ]
     },
     {
       "id": "identity",
       "label": "Identity and aspiration",
+      "count": 35,
       "description": "Identity formation, self-positioning, aspiration, and subject formation around art learning.",
       "cues": [
         "identity",
         "aspiration",
         "subject formation",
         "self-positioning"
-      ],
-      "count": 35
+      ]
     },
     {
       "id": "equity",
       "label": "Equity and justice",
+      "count": 30,
       "description": "Equality, justice, bias, emancipation, and anti-oppressive signals adjacent to intelligence.",
       "cues": [
         "equity",
         "justice",
         "bias",
         "emancipation"
-      ],
-      "count": 30
+      ]
     },
     {
       "id": "museum",
       "label": "Museum and public learning",
+      "count": 29,
       "description": "Museums and public-facing art learning beyond the classroom.",
       "cues": [
         "museum",
         "gallery",
         "public learning"
-      ],
-      "count": 29
+      ]
     },
     {
       "id": "care",
       "label": "Care and wellbeing",
+      "count": 28,
       "description": "Care, mindfulness, wellbeing, resilience, and stress as adjacent signals.",
       "cues": [
         "care",
         "mindfulness",
         "wellbeing",
         "resilience"
-      ],
-      "count": 28
+      ]
     },
     {
       "id": "transfer",
       "label": "Transfer",
+      "count": 11,
       "description": "Transfer of learning across contexts, domains, or forms of art education.",
       "cues": [
         "transfer",
         "carryover",
         "cross-domain learning"
-      ],
-      "count": 11
+      ]
     }
   ],
+  "conceptualQuestions": {
+    "definitions": {
+      "title": "How intelligence is defined",
+      "articleKey": "definitionFrames",
+      "bucketKey": "definitions",
+      "noun": "definition frame",
+      "definitions": [
+        {
+          "id": "measurable_faculty",
+          "label": "As measurable faculty",
+          "description": "Intelligence is defined as an ability that can be tested, scored, staged, or compared.",
+          "cues": [
+            "ability",
+            "measurement",
+            "score",
+            "developmental stage"
+          ],
+          "keywords": [
+            "\\bability\\b",
+            "\\babilities\\b",
+            "\\bmeasure",
+            "\\bmeasurement\\b",
+            "\\bscore\\b",
+            "\\bpsychometric\\b",
+            "\\bintelligence test\\b",
+            "\\biq\\b",
+            "\\bcriteria\\b",
+            "\\bdevelopmental stage\\b"
+          ]
+        },
+        {
+          "id": "creative_capacity",
+          "label": "As creative capacity",
+          "description": "Intelligence is defined as imagination, originality, invention, or creative production.",
+          "cues": [
+            "creativity",
+            "imagination",
+            "divergence",
+            "originality"
+          ],
+          "keywords": [
+            "\\bcreativ",
+            "\\bimagin",
+            "\\bdivergent\\b",
+            "\\boriginality\\b",
+            "\\binvention\\b",
+            "\\bartistic creativity\\b"
+          ]
+        },
+        {
+          "id": "perceptual_sensitivity",
+          "label": "As perceptual sensitivity",
+          "description": "Intelligence is defined as heightened seeing, perception, differentiation, or visual sensitivity.",
+          "cues": [
+            "perception",
+            "seeing",
+            "differentiation",
+            "visual sensitivity"
+          ],
+          "keywords": [
+            "\\bpercept",
+            "\\bseeing\\b",
+            "\\bvisual[- ]spatial\\b",
+            "\\bdifferentiat",
+            "\\bsensitivity\\b",
+            "\\baesthetic perception\\b",
+            "\\battention\\b"
+          ]
+        },
+        {
+          "id": "interpretive_meaning",
+          "label": "As symbolic / interpretive meaning-making",
+          "description": "Intelligence is defined through language, interpretation, criticism, and symbolic meaning.",
+          "cues": [
+            "language",
+            "meaning",
+            "semiotics",
+            "criticism"
+          ],
+          "keywords": [
+            "\\blanguage\\b",
+            "\\bmeaning\\b",
+            "\\bsemiotic\\b",
+            "\\bmetaphor\\b",
+            "\\bcriticism\\b",
+            "\\bresponding\\b",
+            "\\bconversation\\b"
+          ]
+        },
+        {
+          "id": "situated_practice",
+          "label": "As situated social / cultural practice",
+          "description": "Intelligence is defined as relational, cultural, communal, or identity-based practice.",
+          "cues": [
+            "culture",
+            "community",
+            "identity",
+            "relation"
+          ],
+          "keywords": [
+            "\\bsocial\\b",
+            "\\bcultural\\b",
+            "\\bcommunity\\b",
+            "\\bidentity\\b",
+            "\\brelational\\b",
+            "\\bcollective\\b",
+            "\\bsocial justice\\b"
+          ]
+        },
+        {
+          "id": "embodied_attunement",
+          "label": "As embodied / affective attunement",
+          "description": "Intelligence is defined as affective, tacit, bodily, mindful, or emotionally attuned knowing.",
+          "cues": [
+            "embodiment",
+            "affect",
+            "tacit knowing",
+            "emotion"
+          ],
+          "keywords": [
+            "\\bembod",
+            "\\baffect",
+            "\\btacit\\b",
+            "\\bemotion",
+            "\\bmindful",
+            "\\bself-efficacy\\b",
+            "\\bresilien"
+          ]
+        },
+        {
+          "id": "machinic_relation",
+          "label": "As technological / machinic relation",
+          "description": "Intelligence is defined through digital media, computation, AI, and human-machine relation.",
+          "cues": [
+            "digital media",
+            "computation",
+            "AI",
+            "machine relation"
+          ],
+          "keywords": [
+            "\\bcomputer",
+            "\\bcomputing\\b",
+            "\\bdigital\\b",
+            "\\bartificial intelligence\\b",
+            "\\bai\\b",
+            "\\bmachine\\b",
+            "\\bnetwork\\b",
+            "\\bgame\\b",
+            "\\bsynthography\\b"
+          ]
+        }
+      ],
+      "counts": [
+        {
+          "id": "situated_practice",
+          "label": "As situated social / cultural practice",
+          "count": 107,
+          "description": "Intelligence is defined as relational, cultural, communal, or identity-based practice.",
+          "cues": [
+            "culture",
+            "community",
+            "identity",
+            "relation"
+          ]
+        },
+        {
+          "id": "creative_capacity",
+          "label": "As creative capacity",
+          "count": 90,
+          "description": "Intelligence is defined as imagination, originality, invention, or creative production.",
+          "cues": [
+            "creativity",
+            "imagination",
+            "divergence",
+            "originality"
+          ]
+        },
+        {
+          "id": "measurable_faculty",
+          "label": "As measurable faculty",
+          "count": 86,
+          "description": "Intelligence is defined as an ability that can be tested, scored, staged, or compared.",
+          "cues": [
+            "ability",
+            "measurement",
+            "score",
+            "developmental stage"
+          ]
+        },
+        {
+          "id": "interpretive_meaning",
+          "label": "As symbolic / interpretive meaning-making",
+          "count": 80,
+          "description": "Intelligence is defined through language, interpretation, criticism, and symbolic meaning.",
+          "cues": [
+            "language",
+            "meaning",
+            "semiotics",
+            "criticism"
+          ]
+        },
+        {
+          "id": "perceptual_sensitivity",
+          "label": "As perceptual sensitivity",
+          "count": 74,
+          "description": "Intelligence is defined as heightened seeing, perception, differentiation, or visual sensitivity.",
+          "cues": [
+            "perception",
+            "seeing",
+            "differentiation",
+            "visual sensitivity"
+          ]
+        },
+        {
+          "id": "embodied_attunement",
+          "label": "As embodied / affective attunement",
+          "count": 52,
+          "description": "Intelligence is defined as affective, tacit, bodily, mindful, or emotionally attuned knowing.",
+          "cues": [
+            "embodiment",
+            "affect",
+            "tacit knowing",
+            "emotion"
+          ]
+        },
+        {
+          "id": "machinic_relation",
+          "label": "As technological / machinic relation",
+          "count": 24,
+          "description": "Intelligence is defined through digital media, computation, AI, and human-machine relation.",
+          "cues": [
+            "digital media",
+            "computation",
+            "AI",
+            "machine relation"
+          ]
+        }
+      ],
+      "trends": {
+        "earlyWindow": [
+          "1960s",
+          "1970s",
+          "1980s"
+        ],
+        "lateWindow": [
+          "2000s",
+          "2010s",
+          "2020s"
+        ],
+        "rows": [
+          {
+            "id": "situated_practice",
+            "label": "As situated social / cultural practice",
+            "description": "Intelligence is defined as relational, cultural, communal, or identity-based practice.",
+            "earlyCount": 36,
+            "lateCount": 56,
+            "earlyShare": 0.439,
+            "lateShare": 0.812,
+            "delta": 0.373,
+            "direction": "rising sharply",
+            "examples": {
+              "early": [
+                {
+                  "title": "Curriculum in Art Education: The Uncertainty Principle",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650725"
+                },
+                {
+                  "title": "Zero-Based Arts Education: An Introduction to ARTS PROPEL",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650706"
+                },
+                {
+                  "title": "The Development of Information and Attitude toward Art at the Secondary and College Level",
+                  "year": 1966,
+                  "doi": "10.1080/00393541.1966.11650619"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                  "year": 2004,
+                  "doi": "10.1080/00393541.2004.11651771"
+                },
+                {
+                  "title": "Creative and Critical Entanglements With AI in Art Education",
+                  "year": 2023,
+                  "doi": "10.1080/00393541.2023.2255084"
+                },
+                {
+                  "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                  "year": 2009,
+                  "doi": "10.1080/00393541.2009.11518783"
+                }
+              ]
+            }
+          },
+          {
+            "id": "measurable_faculty",
+            "label": "As measurable faculty",
+            "description": "Intelligence is defined as an ability that can be tested, scored, staged, or compared.",
+            "earlyCount": 54,
+            "lateCount": 21,
+            "earlyShare": 0.659,
+            "lateShare": 0.304,
+            "delta": -0.354,
+            "direction": "declining sharply",
+            "examples": {
+              "early": [
+                {
+                  "title": "Meaning and Visual Metaphor",
+                  "year": 1982,
+                  "doi": "10.1080/00393541.1982.11650312"
+                },
+                {
+                  "title": "The Child as Image-Maker: The Invention of Representational Models and the Eﬀects of the Medium",
+                  "year": 1976,
+                  "doi": "10.1080/00393541.1976.11649919"
+                },
+                {
+                  "title": "A Typology of Creativity in the Visual Arts",
+                  "year": 1962,
+                  "doi": "10.1080/00393541.1962.11650580"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                  "year": 2009,
+                  "doi": "10.1080/00393541.2009.11518783"
+                },
+                {
+                  "title": "Disability Studies and Art Education",
+                  "year": 2011,
+                  "doi": "10.1080/00393541.2011.11518827"
+                },
+                {
+                  "title": "Art Education Beyond Anthropocentricism The Question of Nonhuman Animals in Contemporary Art",
+                  "year": 2020,
+                  "doi": "10.1080/00393541.2020.1820832"
+                }
+              ]
+            }
+          },
+          {
+            "id": "perceptual_sensitivity",
+            "label": "As perceptual sensitivity",
+            "description": "Intelligence is defined as heightened seeing, perception, differentiation, or visual sensitivity.",
+            "earlyCount": 45,
+            "lateCount": 18,
+            "earlyShare": 0.549,
+            "lateShare": 0.261,
+            "delta": -0.288,
+            "direction": "declining sharply",
+            "examples": {
+              "early": [
+                {
+                  "title": "A Structure for Pedagogical Art Criticism",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650699"
+                },
+                {
+                  "title": "The Child as Image-Maker: The Invention of Representational Models and the Eﬀects of the Medium",
+                  "year": 1976,
+                  "doi": "10.1080/00393541.1976.11649919"
+                },
+                {
+                  "title": "Zero-Based Arts Education: An Introduction to ARTS PROPEL",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650706"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                  "year": 2004,
+                  "doi": "10.1080/00393541.2004.11651771"
+                },
+                {
+                  "title": "Image as Insight: Visual Images in Practice-Based Research",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11518722"
+                },
+                {
+                  "title": "Post Stereotypes: Deconstructing Racial Assumptions and Biases through Visual Culture and Confrontational Pedagogy",
+                  "year": 2015,
+                  "doi": "10.1080/00393541.2015.11518964"
+                }
+              ]
+            }
+          },
+          {
+            "id": "embodied_attunement",
+            "label": "As embodied / affective attunement",
+            "description": "Intelligence is defined as affective, tacit, bodily, mindful, or emotionally attuned knowing.",
+            "earlyCount": 20,
+            "lateCount": 26,
+            "earlyShare": 0.244,
+            "lateShare": 0.377,
+            "delta": 0.133,
+            "direction": "rising",
+            "examples": {
+              "early": [
+                {
+                  "title": "Meaning and Visual Metaphor",
+                  "year": 1982,
+                  "doi": "10.1080/00393541.1982.11650312"
+                },
+                {
+                  "title": "A Structure for Pedagogical Art Criticism",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650699"
+                },
+                {
+                  "title": "Viktor Lowenfeld: Pioneer in Art Education Therapy",
+                  "year": 1981,
+                  "doi": "10.1080/00393541.1981.11650278"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Art, Ecology and Art Education: Locating Art Education in a Critical Place-based Pedagogy",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11650115"
+                },
+                {
+                  "title": "Disability Studies and Art Education",
+                  "year": 2011,
+                  "doi": "10.1080/00393541.2011.11518827"
+                },
+                {
+                  "title": "Ecology of Place: Art Education in a Relational World",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11650116"
+                }
+              ]
+            }
+          },
+          {
+            "id": "machinic_relation",
+            "label": "As technological / machinic relation",
+            "description": "Intelligence is defined through digital media, computation, AI, and human-machine relation.",
+            "earlyCount": 8,
+            "lateCount": 15,
+            "earlyShare": 0.098,
+            "lateShare": 0.217,
+            "delta": 0.12,
+            "direction": "rising",
+            "examples": {
+              "early": [
+                {
+                  "title": "Curriculum in Art Education: The Uncertainty Principle",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650725"
+                },
+                {
+                  "title": "If and where to Plug in the Computer: A Conceptual Framework for Computer Assisted Art Instruction",
+                  "year": 1983,
+                  "doi": "10.1080/00393541.1983.11650351"
+                },
+                {
+                  "title": "Art Education and Computing: Building a Perspective",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650702"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Creative and Critical Entanglements With AI in Art Education",
+                  "year": 2023,
+                  "doi": "10.1080/00393541.2023.2255084"
+                },
+                {
+                  "title": "Art, Ecology and Art Education: Locating Art Education in a Critical Place-based Pedagogy",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11650115"
+                },
+                {
+                  "title": "Midjourney Killed the Photoshop Star: Assembling the Emerging Field of Synthography",
+                  "year": 2023,
+                  "doi": "10.1080/00393541.2023.2255085"
+                }
+              ]
+            }
+          },
+          {
+            "id": "interpretive_meaning",
+            "label": "As symbolic / interpretive meaning-making",
+            "description": "Intelligence is defined through language, interpretation, criticism, and symbolic meaning.",
+            "earlyCount": 36,
+            "lateCount": 34,
+            "earlyShare": 0.439,
+            "lateShare": 0.493,
+            "delta": 0.054,
+            "direction": "stable",
+            "examples": {
+              "early": [
+                {
+                  "title": "Meaning and Visual Metaphor",
+                  "year": 1982,
+                  "doi": "10.1080/00393541.1982.11650312"
+                },
+                {
+                  "title": "A Structure for Pedagogical Art Criticism",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650699"
+                },
+                {
+                  "title": "Curriculum in Art Education: The Uncertainty Principle",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650725"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                  "year": 2004,
+                  "doi": "10.1080/00393541.2004.11651771"
+                },
+                {
+                  "title": "Foundations for Design Education: Continuing the Bauhaus Vorkurs Vision",
+                  "year": 2005,
+                  "doi": "10.1080/00393541.2005.11650075"
+                },
+                {
+                  "title": "Image as Insight: Visual Images in Practice-Based Research",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11518722"
+                }
+              ]
+            }
+          },
+          {
+            "id": "creative_capacity",
+            "label": "As creative capacity",
+            "description": "Intelligence is defined as imagination, originality, invention, or creative production.",
+            "earlyCount": 40,
+            "lateCount": 35,
+            "earlyShare": 0.488,
+            "lateShare": 0.507,
+            "delta": 0.019,
+            "direction": "stable",
+            "examples": {
+              "early": [
+                {
+                  "title": "The Child as Image-Maker: The Invention of Representational Models and the Eﬀects of the Medium",
+                  "year": 1976,
+                  "doi": "10.1080/00393541.1976.11649919"
+                },
+                {
+                  "title": "A Typology of Creativity in the Visual Arts",
+                  "year": 1962,
+                  "doi": "10.1080/00393541.1962.11650580"
+                },
+                {
+                  "title": "Viktor Lowenfeld: Pioneer in Art Education Therapy",
+                  "year": 1981,
+                  "doi": "10.1080/00393541.1981.11650278"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                  "year": 2009,
+                  "doi": "10.1080/00393541.2009.11518783"
+                },
+                {
+                  "title": "Foundations for Design Education: Continuing the Bauhaus Vorkurs Vision",
+                  "year": 2005,
+                  "doi": "10.1080/00393541.2005.11650075"
+                },
+                {
+                  "title": "Image as Insight: Visual Images in Practice-Based Research",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11518722"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "highlights": [
+        {
+          "title": "As situated social / cultural practice is the dominant definition frame",
+          "body": "It appears in 107 of 174 articles (61%), making it the strongest answer to the question how intelligence is defined across the corpus.",
+          "examples": {
+            "early": [
+              {
+                "title": "Curriculum in Art Education: The Uncertainty Principle",
+                "year": 1989,
+                "doi": "10.1080/00393541.1989.11650725"
+              },
+              {
+                "title": "Zero-Based Arts Education: An Introduction to ARTS PROPEL",
+                "year": 1989,
+                "doi": "10.1080/00393541.1989.11650706"
+              },
+              {
+                "title": "The Development of Information and Attitude toward Art at the Secondary and College Level",
+                "year": 1966,
+                "doi": "10.1080/00393541.1966.11650619"
+              }
+            ],
+            "late": [
+              {
+                "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                "year": 2004,
+                "doi": "10.1080/00393541.2004.11651771"
+              },
+              {
+                "title": "Creative and Critical Entanglements With AI in Art Education",
+                "year": 2023,
+                "doi": "10.1080/00393541.2023.2255084"
+              },
+              {
+                "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                "year": 2009,
+                "doi": "10.1080/00393541.2009.11518783"
+              }
+            ]
+          }
+        },
+        {
+          "title": "As situated social / cultural practice rises most over time",
+          "body": "It grows from 44% of articles in 1960s–1980s to 81% in 2000s–2020s.",
+          "examples": {
+            "early": [
+              {
+                "title": "Curriculum in Art Education: The Uncertainty Principle",
+                "year": 1989,
+                "doi": "10.1080/00393541.1989.11650725"
+              },
+              {
+                "title": "Zero-Based Arts Education: An Introduction to ARTS PROPEL",
+                "year": 1989,
+                "doi": "10.1080/00393541.1989.11650706"
+              },
+              {
+                "title": "The Development of Information and Attitude toward Art at the Secondary and College Level",
+                "year": 1966,
+                "doi": "10.1080/00393541.1966.11650619"
+              }
+            ],
+            "late": [
+              {
+                "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                "year": 2004,
+                "doi": "10.1080/00393541.2004.11651771"
+              },
+              {
+                "title": "Creative and Critical Entanglements With AI in Art Education",
+                "year": 2023,
+                "doi": "10.1080/00393541.2023.2255084"
+              },
+              {
+                "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                "year": 2009,
+                "doi": "10.1080/00393541.2009.11518783"
+              }
+            ]
+          }
+        },
+        {
+          "title": "As measurable faculty recedes most",
+          "body": "It falls from 66% in 1960s–1980s to 30% in 2000s–2020s.",
+          "examples": {
+            "early": [
+              {
+                "title": "Meaning and Visual Metaphor",
+                "year": 1982,
+                "doi": "10.1080/00393541.1982.11650312"
+              },
+              {
+                "title": "The Child as Image-Maker: The Invention of Representational Models and the Eﬀects of the Medium",
+                "year": 1976,
+                "doi": "10.1080/00393541.1976.11649919"
+              },
+              {
+                "title": "A Typology of Creativity in the Visual Arts",
+                "year": 1962,
+                "doi": "10.1080/00393541.1962.11650580"
+              }
+            ],
+            "late": [
+              {
+                "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                "year": 2009,
+                "doi": "10.1080/00393541.2009.11518783"
+              },
+              {
+                "title": "Disability Studies and Art Education",
+                "year": 2011,
+                "doi": "10.1080/00393541.2011.11518827"
+              },
+              {
+                "title": "Art Education Beyond Anthropocentricism The Question of Nonhuman Animals in Contemporary Art",
+                "year": 2020,
+                "doi": "10.1080/00393541.2020.1820832"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "recognition": {
+      "title": "How intelligence is recognized",
+      "articleKey": "recognitionModes",
+      "bucketKey": "recognition",
+      "noun": "recognition mode",
+      "definitions": [
+        {
+          "id": "testing_scoring",
+          "label": "Through tests and scores",
+          "description": "Intelligence becomes visible through instruments, scores, measurement, and assessment.",
+          "cues": [
+            "tests",
+            "scores",
+            "measurement",
+            "instrument"
+          ],
+          "keywords": [
+            "\\btest",
+            "\\bscore\\b",
+            "\\bmeasurement\\b",
+            "\\binstrument\\b",
+            "\\bassessment\\b",
+            "\\bcriteria\\b"
+          ]
+        },
+        {
+          "id": "developmental_observation",
+          "label": "Through developmental observation",
+          "description": "Intelligence is recognized through observation of stages, growth, personality, or developmental change.",
+          "cues": [
+            "development",
+            "observation",
+            "growth",
+            "personality"
+          ],
+          "keywords": [
+            "\\bdevelopment",
+            "\\bobserve",
+            "\\bgrowth\\b",
+            "\\bpersonality\\b",
+            "\\blongitudinal\\b",
+            "\\bstage\\b"
+          ]
+        },
+        {
+          "id": "making_performance",
+          "label": "Through artworks and making",
+          "description": "Intelligence is recognized in drawing, studio work, artmaking, or produced artifacts.",
+          "cues": [
+            "drawing",
+            "artmaking",
+            "studio practice",
+            "production"
+          ],
+          "keywords": [
+            "\\bdrawing",
+            "\\bartwork",
+            "\\bart making\\b",
+            "\\bartmaking\\b",
+            "\\bstudio\\b",
+            "\\bproduction\\b",
+            "\\bpractice\\b",
+            "\\bportfolio\\b"
+          ]
+        },
+        {
+          "id": "judgment_critique",
+          "label": "Through judgment and critique",
+          "description": "Intelligence is recognized through evaluation, criticism, judgment, or critique.",
+          "cues": [
+            "judgment",
+            "critique",
+            "evaluation",
+            "criticism"
+          ],
+          "keywords": [
+            "\\bjudg",
+            "\\bcriticism\\b",
+            "\\bcritique\\b",
+            "\\bevaluat",
+            "\\breview\\b"
+          ]
+        },
+        {
+          "id": "language_reflection",
+          "label": "Through language and reflection",
+          "description": "Intelligence is recognized through talk, writing, verbal explanation, interview, and reflection.",
+          "cues": [
+            "language",
+            "verbal explanation",
+            "interview",
+            "reflection"
+          ],
+          "keywords": [
+            "\\blanguage\\b",
+            "\\bverbal",
+            "\\binterview\\b",
+            "\\bconversation\\b",
+            "\\breflect",
+            "\\bresponding\\b",
+            "\\bnarrative\\b"
+          ]
+        },
+        {
+          "id": "participation_relation",
+          "label": "Through participation and relation",
+          "description": "Intelligence is recognized through participation, collaboration, community membership, or public engagement.",
+          "cues": [
+            "participation",
+            "collaboration",
+            "community",
+            "engagement"
+          ],
+          "keywords": [
+            "\\bparticipat",
+            "\\bcollabor",
+            "\\bcommunity\\b",
+            "\\bengagement\\b",
+            "\\bpublic\\b",
+            "\\bdialog",
+            "\\bcollective\\b",
+            "\\bmuseum\\b"
+          ]
+        },
+        {
+          "id": "technical_fluency",
+          "label": "Through media and technical fluency",
+          "description": "Intelligence is recognized through digital, media, computational, or AI-enabled fluency.",
+          "cues": [
+            "digital",
+            "media fluency",
+            "computation",
+            "AI"
+          ],
+          "keywords": [
+            "\\bcomputer",
+            "\\bdigital\\b",
+            "\\bmedia\\b",
+            "\\bfilm\\b",
+            "\\bgame\\b",
+            "\\bai\\b",
+            "\\bartificial intelligence\\b"
+          ]
+        }
+      ],
+      "counts": [
+        {
+          "id": "developmental_observation",
+          "label": "Through developmental observation",
+          "count": 105,
+          "description": "Intelligence is recognized through observation of stages, growth, personality, or developmental change.",
+          "cues": [
+            "development",
+            "observation",
+            "growth",
+            "personality"
+          ]
+        },
+        {
+          "id": "making_performance",
+          "label": "Through artworks and making",
+          "count": 97,
+          "description": "Intelligence is recognized in drawing, studio work, artmaking, or produced artifacts.",
+          "cues": [
+            "drawing",
+            "artmaking",
+            "studio practice",
+            "production"
+          ]
+        },
+        {
+          "id": "language_reflection",
+          "label": "Through language and reflection",
+          "count": 84,
+          "description": "Intelligence is recognized through talk, writing, verbal explanation, interview, and reflection.",
+          "cues": [
+            "language",
+            "verbal explanation",
+            "interview",
+            "reflection"
+          ]
+        },
+        {
+          "id": "participation_relation",
+          "label": "Through participation and relation",
+          "count": 79,
+          "description": "Intelligence is recognized through participation, collaboration, community membership, or public engagement.",
+          "cues": [
+            "participation",
+            "collaboration",
+            "community",
+            "engagement"
+          ]
+        },
+        {
+          "id": "judgment_critique",
+          "label": "Through judgment and critique",
+          "count": 61,
+          "description": "Intelligence is recognized through evaluation, criticism, judgment, or critique.",
+          "cues": [
+            "judgment",
+            "critique",
+            "evaluation",
+            "criticism"
+          ]
+        },
+        {
+          "id": "testing_scoring",
+          "label": "Through tests and scores",
+          "count": 55,
+          "description": "Intelligence becomes visible through instruments, scores, measurement, and assessment.",
+          "cues": [
+            "tests",
+            "scores",
+            "measurement",
+            "instrument"
+          ]
+        },
+        {
+          "id": "technical_fluency",
+          "label": "Through media and technical fluency",
+          "count": 29,
+          "description": "Intelligence is recognized through digital, media, computational, or AI-enabled fluency.",
+          "cues": [
+            "digital",
+            "media fluency",
+            "computation",
+            "AI"
+          ]
+        }
+      ],
+      "trends": {
+        "earlyWindow": [
+          "1960s",
+          "1970s",
+          "1980s"
+        ],
+        "lateWindow": [
+          "2000s",
+          "2010s",
+          "2020s"
+        ],
+        "rows": [
+          {
+            "id": "participation_relation",
+            "label": "Through participation and relation",
+            "description": "Intelligence is recognized through participation, collaboration, community membership, or public engagement.",
+            "earlyCount": 21,
+            "lateCount": 48,
+            "earlyShare": 0.256,
+            "lateShare": 0.696,
+            "delta": 0.44,
+            "direction": "rising sharply",
+            "examples": {
+              "early": [
+                {
+                  "title": "Viktor Lowenfeld: Pioneer in Art Education Therapy",
+                  "year": 1981,
+                  "doi": "10.1080/00393541.1981.11650278"
+                },
+                {
+                  "title": "The Effectiveness of a Children's Workshop in the Creative Arts in Forwarding Personal and Int",
+                  "year": 1969,
+                  "doi": "10.1080/00393541.1969.11650660"
+                },
+                {
+                  "title": "Eﬀects of Instruction on High School Students' Art Preferences and Art Judgments",
+                  "year": 1976,
+                  "doi": "10.1080/00393541.1976.11649937"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Creative and Critical Entanglements With AI in Art Education",
+                  "year": 2023,
+                  "doi": "10.1080/00393541.2023.2255084"
+                },
+                {
+                  "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                  "year": 2009,
+                  "doi": "10.1080/00393541.2009.11518783"
+                },
+                {
+                  "title": "Art, Ecology and Art Education: Locating Art Education in a Critical Place-based Pedagogy",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11650115"
+                }
+              ]
+            }
+          },
+          {
+            "id": "making_performance",
+            "label": "Through artworks and making",
+            "description": "Intelligence is recognized in drawing, studio work, artmaking, or produced artifacts.",
+            "earlyCount": 33,
+            "lateCount": 51,
+            "earlyShare": 0.402,
+            "lateShare": 0.739,
+            "delta": 0.337,
+            "direction": "rising sharply",
+            "examples": {
+              "early": [
+                {
+                  "title": "A Structure for Pedagogical Art Criticism",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650699"
+                },
+                {
+                  "title": "Curriculum in Art Education: The Uncertainty Principle",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650725"
+                },
+                {
+                  "title": "The Child as Image-Maker: The Invention of Representational Models and the Eﬀects of the Medium",
+                  "year": 1976,
+                  "doi": "10.1080/00393541.1976.11649919"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                  "year": 2004,
+                  "doi": "10.1080/00393541.2004.11651771"
+                },
+                {
+                  "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                  "year": 2009,
+                  "doi": "10.1080/00393541.2009.11518783"
+                },
+                {
+                  "title": "Art, Ecology and Art Education: Locating Art Education in a Critical Place-based Pedagogy",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11650115"
+                }
+              ]
+            }
+          },
+          {
+            "id": "judgment_critique",
+            "label": "Through judgment and critique",
+            "description": "Intelligence is recognized through evaluation, criticism, judgment, or critique.",
+            "earlyCount": 40,
+            "lateCount": 11,
+            "earlyShare": 0.488,
+            "lateShare": 0.159,
+            "delta": -0.328,
+            "direction": "declining sharply",
+            "examples": {
+              "early": [
+                {
+                  "title": "A Structure for Pedagogical Art Criticism",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650699"
+                },
+                {
+                  "title": "Curriculum in Art Education: The Uncertainty Principle",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650725"
+                },
+                {
+                  "title": "A Typology of Creativity in the Visual Arts",
+                  "year": 1962,
+                  "doi": "10.1080/00393541.1962.11650580"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Art Education Beyond Anthropocentricism The Question of Nonhuman Animals in Contemporary Art",
+                  "year": 2020,
+                  "doi": "10.1080/00393541.2020.1820832"
+                },
+                {
+                  "title": "Museum Education as Curriculum: Four Models, Leading to a Fifth",
+                  "year": 2004,
+                  "doi": "10.1080/00393541.2004.11651780"
+                },
+                {
+                  "title": "Cyborg Pedagogy: Performing Resistance in the Digital Age",
+                  "year": 2001,
+                  "doi": "10.1080/00393541.2001.11651708"
+                }
+              ]
+            }
+          },
+          {
+            "id": "developmental_observation",
+            "label": "Through developmental observation",
+            "description": "Intelligence is recognized through observation of stages, growth, personality, or developmental change.",
+            "earlyCount": 62,
+            "lateCount": 30,
+            "earlyShare": 0.756,
+            "lateShare": 0.435,
+            "delta": -0.321,
+            "direction": "declining sharply",
+            "examples": {
+              "early": [
+                {
+                  "title": "Meaning and Visual Metaphor",
+                  "year": 1982,
+                  "doi": "10.1080/00393541.1982.11650312"
+                },
+                {
+                  "title": "A Structure for Pedagogical Art Criticism",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650699"
+                },
+                {
+                  "title": "Curriculum in Art Education: The Uncertainty Principle",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650725"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Foundations for Design Education: Continuing the Bauhaus Vorkurs Vision",
+                  "year": 2005,
+                  "doi": "10.1080/00393541.2005.11650075"
+                },
+                {
+                  "title": "Beyond Traditional Art Education: Transformative Lifelong Learning in Community-Based Settings with Older Adults",
+                  "year": 2013,
+                  "doi": "10.1080/00393541.2013.11518905"
+                },
+                {
+                  "title": "Art in Institutions: The Emergence of (Disabled) Outsiders",
+                  "year": 2015,
+                  "doi": "10.1080/00393541.2015.11518956"
+                }
+              ]
+            }
+          },
+          {
+            "id": "testing_scoring",
+            "label": "Through tests and scores",
+            "description": "Intelligence becomes visible through instruments, scores, measurement, and assessment.",
+            "earlyCount": 38,
+            "lateCount": 11,
+            "earlyShare": 0.463,
+            "lateShare": 0.159,
+            "delta": -0.304,
+            "direction": "declining sharply",
+            "examples": {
+              "early": [
+                {
+                  "title": "Zero-Based Arts Education: An Introduction to ARTS PROPEL",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650706"
+                },
+                {
+                  "title": "A Typology of Creativity in the Visual Arts",
+                  "year": 1962,
+                  "doi": "10.1080/00393541.1962.11650580"
+                },
+                {
+                  "title": "The Eﬀects of Perceptual Training upon the Two-Dimensional Drawings of Children",
+                  "year": 1965,
+                  "doi": "10.1080/00393541.1965.11650140"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                  "year": 2009,
+                  "doi": "10.1080/00393541.2009.11518783"
+                },
+                {
+                  "title": "The Potency of Humor and Instructional Self-Eﬃcacy on Art Teacher Stress",
+                  "year": 2010,
+                  "doi": "10.1080/00393541.2010.11518824"
+                },
+                {
+                  "title": "Museum Education as Curriculum: Four Models, Leading to a Fifth",
+                  "year": 2004,
+                  "doi": "10.1080/00393541.2004.11651780"
+                }
+              ]
+            }
+          },
+          {
+            "id": "technical_fluency",
+            "label": "Through media and technical fluency",
+            "description": "Intelligence is recognized through digital, media, computational, or AI-enabled fluency.",
+            "earlyCount": 10,
+            "lateCount": 18,
+            "earlyShare": 0.122,
+            "lateShare": 0.261,
+            "delta": 0.139,
+            "direction": "rising",
+            "examples": {
+              "early": [
+                {
+                  "title": "If and where to Plug in the Computer: A Conceptual Framework for Computer Assisted Art Instruction",
+                  "year": 1983,
+                  "doi": "10.1080/00393541.1983.11650351"
+                },
+                {
+                  "title": "Art Education and Computing: Building a Perspective",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650702"
+                },
+                {
+                  "title": "Media Expression and the Arts",
+                  "year": 1971,
+                  "doi": "10.1080/00393541.1971.11651281"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                  "year": 2004,
+                  "doi": "10.1080/00393541.2004.11651771"
+                },
+                {
+                  "title": "Creative and Critical Entanglements With AI in Art Education",
+                  "year": 2023,
+                  "doi": "10.1080/00393541.2023.2255084"
+                },
+                {
+                  "title": "Midjourney Killed the Photoshop Star: Assembling the Emerging Field of Synthography",
+                  "year": 2023,
+                  "doi": "10.1080/00393541.2023.2255085"
+                }
+              ]
+            }
+          },
+          {
+            "id": "language_reflection",
+            "label": "Through language and reflection",
+            "description": "Intelligence is recognized through talk, writing, verbal explanation, interview, and reflection.",
+            "earlyCount": 33,
+            "lateCount": 36,
+            "earlyShare": 0.402,
+            "lateShare": 0.522,
+            "delta": 0.119,
+            "direction": "rising",
+            "examples": {
+              "early": [
+                {
+                  "title": "Meaning and Visual Metaphor",
+                  "year": 1982,
+                  "doi": "10.1080/00393541.1982.11650312"
+                },
+                {
+                  "title": "The Child as Image-Maker: The Invention of Representational Models and the Eﬀects of the Medium",
+                  "year": 1976,
+                  "doi": "10.1080/00393541.1976.11649919"
+                },
+                {
+                  "title": "Relating the Arts to Education: The History of an Idea",
+                  "year": 1978,
+                  "doi": "10.1080/00393541.1978.11650206"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                  "year": 2004,
+                  "doi": "10.1080/00393541.2004.11651771"
+                },
+                {
+                  "title": "Art, Ecology and Art Education: Locating Art Education in a Critical Place-based Pedagogy",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11650115"
+                },
+                {
+                  "title": "Disability Studies and Art Education",
+                  "year": 2011,
+                  "doi": "10.1080/00393541.2011.11518827"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "highlights": [
+        {
+          "title": "Through developmental observation is the dominant recognition mode",
+          "body": "It appears in 105 of 174 articles (60%), making it the strongest answer to the question how intelligence is recognized across the corpus.",
+          "examples": {
+            "early": [
+              {
+                "title": "Meaning and Visual Metaphor",
+                "year": 1982,
+                "doi": "10.1080/00393541.1982.11650312"
+              },
+              {
+                "title": "A Structure for Pedagogical Art Criticism",
+                "year": 1988,
+                "doi": "10.1080/00393541.1988.11650699"
+              },
+              {
+                "title": "Curriculum in Art Education: The Uncertainty Principle",
+                "year": 1989,
+                "doi": "10.1080/00393541.1989.11650725"
+              }
+            ],
+            "late": [
+              {
+                "title": "Foundations for Design Education: Continuing the Bauhaus Vorkurs Vision",
+                "year": 2005,
+                "doi": "10.1080/00393541.2005.11650075"
+              },
+              {
+                "title": "Beyond Traditional Art Education: Transformative Lifelong Learning in Community-Based Settings with Older Adults",
+                "year": 2013,
+                "doi": "10.1080/00393541.2013.11518905"
+              },
+              {
+                "title": "Art in Institutions: The Emergence of (Disabled) Outsiders",
+                "year": 2015,
+                "doi": "10.1080/00393541.2015.11518956"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Through participation and relation rises most over time",
+          "body": "It grows from 26% of articles in 1960s–1980s to 70% in 2000s–2020s.",
+          "examples": {
+            "early": [
+              {
+                "title": "Viktor Lowenfeld: Pioneer in Art Education Therapy",
+                "year": 1981,
+                "doi": "10.1080/00393541.1981.11650278"
+              },
+              {
+                "title": "The Effectiveness of a Children's Workshop in the Creative Arts in Forwarding Personal and Int",
+                "year": 1969,
+                "doi": "10.1080/00393541.1969.11650660"
+              },
+              {
+                "title": "Eﬀects of Instruction on High School Students' Art Preferences and Art Judgments",
+                "year": 1976,
+                "doi": "10.1080/00393541.1976.11649937"
+              }
+            ],
+            "late": [
+              {
+                "title": "Creative and Critical Entanglements With AI in Art Education",
+                "year": 2023,
+                "doi": "10.1080/00393541.2023.2255084"
+              },
+              {
+                "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                "year": 2009,
+                "doi": "10.1080/00393541.2009.11518783"
+              },
+              {
+                "title": "Art, Ecology and Art Education: Locating Art Education in a Critical Place-based Pedagogy",
+                "year": 2007,
+                "doi": "10.1080/00393541.2007.11650115"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Through judgment and critique recedes most",
+          "body": "It falls from 49% in 1960s–1980s to 16% in 2000s–2020s.",
+          "examples": {
+            "early": [
+              {
+                "title": "A Structure for Pedagogical Art Criticism",
+                "year": 1988,
+                "doi": "10.1080/00393541.1988.11650699"
+              },
+              {
+                "title": "Curriculum in Art Education: The Uncertainty Principle",
+                "year": 1989,
+                "doi": "10.1080/00393541.1989.11650725"
+              },
+              {
+                "title": "A Typology of Creativity in the Visual Arts",
+                "year": 1962,
+                "doi": "10.1080/00393541.1962.11650580"
+              }
+            ],
+            "late": [
+              {
+                "title": "Art Education Beyond Anthropocentricism The Question of Nonhuman Animals in Contemporary Art",
+                "year": 2020,
+                "doi": "10.1080/00393541.2020.1820832"
+              },
+              {
+                "title": "Museum Education as Curriculum: Four Models, Leading to a Fifth",
+                "year": 2004,
+                "doi": "10.1080/00393541.2004.11651780"
+              },
+              {
+                "title": "Cyborg Pedagogy: Performing Resistance in the Digital Age",
+                "year": 2001,
+                "doi": "10.1080/00393541.2001.11651708"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "locations": {
+      "title": "Where intelligence is located",
+      "articleKey": "locationFrames",
+      "bucketKey": "locations",
+      "noun": "location frame",
+      "definitions": [
+        {
+          "id": "mind_concepts",
+          "label": "In the mind and concepts",
+          "description": "Intelligence is located in cognition, concepts, intellect, and mental processing.",
+          "cues": [
+            "cognition",
+            "concepts",
+            "intellect",
+            "understanding"
+          ],
+          "keywords": [
+            "\\bcognit",
+            "\\bconcept",
+            "\\bintellect",
+            "\\bmental\\b",
+            "\\bthinking\\b",
+            "\\bunderstanding\\b"
+          ]
+        },
+        {
+          "id": "vision_perception",
+          "label": "In vision and perception",
+          "description": "Intelligence is located in seeing, visual-spatial reasoning, attention, and perceptual sensitivity.",
+          "cues": [
+            "seeing",
+            "vision",
+            "attention",
+            "perception"
+          ],
+          "keywords": [
+            "\\bpercept",
+            "\\bseeing\\b",
+            "\\bvisual\\b",
+            "\\battention\\b",
+            "\\baesthetic perception\\b"
+          ]
+        },
+        {
+          "id": "body_affect",
+          "label": "In the body and affect",
+          "description": "Intelligence is located in emotion, embodiment, tacit knowing, and affective attunement.",
+          "cues": [
+            "body",
+            "emotion",
+            "affect",
+            "tacit knowing"
+          ],
+          "keywords": [
+            "\\bembod",
+            "\\bemotion",
+            "\\baffect",
+            "\\btacit\\b",
+            "\\bmindful",
+            "\\bstress\\b"
+          ]
+        },
+        {
+          "id": "artworks_materials",
+          "label": "In artworks and materials",
+          "description": "Intelligence is located in images, drawings, artifacts, materials, and studio practice.",
+          "cues": [
+            "artworks",
+            "drawings",
+            "materials",
+            "studio practice"
+          ],
+          "keywords": [
+            "\\bdrawing",
+            "\\bartwork",
+            "\\bimage\\b",
+            "\\bmaterial",
+            "\\bstudio\\b",
+            "\\bobject\\b",
+            "\\bpractice\\b"
+          ]
+        },
+        {
+          "id": "relations_culture",
+          "label": "In relations and culture",
+          "description": "Intelligence is located in social relations, cultural life, identity, and community.",
+          "cues": [
+            "relations",
+            "culture",
+            "identity",
+            "community"
+          ],
+          "keywords": [
+            "\\bsocial\\b",
+            "\\bcultural\\b",
+            "\\bcommunity\\b",
+            "\\bidentity\\b",
+            "\\brelational\\b",
+            "\\bcollective\\b"
+          ]
+        },
+        {
+          "id": "pedagogical_institutions",
+          "label": "In classrooms and pedagogical systems",
+          "description": "Intelligence is located in teaching, curriculum, classrooms, and educational institutions.",
+          "cues": [
+            "classroom",
+            "curriculum",
+            "teaching",
+            "school"
+          ],
+          "keywords": [
+            "\\bcurriculum\\b",
+            "\\bclassroom\\b",
+            "\\bteaching\\b",
+            "\\bteacher\\b",
+            "\\bschool\\b",
+            "\\binstruction\\b"
+          ]
+        },
+        {
+          "id": "media_machines",
+          "label": "In media and machines",
+          "description": "Intelligence is located in digital systems, media infrastructures, computation, and AI.",
+          "cues": [
+            "digital systems",
+            "media",
+            "computation",
+            "AI"
+          ],
+          "keywords": [
+            "\\bcomputer",
+            "\\bdigital\\b",
+            "\\bmedia\\b",
+            "\\bai\\b",
+            "\\bartificial intelligence\\b",
+            "\\bnetwork\\b"
+          ]
+        },
+        {
+          "id": "place_ecology",
+          "label": "In place and ecology",
+          "description": "Intelligence is located in place, ecology, environment, and nonhuman relation.",
+          "cues": [
+            "place",
+            "ecology",
+            "environment",
+            "nonhuman"
+          ],
+          "keywords": [
+            "\\bplace\\b",
+            "\\becology\\b",
+            "\\benvironment",
+            "\\bnonhuman\\b",
+            "\\banimal",
+            "\\brelational world\\b"
+          ]
+        }
+      ],
+      "counts": [
+        {
+          "id": "mind_concepts",
+          "label": "In the mind and concepts",
+          "count": 119,
+          "description": "Intelligence is located in cognition, concepts, intellect, and mental processing.",
+          "cues": [
+            "cognition",
+            "concepts",
+            "intellect",
+            "understanding"
+          ]
+        },
+        {
+          "id": "pedagogical_institutions",
+          "label": "In classrooms and pedagogical systems",
+          "count": 100,
+          "description": "Intelligence is located in teaching, curriculum, classrooms, and educational institutions.",
+          "cues": [
+            "classroom",
+            "curriculum",
+            "teaching",
+            "school"
+          ]
+        },
+        {
+          "id": "artworks_materials",
+          "label": "In artworks and materials",
+          "count": 99,
+          "description": "Intelligence is located in images, drawings, artifacts, materials, and studio practice.",
+          "cues": [
+            "artworks",
+            "drawings",
+            "materials",
+            "studio practice"
+          ]
+        },
+        {
+          "id": "vision_perception",
+          "label": "In vision and perception",
+          "count": 76,
+          "description": "Intelligence is located in seeing, visual-spatial reasoning, attention, and perceptual sensitivity.",
+          "cues": [
+            "seeing",
+            "vision",
+            "attention",
+            "perception"
+          ]
+        },
+        {
+          "id": "relations_culture",
+          "label": "In relations and culture",
+          "count": 69,
+          "description": "Intelligence is located in social relations, cultural life, identity, and community.",
+          "cues": [
+            "relations",
+            "culture",
+            "identity",
+            "community"
+          ]
+        },
+        {
+          "id": "place_ecology",
+          "label": "In place and ecology",
+          "count": 20,
+          "description": "Intelligence is located in place, ecology, environment, and nonhuman relation.",
+          "cues": [
+            "place",
+            "ecology",
+            "environment",
+            "nonhuman"
+          ]
+        },
+        {
+          "id": "media_machines",
+          "label": "In media and machines",
+          "count": 18,
+          "description": "Intelligence is located in digital systems, media infrastructures, computation, and AI.",
+          "cues": [
+            "digital systems",
+            "media",
+            "computation",
+            "AI"
+          ]
+        },
+        {
+          "id": "body_affect",
+          "label": "In the body and affect",
+          "count": 11,
+          "description": "Intelligence is located in emotion, embodiment, tacit knowing, and affective attunement.",
+          "cues": [
+            "body",
+            "emotion",
+            "affect",
+            "tacit knowing"
+          ]
+        }
+      ],
+      "trends": {
+        "earlyWindow": [
+          "1960s",
+          "1970s",
+          "1980s"
+        ],
+        "lateWindow": [
+          "2000s",
+          "2010s",
+          "2020s"
+        ],
+        "rows": [
+          {
+            "id": "relations_culture",
+            "label": "In relations and culture",
+            "description": "Intelligence is located in social relations, cultural life, identity, and community.",
+            "earlyCount": 16,
+            "lateCount": 45,
+            "earlyShare": 0.195,
+            "lateShare": 0.652,
+            "delta": 0.457,
+            "direction": "rising sharply",
+            "examples": {
+              "early": [
+                {
+                  "title": "Creativity Research: Its Sociological and Educational Limitations",
+                  "year": 1983,
+                  "doi": "10.1080/00393541.1983.11650333"
+                },
+                {
+                  "title": "Multi-Cultural Approaches to Art Criticism",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650718"
+                },
+                {
+                  "title": "Some Thoughts on Arts Education",
+                  "year": 1985,
+                  "doi": "10.1080/00393541.1985.11650431"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                  "year": 2004,
+                  "doi": "10.1080/00393541.2004.11651771"
+                },
+                {
+                  "title": "Creative and Critical Entanglements With AI in Art Education",
+                  "year": 2023,
+                  "doi": "10.1080/00393541.2023.2255084"
+                },
+                {
+                  "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                  "year": 2009,
+                  "doi": "10.1080/00393541.2009.11518783"
+                }
+              ]
+            }
+          },
+          {
+            "id": "mind_concepts",
+            "label": "In the mind and concepts",
+            "description": "Intelligence is located in cognition, concepts, intellect, and mental processing.",
+            "earlyCount": 67,
+            "lateCount": 36,
+            "earlyShare": 0.817,
+            "lateShare": 0.522,
+            "delta": -0.295,
+            "direction": "declining sharply",
+            "examples": {
+              "early": [
+                {
+                  "title": "Meaning and Visual Metaphor",
+                  "year": 1982,
+                  "doi": "10.1080/00393541.1982.11650312"
+                },
+                {
+                  "title": "A Structure for Pedagogical Art Criticism",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650699"
+                },
+                {
+                  "title": "Curriculum in Art Education: The Uncertainty Principle",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650725"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                  "year": 2004,
+                  "doi": "10.1080/00393541.2004.11651771"
+                },
+                {
+                  "title": "Foundations for Design Education: Continuing the Bauhaus Vorkurs Vision",
+                  "year": 2005,
+                  "doi": "10.1080/00393541.2005.11650075"
+                },
+                {
+                  "title": "Disability Studies and Art Education",
+                  "year": 2011,
+                  "doi": "10.1080/00393541.2011.11518827"
+                }
+              ]
+            }
+          },
+          {
+            "id": "vision_perception",
+            "label": "In vision and perception",
+            "description": "Intelligence is located in seeing, visual-spatial reasoning, attention, and perceptual sensitivity.",
+            "earlyCount": 42,
+            "lateCount": 25,
+            "earlyShare": 0.512,
+            "lateShare": 0.362,
+            "delta": -0.15,
+            "direction": "declining",
+            "examples": {
+              "early": [
+                {
+                  "title": "Meaning and Visual Metaphor",
+                  "year": 1982,
+                  "doi": "10.1080/00393541.1982.11650312"
+                },
+                {
+                  "title": "A Structure for Pedagogical Art Criticism",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650699"
+                },
+                {
+                  "title": "The Child as Image-Maker: The Invention of Representational Models and the Eﬀects of the Medium",
+                  "year": 1976,
+                  "doi": "10.1080/00393541.1976.11649919"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                  "year": 2004,
+                  "doi": "10.1080/00393541.2004.11651771"
+                },
+                {
+                  "title": "Disability Studies and Art Education",
+                  "year": 2011,
+                  "doi": "10.1080/00393541.2011.11518827"
+                },
+                {
+                  "title": "Image as Insight: Visual Images in Practice-Based Research",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11518722"
+                }
+              ]
+            }
+          },
+          {
+            "id": "pedagogical_institutions",
+            "label": "In classrooms and pedagogical systems",
+            "description": "Intelligence is located in teaching, curriculum, classrooms, and educational institutions.",
+            "earlyCount": 51,
+            "lateCount": 35,
+            "earlyShare": 0.622,
+            "lateShare": 0.507,
+            "delta": -0.115,
+            "direction": "declining",
+            "examples": {
+              "early": [
+                {
+                  "title": "Curriculum in Art Education: The Uncertainty Principle",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650725"
+                },
+                {
+                  "title": "Zero-Based Arts Education: An Introduction to ARTS PROPEL",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650706"
+                },
+                {
+                  "title": "Viktor Lowenfeld: Pioneer in Art Education Therapy",
+                  "year": 1981,
+                  "doi": "10.1080/00393541.1981.11650278"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                  "year": 2009,
+                  "doi": "10.1080/00393541.2009.11518783"
+                },
+                {
+                  "title": "Foundations for Design Education: Continuing the Bauhaus Vorkurs Vision",
+                  "year": 2005,
+                  "doi": "10.1080/00393541.2005.11650075"
+                },
+                {
+                  "title": "Games as an Artistic Medium: Investigating Complexity Thinking in Game-Based Art Pedagogy",
+                  "year": 2013,
+                  "doi": "10.1080/00393541.2013.11518915"
+                }
+              ]
+            }
+          },
+          {
+            "id": "media_machines",
+            "label": "In media and machines",
+            "description": "Intelligence is located in digital systems, media infrastructures, computation, and AI.",
+            "earlyCount": 7,
+            "lateCount": 11,
+            "earlyShare": 0.085,
+            "lateShare": 0.159,
+            "delta": 0.074,
+            "direction": "stable",
+            "examples": {
+              "early": [
+                {
+                  "title": "If and where to Plug in the Computer: A Conceptual Framework for Computer Assisted Art Instruction",
+                  "year": 1983,
+                  "doi": "10.1080/00393541.1983.11650351"
+                },
+                {
+                  "title": "Art Education and Computing: Building a Perspective",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650702"
+                },
+                {
+                  "title": "Media Expression and the Arts",
+                  "year": 1971,
+                  "doi": "10.1080/00393541.1971.11651281"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Creative and Critical Entanglements With AI in Art Education",
+                  "year": 2023,
+                  "doi": "10.1080/00393541.2023.2255084"
+                },
+                {
+                  "title": "Midjourney Killed the Photoshop Star: Assembling the Emerging Field of Synthography",
+                  "year": 2023,
+                  "doi": "10.1080/00393541.2023.2255085"
+                },
+                {
+                  "title": "Children, Objects, and Relations: Constructivist Foundations in the Reggio Emilia Approach",
+                  "year": 2008,
+                  "doi": "10.1080/00393541.2008.11518754"
+                }
+              ]
+            }
+          },
+          {
+            "id": "place_ecology",
+            "label": "In place and ecology",
+            "description": "Intelligence is located in place, ecology, environment, and nonhuman relation.",
+            "earlyCount": 6,
+            "lateCount": 10,
+            "earlyShare": 0.073,
+            "lateShare": 0.145,
+            "delta": 0.072,
+            "direction": "stable",
+            "examples": {
+              "early": [
+                {
+                  "title": "Relating the Arts to Education: The History of an Idea",
+                  "year": 1978,
+                  "doi": "10.1080/00393541.1978.11650206"
+                },
+                {
+                  "title": "Curriculum Concepts of the Penn State Seminar: An Evaluation in Retrospect",
+                  "year": 1984,
+                  "doi": "10.1080/00393541.1984.11650378"
+                },
+                {
+                  "title": "Art Education in France",
+                  "year": 1964,
+                  "doi": "10.1080/00393541.1964.11650133"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Art, Ecology and Art Education: Locating Art Education in a Critical Place-based Pedagogy",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11650115"
+                },
+                {
+                  "title": "Art Education Beyond Anthropocentricism The Question of Nonhuman Animals in Contemporary Art",
+                  "year": 2020,
+                  "doi": "10.1080/00393541.2020.1820832"
+                },
+                {
+                  "title": "Ecology of Place: Art Education in a Relational World",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11650116"
+                }
+              ]
+            }
+          },
+          {
+            "id": "body_affect",
+            "label": "In the body and affect",
+            "description": "Intelligence is located in emotion, embodiment, tacit knowing, and affective attunement.",
+            "earlyCount": 4,
+            "lateCount": 7,
+            "earlyShare": 0.049,
+            "lateShare": 0.101,
+            "delta": 0.053,
+            "direction": "stable",
+            "examples": {
+              "early": [
+                {
+                  "title": "Viktor Lowenfeld: Pioneer in Art Education Therapy",
+                  "year": 1981,
+                  "doi": "10.1080/00393541.1981.11650278"
+                },
+                {
+                  "title": "The Liberal Tradition of Art Education",
+                  "year": 1963,
+                  "doi": "10.1080/00393541.1964.11650590"
+                },
+                {
+                  "title": "Aesthetic Sensitivity, Previous Art Experiences, and Participation in the Scholastic Art Awards",
+                  "year": 1969,
+                  "doi": "10.1080/00393541.1969.11650649"
+                }
+              ],
+              "late": [
+                {
+                  "title": "The Potency of Humor and Instructional Self-Eﬃcacy on Art Teacher Stress",
+                  "year": 2010,
+                  "doi": "10.1080/00393541.2010.11518824"
+                },
+                {
+                  "title": "Cyborg Pedagogy: Performing Resistance in the Digital Age",
+                  "year": 2001,
+                  "doi": "10.1080/00393541.2001.11651708"
+                },
+                {
+                  "title": "Casting the Conceptual Net Cognitive Possibilities for Embracing the Social and Emotional Ric",
+                  "year": 2010,
+                  "doi": "10.1080/00393541.2010.11518813"
+                }
+              ]
+            }
+          },
+          {
+            "id": "artworks_materials",
+            "label": "In artworks and materials",
+            "description": "Intelligence is located in images, drawings, artifacts, materials, and studio practice.",
+            "earlyCount": 44,
+            "lateCount": 37,
+            "earlyShare": 0.537,
+            "lateShare": 0.536,
+            "delta": -0.0,
+            "direction": "stable",
+            "examples": {
+              "early": [
+                {
+                  "title": "Meaning and Visual Metaphor",
+                  "year": 1982,
+                  "doi": "10.1080/00393541.1982.11650312"
+                },
+                {
+                  "title": "A Structure for Pedagogical Art Criticism",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650699"
+                },
+                {
+                  "title": "Curriculum in Art Education: The Uncertainty Principle",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650725"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                  "year": 2009,
+                  "doi": "10.1080/00393541.2009.11518783"
+                },
+                {
+                  "title": "Art, Ecology and Art Education: Locating Art Education in a Critical Place-based Pedagogy",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11650115"
+                },
+                {
+                  "title": "Foundations for Design Education: Continuing the Bauhaus Vorkurs Vision",
+                  "year": 2005,
+                  "doi": "10.1080/00393541.2005.11650075"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "highlights": [
+        {
+          "title": "In the mind and concepts is the dominant location frame",
+          "body": "It appears in 119 of 174 articles (68%), making it the strongest answer to the question where intelligence is located across the corpus.",
+          "examples": {
+            "early": [
+              {
+                "title": "Meaning and Visual Metaphor",
+                "year": 1982,
+                "doi": "10.1080/00393541.1982.11650312"
+              },
+              {
+                "title": "A Structure for Pedagogical Art Criticism",
+                "year": 1988,
+                "doi": "10.1080/00393541.1988.11650699"
+              },
+              {
+                "title": "Curriculum in Art Education: The Uncertainty Principle",
+                "year": 1989,
+                "doi": "10.1080/00393541.1989.11650725"
+              }
+            ],
+            "late": [
+              {
+                "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                "year": 2004,
+                "doi": "10.1080/00393541.2004.11651771"
+              },
+              {
+                "title": "Foundations for Design Education: Continuing the Bauhaus Vorkurs Vision",
+                "year": 2005,
+                "doi": "10.1080/00393541.2005.11650075"
+              },
+              {
+                "title": "Disability Studies and Art Education",
+                "year": 2011,
+                "doi": "10.1080/00393541.2011.11518827"
+              }
+            ]
+          }
+        },
+        {
+          "title": "In relations and culture rises most over time",
+          "body": "It grows from 20% of articles in 1960s–1980s to 65% in 2000s–2020s.",
+          "examples": {
+            "early": [
+              {
+                "title": "Creativity Research: Its Sociological and Educational Limitations",
+                "year": 1983,
+                "doi": "10.1080/00393541.1983.11650333"
+              },
+              {
+                "title": "Multi-Cultural Approaches to Art Criticism",
+                "year": 1989,
+                "doi": "10.1080/00393541.1989.11650718"
+              },
+              {
+                "title": "Some Thoughts on Arts Education",
+                "year": 1985,
+                "doi": "10.1080/00393541.1985.11650431"
+              }
+            ],
+            "late": [
+              {
+                "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                "year": 2004,
+                "doi": "10.1080/00393541.2004.11651771"
+              },
+              {
+                "title": "Creative and Critical Entanglements With AI in Art Education",
+                "year": 2023,
+                "doi": "10.1080/00393541.2023.2255084"
+              },
+              {
+                "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                "year": 2009,
+                "doi": "10.1080/00393541.2009.11518783"
+              }
+            ]
+          }
+        },
+        {
+          "title": "In the mind and concepts recedes most",
+          "body": "It falls from 82% in 1960s–1980s to 52% in 2000s–2020s.",
+          "examples": {
+            "early": [
+              {
+                "title": "Meaning and Visual Metaphor",
+                "year": 1982,
+                "doi": "10.1080/00393541.1982.11650312"
+              },
+              {
+                "title": "A Structure for Pedagogical Art Criticism",
+                "year": 1988,
+                "doi": "10.1080/00393541.1988.11650699"
+              },
+              {
+                "title": "Curriculum in Art Education: The Uncertainty Principle",
+                "year": 1989,
+                "doi": "10.1080/00393541.1989.11650725"
+              }
+            ],
+            "late": [
+              {
+                "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                "year": 2004,
+                "doi": "10.1080/00393541.2004.11651771"
+              },
+              {
+                "title": "Foundations for Design Education: Continuing the Bauhaus Vorkurs Vision",
+                "year": 2005,
+                "doi": "10.1080/00393541.2005.11650075"
+              },
+              {
+                "title": "Disability Studies and Art Education",
+                "year": 2011,
+                "doi": "10.1080/00393541.2011.11518827"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "subjects": {
+      "title": "Whose intelligence counts",
+      "articleKey": "subjectFrames",
+      "bucketKey": "subjects",
+      "noun": "subject position",
+      "definitions": [
+        {
+          "id": "children_students",
+          "label": "Children and students",
+          "description": "Intelligence is most explicitly attached to children, students, adolescents, and learners.",
+          "cues": [
+            "children",
+            "students",
+            "adolescents",
+            "learners"
+          ],
+          "keywords": [
+            "\\bchildren\\b",
+            "\\bchild\\b",
+            "\\bstudent",
+            "\\blearner",
+            "\\badolescent",
+            "\\bpreschool"
+          ]
+        },
+        {
+          "id": "teachers_educators",
+          "label": "Teachers and educators",
+          "description": "Intelligence is centered in teachers, preservice educators, and professional pedagogical formation.",
+          "cues": [
+            "teachers",
+            "preservice",
+            "educators",
+            "professional formation"
+          ],
+          "keywords": [
+            "\\bteacher",
+            "\\bpreservice\\b",
+            "\\beducator",
+            "\\bfaculty\\b"
+          ]
+        },
+        {
+          "id": "artists_makers",
+          "label": "Artists and makers",
+          "description": "Intelligence is centered in artists, designers, practitioners, or makers.",
+          "cues": [
+            "artists",
+            "designers",
+            "practitioners",
+            "makers"
+          ],
+          "keywords": [
+            "\\bartist",
+            "\\bdesigner",
+            "\\bpractitioner",
+            "\\bmaker",
+            "\\bmakers\\b"
+          ]
+        },
+        {
+          "id": "communities_publics",
+          "label": "Communities and publics",
+          "description": "Intelligence is centered in communities, museum publics, families, and lifelong learners beyond the classroom.",
+          "cues": [
+            "communities",
+            "publics",
+            "museum visitors",
+            "older adults"
+          ],
+          "keywords": [
+            "\\bcommunity\\b",
+            "\\bpublic\\b",
+            "\\bmuseum\\b",
+            "\\bfamil",
+            "\\bolder adults\\b",
+            "\\blifelong\\b"
+          ]
+        },
+        {
+          "id": "disabled_gifted_subjects",
+          "label": "Gifted, disabled, and neurodiverse subjects",
+          "description": "Intelligence is centered in gifted, disabled, autistic, or otherwise neurodiverse subjects.",
+          "cues": [
+            "giftedness",
+            "disability",
+            "autism",
+            "neurodiversity"
+          ],
+          "keywords": [
+            "\\bgifted\\b",
+            "\\btalented\\b",
+            "\\bdisabil",
+            "\\bautis",
+            "\\bhearing impaired\\b",
+            "\\bneuro"
+          ]
+        },
+        {
+          "id": "identity_marked_subjects",
+          "label": "Identity-marked and marginalized subjects",
+          "description": "Intelligence is centered in subjects marked by race, gender, sexuality, decoloniality, or other identity positions.",
+          "cues": [
+            "race",
+            "gender",
+            "queer",
+            "decoloniality"
+          ],
+          "keywords": [
+            "\\bracial\\b",
+            "\\bqueer",
+            "\\bgender\\b",
+            "\\bfeminis",
+            "\\bdecolon",
+            "\\bmulticultural\\b",
+            "\\bindigenous\\b"
+          ]
+        },
+        {
+          "id": "machines_nonhumans",
+          "label": "Machines and nonhumans",
+          "description": "Intelligence is centered in AI, machines, nonhuman animals, or more-than-human agencies.",
+          "cues": [
+            "AI",
+            "machines",
+            "nonhuman",
+            "animals"
+          ],
+          "keywords": [
+            "\\bai\\b",
+            "\\bartificial intelligence\\b",
+            "\\bmachine\\b",
+            "\\bnonhuman\\b",
+            "\\banimal",
+            "\\balgorithm\\b"
+          ]
+        }
+      ],
+      "counts": [
+        {
+          "id": "children_students",
+          "label": "Children and students",
+          "count": 147,
+          "description": "Intelligence is most explicitly attached to children, students, adolescents, and learners.",
+          "cues": [
+            "children",
+            "students",
+            "adolescents",
+            "learners"
+          ]
+        },
+        {
+          "id": "artists_makers",
+          "label": "Artists and makers",
+          "count": 122,
+          "description": "Intelligence is centered in artists, designers, practitioners, or makers.",
+          "cues": [
+            "artists",
+            "designers",
+            "practitioners",
+            "makers"
+          ]
+        },
+        {
+          "id": "teachers_educators",
+          "label": "Teachers and educators",
+          "count": 117,
+          "description": "Intelligence is centered in teachers, preservice educators, and professional pedagogical formation.",
+          "cues": [
+            "teachers",
+            "preservice",
+            "educators",
+            "professional formation"
+          ]
+        },
+        {
+          "id": "communities_publics",
+          "label": "Communities and publics",
+          "count": 73,
+          "description": "Intelligence is centered in communities, museum publics, families, and lifelong learners beyond the classroom.",
+          "cues": [
+            "communities",
+            "publics",
+            "museum visitors",
+            "older adults"
+          ]
+        },
+        {
+          "id": "disabled_gifted_subjects",
+          "label": "Gifted, disabled, and neurodiverse subjects",
+          "count": 19,
+          "description": "Intelligence is centered in gifted, disabled, autistic, or otherwise neurodiverse subjects.",
+          "cues": [
+            "giftedness",
+            "disability",
+            "autism",
+            "neurodiversity"
+          ]
+        },
+        {
+          "id": "identity_marked_subjects",
+          "label": "Identity-marked and marginalized subjects",
+          "count": 14,
+          "description": "Intelligence is centered in subjects marked by race, gender, sexuality, decoloniality, or other identity positions.",
+          "cues": [
+            "race",
+            "gender",
+            "queer",
+            "decoloniality"
+          ]
+        },
+        {
+          "id": "machines_nonhumans",
+          "label": "Machines and nonhumans",
+          "count": 11,
+          "description": "Intelligence is centered in AI, machines, nonhuman animals, or more-than-human agencies.",
+          "cues": [
+            "AI",
+            "machines",
+            "nonhuman",
+            "animals"
+          ]
+        }
+      ],
+      "trends": {
+        "earlyWindow": [
+          "1960s",
+          "1970s",
+          "1980s"
+        ],
+        "lateWindow": [
+          "2000s",
+          "2010s",
+          "2020s"
+        ],
+        "rows": [
+          {
+            "id": "identity_marked_subjects",
+            "label": "Identity-marked and marginalized subjects",
+            "description": "Intelligence is centered in subjects marked by race, gender, sexuality, decoloniality, or other identity positions.",
+            "earlyCount": 0,
+            "lateCount": 11,
+            "earlyShare": 0.0,
+            "lateShare": 0.159,
+            "delta": 0.159,
+            "direction": "rising",
+            "examples": {
+              "early": [],
+              "late": [
+                {
+                  "title": "Creative and Critical Entanglements With AI in Art Education",
+                  "year": 2023,
+                  "doi": "10.1080/00393541.2023.2255084"
+                },
+                {
+                  "title": "Post Stereotypes: Deconstructing Racial Assumptions and Biases through Visual Culture and Confrontational Pedagogy",
+                  "year": 2015,
+                  "doi": "10.1080/00393541.2015.11518964"
+                },
+                {
+                  "title": "Deconstructing Dichotomies Lesson on Queering the Mis Representations of LGBTQ in Preservic",
+                  "year": 2021,
+                  "doi": "10.1080/00393541.2021.1975490"
+                }
+              ]
+            }
+          },
+          {
+            "id": "communities_publics",
+            "label": "Communities and publics",
+            "description": "Intelligence is centered in communities, museum publics, families, and lifelong learners beyond the classroom.",
+            "earlyCount": 29,
+            "lateCount": 33,
+            "earlyShare": 0.354,
+            "lateShare": 0.478,
+            "delta": 0.125,
+            "direction": "rising",
+            "examples": {
+              "early": [
+                {
+                  "title": "Curriculum in Art Education: The Uncertainty Principle",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650725"
+                },
+                {
+                  "title": "The Child as Image-Maker: The Invention of Representational Models and the Eﬀects of the Medium",
+                  "year": 1976,
+                  "doi": "10.1080/00393541.1976.11649919"
+                },
+                {
+                  "title": "A Typology of Creativity in the Visual Arts",
+                  "year": 1962,
+                  "doi": "10.1080/00393541.1962.11650580"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                  "year": 2004,
+                  "doi": "10.1080/00393541.2004.11651771"
+                },
+                {
+                  "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                  "year": 2009,
+                  "doi": "10.1080/00393541.2009.11518783"
+                },
+                {
+                  "title": "Art, Ecology and Art Education: Locating Art Education in a Critical Place-based Pedagogy",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11650115"
+                }
+              ]
+            }
+          },
+          {
+            "id": "artists_makers",
+            "label": "Artists and makers",
+            "description": "Intelligence is centered in artists, designers, practitioners, or makers.",
+            "earlyCount": 61,
+            "lateCount": 44,
+            "earlyShare": 0.744,
+            "lateShare": 0.638,
+            "delta": -0.106,
+            "direction": "declining",
+            "examples": {
+              "early": [
+                {
+                  "title": "Meaning and Visual Metaphor",
+                  "year": 1982,
+                  "doi": "10.1080/00393541.1982.11650312"
+                },
+                {
+                  "title": "A Structure for Pedagogical Art Criticism",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650699"
+                },
+                {
+                  "title": "The Child as Image-Maker: The Invention of Representational Models and the Eﬀects of the Medium",
+                  "year": 1976,
+                  "doi": "10.1080/00393541.1976.11649919"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                  "year": 2009,
+                  "doi": "10.1080/00393541.2009.11518783"
+                },
+                {
+                  "title": "Art, Ecology and Art Education: Locating Art Education in a Critical Place-based Pedagogy",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11650115"
+                },
+                {
+                  "title": "Foundations for Design Education: Continuing the Bauhaus Vorkurs Vision",
+                  "year": 2005,
+                  "doi": "10.1080/00393541.2005.11650075"
+                }
+              ]
+            }
+          },
+          {
+            "id": "children_students",
+            "label": "Children and students",
+            "description": "Intelligence is most explicitly attached to children, students, adolescents, and learners.",
+            "earlyCount": 74,
+            "lateCount": 55,
+            "earlyShare": 0.902,
+            "lateShare": 0.797,
+            "delta": -0.105,
+            "direction": "declining",
+            "examples": {
+              "early": [
+                {
+                  "title": "A Structure for Pedagogical Art Criticism",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650699"
+                },
+                {
+                  "title": "Curriculum in Art Education: The Uncertainty Principle",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650725"
+                },
+                {
+                  "title": "The Child as Image-Maker: The Invention of Representational Models and the Eﬀects of the Medium",
+                  "year": 1976,
+                  "doi": "10.1080/00393541.1976.11649919"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                  "year": 2004,
+                  "doi": "10.1080/00393541.2004.11651771"
+                },
+                {
+                  "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                  "year": 2009,
+                  "doi": "10.1080/00393541.2009.11518783"
+                },
+                {
+                  "title": "Art, Ecology and Art Education: Locating Art Education in a Critical Place-based Pedagogy",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11650115"
+                }
+              ]
+            }
+          },
+          {
+            "id": "machines_nonhumans",
+            "label": "Machines and nonhumans",
+            "description": "Intelligence is centered in AI, machines, nonhuman animals, or more-than-human agencies.",
+            "earlyCount": 4,
+            "lateCount": 7,
+            "earlyShare": 0.049,
+            "lateShare": 0.101,
+            "delta": 0.053,
+            "direction": "stable",
+            "examples": {
+              "early": [
+                {
+                  "title": "Film and Cognition: A Critical Review of Current Theory",
+                  "year": 1984,
+                  "doi": "10.1080/00393541.1984.11650364"
+                },
+                {
+                  "title": "Art Education Romantic Idealism and Work Comparing Ruskin's Ideas to Those Found in 19th Ce",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650716"
+                },
+                {
+                  "title": "The Drawings of Preschool Children: A Longitudinal Case Study and Four Experiments",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650687"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Creative and Critical Entanglements With AI in Art Education",
+                  "year": 2023,
+                  "doi": "10.1080/00393541.2023.2255084"
+                },
+                {
+                  "title": "Art Education Beyond Anthropocentricism The Question of Nonhuman Animals in Contemporary Art",
+                  "year": 2020,
+                  "doi": "10.1080/00393541.2020.1820832"
+                },
+                {
+                  "title": "Midjourney Killed the Photoshop Star: Assembling the Emerging Field of Synthography",
+                  "year": 2023,
+                  "doi": "10.1080/00393541.2023.2255085"
+                }
+              ]
+            }
+          },
+          {
+            "id": "disabled_gifted_subjects",
+            "label": "Gifted, disabled, and neurodiverse subjects",
+            "description": "Intelligence is centered in gifted, disabled, autistic, or otherwise neurodiverse subjects.",
+            "earlyCount": 11,
+            "lateCount": 7,
+            "earlyShare": 0.134,
+            "lateShare": 0.101,
+            "delta": -0.033,
+            "direction": "stable",
+            "examples": {
+              "early": [
+                {
+                  "title": "Identification of the Gifted in Art",
+                  "year": 1981,
+                  "doi": "10.1080/00393541.1981.11650282"
+                },
+                {
+                  "title": "Nadia's Drawings: Theorizing about an Autistic Child's Phenomenal Ability",
+                  "year": 1981,
+                  "doi": "10.1080/00393541.1981.11650279"
+                },
+                {
+                  "title": "An Historical Perspective on the Gifted and the Talented in Art",
+                  "year": 1981,
+                  "doi": "10.1080/00393541.1981.11650281"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Disability Studies and Art Education",
+                  "year": 2011,
+                  "doi": "10.1080/00393541.2011.11518827"
+                },
+                {
+                  "title": "Art in Institutions: The Emergence of (Disabled) Outsiders",
+                  "year": 2015,
+                  "doi": "10.1080/00393541.2015.11518956"
+                },
+                {
+                  "title": "Inclusive Artmaking in High School Visual Arts Classes",
+                  "year": 2021,
+                  "doi": "10.1080/00393541.2021.1896251"
+                }
+              ]
+            }
+          },
+          {
+            "id": "teachers_educators",
+            "label": "Teachers and educators",
+            "description": "Intelligence is centered in teachers, preservice educators, and professional pedagogical formation.",
+            "earlyCount": 54,
+            "lateCount": 46,
+            "earlyShare": 0.659,
+            "lateShare": 0.667,
+            "delta": 0.008,
+            "direction": "stable",
+            "examples": {
+              "early": [
+                {
+                  "title": "A Structure for Pedagogical Art Criticism",
+                  "year": 1988,
+                  "doi": "10.1080/00393541.1988.11650699"
+                },
+                {
+                  "title": "Curriculum in Art Education: The Uncertainty Principle",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650725"
+                },
+                {
+                  "title": "Zero-Based Arts Education: An Introduction to ARTS PROPEL",
+                  "year": 1989,
+                  "doi": "10.1080/00393541.1989.11650706"
+                }
+              ],
+              "late": [
+                {
+                  "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                  "year": 2004,
+                  "doi": "10.1080/00393541.2004.11651771"
+                },
+                {
+                  "title": "Foundations for Design Education: Continuing the Bauhaus Vorkurs Vision",
+                  "year": 2005,
+                  "doi": "10.1080/00393541.2005.11650075"
+                },
+                {
+                  "title": "Image as Insight: Visual Images in Practice-Based Research",
+                  "year": 2007,
+                  "doi": "10.1080/00393541.2007.11518722"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "highlights": [
+        {
+          "title": "Children and students is the dominant subject position",
+          "body": "It appears in 147 of 174 articles (84%), making it the strongest answer to the question whose intelligence counts across the corpus.",
+          "examples": {
+            "early": [
+              {
+                "title": "A Structure for Pedagogical Art Criticism",
+                "year": 1988,
+                "doi": "10.1080/00393541.1988.11650699"
+              },
+              {
+                "title": "Curriculum in Art Education: The Uncertainty Principle",
+                "year": 1989,
+                "doi": "10.1080/00393541.1989.11650725"
+              },
+              {
+                "title": "The Child as Image-Maker: The Invention of Representational Models and the Eﬀects of the Medium",
+                "year": 1976,
+                "doi": "10.1080/00393541.1976.11649919"
+              }
+            ],
+            "late": [
+              {
+                "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+                "year": 2004,
+                "doi": "10.1080/00393541.2004.11651771"
+              },
+              {
+                "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                "year": 2009,
+                "doi": "10.1080/00393541.2009.11518783"
+              },
+              {
+                "title": "Art, Ecology and Art Education: Locating Art Education in a Critical Place-based Pedagogy",
+                "year": 2007,
+                "doi": "10.1080/00393541.2007.11650115"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Identity-marked and marginalized subjects rises most over time",
+          "body": "It grows from 0% of articles in 1960s–1980s to 16% in 2000s–2020s.",
+          "examples": {
+            "early": [],
+            "late": [
+              {
+                "title": "Creative and Critical Entanglements With AI in Art Education",
+                "year": 2023,
+                "doi": "10.1080/00393541.2023.2255084"
+              },
+              {
+                "title": "Post Stereotypes: Deconstructing Racial Assumptions and Biases through Visual Culture and Confrontational Pedagogy",
+                "year": 2015,
+                "doi": "10.1080/00393541.2015.11518964"
+              },
+              {
+                "title": "Deconstructing Dichotomies Lesson on Queering the Mis Representations of LGBTQ in Preservic",
+                "year": 2021,
+                "doi": "10.1080/00393541.2021.1975490"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Artists and makers recedes most",
+          "body": "It falls from 74% in 1960s–1980s to 64% in 2000s–2020s.",
+          "examples": {
+            "early": [
+              {
+                "title": "Meaning and Visual Metaphor",
+                "year": 1982,
+                "doi": "10.1080/00393541.1982.11650312"
+              },
+              {
+                "title": "A Structure for Pedagogical Art Criticism",
+                "year": 1988,
+                "doi": "10.1080/00393541.1988.11650699"
+              },
+              {
+                "title": "The Child as Image-Maker: The Invention of Representational Models and the Eﬀects of the Medium",
+                "year": 1976,
+                "doi": "10.1080/00393541.1976.11649919"
+              }
+            ],
+            "late": [
+              {
+                "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+                "year": 2009,
+                "doi": "10.1080/00393541.2009.11518783"
+              },
+              {
+                "title": "Art, Ecology and Art Education: Locating Art Education in a Critical Place-based Pedagogy",
+                "year": 2007,
+                "doi": "10.1080/00393541.2007.11650115"
+              },
+              {
+                "title": "Foundations for Design Education: Continuing the Bauhaus Vorkurs Vision",
+                "year": 2005,
+                "doi": "10.1080/00393541.2005.11650075"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "meaningShifts": {
+    "periods": [
+      {
+        "label": "1960s–1980s",
+        "articleCount": 82,
+        "families": {
+          "definitions": [
+            {
+              "id": "measurable_faculty",
+              "label": "As measurable faculty",
+              "count": 54,
+              "share": 0.659
+            },
+            {
+              "id": "perceptual_sensitivity",
+              "label": "As perceptual sensitivity",
+              "count": 45,
+              "share": 0.549
+            }
+          ],
+          "recognition": [
+            {
+              "id": "developmental_observation",
+              "label": "Through developmental observation",
+              "count": 62,
+              "share": 0.756
+            },
+            {
+              "id": "judgment_critique",
+              "label": "Through judgment and critique",
+              "count": 40,
+              "share": 0.488
+            }
+          ],
+          "locations": [
+            {
+              "id": "mind_concepts",
+              "label": "In the mind and concepts",
+              "count": 67,
+              "share": 0.817
+            },
+            {
+              "id": "pedagogical_institutions",
+              "label": "In classrooms and pedagogical systems",
+              "count": 51,
+              "share": 0.622
+            }
+          ],
+          "subjects": [
+            {
+              "id": "children_students",
+              "label": "Children and students",
+              "count": 74,
+              "share": 0.902
+            },
+            {
+              "id": "artists_makers",
+              "label": "Artists and makers",
+              "count": 61,
+              "share": 0.744
+            }
+          ]
+        }
+      },
+      {
+        "label": "1990s–2000s",
+        "articleCount": 52,
+        "families": {
+          "definitions": [
+            {
+              "id": "situated_practice",
+              "label": "As situated social / cultural practice",
+              "count": 40,
+              "share": 0.769
+            },
+            {
+              "id": "creative_capacity",
+              "label": "As creative capacity",
+              "count": 30,
+              "share": 0.577
+            }
+          ],
+          "recognition": [
+            {
+              "id": "making_performance",
+              "label": "Through artworks and making",
+              "count": 37,
+              "share": 0.712
+            },
+            {
+              "id": "language_reflection",
+              "label": "Through language and reflection",
+              "count": 30,
+              "share": 0.577
+            }
+          ],
+          "locations": [
+            {
+              "id": "artworks_materials",
+              "label": "In artworks and materials",
+              "count": 36,
+              "share": 0.692
+            },
+            {
+              "id": "mind_concepts",
+              "label": "In the mind and concepts",
+              "count": 31,
+              "share": 0.596
+            }
+          ],
+          "subjects": [
+            {
+              "id": "children_students",
+              "label": "Children and students",
+              "count": 42,
+              "share": 0.808
+            },
+            {
+              "id": "teachers_educators",
+              "label": "Teachers and educators",
+              "count": 37,
+              "share": 0.712
+            }
+          ]
+        }
+      },
+      {
+        "label": "2010s–2020s",
+        "articleCount": 40,
+        "families": {
+          "definitions": [
+            {
+              "id": "situated_practice",
+              "label": "As situated social / cultural practice",
+              "count": 31,
+              "share": 0.775
+            },
+            {
+              "id": "creative_capacity",
+              "label": "As creative capacity",
+              "count": 20,
+              "share": 0.5
+            }
+          ],
+          "recognition": [
+            {
+              "id": "participation_relation",
+              "label": "Through participation and relation",
+              "count": 29,
+              "share": 0.725
+            },
+            {
+              "id": "making_performance",
+              "label": "Through artworks and making",
+              "count": 27,
+              "share": 0.675
+            }
+          ],
+          "locations": [
+            {
+              "id": "relations_culture",
+              "label": "In relations and culture",
+              "count": 27,
+              "share": 0.675
+            },
+            {
+              "id": "pedagogical_institutions",
+              "label": "In classrooms and pedagogical systems",
+              "count": 21,
+              "share": 0.525
+            }
+          ],
+          "subjects": [
+            {
+              "id": "children_students",
+              "label": "Children and students",
+              "count": 31,
+              "share": 0.775
+            },
+            {
+              "id": "teachers_educators",
+              "label": "Teachers and educators",
+              "count": 26,
+              "share": 0.65
+            }
+          ]
+        }
+      }
+    ],
+    "stories": [
+      {
+        "title": "How intelligence is defined",
+        "body": "The strongest rise is As situated social / cultural practice (44% → 81%), while the strongest decline is As measurable faculty (66% → 30%).",
+        "examples": {
+          "early": [
+            {
+              "title": "Curriculum in Art Education: The Uncertainty Principle",
+              "year": 1989,
+              "doi": "10.1080/00393541.1989.11650725"
+            },
+            {
+              "title": "Zero-Based Arts Education: An Introduction to ARTS PROPEL",
+              "year": 1989,
+              "doi": "10.1080/00393541.1989.11650706"
+            },
+            {
+              "title": "The Development of Information and Attitude toward Art at the Secondary and College Level",
+              "year": 1966,
+              "doi": "10.1080/00393541.1966.11650619"
+            }
+          ],
+          "late": [
+            {
+              "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+              "year": 2004,
+              "doi": "10.1080/00393541.2004.11651771"
+            },
+            {
+              "title": "Creative and Critical Entanglements With AI in Art Education",
+              "year": 2023,
+              "doi": "10.1080/00393541.2023.2255084"
+            },
+            {
+              "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+              "year": 2009,
+              "doi": "10.1080/00393541.2009.11518783"
+            }
+          ]
+        }
+      },
+      {
+        "title": "How intelligence is recognized",
+        "body": "The strongest rise is Through participation and relation (26% → 70%), while the strongest decline is Through judgment and critique (49% → 16%).",
+        "examples": {
+          "early": [
+            {
+              "title": "Viktor Lowenfeld: Pioneer in Art Education Therapy",
+              "year": 1981,
+              "doi": "10.1080/00393541.1981.11650278"
+            },
+            {
+              "title": "The Effectiveness of a Children's Workshop in the Creative Arts in Forwarding Personal and Int",
+              "year": 1969,
+              "doi": "10.1080/00393541.1969.11650660"
+            },
+            {
+              "title": "Eﬀects of Instruction on High School Students' Art Preferences and Art Judgments",
+              "year": 1976,
+              "doi": "10.1080/00393541.1976.11649937"
+            }
+          ],
+          "late": [
+            {
+              "title": "Creative and Critical Entanglements With AI in Art Education",
+              "year": 2023,
+              "doi": "10.1080/00393541.2023.2255084"
+            },
+            {
+              "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+              "year": 2009,
+              "doi": "10.1080/00393541.2009.11518783"
+            },
+            {
+              "title": "Art, Ecology and Art Education: Locating Art Education in a Critical Place-based Pedagogy",
+              "year": 2007,
+              "doi": "10.1080/00393541.2007.11650115"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Where intelligence is located",
+        "body": "The strongest rise is In relations and culture (20% → 65%), while the strongest decline is In the mind and concepts (82% → 52%).",
+        "examples": {
+          "early": [
+            {
+              "title": "Creativity Research: Its Sociological and Educational Limitations",
+              "year": 1983,
+              "doi": "10.1080/00393541.1983.11650333"
+            },
+            {
+              "title": "Multi-Cultural Approaches to Art Criticism",
+              "year": 1989,
+              "doi": "10.1080/00393541.1989.11650718"
+            },
+            {
+              "title": "Some Thoughts on Arts Education",
+              "year": 1985,
+              "doi": "10.1080/00393541.1985.11650431"
+            }
+          ],
+          "late": [
+            {
+              "title": "Visual Culture isn't Just Visual: Multiliteracy, Multimodality and Meaning",
+              "year": 2004,
+              "doi": "10.1080/00393541.2004.11651771"
+            },
+            {
+              "title": "Creative and Critical Entanglements With AI in Art Education",
+              "year": 2023,
+              "doi": "10.1080/00393541.2023.2255084"
+            },
+            {
+              "title": "Reconceptualizing the Role of Creativity in Art Education Theory and Practice",
+              "year": 2009,
+              "doi": "10.1080/00393541.2009.11518783"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Whose intelligence counts",
+        "body": "The strongest rise is Identity-marked and marginalized subjects (0% → 16%), while the strongest decline is Artists and makers (74% → 64%).",
+        "examples": {
+          "early": [],
+          "late": [
+            {
+              "title": "Creative and Critical Entanglements With AI in Art Education",
+              "year": 2023,
+              "doi": "10.1080/00393541.2023.2255084"
+            },
+            {
+              "title": "Post Stereotypes: Deconstructing Racial Assumptions and Biases through Visual Culture and Confrontational Pedagogy",
+              "year": 2015,
+              "doi": "10.1080/00393541.2015.11518964"
+            },
+            {
+              "title": "Deconstructing Dichotomies Lesson on Queering the Mis Representations of LGBTQ in Preservic",
+              "year": 2021,
+              "doi": "10.1080/00393541.2021.1975490"
+            }
+          ]
+        }
+      }
+    ]
+  },
   "origins": {
     "types": [
       {
@@ -6397,6 +13566,246 @@ window.CORPUS_DATA = {
         "firstTitle": "The Value-Orientations of Art Students as Determinants of Artistic Specialization and Creative",
         "doi": "10.1080/00393541.1968.11650632",
         "totalCount": 29
+      }
+    ],
+    "definitions": [
+      {
+        "id": "creative_capacity",
+        "label": "As creative capacity",
+        "firstYear": 1962,
+        "firstTitle": "A Typology of Creativity in the Visual Arts",
+        "doi": "10.1080/00393541.1962.11650580",
+        "totalCount": 90
+      },
+      {
+        "id": "measurable_faculty",
+        "label": "As measurable faculty",
+        "firstYear": 1962,
+        "firstTitle": "A Typology of Creativity in the Visual Arts",
+        "doi": "10.1080/00393541.1962.11650580",
+        "totalCount": 86
+      },
+      {
+        "id": "perceptual_sensitivity",
+        "label": "As perceptual sensitivity",
+        "firstYear": 1962,
+        "firstTitle": "A Typology of Creativity in the Visual Arts",
+        "doi": "10.1080/00393541.1962.11650580",
+        "totalCount": 74
+      },
+      {
+        "id": "embodied_attunement",
+        "label": "As embodied / affective attunement",
+        "firstYear": 1963,
+        "firstTitle": "On the Impossibility of Theory in Art Education",
+        "doi": "10.1080/00393541.1963.11650119",
+        "totalCount": 52
+      },
+      {
+        "id": "situated_practice",
+        "label": "As situated social / cultural practice",
+        "firstYear": 1963,
+        "firstTitle": "Schismogenesis in Contemporary Art Education",
+        "doi": "10.1080/00393541.1963.11650120",
+        "totalCount": 107
+      },
+      {
+        "id": "interpretive_meaning",
+        "label": "As symbolic / interpretive meaning-making",
+        "firstYear": 1963,
+        "firstTitle": "Non-Verbal Manipulation and Creativeness in Art",
+        "doi": "10.1080/00393541.1963.11650123",
+        "totalCount": 80
+      },
+      {
+        "id": "machinic_relation",
+        "label": "As technological / machinic relation",
+        "firstYear": 1968,
+        "firstTitle": "Three Bases for Research and Teaching in the Arts: Subjective, Objective, and Projective",
+        "doi": "10.1080/00393541.1968.11650625",
+        "totalCount": 24
+      }
+    ],
+    "recognition": [
+      {
+        "id": "making_performance",
+        "label": "Through artworks and making",
+        "firstYear": 1962,
+        "firstTitle": "A Typology of Creativity in the Visual Arts",
+        "doi": "10.1080/00393541.1962.11650580",
+        "totalCount": 97
+      },
+      {
+        "id": "judgment_critique",
+        "label": "Through judgment and critique",
+        "firstYear": 1962,
+        "firstTitle": "A Typology of Creativity in the Visual Arts",
+        "doi": "10.1080/00393541.1962.11650580",
+        "totalCount": 61
+      },
+      {
+        "id": "testing_scoring",
+        "label": "Through tests and scores",
+        "firstYear": 1962,
+        "firstTitle": "A Typology of Creativity in the Visual Arts",
+        "doi": "10.1080/00393541.1962.11650580",
+        "totalCount": 55
+      },
+      {
+        "id": "developmental_observation",
+        "label": "Through developmental observation",
+        "firstYear": 1963,
+        "firstTitle": "On the Impossibility of Theory in Art Education",
+        "doi": "10.1080/00393541.1963.11650119",
+        "totalCount": 105
+      },
+      {
+        "id": "language_reflection",
+        "label": "Through language and reflection",
+        "firstYear": 1963,
+        "firstTitle": "Non-Verbal Manipulation and Creativeness in Art",
+        "doi": "10.1080/00393541.1963.11650123",
+        "totalCount": 84
+      },
+      {
+        "id": "participation_relation",
+        "label": "Through participation and relation",
+        "firstYear": 1964,
+        "firstTitle": "Art Education in France",
+        "doi": "10.1080/00393541.1964.11650133",
+        "totalCount": 79
+      },
+      {
+        "id": "technical_fluency",
+        "label": "Through media and technical fluency",
+        "firstYear": 1965,
+        "firstTitle": "Philosophical Inquiry and the Crisis in Art Education",
+        "doi": "10.1080/00393541.1965.11650606",
+        "totalCount": 29
+      }
+    ],
+    "locations": [
+      {
+        "id": "artworks_materials",
+        "label": "In artworks and materials",
+        "firstYear": 1962,
+        "firstTitle": "A Typology of Creativity in the Visual Arts",
+        "doi": "10.1080/00393541.1962.11650580",
+        "totalCount": 99
+      },
+      {
+        "id": "mind_concepts",
+        "label": "In the mind and concepts",
+        "firstYear": 1962,
+        "firstTitle": "A Typology of Creativity in the Visual Arts",
+        "doi": "10.1080/00393541.1962.11650580",
+        "totalCount": 119
+      },
+      {
+        "id": "vision_perception",
+        "label": "In vision and perception",
+        "firstYear": 1962,
+        "firstTitle": "A Typology of Creativity in the Visual Arts",
+        "doi": "10.1080/00393541.1962.11650580",
+        "totalCount": 76
+      },
+      {
+        "id": "pedagogical_institutions",
+        "label": "In classrooms and pedagogical systems",
+        "firstYear": 1963,
+        "firstTitle": "Non-Verbal Manipulation and Creativeness in Art",
+        "doi": "10.1080/00393541.1963.11650123",
+        "totalCount": 100
+      },
+      {
+        "id": "relations_culture",
+        "label": "In relations and culture",
+        "firstYear": 1963,
+        "firstTitle": "The Liberal Tradition of Art Education",
+        "doi": "10.1080/00393541.1964.11650590",
+        "totalCount": 69
+      },
+      {
+        "id": "body_affect",
+        "label": "In the body and affect",
+        "firstYear": 1963,
+        "firstTitle": "The Liberal Tradition of Art Education",
+        "doi": "10.1080/00393541.1964.11650590",
+        "totalCount": 11
+      },
+      {
+        "id": "media_machines",
+        "label": "In media and machines",
+        "firstYear": 1964,
+        "firstTitle": "The Dimensionality of Diﬀerential Criteria in the Art Product: An Empirical Study",
+        "doi": "10.1080/00393541.1964.11650602",
+        "totalCount": 18
+      },
+      {
+        "id": "place_ecology",
+        "label": "In place and ecology",
+        "firstYear": 1964,
+        "firstTitle": "Art Education in France",
+        "doi": "10.1080/00393541.1964.11650133",
+        "totalCount": 20
+      }
+    ],
+    "subjects": [
+      {
+        "id": "artists_makers",
+        "label": "Artists and makers",
+        "firstYear": 1962,
+        "firstTitle": "A Typology of Creativity in the Visual Arts",
+        "doi": "10.1080/00393541.1962.11650580",
+        "totalCount": 122
+      },
+      {
+        "id": "children_students",
+        "label": "Children and students",
+        "firstYear": 1962,
+        "firstTitle": "A Typology of Creativity in the Visual Arts",
+        "doi": "10.1080/00393541.1962.11650580",
+        "totalCount": 147
+      },
+      {
+        "id": "communities_publics",
+        "label": "Communities and publics",
+        "firstYear": 1962,
+        "firstTitle": "A Typology of Creativity in the Visual Arts",
+        "doi": "10.1080/00393541.1962.11650580",
+        "totalCount": 73
+      },
+      {
+        "id": "disabled_gifted_subjects",
+        "label": "Gifted, disabled, and neurodiverse subjects",
+        "firstYear": 1963,
+        "firstTitle": "Non-Verbal Manipulation and Creativeness in Art",
+        "doi": "10.1080/00393541.1963.11650123",
+        "totalCount": 19
+      },
+      {
+        "id": "teachers_educators",
+        "label": "Teachers and educators",
+        "firstYear": 1963,
+        "firstTitle": "On the Impossibility of Theory in Art Education",
+        "doi": "10.1080/00393541.1963.11650119",
+        "totalCount": 117
+      },
+      {
+        "id": "machines_nonhumans",
+        "label": "Machines and nonhumans",
+        "firstYear": 1982,
+        "firstTitle": "Videodiluvianism",
+        "doi": "10.1080/00393541.1982.11650315",
+        "totalCount": 11
+      },
+      {
+        "id": "identity_marked_subjects",
+        "label": "Identity-marked and marginalized subjects",
+        "firstYear": 1990,
+        "firstTitle": "Women Doing Historical Research",
+        "doi": "10.1080/00393541.1990.11651829",
+        "totalCount": 14
       }
     ]
   },
@@ -7973,6 +15382,26 @@ window.CORPUS_DATA = {
         "language",
         "technology"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "interpretive_meaning",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "making_performance",
+        "technical_fluency"
+      ],
+      "locationFrames": [
+        "vision_perception",
+        "relations_culture",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "communities_publics"
+      ],
       "excerpt": "E-mail: pduncum@uiuc.edu 1wish to rhank my colleagues Robin Wills at the University of Tasmania and Angela Thomas at the University of Sydney for their invaluable assisrance in the devel- opment of this arride. The central claim of this article is that contemporary cultural forms such as tele- vision and the Internet i"
     },
     {
@@ -7995,6 +15424,22 @@ window.CORPUS_DATA = {
         "technology",
         "language",
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "machinic_relation",
+        "situated_practice"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "media_machines",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "machines_nonhumans",
+        "identity_marked_subjects"
       ],
       "excerpt": "This article aims to envision how entanglements with nonhuman intelligences can unsettle and reshape pedagogical approaches in the field of art education. I argue for the need to reconceptualize relations between humans and artificial intelligence (AI) as collaborative and symbiotic relationships beyond instrumental un"
     },
@@ -8022,6 +15467,26 @@ window.CORPUS_DATA = {
         "identity",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "creative_capacity",
+        "situated_practice",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "participation_relation",
+        "testing_scoring"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "communities_publics",
+        "artists_makers"
+      ],
       "excerpt": "Currently, creativity may not be a primary focus at National Art Education Association conferences or in its publications. There are recent indications that art education is a site where creativity can be developed and nurtured for all students with emphasis on both individual processes and cultural practices."
     },
     {
@@ -8047,6 +15512,26 @@ window.CORPUS_DATA = {
         "equity",
         "technology"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "machinic_relation",
+        "embodied_attunement"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "participation_relation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "place_ecology",
+        "relations_culture",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "artists_makers",
+        "communities_publics"
+      ],
       "excerpt": "Graham BrighamYoung University In contemporary life and education, the local is marginalized in favor oflarge-scale economies ofconsumption thar are indifferent to ecological concerns. The conse- quences of neglecting local human and natural communities include a degraded habitat, loss of wilderness, alienation, rootle"
     },
     {
@@ -8069,6 +15554,26 @@ window.CORPUS_DATA = {
       ],
       "signals": [
         "materiality"
+      ],
+      "definitionFrames": [
+        "creative_capacity",
+        "situated_practice",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "developmental_observation",
+        "making_performance",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "pedagogical_institutions",
+        "artworks_materials",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "teachers_educators",
+        "artists_makers"
       ],
       "excerpt": "Copyright 2005 by the NationalAn Education Association in An Education A Journal of Issues and Research 2005. 211-226 Foundations for Design Education: Continuing the Bauhaus WJrkurs Vision Fern Lerner Teachers College, Columbia University The Bauhaus Vorkurs (Foundation Course) is discussed as a versatile, enduring pr"
     },
@@ -8096,6 +15601,26 @@ window.CORPUS_DATA = {
         "language",
         "teacherhood"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "embodied_attunement",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "language_reflection",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "mind_concepts",
+        "relations_culture",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "disabled_gifted_subjects",
+        "artists_makers",
+        "children_students"
+      ],
       "excerpt": "While art education has persistently supported special education since its inception, disability advocacy has advanced in the past two decades toward self-awareness, self-reliance, and self- expression. The article demonstrates how disability studies, as the academic manifestation of this trend, can critically elaborat"
     },
     {
@@ -8121,6 +15646,26 @@ window.CORPUS_DATA = {
         "place",
         "materiality",
         "technology"
+      ],
+      "definitionFrames": [
+        "interpretive_meaning",
+        "perceptual_sensitivity",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "language_reflection",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "artworks_materials",
+        "vision_perception",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "artists_makers",
+        "teachers_educators",
+        "children_students"
       ],
       "excerpt": "Correspondence regarding this article may be sent to Julia Marshall at the Art Department, San Francisco State University, 1600 Holloway Avenue, San Francisco, CA 94132. This article explores how artmaking functions as research through the creation of visual images, especially images that picture concepts, to create ne"
     },
@@ -8149,6 +15694,26 @@ window.CORPUS_DATA = {
         "language",
         "place"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "measurable_faculty",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "making_performance",
+        "language_reflection",
+        "judgment_critique"
+      ],
+      "locationFrames": [
+        "place_ecology",
+        "mind_concepts",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "machines_nonhumans",
+        "artists_makers",
+        "teachers_educators"
+      ],
       "excerpt": "I investigate the question of human nonhuman animal relationships by discussing the ideas of posthumanism and speciesism as forms of discrimination, similar to other forms of oppression. Challenging the grounds of discrimination leads to a better understanding of human relationships with nonhuman lives."
     },
     {
@@ -8172,6 +15737,26 @@ window.CORPUS_DATA = {
       "signals": [
         "technology",
         "materiality"
+      ],
+      "definitionFrames": [
+        "machinic_relation",
+        "situated_practice",
+        "creative_capacity"
+      ],
+      "recognitionModes": [
+        "technical_fluency",
+        "making_performance",
+        "participation_relation"
+      ],
+      "locationFrames": [
+        "media_machines",
+        "artworks_materials",
+        "relations_culture"
+      ],
+      "subjectFrames": [
+        "machines_nonhumans",
+        "teachers_educators",
+        "artists_makers"
       ],
       "excerpt": "K N O C H E L The Pennsylvania State University With the release of artificial intelligence image-generation platforms to the broader public in 2022, there is an opportunity to evaluate how image-making practices may change and speculate how graphic design software, such as Photoshop, may evolve."
     },
@@ -8197,6 +15782,26 @@ window.CORPUS_DATA = {
         "materiality",
         "museum",
         "teacherhood"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "creative_capacity",
+        "measurable_faculty"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "developmental_observation",
+        "language_reflection"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "mind_concepts",
+        "vision_perception"
+      ],
+      "subjectFrames": [
+        "communities_publics",
+        "children_students",
+        "teachers_educators"
       ],
       "excerpt": "L A P O R T E University of Arkansas, Fayetteville Quality community-based art education programs for older adults over the age of 50 should exploit the broad range of interests and cognitive abilities of participants by utilizing adult education theory, brain research, and the best practices of adult art education pro"
     },
@@ -8224,6 +15829,26 @@ window.CORPUS_DATA = {
         "teacherhood",
         "technology"
       ],
+      "definitionFrames": [
+        "situated_practice",
+        "embodied_attunement",
+        "interpretive_meaning"
+      ],
+      "recognitionModes": [
+        "participation_relation",
+        "language_reflection",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "place_ecology",
+        "relations_culture",
+        "mind_concepts"
+      ],
+      "subjectFrames": [
+        "teachers_educators",
+        "children_students",
+        "communities_publics"
+      ],
       "excerpt": "E-mail: gradle@ siu.edu 1A susrainable education, according to educator Nel Noddings (2005), is a method that continually supports human activity, whether it is through preserva- tionist studies, the devel- opment of a concern for local/global connections, or one that builds on the phenomenon of lived place experiences"
     },
     {
@@ -8248,6 +15873,26 @@ window.CORPUS_DATA = {
         "equity",
         "teacherhood",
         "identity"
+      ],
+      "definitionFrames": [
+        "situated_practice",
+        "interpretive_meaning",
+        "perceptual_sensitivity"
+      ],
+      "recognitionModes": [
+        "language_reflection",
+        "participation_relation",
+        "making_performance"
+      ],
+      "locationFrames": [
+        "relations_culture",
+        "vision_perception",
+        "artworks_materials"
+      ],
+      "subjectFrames": [
+        "children_students",
+        "identity_marked_subjects",
+        "teachers_educators"
       ],
       "excerpt": "When this happens, teachers are dealing with difficult knowledge.\" Post Stereotypes: Deconstructing Racial Assumptions and Biases Through Visual Culture and Confrontational Pedagogy Y U H A J U N G The University of Kentucky The Post Stereotypes project embodies confrontational pedagogy and involves postcard artmaking"
     }
@@ -8277,7 +15922,7 @@ window.CORPUS_DATA = {
     },
     {
       "title": "Plural coding",
-      "body": "Articles can belong to multiple intelligence types and multiple interpretive perspectives. That avoids forcing a single, reductive category onto complex scholarship."
+      "body": "Articles can belong to multiple intelligence types, interpretive perspectives, definition frames, recognition modes, locations, and subject positions. That avoids forcing a single, reductive category onto complex scholarship."
     },
     {
       "title": "Context over neutrality",
