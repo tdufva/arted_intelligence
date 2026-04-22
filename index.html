@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intelligence in Studies in Art Education</title>
+    <meta
+      name="description"
+      content="A corpus visualization of how Studies in Art Education discusses intelligence, its dominant perspectives, most-cited research, and adjacent signals."
+    />
+    <link rel="stylesheet" href="site/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero reveal">
+        <div class="eyebrow">Corpus Visualization</div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="kicker">Studies in Art Education</p>
+            <h1>How the journal thinks intelligence.</h1>
+            <p class="lede">
+              A corpus map of the articles in the <em>All Intelligence article in Studies</em> folder,
+              showing which kinds of intelligence recur, which interpretive lenses dominate, and how the
+              conversation shifts from developmental measurement toward more social, ecological, and digital
+              framings.
+            </p>
+          </div>
+          <div class="hero-panel">
+            <div class="hero-stats" id="hero-stats"></div>
+            <div class="hero-note">
+              <h2>Data feminism in practice</h2>
+              <p>
+                The page avoids a single hierarchy of intelligence. Articles can belong to multiple
+                categories, context is visible, interpretive labor is shown, and critical, disability,
+                community, and technological perspectives are surfaced alongside classical cognition.
+              </p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="section section-intro reveal">
+          <div class="section-header">
+            <p class="section-index">01</p>
+            <div>
+              <h2>What shows up most</h2>
+              <p>
+                Sorted bars keep comparison legible. Direct labels replace chart clutter, and the counts are
+                displayed inline instead of hidden behind legends or hover-only interactions.
+              </p>
+            </div>
+          </div>
+          <div class="split">
+            <article>
+              <h3>Types of intelligence discussed</h3>
+              <div id="type-bars" class="bar-list"></div>
+            </article>
+            <article>
+              <h3>Perspectives used to discuss intelligence</h3>
+              <div id="perspective-bars" class="bar-list"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">02</p>
+            <div>
+              <h2>What is rising, stable, or receding</h2>
+              <p>
+                These dumbbell comparisons use a three-decade early window and a three-decade late window,
+                which makes change easier to read than a raw count alone. Because articles can carry multiple
+                labels, the percentages show share of articles in each window, not parts of a single 100%.
+              </p>
+            </div>
+          </div>
+
+          <div class="split split-wide">
+            <article>
+              <h3>Intelligence types across time windows</h3>
+              <p class="chart-note" id="type-trend-note"></p>
+              <div id="type-trends" class="trend-list"></div>
+            </article>
+            <article>
+              <h3>Perspectives across time windows</h3>
+              <p class="chart-note" id="perspective-trend-note"></p>
+              <div id="perspective-trends" class="trend-list"></div>
+            </article>
+          </div>
+
+          <div id="trend-highlights" class="thread-list trend-highlights"></div>
+
+          <div class="split split-wide">
+            <article>
+              <h3>Fastest risers across the corpus</h3>
+              <div id="trend-risers" class="scorecard-list"></div>
+            </article>
+            <article>
+              <h3>Fastest decliners across the corpus</h3>
+              <div id="trend-decliners" class="scorecard-list"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">03</p>
+            <div>
+              <h2>Types × perspectives</h2>
+              <p>
+                This matrix is the core view. Darker cells mean more articles at that intersection. Select a
+                cell to inspect example titles and see how the journal combines particular models of
+                intelligence with particular schools of thought.
+              </p>
+            </div>
+          </div>
+
+          <div class="matrix-layout">
+            <div class="matrix-scroll">
+              <table class="matrix-table" id="matrix-table">
+                <caption class="sr-only">
+                  Matrix of intelligence types by interpretive perspective across the corpus.
+                </caption>
+              </table>
+            </div>
+            <aside class="matrix-detail" id="matrix-detail" aria-live="polite"></aside>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">04</p>
+            <div>
+              <h2>How the conversation shifts over time</h2>
+              <p>
+                Rather than flattening the whole corpus into one average, this decade view keeps temporal
+                context visible. It shows which framings rise, persist, or recede.
+              </p>
+            </div>
+          </div>
+          <div id="timeline" class="timeline-list"></div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">05</p>
+            <div>
+              <h2>Blind spots and thin zones</h2>
+              <p>
+                This section intentionally shows where the corpus is sparse or silent. Here, “blind spots”
+                means underrepresented or missing combinations in this selected article set, not proof that
+                the wider field never addresses them.
+              </p>
+            </div>
+          </div>
+          <div id="blind-spots" class="thread-list blind-spot-list"></div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">06</p>
+            <div>
+              <h2>Origins and frontier cases</h2>
+              <p>
+                This layer asks two different questions: where important strands first appear in the corpus,
+                and which recent articles look most like frontier cases because they combine rising themes,
+                newer signals, and rarer pairings.
+              </p>
+            </div>
+          </div>
+          <div class="split split-wide">
+            <article>
+              <h3>First appearances of key strands</h3>
+              <div id="origins" class="origin-list"></div>
+            </article>
+            <article>
+              <h3>Rare non-empty pairings</h3>
+              <div id="rare-pairs" class="thread-list rare-pair-list"></div>
+            </article>
+          </div>
+          <div>
+            <h3>Frontier articles in the 2020s</h3>
+            <div id="frontier-articles" class="frontier-list"></div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">07</p>
+            <div>
+              <h2>Most-cited research</h2>
+              <p>
+                Citation counts below come from an OpenAlex snapshot taken on April 22, 2026. OpenAlex
+                matched 90 articles in the corpus, so this section is transparent about both reach and
+                coverage.
+              </p>
+            </div>
+          </div>
+          <ol id="top-cited" class="citation-list"></ol>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">08</p>
+            <div>
+              <h2>Common threads</h2>
+              <p>
+                The corpus is not one story, but several repeated patterns surface strongly enough to read as
+                shared tendencies.
+              </p>
+            </div>
+          </div>
+          <div id="threads" class="thread-list"></div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">09</p>
+            <div>
+              <h2>Other themes and signals around intelligence</h2>
+              <p>
+                These are adjacent motifs that recur beside the explicit intelligence categories: language,
+                place, teachers, technology, materiality, identity, care, and equity.
+              </p>
+            </div>
+          </div>
+          <div class="split split-wide">
+            <article>
+              <h3>Most recurrent signals</h3>
+              <div id="signal-bars" class="bar-list compact"></div>
+            </article>
+            <article>
+              <h3>Signals that are rising or fading</h3>
+              <p class="chart-note" id="signal-trend-note"></p>
+              <div id="signal-trends" class="trend-list"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">10</p>
+            <div>
+              <h2>Explore the corpus</h2>
+              <p>
+                Use the filters to inspect the underlying article set directly. This is useful when you want
+                to test a claim, trace a theme, or see which titles make up a category.
+              </p>
+            </div>
+          </div>
+          <div class="explorer-panel">
+            <div class="explorer-controls">
+              <label>
+                <span>Search title</span>
+                <input id="explorer-search" type="search" placeholder="e.g. AI, transfer, disability" />
+              </label>
+              <label>
+                <span>Decade</span>
+                <select id="explorer-decade"></select>
+              </label>
+              <label>
+                <span>Type</span>
+                <select id="explorer-type"></select>
+              </label>
+              <label>
+                <span>Perspective</span>
+                <select id="explorer-perspective"></select>
+              </label>
+              <label>
+                <span>Signal</span>
+                <select id="explorer-signal"></select>
+              </label>
+              <label>
+                <span>Sort</span>
+                <select id="explorer-sort">
+                  <option value="newest">Newest first</option>
+                  <option value="oldest">Oldest first</option>
+                  <option value="cited">Most cited first</option>
+                  <option value="views">Most viewed first</option>
+                </select>
+              </label>
+            </div>
+            <p class="chart-note" id="explorer-summary"></p>
+            <div id="explorer-results" class="explorer-results"></div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">11</p>
+            <div>
+              <h2>Method and sources</h2>
+              <p>
+                The goal is not to claim neutral omniscience. It is to make the interpretive process visible,
+                cite the design principles that shaped the page, and leave enough context for critique.
+              </p>
+            </div>
+          </div>
+
+          <div class="split split-wide">
+            <article>
+              <h3>How this page was built</h3>
+              <div id="methods" class="method-list"></div>
+            </article>
+            <article>
+              <h3>Design commitments</h3>
+              <ul class="source-list">
+                <li>
+                  <a href="https://data-feminism.mitpress.mit.edu/" target="_blank" rel="noreferrer"
+                    >Data Feminism</a
+                  >
+                  informed the page through plural coding, contextual framing, and visible methodological
+                  labor.
+                </li>
+                <li>
+                  <a
+                    href="https://www.datawrapper.de/academy/why-datawrapper-does-not-include-axis-labels-for-many-charts"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Datawrapper’s guidance on labels</a
+                  >
+                  shaped the use of direct labels, clear section copy, and minimal axis clutter.
+                </li>
+                <li>
+                  <a
+                    href="https://www.datawrapper.de/academy/what-to-consider-when-choosing-colors-for-data-visualization"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Datawrapper’s color guidance</a
+                  >
+                  and
+                  <a href="https://www.nature.com/articles/s41467-020-19160-7" target="_blank" rel="noreferrer"
+                    >Crameri, Shephard, and Heron (2020)</a
+                  >
+                  informed the contrast-first, color-vision-aware palette.
+                </li>
+                <li>
+                  <a href="https://api.openalex.org/" target="_blank" rel="noreferrer">OpenAlex</a> provided
+                  the external citation snapshot used in the “most-cited” section.
+                </li>
+              </ul>
+
+              <div class="footnotes">
+                <p id="coverage-note"></p>
+                <p>
+                  Caveat: article coding is heuristic and multi-label. It is designed to reveal patterns for
+                  exploration, not to replace close reading.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="site/data/corpus-data.js"></script>
+    <script src="site/data/openalex-data.js"></script>
+    <script src="site/app.js"></script>
+  </body>
+</html>
