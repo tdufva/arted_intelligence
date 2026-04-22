@@ -14,6 +14,12 @@ window.CORPUS_DATA = {
       "id": "creative",
       "label": "Creative",
       "description": "Creativity, artistic invention, creative practice, and divergent production.",
+      "cues": [
+        "creativity",
+        "imagination",
+        "divergent production",
+        "innovation"
+      ],
       "keywords": [
         "\\bcreativ",
         "\\bdivergent\\b",
@@ -26,6 +32,12 @@ window.CORPUS_DATA = {
       "id": "cognitive",
       "label": "Cognitive / Conceptual",
       "description": "Thinking, concept formation, cognition, intellect, and meaning-making as mental process.",
+      "cues": [
+        "cognition",
+        "concept formation",
+        "thinking",
+        "meaning-making"
+      ],
       "keywords": [
         "\\bcognit",
         "\\bconceptual\\b",
@@ -41,6 +53,12 @@ window.CORPUS_DATA = {
       "id": "perceptual",
       "label": "Perceptual / Visual",
       "description": "Visual-spatial ability, perceptual differentiation, attention, aesthetic sensitivity, and seeing.",
+      "cues": [
+        "perception",
+        "visual-spatial reasoning",
+        "attention",
+        "aesthetic sensitivity"
+      ],
       "keywords": [
         "\\bpercept",
         "\\bvisual-spatial\\b",
@@ -57,6 +75,12 @@ window.CORPUS_DATA = {
       "id": "affective",
       "label": "Affective / Embodied",
       "description": "Emotion, self-efficacy, mindfulness, resilience, stress, embodiment, and tacit knowing.",
+      "cues": [
+        "emotion",
+        "embodiment",
+        "self-efficacy",
+        "tacit knowing"
+      ],
       "keywords": [
         "\\bemotion",
         "\\baffect",
@@ -73,6 +97,12 @@ window.CORPUS_DATA = {
       "id": "social",
       "label": "Social / Cultural",
       "description": "Intelligence as relational, communal, identity-based, or culturally situated practice.",
+      "cues": [
+        "culture",
+        "community",
+        "identity",
+        "social justice"
+      ],
       "keywords": [
         "\\bsocial\\b",
         "\\bcultural\\b",
@@ -90,6 +120,12 @@ window.CORPUS_DATA = {
       "id": "communicative",
       "label": "Communicative / Semiotic",
       "description": "Verbal, linguistic, semiotic, and symbolic dimensions of intelligence in art learning.",
+      "cues": [
+        "language",
+        "semiotics",
+        "metaphor",
+        "criticism"
+      ],
       "keywords": [
         "\\bverbal",
         "\\blanguage\\b",
@@ -105,6 +141,12 @@ window.CORPUS_DATA = {
       "id": "digital",
       "label": "Digital / Computational",
       "description": "Computing, digital media, games, AI, and machine-augmented visual intelligence.",
+      "cues": [
+        "digital media",
+        "computing",
+        "AI",
+        "games and film"
+      ],
       "keywords": [
         "\\bcomputer",
         "\\bcomputing\\b",
@@ -122,6 +164,12 @@ window.CORPUS_DATA = {
       "id": "exceptionality",
       "label": "Gifted / Neurodiverse / Clinical",
       "description": "Giftedness, disability, autism, impairment, and clinical framings of ability.",
+      "cues": [
+        "giftedness",
+        "disability",
+        "autism",
+        "inclusion"
+      ],
       "keywords": [
         "\\bgifted\\b",
         "\\btalented\\b",
@@ -140,6 +188,12 @@ window.CORPUS_DATA = {
       "id": "assessment",
       "label": "Assessment & Measurement",
       "description": "Testing, scoring, psychometrics, comparative evaluation, and quantified outcomes.",
+      "cues": [
+        "testing",
+        "measurement",
+        "criteria",
+        "quantified outcomes"
+      ],
       "keywords": [
         "\\btest",
         "\\bmeasure",
@@ -158,6 +212,12 @@ window.CORPUS_DATA = {
       "id": "developmental",
       "label": "Developmental Psychology",
       "description": "Developmental stages, child development, personality, age-based change, and growth.",
+      "cues": [
+        "child development",
+        "age-based stages",
+        "growth",
+        "personality"
+      ],
       "keywords": [
         "\\bdevelopment",
         "\\bchildren\\b",
@@ -175,6 +235,12 @@ window.CORPUS_DATA = {
       "id": "pedagogy",
       "label": "Curriculum & Pedagogy",
       "description": "Teaching models, curriculum design, classroom practice, and learning transfer.",
+      "cues": [
+        "curriculum",
+        "teaching",
+        "classroom practice",
+        "transfer"
+      ],
       "keywords": [
         "\\bcurriculum\\b",
         "\\bpedagog",
@@ -192,6 +258,12 @@ window.CORPUS_DATA = {
       "id": "critical",
       "label": "Critical / Social Justice",
       "description": "Power, emancipation, race, gender, decolonial, queer, and anti-oppressive perspectives.",
+      "cues": [
+        "power",
+        "justice",
+        "race and gender",
+        "decolonial critique"
+      ],
       "keywords": [
         "\\bcritical\\b",
         "\\bsocial justice\\b",
@@ -209,6 +281,12 @@ window.CORPUS_DATA = {
       "id": "disability",
       "label": "Disability & Neurodiversity",
       "description": "Disability studies, autism, inclusion, impairment, and differentiated ability.",
+      "cues": [
+        "disability studies",
+        "autism",
+        "inclusion",
+        "neurodiversity"
+      ],
       "keywords": [
         "\\bdisabil",
         "\\bautis",
@@ -223,6 +301,12 @@ window.CORPUS_DATA = {
       "id": "technology",
       "label": "Technology & Media",
       "description": "Digital media, computing, AI, networked learning, film, and games.",
+      "cues": [
+        "digital media",
+        "computing",
+        "AI",
+        "networked learning"
+      ],
       "keywords": [
         "\\bcomputer",
         "\\bcomputing\\b",
@@ -240,6 +324,12 @@ window.CORPUS_DATA = {
       "id": "philosophy",
       "label": "Philosophy & Aesthetics",
       "description": "Aesthetic theory, criticism, philosophy of art education, and epistemology.",
+      "cues": [
+        "aesthetic theory",
+        "philosophy",
+        "epistemology",
+        "criticism"
+      ],
       "keywords": [
         "\\baesthetic",
         "\\besthetic",
@@ -256,6 +346,12 @@ window.CORPUS_DATA = {
       "id": "community",
       "label": "Community / Museum / Cultural Context",
       "description": "Museum learning, community settings, cultural comparison, place, and public education.",
+      "cues": [
+        "museum learning",
+        "community settings",
+        "place",
+        "cross-cultural context"
+      ],
       "keywords": [
         "\\bmuseum\\b",
         "\\bcommunity\\b",
@@ -5971,42 +6067,120 @@ window.CORPUS_DATA = {
   "signals": [
     {
       "id": "language",
+      "label": "Language and semiotics",
+      "description": "Language, verbal response, semiotics, and metaphor as adjacent frames for intelligence.",
+      "cues": [
+        "language",
+        "verbal response",
+        "semiotics",
+        "metaphor"
+      ],
       "count": 108
     },
     {
       "id": "teacherhood",
+      "label": "Teachers and professional formation",
+      "description": "Teachers, preservice formation, professional identity, and the conditions of teaching practice.",
+      "cues": [
+        "teacher",
+        "preservice",
+        "professional formation",
+        "teacher stress"
+      ],
       "count": 93
     },
     {
       "id": "place",
+      "label": "Place and ecology",
+      "description": "Place, ecology, environment, and relational world-making around intelligence discourse.",
+      "cues": [
+        "place",
+        "ecology",
+        "environment",
+        "relational world"
+      ],
       "count": 92
     },
     {
       "id": "technology",
+      "label": "Technology and media",
+      "description": "Technology, media, digital systems, film, games, and AI adjacent to intelligence.",
+      "cues": [
+        "digital",
+        "computing",
+        "AI",
+        "film and games"
+      ],
       "count": 55
     },
     {
       "id": "materiality",
+      "label": "Materiality",
+      "description": "Material culture, new materialism, and the agency of materials in art learning.",
+      "cues": [
+        "material culture",
+        "new materialism",
+        "materiality",
+        "materials"
+      ],
       "count": 43
     },
     {
       "id": "identity",
+      "label": "Identity and aspiration",
+      "description": "Identity formation, self-positioning, aspiration, and subject formation around art learning.",
+      "cues": [
+        "identity",
+        "aspiration",
+        "subject formation",
+        "self-positioning"
+      ],
       "count": 35
     },
     {
       "id": "equity",
+      "label": "Equity and justice",
+      "description": "Equality, justice, bias, emancipation, and anti-oppressive signals adjacent to intelligence.",
+      "cues": [
+        "equity",
+        "justice",
+        "bias",
+        "emancipation"
+      ],
       "count": 30
     },
     {
       "id": "museum",
+      "label": "Museum and public learning",
+      "description": "Museums and public-facing art learning beyond the classroom.",
+      "cues": [
+        "museum",
+        "gallery",
+        "public learning"
+      ],
       "count": 29
     },
     {
       "id": "care",
+      "label": "Care and wellbeing",
+      "description": "Care, mindfulness, wellbeing, resilience, and stress as adjacent signals.",
+      "cues": [
+        "care",
+        "mindfulness",
+        "wellbeing",
+        "resilience"
+      ],
       "count": 28
     },
     {
       "id": "transfer",
+      "label": "Transfer",
+      "description": "Transfer of learning across contexts, domains, or forms of art education.",
+      "cues": [
+        "transfer",
+        "carryover",
+        "cross-domain learning"
+      ],
       "count": 11
     }
   ],
@@ -6170,7 +6344,7 @@ window.CORPUS_DATA = {
       },
       {
         "id": "identity",
-        "label": "Identity",
+        "label": "Identity and aspiration",
         "firstYear": 1963,
         "firstTitle": "The Liberal Tradition of Art Education",
         "doi": "10.1080/00393541.1964.11650590",
@@ -6178,7 +6352,7 @@ window.CORPUS_DATA = {
       },
       {
         "id": "place",
-        "label": "Place",
+        "label": "Place and ecology",
         "firstYear": 1963,
         "firstTitle": "Non-Verbal Manipulation and Creativeness in Art",
         "doi": "10.1080/00393541.1963.11650123",
@@ -6202,7 +6376,7 @@ window.CORPUS_DATA = {
       },
       {
         "id": "technology",
-        "label": "Technology",
+        "label": "Technology and media",
         "firstYear": 1965,
         "firstTitle": "Philosophical Inquiry and the Crisis in Art Education",
         "doi": "10.1080/00393541.1965.11650606",
@@ -6210,7 +6384,7 @@ window.CORPUS_DATA = {
       },
       {
         "id": "equity",
-        "label": "Equity",
+        "label": "Equity and justice",
         "firstYear": 1966,
         "firstTitle": "The Development of Information and Attitude toward Art at the Secondary and College Level",
         "doi": "10.1080/00393541.1966.11650619",
@@ -7021,7 +7195,7 @@ window.CORPUS_DATA = {
       "rows": [
         {
           "id": "identity",
-          "label": "Identity",
+          "label": "Identity and aspiration",
           "earlyCount": 6,
           "lateCount": 26,
           "earlyShare": 0.073,
@@ -7031,7 +7205,7 @@ window.CORPUS_DATA = {
         },
         {
           "id": "place",
-          "label": "Place",
+          "label": "Place and ecology",
           "earlyCount": 32,
           "lateCount": 46,
           "earlyShare": 0.39,
@@ -7041,7 +7215,7 @@ window.CORPUS_DATA = {
         },
         {
           "id": "equity",
-          "label": "Equity",
+          "label": "Equity and justice",
           "earlyCount": 7,
           "lateCount": 22,
           "earlyShare": 0.085,
@@ -7051,7 +7225,7 @@ window.CORPUS_DATA = {
         },
         {
           "id": "technology",
-          "label": "Technology",
+          "label": "Technology and media",
           "earlyCount": 20,
           "lateCount": 29,
           "earlyShare": 0.244,
@@ -7061,7 +7235,7 @@ window.CORPUS_DATA = {
         },
         {
           "id": "museum",
-          "label": "Museum",
+          "label": "Museum and public learning",
           "earlyCount": 8,
           "lateCount": 14,
           "earlyShare": 0.098,
@@ -7071,7 +7245,7 @@ window.CORPUS_DATA = {
         },
         {
           "id": "teacherhood",
-          "label": "Teacherhood",
+          "label": "Teachers and professional formation",
           "earlyCount": 40,
           "lateCount": 38,
           "earlyShare": 0.488,
@@ -7081,7 +7255,7 @@ window.CORPUS_DATA = {
         },
         {
           "id": "care",
-          "label": "Care",
+          "label": "Care and wellbeing",
           "earlyCount": 12,
           "lateCount": 13,
           "earlyShare": 0.146,
@@ -7091,7 +7265,7 @@ window.CORPUS_DATA = {
         },
         {
           "id": "language",
-          "label": "Language",
+          "label": "Language and semiotics",
           "earlyCount": 51,
           "lateCount": 42,
           "earlyShare": 0.622,
@@ -7295,7 +7469,7 @@ window.CORPUS_DATA = {
         },
         {
           "id": "identity",
-          "label": "Identity",
+          "label": "Identity and aspiration",
           "delta": 0.304,
           "direction": "rising sharply",
           "earlyShare": 0.073,
@@ -7303,7 +7477,7 @@ window.CORPUS_DATA = {
         },
         {
           "id": "place",
-          "label": "Place",
+          "label": "Place and ecology",
           "delta": 0.276,
           "direction": "rising sharply",
           "earlyShare": 0.39,
@@ -7319,7 +7493,7 @@ window.CORPUS_DATA = {
         },
         {
           "id": "equity",
-          "label": "Equity",
+          "label": "Equity and justice",
           "delta": 0.233,
           "direction": "rising sharply",
           "earlyShare": 0.085,
@@ -7605,7 +7779,7 @@ window.CORPUS_DATA = {
         "digital",
         "social",
         "technology lens",
-        "Technology"
+        "Technology and media"
       ],
       "intelligenceTypes": [
         "digital",
@@ -7626,7 +7800,7 @@ window.CORPUS_DATA = {
         "social",
         "digital",
         "critical lens",
-        "Equity"
+        "Equity and justice"
       ],
       "intelligenceTypes": [
         "social",
@@ -7672,7 +7846,7 @@ window.CORPUS_DATA = {
         "digital",
         "social",
         "technology lens",
-        "Technology"
+        "Technology and media"
       ],
       "intelligenceTypes": [
         "digital",
@@ -7693,7 +7867,7 @@ window.CORPUS_DATA = {
         "digital",
         "social",
         "technology lens",
-        "Technology"
+        "Technology and media"
       ],
       "intelligenceTypes": [
         "digital",
@@ -7715,8 +7889,8 @@ window.CORPUS_DATA = {
       "reasons": [
         "social",
         "critical lens",
-        "Equity",
-        "Identity"
+        "Equity and justice",
+        "Identity and aspiration"
       ],
       "intelligenceTypes": [
         "social",
@@ -7737,8 +7911,8 @@ window.CORPUS_DATA = {
       "excerpt": "GROSS Northern Illinois University In this article, I examine inclusion, disability, image making, and representation through case studies in a high school setting. K 12 school settings often focus on student deficits; however, the theories of disability studies provide a critical model for understanding language, disa",
       "reasons": [
         "social",
-        "Equity",
-        "Place",
+        "Equity and justice",
+        "Place and ecology",
         "rare pairing"
       ],
       "intelligenceTypes": [
@@ -7761,8 +7935,8 @@ window.CORPUS_DATA = {
       "reasons": [
         "social",
         "community lens",
-        "Place",
-        "Identity"
+        "Place and ecology",
+        "Identity and aspiration"
       ],
       "intelligenceTypes": [
         "social",
@@ -8112,6 +8286,10 @@ window.CORPUS_DATA = {
     {
       "title": "Labor visible",
       "body": "The coding model, sources, and caveats are shown on the page so the interpretive work remains inspectable instead of hidden."
+    },
+    {
+      "title": "Public evidence, no export",
+      "body": "The public page exposes article-level evidence cards and the codebook, but not a downloadable dataset. Because the site runs client-side on GitHub Pages, any visible evidence remains inspectable in the browser."
     }
   ]
 };

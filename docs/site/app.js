@@ -8,21 +8,71 @@
 
   const typeLookup = Object.fromEntries(corpus.intelligenceTypes.map((item) => [item.id, item]));
   const perspectiveLookup = Object.fromEntries(corpus.perspectives.map((item) => [item.id, item]));
+  const signalLookup = Object.fromEntries(corpus.signals.map((item) => [item.id, item]));
+  const typeCountLookup = Object.fromEntries(corpus.typeCounts.map((item) => [item.id, item]));
+  const perspectiveCountLookup = Object.fromEntries(corpus.perspectiveCounts.map((item) => [item.id, item]));
+  const signalCountLookup = Object.fromEntries(corpus.signals.map((item) => [item.id, item]));
+  const originLookup = {
+    types: Object.fromEntries(corpus.origins.types.map((item) => [item.id, item])),
+    perspectives: Object.fromEntries(corpus.origins.perspectives.map((item) => [item.id, item])),
+    signals: Object.fromEntries(corpus.origins.signals.map((item) => [item.id, item])),
+  };
   const openAlexByDoi = Object.fromEntries(
     Object.entries(openAlex?.citationsByDoi || {}).map(([doi, value]) => [doi.toLowerCase(), value]),
   );
+  let evidenceDeskController = null;
 
-  const signalLabels = {
-    language: "Language and semiotics",
-    teacherhood: "Teachers and professional formation",
-    place: "Place and ecology",
-    technology: "Technology and media",
-    materiality: "Materiality",
-    identity: "Identity and aspiration",
-    equity: "Equity and justice",
-    museum: "Museum and public learning",
-    care: "Care and wellbeing",
-    transfer: "Transfer",
+  const signalFallbackMeta = {
+    language: {
+      label: "Language and semiotics",
+      description: "Language, verbal response, semiotics, and metaphor as adjacent frames for intelligence.",
+      cues: ["language", "verbal response", "semiotics", "metaphor"],
+    },
+    teacherhood: {
+      label: "Teachers and professional formation",
+      description: "Teachers, preservice formation, and the conditions of teaching practice.",
+      cues: ["teacher", "preservice", "professional formation", "teacher stress"],
+    },
+    place: {
+      label: "Place and ecology",
+      description: "Place, ecology, environment, and relational world-making around intelligence discourse.",
+      cues: ["place", "ecology", "environment", "relational world"],
+    },
+    technology: {
+      label: "Technology and media",
+      description: "Technology, media, digital systems, film, games, and AI adjacent to intelligence.",
+      cues: ["digital", "computing", "AI", "film and games"],
+    },
+    materiality: {
+      label: "Materiality",
+      description: "Material culture, new materialism, and the agency of materials in art learning.",
+      cues: ["material culture", "new materialism", "materiality", "materials"],
+    },
+    identity: {
+      label: "Identity and aspiration",
+      description: "Identity formation, aspiration, and subject formation around art learning.",
+      cues: ["identity", "aspiration", "subject formation", "self-positioning"],
+    },
+    equity: {
+      label: "Equity and justice",
+      description: "Equality, justice, bias, emancipation, and anti-oppressive signals adjacent to intelligence.",
+      cues: ["equity", "justice", "bias", "emancipation"],
+    },
+    museum: {
+      label: "Museum and public learning",
+      description: "Museums and public-facing art learning beyond the classroom.",
+      cues: ["museum", "gallery", "public learning"],
+    },
+    care: {
+      label: "Care and wellbeing",
+      description: "Care, mindfulness, wellbeing, resilience, and stress as adjacent signals.",
+      cues: ["care", "mindfulness", "wellbeing", "resilience"],
+    },
+    transfer: {
+      label: "Transfer",
+      description: "Transfer of learning across contexts, domains, or forms of art education.",
+      cues: ["transfer", "carryover", "cross-domain learning"],
+    },
   };
 
   function formatNumber(value) {
@@ -34,7 +84,7 @@
   }
 
   function lookupSignalLabel(id) {
-    return signalLabels[id] || id.replaceAll("_", " ");
+    return signalLookup[id]?.label || signalFallbackMeta[id]?.label || id.replaceAll("_", " ");
   }
 
   function lookupAnyLabel(id) {
@@ -78,9 +128,9 @@
     ...corpus.intelligenceTypes.map((item) => ({ ...item, family: "types" })),
     ...corpus.perspectives.map((item) => ({ ...item, family: "perspectives" })),
     ...corpus.signals.map((item) => ({
-      id: item.id,
+      ...item,
       label: lookupSignalLabel(item.id),
-      description: "Adjacent corpus signal.",
+      description: item.description || signalFallbackMeta[item.id]?.description || "Adjacent corpus signal.",
       family: "signals",
     })),
   ].map((item) => ({
@@ -159,6 +209,112 @@
         </div>
       </div>
     `;
+  }
+
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function articleMatchesFamily(article, family, id) {
+    if (family === "types") return article.intelligenceTypes.includes(id);
+    if (family === "perspectives") return article.perspectives.includes(id);
+    if (family === "signals") return article.signals.includes(id);
+    return false;
+  }
+
+  function articlesForFamily(family, id) {
+    return corpus.articles.filter((article) => articleMatchesFamily(article, family, id));
+  }
+
+  function cuesForDefinition(definition) {
+    if (definition?.cues?.length) return definition.cues;
+    return [];
+  }
+
+  function countForFamily(family, id) {
+    if (family === "types") return typeCountLookup[id]?.count || 0;
+    if (family === "perspectives") return perspectiveCountLookup[id]?.count || 0;
+    if (family === "signals") return signalCountLookup[id]?.count || 0;
+    return 0;
+  }
+
+  function detailTagMarkup(ids) {
+    return ids.map((id) => `<span class="tag">${escapeHtml(lookupAnyLabel(id))}</span>`).join("");
+  }
+
+  function articleCardMarkup(article, options = {}) {
+    const cited = openAlexByDoi[article.doi]?.citedByCount;
+    const metaBits = [
+      article.year ? `${article.year}` : null,
+      article.pageCount ? `${article.pageCount} pages` : null,
+      article.articleViews ? `${formatNumber(article.articleViews)} views` : null,
+      cited ? `${formatNumber(cited)} citations` : null,
+    ].filter(Boolean);
+
+    const emphasis = options.emphasis?.length
+      ? `<p class="evidence-why"><strong>Matched here through:</strong> ${escapeHtml(options.emphasis.join(", "))}</p>`
+      : "";
+
+    return `
+      <article class="explorer-card">
+        <div class="meta-line">${escapeHtml(metaBits.join(" · "))}</div>
+        <h4>${escapeHtml(article.title)}</h4>
+        <p>${escapeHtml(article.excerpt)}</p>
+        ${emphasis}
+        <div class="detail-tags">${detailTagMarkup(article.intelligenceTypes)}</div>
+        <div class="detail-tags detail-tags-subtle">${detailTagMarkup(article.perspectives)}${detailTagMarkup(article.signals)}</div>
+        <p class="evidence-meta">${article.doi ? `DOI: ${escapeHtml(article.doi)}` : "DOI not available in extracted metadata."}</p>
+      </article>
+    `;
+  }
+
+  function topLabels(counter, limit) {
+    return Object.entries(counter)
+      .sort((a, b) => b[1] - a[1] || lookupAnyLabel(a[0]).localeCompare(lookupAnyLabel(b[0])))
+      .slice(0, limit)
+      .map(([id]) => lookupAnyLabel(id));
+  }
+
+  function codebookCompanions(family, articles) {
+    const typeCounter = {};
+    const perspectiveCounter = {};
+    const signalCounter = {};
+
+    articles.forEach((article) => {
+      article.intelligenceTypes.forEach((id) => {
+        typeCounter[id] = (typeCounter[id] || 0) + 1;
+      });
+      article.perspectives.forEach((id) => {
+        perspectiveCounter[id] = (perspectiveCounter[id] || 0) + 1;
+      });
+      article.signals.forEach((id) => {
+        signalCounter[id] = (signalCounter[id] || 0) + 1;
+      });
+    });
+
+    if (family === "types") {
+      return [
+        { label: "Usually read through", values: topLabels(perspectiveCounter, 3) },
+        { label: "Recurring adjacent signals", values: topLabels(signalCounter, 3) },
+      ];
+    }
+
+    if (family === "perspectives") {
+      return [
+        { label: "Most often joined with", values: topLabels(typeCounter, 3) },
+        { label: "Recurring adjacent signals", values: topLabels(signalCounter, 3) },
+      ];
+    }
+
+    return [
+      { label: "Most often joined with", values: topLabels(typeCounter, 3) },
+      { label: "Often interpreted through", values: topLabels(perspectiveCounter, 3) },
+    ];
   }
 
   function createBarRows(container, rows, tone) {
@@ -1423,9 +1579,20 @@
     }
 
     function refresh() {
-      const query = search.value.trim().toLowerCase();
+      const query = normalizeForSearch(search.value.trim());
       let rows = corpus.articles.filter((article) => {
-        if (query && !article.title.toLowerCase().includes(query)) return false;
+        if (query) {
+          const haystack = normalizeForSearch(
+            [
+              article.title,
+              article.excerpt,
+              article.intelligenceTypes.map((id) => lookupAnyLabel(id)).join(" "),
+              article.perspectives.map((id) => lookupAnyLabel(id)).join(" "),
+              article.signals.map((id) => lookupAnyLabel(id)).join(" "),
+            ].join(" "),
+          );
+          if (!haystack.includes(query)) return false;
+        }
         if (decade.value && currentDecade(article) !== decade.value) return false;
         if (type.value && !article.intelligenceTypes.includes(type.value)) return false;
         if (perspective.value && !article.perspectives.includes(perspective.value)) return false;
@@ -1446,27 +1613,35 @@
         return b.year - a.year || a.title.localeCompare(b.title);
       });
 
+      const emphasis = [type.value, perspective.value, signal.value].filter(Boolean).map((id) => lookupAnyLabel(id));
       summary.textContent =
         rows.length > 24
-          ? `${formatNumber(rows.length)} articles match the current filters. Showing the first 24.`
+          ? `${formatNumber(rows.length)} articles match the current filters. Showing the first 24 evidence cards.`
           : `${formatNumber(rows.length)} articles match the current filters.`;
       results.innerHTML = "";
+      if (!rows.length) {
+        results.innerHTML = `<article class="explorer-card"><h4>No articles match these filters</h4><p>Try clearing one filter or searching with a broader term such as a decade, type, or perspective label.</p></article>`;
+        return;
+      }
+
       rows.slice(0, 24).forEach((article) => {
-        const cited = openAlexByDoi[article.doi]?.citedByCount;
-        const card = document.createElement("article");
-        card.className = "explorer-card";
-        card.innerHTML = `
-          <div class="meta-line">${article.year}${cited ? ` · ${formatNumber(cited)} citations` : ""}</div>
-          <h4>${article.title}</h4>
-          <p>${article.excerpt}</p>
-          <div class="detail-tags">
-            ${article.intelligenceTypes.slice(0, 2).map((id) => `<span class="tag">${lookupAnyLabel(id)}</span>`).join("")}
-            ${article.perspectives.slice(0, 2).map((id) => `<span class="tag">${lookupAnyLabel(id)}</span>`).join("")}
-          </div>
-        `;
-        results.append(card);
+        const card = document.createElement("div");
+        card.innerHTML = articleCardMarkup(article, { emphasis });
+        results.append(card.firstElementChild);
       });
     }
+
+    evidenceDeskController = {
+      setFilters(nextState = {}) {
+        search.value = nextState.search ?? "";
+        decade.value = nextState.decade ?? "";
+        type.value = nextState.type ?? "";
+        perspective.value = nextState.perspective ?? "";
+        signal.value = nextState.signal ?? "";
+        sort.value = nextState.sort ?? "cited";
+        refresh();
+      },
+    };
 
     [search, decade, type, perspective, signal, sort].forEach((element) => {
       element.addEventListener("input", refresh);
@@ -1474,6 +1649,141 @@
     });
 
     refresh();
+  }
+
+  function renderCodebook() {
+    const familyTarget = document.getElementById("codebook-family");
+    const summaryTarget = document.getElementById("codebook-summary");
+    const grid = document.getElementById("codebook-grid");
+
+    if (!familyTarget || !summaryTarget || !grid) {
+      return;
+    }
+
+    const familyConfig = {
+      types: {
+        label: "Intelligence types",
+        description:
+          "These categories describe what kind of intelligence is being foregrounded in the article, not a single fixed essence of the work.",
+        items: corpus.intelligenceTypes,
+      },
+      perspectives: {
+        label: "Perspectives",
+        description:
+          "These categories describe the interpretive lens through which intelligence is discussed, from pedagogy to disability studies and philosophy.",
+        items: corpus.perspectives,
+      },
+      signals: {
+        label: "Signals",
+        description:
+          "Signals are adjacent motifs that cluster around intelligence discourse without functioning as the main type or perspective labels.",
+        items: corpus.signals.map((item) => ({
+          ...item,
+          label: lookupSignalLabel(item.id),
+          description: item.description || signalFallbackMeta[item.id]?.description || "",
+          cues: item.cues || signalFallbackMeta[item.id]?.cues || [],
+        })),
+      },
+    };
+
+    let activeFamily = "types";
+
+    function inspectConcept(family, id) {
+      if (!evidenceDeskController) return;
+      evidenceDeskController.setFilters({
+        search: "",
+        decade: "",
+        type: family === "types" ? id : "",
+        perspective: family === "perspectives" ? id : "",
+        signal: family === "signals" ? id : "",
+        sort: "cited",
+      });
+      document.getElementById("evidence-desk-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function renderFamilyButtons() {
+      familyTarget.innerHTML = "";
+      Object.entries(familyConfig).forEach(([family, config]) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = `toggle-button${family === activeFamily ? " is-active" : ""}`;
+        button.textContent = config.label;
+        button.addEventListener("click", () => {
+          activeFamily = family;
+          render();
+        });
+        familyTarget.append(button);
+      });
+    }
+
+    function render() {
+      renderFamilyButtons();
+      const config = familyConfig[activeFamily];
+      summaryTarget.textContent = config.description;
+      grid.innerHTML = "";
+
+      const items = [...config.items].sort((a, b) => {
+        const aCount = countForFamily(activeFamily, a.id);
+        const bCount = countForFamily(activeFamily, b.id);
+        return bCount - aCount || a.label.localeCompare(b.label);
+      });
+
+      items.forEach((definition) => {
+        const matchingArticles = articlesForFamily(activeFamily, definition.id).sort(compareArticlesByImportance);
+        const count = countForFamily(activeFamily, definition.id);
+        const share = count / corpus.summary.articleCount;
+        const origin = originLookup[activeFamily]?.[definition.id];
+        const companions = codebookCompanions(activeFamily, matchingArticles);
+        const examples = matchingArticles.slice(0, 3);
+        const card = document.createElement("article");
+        card.className = "codebook-card";
+        card.innerHTML = `
+          <div class="codebook-head">
+            <div>
+              <div class="insight-kind">${escapeHtml(config.label.slice(0, -1))}</div>
+              <h3>${escapeHtml(definition.label)}</h3>
+            </div>
+            <button type="button" class="ghost-button">Inspect evidence</button>
+          </div>
+          <p>${escapeHtml(definition.description || "")}</p>
+          <div class="detail-tags">
+            <span class="tag">${formatNumber(count)} articles</span>
+            <span class="tag">${formatPercent(share)} of corpus</span>
+            ${
+              origin
+                ? `<span class="tag">First visible: ${escapeHtml(`${origin.firstYear}`)}</span>`
+                : ""
+            }
+          </div>
+          <div class="codebook-block">
+            <h4>Coding cues</h4>
+            <p>${escapeHtml(cuesForDefinition(definition).join(", ") || "Description-led heuristic coding.")}</p>
+          </div>
+          ${companions
+            .map(
+              (item) => `
+                <div class="codebook-block">
+                  <h4>${escapeHtml(item.label)}</h4>
+                  <p>${escapeHtml(item.values.length ? item.values.join(", ") : "No strong companion pattern.")}</p>
+                </div>
+              `,
+            )
+            .join("")}
+          <div class="codebook-block">
+            <h4>Representative articles</h4>
+            <ul class="codebook-list">
+              ${examples
+                .map((article) => `<li><strong>${article.year}</strong> ${escapeHtml(article.title)}</li>`)
+                .join("")}
+            </ul>
+          </div>
+        `;
+        card.querySelector(".ghost-button")?.addEventListener("click", () => inspectConcept(activeFamily, definition.id));
+        grid.append(card);
+      });
+    }
+
+    render();
   }
 
   function revealOnScroll() {
@@ -1516,6 +1826,7 @@
     renderAskCorpus();
     renderGraphLab();
     renderExplorer();
+    renderCodebook();
     renderMethods();
     attachCoverageNote();
     revealOnScroll();

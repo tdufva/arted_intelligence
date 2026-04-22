@@ -357,14 +357,14 @@
           </div>
         </section>
 
-        <section class="section reveal">
+        <section class="section reveal" id="evidence-desk-section">
           <div class="section-header">
             <p class="section-index">13</p>
             <div>
-              <h2>Explore the corpus</h2>
+              <h2>Article-level evidence desk</h2>
               <p>
-                Use the filters to inspect the underlying article set directly. This is useful when you want
-                to test a claim, trace a theme, or see which titles make up a category.
+                Trace the patterns back to article records, coded labels, and short excerpts. This public
+                page shows inspectable evidence cards but does not provide a downloadable dataset export.
               </p>
             </div>
           </div>
@@ -400,6 +400,10 @@
                 </select>
               </label>
             </div>
+            <p class="chart-note" id="explorer-note">
+              Access note: because the site runs client-side on GitHub Pages, visible evidence remains
+              inspectable in the browser. Strictly non-public corpus access would require a private backend.
+            </p>
             <p class="chart-note" id="explorer-summary"></p>
             <div id="explorer-results" class="explorer-results"></div>
           </div>
@@ -408,6 +412,24 @@
         <section class="section reveal">
           <div class="section-header">
             <p class="section-index">14</p>
+            <div>
+              <h2>Codebook</h2>
+              <p>
+                The codebook makes the interpretive categories explicit: what each type, perspective, and
+                signal means, how it was recognized, where it appears, and which articles exemplify it.
+              </p>
+            </div>
+          </div>
+          <div class="codebook-panel">
+            <div id="codebook-family" class="toggle-group" role="tablist" aria-label="Codebook family"></div>
+            <p id="codebook-summary" class="chart-note"></p>
+            <div id="codebook-grid" class="codebook-grid"></div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">15</p>
             <div>
               <h2>Method and sources</h2>
               <p>
@@ -465,6 +487,10 @@
                 <p>
                   Caveat: article coding is heuristic and multi-label. It is designed to reveal patterns for
                   exploration, not to replace close reading.
+                </p>
+                <p>
+                  This public version is intentionally evidence-rich but export-light: it shows article-level
+                  evidence and the codebook on the page, but does not offer a downloadable corpus dataset.
                 </p>
               </div>
             </article>
