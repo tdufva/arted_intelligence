@@ -84,6 +84,47 @@
     });
   }
 
+  function renderCautions() {
+    const target = document.getElementById("sample-cautions");
+    if (!target) return;
+    const labels = ["Scope", "Platform bias", "Comparison rule"];
+    target.innerHTML = "";
+    data.sampleCautions.forEach((item, index) => {
+      const card = document.createElement("article");
+      card.className = "caution-card";
+      card.innerHTML = `
+        <span class="insight-kind">${escapeHtml(labels[index] || `Caution ${index + 1}`)}</span>
+        <p>${escapeHtml(item)}</p>
+      `;
+      target.append(card);
+    });
+  }
+
+  function renderClusterSummary() {
+    const target = document.getElementById("cluster-summary");
+    if (!target) return;
+    const rows = [...data.clusters];
+    const total = data.arxivPapers.length || 1;
+    const maxValue = Math.max(...rows.map((item) => item.count), 1);
+    target.innerHTML = "";
+
+    rows.forEach((cluster) => {
+      const share = cluster.count / total;
+      const row = document.createElement("article");
+      row.className = "cluster-row";
+      row.innerHTML = `
+        <div class="cluster-row__meta">
+          <strong>${escapeHtml(cluster.label)}</strong>
+          <span>${formatNumber(cluster.count)} papers · ${formatPercent(share)}</span>
+        </div>
+        <div class="cluster-row__bar">
+          <div class="cluster-row__fill" style="width:${(cluster.count / maxValue) * 100}%"></div>
+        </div>
+      `;
+      target.append(row);
+    });
+  }
+
   function renderAxes() {
     const target = document.getElementById("axis-list");
     const detail = document.getElementById("axis-detail");
@@ -311,7 +352,7 @@
 
     function render() {
       renderFamilyButtons();
-      noteTarget.textContent = data.comparison[activeFamily].note;
+      noteTarget.innerHTML = `${escapeHtml(data.comparison[activeFamily].note)} <strong>Bars show within-corpus shares, not raw counts.</strong>`;
       const rows = rowsForFamily();
       const maxValue = Math.max(...rows.flatMap((item) => [item.artShare, item.aiShare]), 0.01);
       const wrappers = [];
@@ -351,6 +392,49 @@
     }
 
     render();
+  }
+
+  function renderPressurePoints() {
+    const pressureTarget = document.getElementById("pressure-points");
+    const sharedTarget = document.getElementById("shared-ground");
+    if (!pressureTarget || !sharedTarget) return;
+
+    pressureTarget.innerHTML = "";
+    data.pressurePoints.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "pressure-card";
+      card.innerHTML = `
+        <h4>${escapeHtml(item.familyLabel)}</h4>
+        <div class="pressure-split">
+          <div class="pressure-block pressure-block-ai">
+            <span class="insight-kind">AI-heavy</span>
+            <strong>${escapeHtml(item.aiDominant.label)}</strong>
+            <p>Art ${formatPercent(item.aiDominant.artShare)} · AI ${formatPercent(item.aiDominant.aiShare)}</p>
+          </div>
+          <div class="pressure-block pressure-block-art">
+            <span class="insight-kind">Art-heavy</span>
+            <strong>${escapeHtml(item.artDominant.label)}</strong>
+            <p>Art ${formatPercent(item.artDominant.artShare)} · AI ${formatPercent(item.artDominant.aiShare)}</p>
+          </div>
+        </div>
+      `;
+      pressureTarget.append(card);
+    });
+
+    const bridges = [...data.pressurePoints].sort(
+      (left, right) => right.sharedGround.sharedShare - left.sharedGround.sharedShare,
+    );
+    sharedTarget.innerHTML = "";
+    bridges.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "bridge-card";
+      card.innerHTML = `
+        <h4>${escapeHtml(item.familyLabel)}</h4>
+        <strong>${escapeHtml(item.sharedGround.label)}</strong>
+        <p>Art ${formatPercent(item.sharedGround.artShare)} · AI ${formatPercent(item.sharedGround.aiShare)}</p>
+      `;
+      sharedTarget.append(card);
+    });
   }
 
   function renderUmwelt() {
@@ -435,13 +519,19 @@
         title: "Interpretive bridge",
         body: "Umwelt and James Bridle are used here not as quantitative data sources, but as conceptual tools for re-reading both corpora as ecologies of cognition.",
       },
+      {
+        title: "Visible cautions",
+        list: data.sampleCautions,
+      },
     ];
 
     target.innerHTML = "";
     methods.forEach((item) => {
       const node = document.createElement("div");
       node.className = "method-item";
-      node.innerHTML = `<h4>${escapeHtml(item.title)}</h4><p>${escapeHtml(item.body)}</p>`;
+      node.innerHTML = item.list
+        ? `<h4>${escapeHtml(item.title)}</h4><ul class="method-listing">${item.list.map((entry) => `<li>${escapeHtml(entry)}</li>`).join("")}</ul>`
+        : `<h4>${escapeHtml(item.title)}</h4><p>${escapeHtml(item.body)}</p>`;
       target.append(node);
     });
   }
@@ -476,9 +566,12 @@
 
   renderHeroStats();
   renderTakeaways();
+  renderCautions();
+  renderClusterSummary();
   renderAxes();
   renderAtlas();
   renderComparison();
+  renderPressurePoints();
   renderUmwelt();
   renderImplications();
   renderMethods();

@@ -34,6 +34,63 @@ ARXIV_PAPERS = [
         },
     },
     {
+        "id": "tests-of-machine-intelligence",
+        "title": "Tests of Machine Intelligence",
+        "year": 2007,
+        "arxivId": "0712.3825",
+        "url": "https://arxiv.org/abs/0712.3825",
+        "authors": "Shane Legg and Marcus Hutter",
+        "cluster": "Formal definitions and benchmarks",
+        "focus": "Surveys the many tests of machine intelligence proposed beyond the Turing test.",
+        "whyItMatters": "Adds a genealogy of how AI has tried to operationalize, compare, and validate intelligence.",
+        "codes": {
+            "types": ["cognitive", "digital"],
+            "perspectives": ["assessment", "philosophy"],
+            "definitions": ["measurable_faculty"],
+            "recognition": ["testing_scoring", "judgment_critique"],
+            "locations": ["mind_concepts"],
+            "subjects": ["machines_nonhumans"],
+        },
+    },
+    {
+        "id": "vqa-machine-intelligence",
+        "title": "Measuring Machine Intelligence Through Visual Question Answering",
+        "year": 2016,
+        "arxivId": "1608.08716",
+        "url": "https://arxiv.org/abs/1608.08716",
+        "authors": "C. Lawrence Zitnick, Aishwarya Agrawal, Stanislaw Antol, Margaret Mitchell, Dhruv Batra, and Devi Parikh",
+        "cluster": "Formal definitions and benchmarks",
+        "focus": "Proposes visual question answering as a benchmark for measuring machine intelligence through joint language-and-vision reasoning.",
+        "whyItMatters": "Shows how intelligence in AI research often becomes visible as benchmarkable multimodal performance.",
+        "codes": {
+            "types": ["cognitive", "perceptual", "communicative", "digital"],
+            "perspectives": ["assessment", "technology"],
+            "definitions": ["measurable_faculty"],
+            "recognition": ["testing_scoring", "language_reflection"],
+            "locations": ["mind_concepts", "vision_perception", "media_machines"],
+            "subjects": ["machines_nonhumans"],
+        },
+    },
+    {
+        "id": "cognitive-architecture-review",
+        "title": "A Review of 40 Years of Cognitive Architecture Research: Core Cognitive Abilities and Practical Applications",
+        "year": 2018,
+        "arxivId": "1610.08602",
+        "url": "https://arxiv.org/abs/1610.08602",
+        "authors": "Iuliia Kotseruba and John K. Tsotsos",
+        "cluster": "Cognitive architectures and cognition",
+        "focus": "Surveys 84 cognitive architectures across perception, attention, memory, learning, reasoning, and action selection.",
+        "whyItMatters": "Broadens AI intelligence beyond benchmark scores toward architectures of mind, mechanism, and practical cognitive abilities.",
+        "codes": {
+            "types": ["cognitive", "perceptual", "affective"],
+            "perspectives": ["philosophy", "developmental", "technology"],
+            "definitions": ["measurable_faculty", "machinic_relation"],
+            "recognition": ["judgment_critique", "developmental_observation"],
+            "locations": ["mind_concepts", "media_machines", "body_affect"],
+            "subjects": ["machines_nonhumans"],
+        },
+    },
+    {
         "id": "measure-of-intelligence",
         "title": "On the Measure of Intelligence",
         "year": 2019,
@@ -59,7 +116,7 @@ ARXIV_PAPERS = [
         "arxivId": "2101.09429",
         "url": "https://arxiv.org/abs/2101.09429",
         "authors": "Sheikh Rabiul Islam, William Eberle, Sheikh Khaled Ghafoor, and Mohiuddin Ahmed",
-        "cluster": "Human-centered governance",
+        "cluster": "Human-centered explanation and governance",
         "focus": "Surveys explanation methods for opaque AI systems in high-stakes domains.",
         "whyItMatters": "Shows that, even in AI research, intelligence becomes socially legible only through explanation, trust, and accountability.",
         "codes": {
@@ -69,6 +126,25 @@ ARXIV_PAPERS = [
             "recognition": ["judgment_critique", "language_reflection", "technical_fluency"],
             "locations": ["media_machines", "relations_culture"],
             "subjects": ["machines_nonhumans", "communities_publics"],
+        },
+    },
+    {
+        "id": "human-ai-symbiosis",
+        "title": "Human-AI Symbiosis: A Survey of Current Approaches",
+        "year": 2021,
+        "arxivId": "2103.09990",
+        "url": "https://arxiv.org/abs/2103.09990",
+        "authors": "Zahra Zahedi and Subbarao Kambhampati",
+        "cluster": "Human-AI collaboration and collectives",
+        "focus": "Builds a taxonomy of human-AI collaboration by complementarity, model representation, task horizon, and teaming goal.",
+        "whyItMatters": "Re-situates intelligence as a distributed achievement of teams rather than a property of isolated systems alone.",
+        "codes": {
+            "types": ["cognitive", "social", "communicative", "digital"],
+            "perspectives": ["technology", "community"],
+            "definitions": ["situated_practice", "machinic_relation"],
+            "recognition": ["participation_relation", "judgment_critique", "language_reflection"],
+            "locations": ["relations_culture", "media_machines"],
+            "subjects": ["communities_publics", "machines_nonhumans"],
         },
     },
     {
@@ -110,6 +186,25 @@ ARXIV_PAPERS = [
         },
     },
     {
+        "id": "human-centered-xai-user-studies",
+        "title": "Towards Human-centered Explainable AI: A Survey of User Studies for Model Explanations",
+        "year": 2022,
+        "arxivId": "2210.11584",
+        "url": "https://arxiv.org/abs/2210.11584",
+        "authors": "Yao Rong and colleagues",
+        "cluster": "Human-centered explanation and governance",
+        "focus": "Reviews how user studies evaluate trust, understanding, usability, and collaboration in explainable AI.",
+        "whyItMatters": "Shifts intelligence away from model-only performance toward how systems are understood, trusted, and used by people.",
+        "codes": {
+            "types": ["cognitive", "communicative", "digital"],
+            "perspectives": ["technology", "critical", "community"],
+            "definitions": ["interpretive_meaning", "machinic_relation"],
+            "recognition": ["judgment_critique", "language_reflection", "participation_relation"],
+            "locations": ["relations_culture", "media_machines"],
+            "subjects": ["communities_publics", "machines_nonhumans"],
+        },
+    },
+    {
         "id": "sparks-of-agi",
         "title": "Sparks of Artificial General Intelligence: Early experiments with GPT-4",
         "year": 2023,
@@ -126,6 +221,25 @@ ARXIV_PAPERS = [
             "recognition": ["testing_scoring", "language_reflection"],
             "locations": ["mind_concepts", "media_machines"],
             "subjects": ["machines_nonhumans"],
+        },
+    },
+    {
+        "id": "collective-intelligence-engineering",
+        "title": "Artificial Collective Intelligence Engineering: a Survey of Concepts and Perspectives",
+        "year": 2023,
+        "arxivId": "2304.05147",
+        "url": "https://arxiv.org/abs/2304.05147",
+        "authors": "Roberto Casadei",
+        "cluster": "Human-AI collaboration and collectives",
+        "focus": "Maps collective intelligence research across swarm robotics, crowd computing, and engineered intelligent collectives.",
+        "whyItMatters": "Reframes intelligence as an emergent property of collectives rather than the achievement of the single smartest agent.",
+        "codes": {
+            "types": ["social", "cognitive", "digital"],
+            "perspectives": ["community", "technology", "philosophy"],
+            "definitions": ["situated_practice", "machinic_relation"],
+            "recognition": ["participation_relation", "technical_fluency"],
+            "locations": ["relations_culture", "media_machines"],
+            "subjects": ["communities_publics", "machines_nonhumans"],
         },
     },
     {
@@ -148,6 +262,25 @@ ARXIV_PAPERS = [
         },
     },
     {
+        "id": "concept-based-xai",
+        "title": "Concept-based Explainable Artificial Intelligence: A Survey",
+        "year": 2023,
+        "arxivId": "2312.12936",
+        "url": "https://arxiv.org/abs/2312.12936",
+        "authors": "Eleonora Poeta, Gabriele Ciravegna, Eliana Pastor, Tania Cerquitelli, and Elena Baralis",
+        "cluster": "Human-centered explanation and governance",
+        "focus": "Surveys concept-based explanation methods that aim to make AI explanations more understandable to human users.",
+        "whyItMatters": "Moves from raw features to concepts, making intelligence legible through interpretive mediation rather than only hidden representation.",
+        "codes": {
+            "types": ["cognitive", "communicative", "digital"],
+            "perspectives": ["technology", "critical"],
+            "definitions": ["interpretive_meaning", "machinic_relation"],
+            "recognition": ["language_reflection", "judgment_critique"],
+            "locations": ["relations_culture", "media_machines", "mind_concepts"],
+            "subjects": ["communities_publics", "machines_nonhumans"],
+        },
+    },
+    {
         "id": "interactive-agent-foundation-model",
         "title": "An Interactive Agent Foundation Model",
         "year": 2024,
@@ -167,6 +300,101 @@ ARXIV_PAPERS = [
         },
     },
     {
+        "id": "ai-enhanced-collective-intelligence",
+        "title": "AI-enhanced Collective Intelligence",
+        "year": 2024,
+        "arxivId": "2403.10433",
+        "url": "https://arxiv.org/abs/2403.10433",
+        "authors": "Hao Cui and Taha Yasseri",
+        "cluster": "Human-AI collaboration and collectives",
+        "focus": "Frames human-AI collective intelligence as a multilayer system spanning cognition, physical interaction, and information flow.",
+        "whyItMatters": "Makes clear that intelligence can exceed both humans and AI when it is distributed across heterogeneous collectives.",
+        "codes": {
+            "types": ["social", "cognitive", "communicative", "digital"],
+            "perspectives": ["community", "technology"],
+            "definitions": ["situated_practice", "machinic_relation"],
+            "recognition": ["participation_relation", "judgment_critique"],
+            "locations": ["relations_culture", "media_machines"],
+            "subjects": ["communities_publics", "machines_nonhumans"],
+        },
+    },
+    {
+        "id": "human-centered-xai-interfaces",
+        "title": "How Human-Centered Explainable AI Interface Are Designed and Evaluated: A Systematic Survey",
+        "year": 2024,
+        "arxivId": "2403.14496",
+        "url": "https://arxiv.org/abs/2403.14496",
+        "authors": "Thu Nguyen, Alessandro Canossa, and Jichen Zhu",
+        "cluster": "Human-centered explanation and governance",
+        "focus": "Surveys explainable AI interfaces, emphasizing how explanation is shaped by interface and user experience design.",
+        "whyItMatters": "Shows that intelligence is not just computed but mediated through design choices that shape perception and usability.",
+        "codes": {
+            "types": ["cognitive", "communicative", "digital"],
+            "perspectives": ["technology", "community", "critical"],
+            "definitions": ["interpretive_meaning", "machinic_relation"],
+            "recognition": ["language_reflection", "participation_relation", "judgment_critique"],
+            "locations": ["relations_culture", "media_machines"],
+            "subjects": ["communities_publics", "machines_nonhumans"],
+        },
+    },
+    {
+        "id": "on-a-measure-of-intelligence",
+        "title": "On a measure of intelligence",
+        "year": 2024,
+        "arxivId": "2409.14496",
+        "url": "https://arxiv.org/abs/2409.14496",
+        "authors": "Yuri Gurevich",
+        "cluster": "Formal definitions and benchmarks",
+        "focus": "Offers a discussion and critique of Chollet's attempt to formalize intelligence through measurement.",
+        "whyItMatters": "Adds reflexivity to the benchmark discourse by showing that even within AI, the meaning of intelligence remains contested.",
+        "codes": {
+            "types": ["cognitive", "digital"],
+            "perspectives": ["philosophy", "assessment"],
+            "definitions": ["measurable_faculty"],
+            "recognition": ["judgment_critique", "testing_scoring"],
+            "locations": ["mind_concepts"],
+            "subjects": ["machines_nonhumans"],
+        },
+    },
+    {
+        "id": "towards-social-ai",
+        "title": "Towards Social AI: A Survey on Understanding Social Interactions",
+        "year": 2024,
+        "arxivId": "2409.15316",
+        "url": "https://arxiv.org/abs/2409.15316",
+        "authors": "Sangmin Lee and colleagues",
+        "cluster": "Social intelligence and interaction",
+        "focus": "Surveys machine understanding of multimodal social cues, multi-party dynamics, and beliefs.",
+        "whyItMatters": "Expands intelligence in AI research toward social understanding, multimodal interaction, and belief modeling.",
+        "codes": {
+            "types": ["social", "communicative", "perceptual", "digital"],
+            "perspectives": ["technology", "community"],
+            "definitions": ["situated_practice", "interpretive_meaning"],
+            "recognition": ["participation_relation", "language_reflection", "technical_fluency"],
+            "locations": ["relations_culture", "vision_perception", "media_machines"],
+            "subjects": ["communities_publics", "machines_nonhumans"],
+        },
+    },
+    {
+        "id": "human-centered-xai-empirical",
+        "title": "Towards Human-centered Design of Explainable Artificial Intelligence (XAI): A Survey of Empirical Studies",
+        "year": 2024,
+        "arxivId": "2410.21183",
+        "url": "https://arxiv.org/abs/2410.21183",
+        "authors": "Shuai Ma",
+        "cluster": "Human-centered explanation and governance",
+        "focus": "Reviews empirical studies of explainable AI design with attention to stakeholders, needs, evaluation, and design space.",
+        "whyItMatters": "Reinforces that explainability and intelligibility are relational achievements between systems and people.",
+        "codes": {
+            "types": ["cognitive", "communicative", "digital"],
+            "perspectives": ["technology", "community", "critical"],
+            "definitions": ["interpretive_meaning", "machinic_relation"],
+            "recognition": ["language_reflection", "participation_relation", "judgment_critique"],
+            "locations": ["relations_culture", "media_machines"],
+            "subjects": ["communities_publics", "machines_nonhumans"],
+        },
+    },
+    {
         "id": "magentic-one",
         "title": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
         "year": 2024,
@@ -183,6 +411,44 @@ ARXIV_PAPERS = [
             "recognition": ["technical_fluency", "testing_scoring", "participation_relation"],
             "locations": ["media_machines", "relations_culture"],
             "subjects": ["machines_nonhumans", "communities_publics"],
+        },
+    },
+    {
+        "id": "embodied-intelligence-unblocking-agi",
+        "title": "Embodied Intelligence: The Key to Unblocking Generalized Artificial Intelligence",
+        "year": 2025,
+        "arxivId": "2505.06897",
+        "url": "https://arxiv.org/abs/2505.06897",
+        "authors": "Jinhao Jiang and colleagues",
+        "cluster": "Embodiment and cognition",
+        "focus": "Argues that embodied AI is a foundational route toward AGI through perception, decision, action, and feedback.",
+        "whyItMatters": "Strengthens the move from abstract intelligence toward environment-coupled learning and action.",
+        "codes": {
+            "types": ["perceptual", "cognitive", "digital", "affective"],
+            "perspectives": ["technology", "developmental"],
+            "definitions": ["embodied_attunement", "machinic_relation"],
+            "recognition": ["technical_fluency", "participation_relation"],
+            "locations": ["body_affect", "media_machines", "place_ecology"],
+            "subjects": ["machines_nonhumans"],
+        },
+    },
+    {
+        "id": "toward-embodied-agi",
+        "title": "Toward Embodied AGI: A Review of Embodied AI and the Road Ahead",
+        "year": 2025,
+        "arxivId": "2505.14235",
+        "url": "https://arxiv.org/abs/2505.14235",
+        "authors": "Yequan Wang and Aixin Sun",
+        "cluster": "Embodiment and cognition",
+        "focus": "Reviews embodied AI and proposes a taxonomy of embodied AGI levels and a conceptual robotic-brain framework.",
+        "whyItMatters": "Links embodiment directly to general intelligence, making environment, action, and physical grounding central rather than peripheral.",
+        "codes": {
+            "types": ["perceptual", "cognitive", "digital"],
+            "perspectives": ["technology", "assessment", "developmental"],
+            "definitions": ["embodied_attunement", "machinic_relation", "measurable_faculty"],
+            "recognition": ["technical_fluency", "testing_scoring"],
+            "locations": ["body_affect", "media_machines", "place_ecology"],
+            "subjects": ["machines_nonhumans"],
         },
     },
     {
@@ -221,6 +487,25 @@ ARXIV_PAPERS = [
             "recognition": ["technical_fluency", "judgment_critique", "language_reflection"],
             "locations": ["media_machines", "relations_culture"],
             "subjects": ["machines_nonhumans", "communities_publics"],
+        },
+    },
+    {
+        "id": "large-model-embodied-ai",
+        "title": "Large Model Empowered Embodied AI: A Survey on Decision-Making and Embodied Learning",
+        "year": 2025,
+        "arxivId": "2508.10399",
+        "url": "https://arxiv.org/abs/2508.10399",
+        "authors": "Wenlong Liang and colleagues",
+        "cluster": "Embodiment and cognition",
+        "focus": "Surveys how large models reshape embodied AI through planning, execution, learning, and world models.",
+        "whyItMatters": "Deepens the embodied turn by tying intelligence to situated decision-making, feedback, and adaptive learning in open environments.",
+        "codes": {
+            "types": ["perceptual", "cognitive", "digital", "affective"],
+            "perspectives": ["technology", "developmental"],
+            "definitions": ["embodied_attunement", "machinic_relation"],
+            "recognition": ["technical_fluency", "participation_relation"],
+            "locations": ["body_affect", "media_machines", "place_ecology"],
+            "subjects": ["machines_nonhumans"],
         },
     },
 ]
@@ -376,6 +661,16 @@ SECTION_NOTES = {
 }
 
 
+FAMILY_LABELS = {
+    "definitions": "Definition frames",
+    "recognition": "Recognition modes",
+    "locations": "Location frames",
+    "types": "Intelligence types",
+    "perspectives": "Perspectives",
+    "subjects": "Centered subjects",
+}
+
+
 def load_corpus() -> dict:
     return json.loads(CORPUS_JSON.read_text(encoding="utf-8"))
 
@@ -516,39 +811,86 @@ def top_row(rows: list[dict], key: str) -> dict:
     return max(rows, key=lambda item: item[key])
 
 
+def row_by_id(rows: list[dict], item_id: str) -> dict:
+    return next(row for row in rows if row["id"] == item_id)
+
+
+def pct(value: float) -> int:
+    return round(value * 100)
+
+
 def build_takeaways(comparison: dict) -> list[dict]:
     definitions = comparison["definitions"]["rows"]
     recognition = comparison["recognition"]["rows"]
     locations = comparison["locations"]["rows"]
     subjects = comparison["subjects"]["rows"]
+    perspectives = comparison["perspectives"]["rows"]
 
-    ai_def = top_row(definitions, "aiShare")
-    art_def = top_row(definitions, "artShare")
-    ai_rec = top_row(recognition, "aiShare")
-    art_rec = top_row(recognition, "artShare")
-    ai_loc = top_row(locations, "aiShare")
-    art_loc = top_row(locations, "artShare")
-    ai_subj = top_row(subjects, "aiShare")
-    art_subj = top_row(subjects, "artShare")
+    machinic = row_by_id(definitions, "machinic_relation")
+    measurable = row_by_id(definitions, "measurable_faculty")
+    situated = row_by_id(definitions, "situated_practice")
+    technical = row_by_id(recognition, "technical_fluency")
+    language = row_by_id(recognition, "language_reflection")
+    participation = row_by_id(recognition, "participation_relation")
+    developmental = row_by_id(recognition, "developmental_observation")
+    classrooms = row_by_id(locations, "pedagogical_institutions")
+    materials = row_by_id(locations, "artworks_materials")
+    machine_subjects = row_by_id(subjects, "machines_nonhumans")
+    students = row_by_id(subjects, "children_students")
+    communities = row_by_id(subjects, "communities_publics")
+    relation_location = row_by_id(locations, "relations_culture")
+    measurement_perspective = row_by_id(perspectives, "assessment")
 
     return [
         {
-            "title": "AI research still leans toward general measure",
-            "body": f"In the curated arXiv sample, the strongest definition frame is {ai_def['label']}, while the art-education corpus is led by {art_def['label']}.",
+            "title": "The expanded AI sample is strongest on machinic intelligence",
+            "body": f"{machinic['label']} now appears in {pct(machinic['aiShare'])}% of the curated arXiv sample, while the art-education corpus is led by {situated['label']} at {pct(situated['artShare'])}%.",
         },
         {
-            "title": "Validation methods diverge sharply",
-            "body": f"The AI sample most often recognizes intelligence {ai_rec['label'].lower()}, while the art-education corpus most often recognizes it {art_rec['label'].lower()}.",
+            "title": "Measurement is not the whole AI story anymore",
+            "body": f"{measurable['label']} is nearly even across the two corpora ({pct(measurable['artShare'])}% art, {pct(measurable['aiShare'])}% AI), but the expanded AI sample also carries technical fluency ({pct(technical['aiShare'])}%), language and reflection ({pct(language['aiShare'])}%), and participation ({pct(participation['aiShare'])}%).",
         },
         {
-            "title": "Location matters",
-            "body": f"AI research most often locates intelligence {ai_loc['label'].lower()}, whereas the art-education corpus most strongly locates it {art_loc['label'].lower()}.",
+            "title": "Art education keeps intelligence tied to classrooms and making",
+            "body": f"The art-education corpus still anchors intelligence in {classrooms['label'].lower()} ({pct(classrooms['artShare'])}%), {materials['label'].lower()} ({pct(materials['artShare'])}%), and {developmental['label'].lower()} ({pct(developmental['artShare'])}%), with little or no counterpart in the AI sample.",
         },
         {
-            "title": "The centered subject changes the whole picture",
-            "body": f"The AI sample overwhelmingly centers {ai_subj['label'].lower()}, while the art-education corpus centers {art_subj['label'].lower()}.",
+            "title": "The sharpest subject split is machines versus students",
+            "body": f"{machine_subjects['label']} appear in {pct(machine_subjects['aiShare'])}% of the AI sample, while {students['label'].lower()} appear in {pct(students['artShare'])}% of the art-education corpus and not at all in the curated arXiv set.",
+        },
+        {
+            "title": "There is still a real bridge between the corpora",
+            "body": f"Both sides still retain notable weight for {communities['label'].lower()} ({pct(communities['artShare'])}% art, {pct(communities['aiShare'])}% AI), {relation_location['label'].lower()} ({pct(relation_location['artShare'])}% art, {pct(relation_location['aiShare'])}% AI), and {measurement_perspective['label']} ({pct(measurement_perspective['artShare'])}% art, {pct(measurement_perspective['aiShare'])}% AI).",
         },
     ]
+
+
+def build_pressure_points(comparison: dict) -> list[dict]:
+    points = []
+    for family in ["definitions", "recognition", "locations", "types", "perspectives", "subjects"]:
+        rows = comparison[family]["rows"]
+        ai_dominant = max(rows, key=lambda item: item["delta"])
+        art_dominant = min(rows, key=lambda item: item["delta"])
+        shared_ground = max(rows, key=lambda item: min(item["artShare"], item["aiShare"]))
+        points.append(
+            {
+                "family": family,
+                "familyLabel": FAMILY_LABELS[family],
+                "aiDominant": {
+                    **ai_dominant,
+                    "sharedShare": round(min(ai_dominant["artShare"], ai_dominant["aiShare"]), 4),
+                },
+                "artDominant": {
+                    **art_dominant,
+                    "sharedShare": round(min(art_dominant["artShare"], art_dominant["aiShare"]), 4),
+                },
+                "sharedGround": {
+                    **shared_ground,
+                    "sharedShare": round(min(shared_ground["artShare"], shared_ground["aiShare"]), 4),
+                },
+            }
+        )
+    return points
 
 
 def build_dataset() -> dict:
@@ -556,11 +898,17 @@ def build_dataset() -> dict:
     comparison = {family: merge_family_rows(corpus, family) for family in ["definitions", "recognition", "locations", "types", "perspectives", "subjects"]}
     axes = build_axes(comparison)
     takeaways = build_takeaways(comparison)
+    pressure_points = build_pressure_points(comparison)
 
     return {
         "updated": "2026-04-23",
         "sourceBoundary": "External comparative research page. It combines a curated arXiv sample on intelligence in AI research with James Bridle and Umwelt sources, then compares those materials against the local Studies in Art Education corpus.",
-        "methodNote": "This is a curated comparative review, not an exhaustive scrape of all arXiv papers mentioning intelligence. The arXiv sample was selected to cover major strands in contemporary AI discourse: formal definition, benchmarking, generalist agents, explainability, embodiment, and research automation.",
+        "methodNote": "This is a curated comparative review, not an exhaustive scrape of all arXiv papers mentioning intelligence. The expanded arXiv sample was selected to cover major strands in contemporary AI discourse: formal definition, benchmarking, cognitive architectures, generalist agents, human-centered explanation, collaboration, collective intelligence, social intelligence, embodiment, and research automation.",
+        "sampleCautions": [
+            "The arXiv side is still a curated slice of a much larger field, not a claim about every AI paper on intelligence.",
+            "Because arXiv privileges English-language computer science preprints, the sample still underrepresents adjacent humanities, education, STS, and non-arXiv debates about intelligence.",
+            "The visual comparisons use shares within each corpus rather than raw counts so the smaller external sample and the much larger art-education corpus remain comparable.",
+        ],
         "heroStats": {
             "arxivPaperCount": len(ARXIV_PAPERS),
             "arxivYearRange": [min(item["year"] for item in ARXIV_PAPERS), max(item["year"] for item in ARXIV_PAPERS)],
@@ -572,6 +920,7 @@ def build_dataset() -> dict:
         "comparison": comparison,
         "axes": axes,
         "takeaways": takeaways,
+        "pressurePoints": pressure_points,
         "umwelt": {
             "sources": UMWELT_SOURCES,
             "bridleSources": BRIDLE_SOURCES,
