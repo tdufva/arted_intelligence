@@ -12,15 +12,20 @@ DOCS = ROOT / "docs"
 
 FILES_TO_COPY = [
     ("index.html", "index.html"),
+    ("ai-ecologies.html", "ai-ecologies.html"),
     ("site/styles.css", "site/styles.css"),
+    ("site/ai-ecologies.css", "site/ai-ecologies.css"),
     ("site/app.js", "site/app.js"),
+    ("site/ai-ecologies.js", "site/ai-ecologies.js"),
     ("site/data/corpus-data.js", "site/data/corpus-data.js"),
+    ("site/data/ai-ecologies-data.js", "site/data/ai-ecologies-data.js"),
     ("site/data/openalex-data.js", "site/data/openalex-data.js"),
 ]
 
 
 def rebuild_data_assets() -> None:
     subprocess.run(["python3", str(ROOT / "scripts" / "build_dataset.py")], check=True)
+    subprocess.run(["python3", str(ROOT / "scripts" / "build_ai_ecology_data.py")], check=True)
 
     openalex_json = ROOT / "site" / "data" / "openalex_citations.json"
     openalex_js = ROOT / "site" / "data" / "openalex-data.js"

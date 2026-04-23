@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI, Umwelt, and More-than-human Intelligence</title>
+    <meta
+      name="description"
+      content="A separate external research page comparing arXiv AI-intelligence research with Studies in Art Education, through Umwelt and James Bridle."
+    />
+    <link rel="stylesheet" href="site/styles.css" />
+    <link rel="stylesheet" href="site/ai-ecologies.css" />
+  </head>
+  <body class="ai-ecologies-page">
+    <div class="page-shell">
+      <nav class="site-nav reveal" aria-label="Primary">
+        <a class="site-nav__brand" href="index.html">Intelligence Atlas</a>
+        <div class="site-nav__links">
+          <a class="site-nav__link" href="index.html">Corpus Atlas</a>
+          <a class="site-nav__link is-active" href="ai-ecologies.html" aria-current="page"
+            >AI / Umwelt Comparison</a
+          >
+        </div>
+      </nav>
+
+      <header class="hero ai-hero reveal">
+        <div class="eyebrow">External Comparative Research</div>
+        <div class="hero-grid ai-hero-grid">
+          <div class="hero-copy">
+            <p class="kicker">arXiv / James Bridle / Studies in Art Education</p>
+            <h1>From general intelligence to shared worlds.</h1>
+            <p class="lede">
+              This page compares a curated arXiv sample on intelligence in AI research with the
+              <em>Studies in Art Education</em> intelligence corpus, then re-reads both through Umwelt
+              and James Bridle's more-than-human account of cognition.
+            </p>
+            <div class="source-boundary-banner">
+              <div class="scope-kicker">Source Boundary</div>
+              <p>
+                This is the separate outside-research page. It uses external arXiv, Umwelt, and James
+                Bridle sources, then compares them with the local PDF corpus from the main page.
+              </p>
+            </div>
+          </div>
+          <div class="hero-panel">
+            <div class="hero-stats" id="ai-hero-stats"></div>
+            <div class="hero-note">
+              <h2>Argument</h2>
+              <p>
+                The comparison suggests that AI research often treats intelligence as measurable,
+                benchmarked, agentic capability, while art education more often treats it as situated,
+                creative, pedagogical, and relational. Umwelt opens a third path: intelligence as
+                ecology.
+              </p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">01</p>
+            <div>
+              <h2>Research compass</h2>
+              <p>
+                These are the strongest comparative signals from the curated arXiv sample and the local
+                art-education corpus. The bars below compress the page into a few conceptual vectors.
+              </p>
+            </div>
+          </div>
+          <div id="ai-takeaways" class="thread-list"></div>
+          <div class="section-spacer"></div>
+          <div class="split split-wide">
+            <article>
+              <h3>Composite axes</h3>
+              <p class="chart-note">
+                These bundles compare not single categories but broader tendencies: benchmark logic,
+                situated relation, making and interpretation, machinic agency, and ecological
+                entanglement.
+              </p>
+              <div id="axis-list" class="axis-list"></div>
+            </article>
+            <article class="comparison-detail" id="axis-detail" aria-live="polite"></article>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">02</p>
+            <div>
+              <h2>The arXiv landscape</h2>
+              <p>
+                This is a curated, non-exhaustive research sample, selected to cover the main ways AI
+                research talks about intelligence: formal definition, evaluation, agency, embodiment,
+                explanation, and research automation.
+              </p>
+            </div>
+          </div>
+          <div class="atlas-layout">
+            <aside>
+              <h3>Research strands</h3>
+              <div id="cluster-list" class="cluster-list"></div>
+            </aside>
+            <div>
+              <h3>Paper atlas</h3>
+              <div id="paper-list" class="paper-list"></div>
+            </div>
+            <aside id="paper-detail" class="comparison-detail" aria-live="polite"></aside>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">03</p>
+            <div>
+              <h2>Where AI research and art education diverge</h2>
+              <p>
+                Toggle the family below to compare the external arXiv sample with the
+                <em>Studies in Art Education</em> corpus. Left bars show the art-education corpus; right
+                bars show the AI sample.
+              </p>
+            </div>
+          </div>
+          <div id="comparison-family" class="toggle-group" role="tablist" aria-label="Comparison family"></div>
+          <p id="comparison-note" class="chart-note"></p>
+          <div class="comparison-layout">
+            <div id="comparison-rows" class="comparison-chart"></div>
+            <aside id="comparison-detail" class="comparison-detail" aria-live="polite"></aside>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">04</p>
+            <div>
+              <h2>Umwelt and James Bridle</h2>
+              <p>
+                Umwelt reframes intelligence as a world that an organism can sense and inhabit. Bridle
+                extends that insight to machine perception, artistic practice, and more-than-human
+                coexistence.
+              </p>
+            </div>
+          </div>
+          <div class="split split-wide">
+            <article>
+              <h3>Why Umwelt matters here</h3>
+              <p id="umwelt-note" class="chart-note"></p>
+              <div id="umwelt-sources" class="source-capsules"></div>
+            </article>
+            <article>
+              <h3>Bridle's turn</h3>
+              <div id="bridle-sources" class="origin-list"></div>
+            </article>
+          </div>
+          <div class="section-spacer"></div>
+          <div id="rethinking-moves" class="thread-list"></div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">05</p>
+            <div>
+              <h2>What this means for art education</h2>
+              <p>
+                If intelligence is ecological rather than singular, then art education has a distinct role:
+                it can teach situated perception, shared world-building, and ethical relation across human,
+                machine, and more-than-human forms of cognition.
+              </p>
+            </div>
+          </div>
+          <div id="implication-list" class="thread-list"></div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">06</p>
+            <div>
+              <h2>Method and sources</h2>
+              <p>
+                The page is explicit about its method so the comparison remains inspectable. It is not a
+                hidden model output or an undisclosed literature scrape.
+              </p>
+            </div>
+          </div>
+          <div class="split split-wide">
+            <article>
+              <h3>Method</h3>
+              <div id="external-methods" class="method-list"></div>
+            </article>
+            <article>
+              <h3>References</h3>
+              <ul id="reference-list" class="source-list reference-list"></ul>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="site/data/ai-ecologies-data.js"></script>
+    <script src="site/ai-ecologies.js"></script>
+  </body>
+</html>

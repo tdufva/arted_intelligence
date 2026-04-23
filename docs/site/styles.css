@@ -60,6 +60,47 @@ img {
   padding: 1.25rem 1rem 4rem;
 }
 
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(19, 70, 71, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(10px);
+}
+
+.site-nav__brand {
+  color: var(--deep);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.site-nav__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  color: var(--deep);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-nav__link.is-active {
+  background: var(--accent);
+  color: #fff;
+}
+
 .hero {
   position: relative;
   overflow: hidden;
@@ -1598,6 +1639,12 @@ body.is-animated .reveal.is-visible {
 }
 
 @media (max-width: 1024px) {
+  .site-nav {
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 1.1rem;
+  }
+
   .hero-grid,
   .split,
   .matrix-layout,
@@ -1636,6 +1683,10 @@ body.is-animated .reveal.is-visible {
 @media (max-width: 720px) {
   .page-shell {
     padding-inline: 0.8rem;
+  }
+
+  .site-nav {
+    padding: 0.8rem 0.85rem;
   }
 
   .hero {

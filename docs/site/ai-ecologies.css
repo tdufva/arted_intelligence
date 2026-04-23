@@ -1,0 +1,165 @@
+.ai-hero {
+  min-height: min(82svh, 54rem);
+}
+
+.ai-hero-grid {
+  align-items: stretch;
+}
+
+.source-boundary-banner {
+  max-width: 38rem;
+  margin-top: 1.2rem;
+  padding: 1rem 1rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.source-boundary-banner p {
+  margin: 0.35rem 0 0;
+  color: rgba(248, 245, 238, 0.9);
+}
+
+.section-spacer {
+  height: 1.5rem;
+}
+
+.axis-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.atlas-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.28fr) minmax(18rem, 0.86fr);
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.cluster-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.paper-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.paper-button {
+  display: grid;
+  grid-template-columns: 4.2rem minmax(0, 1fr);
+  gap: 0.7rem 1rem;
+  align-items: start;
+  padding: 0.9rem 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.paper-button:first-child {
+  border-top: 0;
+}
+
+.paper-button.is-active .paper-title {
+  color: var(--accent);
+}
+
+.paper-year {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(19, 70, 71, 0.08);
+  color: var(--deep);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.paper-title {
+  display: block;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: 1.08rem;
+  line-height: 1.12;
+}
+
+.paper-cluster,
+.paper-focus {
+  display: block;
+}
+
+.paper-cluster {
+  margin-top: 0.3rem;
+  color: var(--deep);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.paper-focus {
+  margin-top: 0.22rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.source-capsules {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.source-capsule {
+  padding: 1rem 1rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.source-capsule h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.source-capsule p {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+}
+
+.source-capsule a {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+
+.reference-list li {
+  line-height: 1.45;
+}
+
+.reference-kind {
+  display: inline-flex;
+  margin-left: 0.4rem;
+  padding: 0.12rem 0.42rem;
+  border-radius: 999px;
+  background: rgba(19, 70, 71, 0.08);
+  color: var(--deep);
+  font-size: 0.74rem;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+@media (max-width: 1024px) {
+  .atlas-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .paper-button {
+    grid-template-columns: 1fr;
+  }
+}
