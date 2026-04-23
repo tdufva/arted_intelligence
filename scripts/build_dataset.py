@@ -2648,7 +2648,11 @@ def build_methods() -> list[dict]:
     return [
         {
             "title": "Corpus first",
-            "body": "Each article PDF was converted to text locally with PDFKit, then coded from article titles, first-page metadata, and body text.",
+            "body": "All analysis, coding, search, validation, and question-answering on the page are built from the provided article PDFs, converted to text locally with PDFKit and coded from article titles, first-page metadata, and body text.",
+        },
+        {
+            "title": "External material kept separate",
+            "body": "Outside material does not drive the corpus analysis. The only external dataset shown on the public page is an optional OpenAlex citation snapshot, isolated in its own tab, while design references are listed separately as page-making guidance.",
         },
         {
             "title": "Plural coding",

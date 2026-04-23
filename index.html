@@ -35,6 +35,14 @@
                 community, and technological perspectives are surfaced alongside classical cognition.
               </p>
             </div>
+            <div class="scope-card">
+              <div class="scope-kicker">Source Boundary</div>
+              <p>
+                All trend analysis, coding, search, quotes, validation, and question answering on this page
+                are built from the provided PDF corpus. The only outside data shown publicly is an optional
+                citation snapshot, isolated in the external tab in section 13.
+              </p>
+            </div>
           </div>
         </div>
       </header>
@@ -358,12 +366,13 @@
             <div>
               <h2>Most-cited research</h2>
               <p>
-                Citation counts below come from an OpenAlex snapshot taken on April 22, 2026. OpenAlex
-                matched 90 articles in the corpus, so this section is transparent about both reach and
-                coverage.
+                This section separates citation signals derived from the provided PDFs from optional
+                external citation context. The default view stays inside the PDF dataset.
               </p>
             </div>
           </div>
+          <div id="citation-tabs" class="toggle-group citation-tabs" role="tablist" aria-label="Citation source"></div>
+          <p id="citation-source-note" class="chart-note"></p>
           <ol id="top-cited" class="citation-list"></ol>
         </section>
 
@@ -437,8 +446,10 @@
               <h2>Ask the corpus</h2>
               <p>
                 Ask a question in plain language and the page will answer from the corpus metadata, trends,
-                excerpts, quoted article evidence, and article matches. It runs entirely client-side, so it
-                still works on GitHub Pages without a separate backend.
+                excerpts, quoted article evidence, and article matches. It stays inside the provided PDF
+                corpus by default; only explicitly external citation questions use the separate OpenAlex
+                snapshot. It runs entirely client-side, so it still works on GitHub Pages without a
+                separate backend.
               </p>
             </div>
           </div>
@@ -615,6 +626,10 @@
             </article>
             <article>
               <h3>Design commitments</h3>
+              <p class="chart-note source-boundary-note">
+                Analysis and evidence on this page come from the provided PDFs. Outside references are kept
+                separate here as design guidance or, in section 13, as an optional external citation layer.
+              </p>
               <ul class="source-list">
                 <li>
                   <a href="https://data-feminism.mitpress.mit.edu/" target="_blank" rel="noreferrer"

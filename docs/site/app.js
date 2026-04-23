@@ -149,6 +149,14 @@
   );
   let evidenceDeskController = null;
 
+  function pdfCitationCount(article) {
+    return article?.citingArticlesPdf || 0;
+  }
+
+  function externalCitationCount(article) {
+    return openAlexByDoi[article?.doi]?.citedByCount || article?.openAlexCitations || 0;
+  }
+
   function formatNumber(value) {
     return new Intl.NumberFormat("en-US").format(value);
   }
@@ -535,8 +543,8 @@
   }
 
   function compareArticlesByImportance(a, b) {
-    const aCitations = openAlexByDoi[a.doi]?.citedByCount || 0;
-    const bCitations = openAlexByDoi[b.doi]?.citedByCount || 0;
+    const aCitations = pdfCitationCount(a);
+    const bCitations = pdfCitationCount(b);
     return (
       bCitations - aCitations ||
       (b.articleViews || 0) - (a.articleViews || 0) ||
@@ -662,12 +670,12 @@
   }
 
   function articleCardMarkup(article, options = {}) {
-    const cited = openAlexByDoi[article.doi]?.citedByCount;
+    const cited = pdfCitationCount(article);
     const metaBits = [
       article.year ? `${article.year}` : null,
       article.pageCount ? `${article.pageCount} pages` : null,
       article.articleViews ? `${formatNumber(article.articleViews)} views` : null,
-      cited ? `${formatNumber(cited)} citations` : null,
+      cited ? `${formatNumber(cited)} citing articles in PDF metadata` : null,
     ].filter(Boolean);
 
     const matchReasons = options.matchReasons?.length
@@ -853,8 +861,8 @@
         label: "publication span",
       },
       {
-        value: `${openAlex ? openAlex.matchedArticles : 0}/${corpus.summary.articleCount}`,
-        label: "matched by OpenAlex",
+        value: `${corpus.summary.withPdfCitationCounts || 0}/${corpus.summary.articleCount}`,
+        label: "with PDF citation metadata",
       },
       {
         value: `${corpus.intelligenceTypes.length} × ${corpus.perspectives.length}`,
@@ -1939,22 +1947,39 @@
       };
     }
 
-    function buildCitationAnswer(matchedArticles, concepts, query) {
-      const rows = matchedArticles.length
-        ? [...matchedArticles]
-            .sort((a, b) => (openAlexByDoi[b.doi]?.citedByCount || 0) - (openAlexByDoi[a.doi]?.citedByCount || 0))
-            .slice(0, 5)
-        : openAlex.topCited.slice(0, 5);
-      const evidenceRows = buildEvidenceRowsFromArticles(rows, query, concepts, []);
+    function buildCitationAnswer(matchedArticles, concepts, query, mode = "pdf") {
+      const useExternal = mode === "external" && openAlex;
+      const rankedMatches = [...matchedArticles]
+        .filter((article) => (useExternal ? externalCitationCount(article) > 0 : article.citingArticlesPdf != null))
+        .sort((a, b) =>
+          useExternal
+            ? externalCitationCount(b) - externalCitationCount(a) || compareArticlesByImportance(a, b)
+            : compareArticlesByImportance(a, b),
+        );
+      const rows = rankedMatches.length
+        ? rankedMatches.slice(0, 5)
+        : (useExternal ? openAlex.topCited : corpus.topCited).slice(0, 5);
+      const evidenceRows = buildEvidenceRowsFromArticles(rows.map((article) => resolveArticle(article) || article), query, concepts, []);
       return {
         title: "Most cited relevant articles",
-        summary: matchedArticles.length
-          ? "These are the highest-cited matches for your question in the current OpenAlex snapshot."
-          : "These are the most cited articles in the corpus-wide OpenAlex snapshot.",
-        bullets: rows.map((article) => `${article.title} (${article.year}) · ${formatNumber(openAlexByDoi[article.doi]?.citedByCount || article.openAlexCitations || 0)} citations`),
+        summary: useExternal
+          ? matchedArticles.length
+            ? "These are the highest-cited matches for your question in the separate OpenAlex snapshot."
+            : "These are the most cited articles in the separate OpenAlex snapshot."
+          : matchedArticles.length
+            ? "These are the highest-cited matches for your question using citation metadata from the provided PDFs."
+            : "These are the most cited articles in the provided PDF dataset.",
+        bullets: rows.map((article) =>
+          useExternal
+            ? `${article.title} (${article.year}) · ${formatNumber(externalCitationCount(article))} OpenAlex citations`
+            : `${article.title} (${article.year}) · ${formatNumber(pdfCitationCount(article))} citing articles in PDF metadata`,
+        ),
         evidenceRows,
         confidence: confidenceNote(rows.length, evidenceRows),
-        evidenceLabel: "most cited research",
+        evidenceLabel: useExternal ? "OpenAlex cited research" : "PDF cited research",
+        sourceNote: useExternal
+          ? "External citation context: this answer uses the separate OpenAlex snapshot rather than only the provided PDFs."
+          : "Corpus-only answer: this citation ranking uses metadata found in the provided PDF files.",
       };
     }
 
@@ -2050,6 +2075,9 @@
     }
 
     function renderAnswer(answer) {
+      const sourceHtml = answer.sourceNote
+        ? `<p class="answer-confidence"><strong>Source scope:</strong> ${escapeHtml(answer.sourceNote)}</p>`
+        : "";
       const confidenceHtml = answer.confidence
         ? `<p class="answer-confidence"><strong>Confidence:</strong> ${escapeHtml(answer.confidence.label)}. ${escapeHtml(answer.confidence.note)}</p>`
         : "";
@@ -2078,6 +2106,7 @@
         <article class="answer-card">
           <h3>${answer.title}</h3>
           <p>${answer.summary}</p>
+          ${sourceHtml}
           ${confidenceHtml}
           <ul class="answer-list">${answer.bullets.map((item) => `<li>${item}</li>`).join("")}</ul>
           ${evidenceHtml}
@@ -2106,6 +2135,7 @@
 
       const wantsBlindSpots = /blind|gap|missing|absence|underrepresented/.test(normalized);
       const wantsCitations = /cited|influential|important|key research|most cited/.test(normalized);
+      const wantsExternalCitations = /openalex|external citation|external citations|citation database/.test(normalized);
       const wantsOrigins = /first|origin|start|appear|emerge/.test(normalized);
       const wantsTrend = /trend|rise|rising|declin|shift|change|over time|compare|difference|vs|versus/.test(normalized);
       const wantsNeighbors = /creativity|talent|skill|judgment|imagination/.test(normalized);
@@ -2115,7 +2145,7 @@
         return;
       }
       if (wantsCitations) {
-        renderAnswer(buildCitationAnswer(matchedArticles, concepts, query));
+        renderAnswer(buildCitationAnswer(matchedArticles, concepts, query, wantsExternalCitations ? "external" : "pdf"));
         return;
       }
       if (wantsOrigins) {
@@ -2352,53 +2382,108 @@
 
   function renderTopCited() {
     const container = document.getElementById("top-cited");
-    if (!openAlex) {
+    const tabs = document.getElementById("citation-tabs");
+    const note = document.getElementById("citation-source-note");
+
+    if (!container || !tabs || !note) {
       return;
     }
 
-    container.innerHTML = "";
+    const modes = [
+      {
+        id: "pdf",
+        label: "PDF dataset only",
+        note: `Corpus-only tab: these ranks come from citation counts printed in the provided PDFs. PDF citation metadata appears on ${corpus.summary.withPdfCitationCounts || 0} of ${corpus.summary.articleCount} articles.`,
+        rows: corpus.topCited.slice(0, 10),
+      },
+    ];
 
-    openAlex.topCited.slice(0, 10).forEach((article, index) => {
-      const item = document.createElement("li");
-      item.className = "citation-item";
+    if (openAlex) {
+      modes.push({
+        id: "external",
+        label: "External: OpenAlex snapshot",
+        note: `External tab: these ranks come from an OpenAlex snapshot taken on ${openAlex.snapshotDate}. This view is kept separate from the PDF-only analysis, and OpenAlex matched ${openAlex.matchedArticles} of ${corpus.summary.articleCount} corpus articles.`,
+        rows: openAlex.topCited.slice(0, 10),
+      });
+    }
 
-      const rank = document.createElement("div");
-      rank.className = "citation-rank";
-      rank.textContent = String(index + 1).padStart(2, "0");
+    let activeMode = modes[0]?.id || "pdf";
 
-      const content = document.createElement("div");
-      const title = document.createElement("h3");
-      const link = document.createElement("a");
-      link.href = `https://doi.org/${article.doi}`;
-      link.target = "_blank";
-      link.rel = "noreferrer";
-      link.textContent = article.title;
-      title.append(link);
+    function renderList(mode) {
+      const config = modes.find((item) => item.id === mode) || modes[0];
+      activeMode = config.id;
+      note.textContent = config.note;
+      container.innerHTML = "";
 
-      const meta = document.createElement("p");
-      meta.className = "citation-meta";
-      meta.textContent = `${article.year} • ${article.excerpt}`;
+      config.rows.forEach((article, index) => {
+        const item = document.createElement("li");
+        item.className = "citation-item";
 
-      const tags = document.createElement("div");
-      tags.className = "citation-tags";
-      [...article.intelligenceTypes.slice(0, 2), ...article.perspectives.slice(0, 1)].forEach((id) => {
-        const definition = typeLookup[id] || perspectiveLookup[id];
-        if (!definition) return;
-        const tag = document.createElement("span");
-        tag.className = "tag";
-        tag.textContent = definition.label;
-        tags.append(tag);
+        const rank = document.createElement("div");
+        rank.className = "citation-rank";
+        rank.textContent = String(index + 1).padStart(2, "0");
+
+        const content = document.createElement("div");
+        const title = document.createElement("h3");
+        if (article.doi) {
+          const link = document.createElement("a");
+          link.href = `https://doi.org/${article.doi}`;
+          link.target = "_blank";
+          link.rel = "noreferrer";
+          link.textContent = article.title;
+          title.append(link);
+        } else {
+          title.textContent = article.title;
+        }
+
+        const meta = document.createElement("p");
+        meta.className = "citation-meta";
+        meta.textContent = `${article.year} • ${article.excerpt}`;
+
+        const tags = document.createElement("div");
+        tags.className = "citation-tags";
+        [...(article.intelligenceTypes || []).slice(0, 2), ...(article.perspectives || []).slice(0, 1)].forEach((id) => {
+          const definition = typeLookup[id] || perspectiveLookup[id];
+          if (!definition) return;
+          const tag = document.createElement("span");
+          tag.className = "tag";
+          tag.textContent = definition.label;
+          tags.append(tag);
+        });
+
+        content.append(title, meta, tags);
+
+        const badge = document.createElement("div");
+        badge.className = "citation-badge";
+        badge.textContent =
+          config.id === "external"
+            ? `${formatNumber(externalCitationCount(article))} OpenAlex citations`
+            : `${formatNumber(pdfCitationCount(article))} PDF citing articles`;
+
+        item.append(rank, content, badge);
+        container.append(item);
       });
 
-      content.append(title, meta, tags);
+      [...tabs.querySelectorAll(".toggle-button")].forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.citationSource === activeMode);
+        button.setAttribute("aria-selected", button.dataset.citationSource === activeMode ? "true" : "false");
+      });
+    }
 
-      const badge = document.createElement("div");
-      badge.className = "citation-badge";
-      badge.textContent = `${formatNumber(article.openAlexCitations)} citations`;
-
-      item.append(rank, content, badge);
-      container.append(item);
+    tabs.innerHTML = "";
+    modes.forEach((mode) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = `toggle-button${mode.id === activeMode ? " is-active" : ""}`;
+      button.setAttribute("role", "tab");
+      button.setAttribute("aria-selected", mode.id === activeMode ? "true" : "false");
+      button.dataset.citationSource = mode.id;
+      button.textContent = mode.label;
+      button.addEventListener("click", () => renderList(mode.id));
+      tabs.append(button);
     });
+
+    renderList(activeMode);
   }
 
   function renderThreads() {
@@ -2627,10 +2712,16 @@
 
   function attachCoverageNote() {
     const target = document.getElementById("coverage-note");
-    if (!target || !openAlex) {
+    if (!target) {
       return;
     }
-    target.textContent = `Coverage note: OpenAlex returned citation counts for ${openAlex.matchedArticles} of ${corpus.summary.articleCount} articles in the corpus on ${openAlex.snapshotDate}.`;
+    const parts = [
+      `PDF metadata note: ${corpus.summary.withPdfCitationCounts || 0} of ${corpus.summary.articleCount} articles include citation counts in the provided files.`,
+    ];
+    if (openAlex) {
+      parts.push(`External note: OpenAlex matched ${openAlex.matchedArticles} of ${corpus.summary.articleCount} articles on ${openAlex.snapshotDate}.`);
+    }
+    target.textContent = parts.join(" ");
   }
 
   function populateSelect(select, options, labelFn) {
@@ -2826,8 +2917,8 @@
         const right = b.article;
         if (sort.value === "oldest") return left.year - right.year || left.title.localeCompare(right.title);
         if (sort.value === "cited") {
-          const aC = openAlexByDoi[left.doi]?.citedByCount || 0;
-          const bC = openAlexByDoi[right.doi]?.citedByCount || 0;
+          const aC = pdfCitationCount(left);
+          const bC = pdfCitationCount(right);
           return bC - aC || right.year - left.year;
         }
         if (sort.value === "views") {
