@@ -251,6 +251,222 @@
       search: normalizeForSearch(`${item.label} ${item.description || ""} ${(customAliases[item.id] || []).join(" ")}`),
     }));
 
+  const structuredFieldMap = {
+    type: "types",
+    types: "types",
+    perspective: "perspectives",
+    perspectives: "perspectives",
+    signal: "signals",
+    signals: "signals",
+    definition: "definitions",
+    definitions: "definitions",
+    recognition: "recognition",
+    recognitions: "recognition",
+    location: "locations",
+    locations: "locations",
+    subject: "subjects",
+    subjects: "subjects",
+  };
+
+  const fieldLabels = {
+    title: "Title",
+    quote: "Quote evidence",
+    doi: "DOI",
+    year: "Year",
+    decade: "Decade",
+    types: "Type",
+    perspectives: "Perspective",
+    signals: "Signal",
+    definitions: "Definition frame",
+    recognition: "Recognition mode",
+    locations: "Location frame",
+    subjects: "Subject frame",
+  };
+
+  const familySelectMap = {
+    type: "types",
+    perspective: "perspectives",
+    signal: "signals",
+    definition: "definitions",
+    recognition: "recognition",
+    location: "locations",
+    subject: "subjects",
+  };
+
+  function queryTerms(value) {
+    return normalizeForSearch(value)
+      .split(" ")
+      .filter((token) => token.length > 1);
+  }
+
+  function labelForFamilyItem(family, id) {
+    if (family === "signals") return lookupSignalLabel(id);
+    return familyConfigs[family]?.lookup[id]?.label || lookupAnyLabel(id);
+  }
+
+  function resolveFamilyIds(family, value) {
+    const config = familyConfigs[family];
+    const normalizedValue = normalizeForSearch(value);
+    if (!config || !normalizedValue) return [];
+
+    const exact = [];
+    const partial = [];
+
+    config.definitions.forEach((item) => {
+      const label = family === "signals" ? lookupSignalLabel(item.id) : item.label;
+      const searchText = normalizeForSearch(
+        `${item.id} ${label} ${item.description || ""} ${(customAliases[item.id] || []).join(" ")}`,
+      );
+      if (searchText === normalizedValue || normalizeForSearch(label) === normalizedValue || item.id === normalizedValue) {
+        exact.push(item.id);
+      } else if (searchText.includes(normalizedValue)) {
+        partial.push(item.id);
+      }
+    });
+
+    return [...new Set([...exact, ...partial])];
+  }
+
+  function parseStructuredSearch(rawValue) {
+    const clauses = [];
+    const pattern = /(^|\s)([a-zA-Z]+):(?:"([^"]+)"|([^\s]+))/g;
+    const remainder = String(rawValue || "").replace(pattern, (match, lead, field, quoted, plain) => {
+      clauses.push({
+        field: String(field || "").toLowerCase(),
+        value: String(quoted ?? plain ?? "").trim(),
+      });
+      return lead ? " " : "";
+    });
+
+    return {
+      raw: rawValue,
+      freeText: remainder.trim(),
+      terms: queryTerms(remainder),
+      clauses: clauses.map((clause) => {
+        const family = structuredFieldMap[clause.field];
+        if (family) {
+          const resolvedIds = resolveFamilyIds(family, clause.value);
+          return {
+            ...clause,
+            family,
+            kind: "family",
+            resolvedIds,
+            valid: resolvedIds.length > 0,
+            message: resolvedIds.length
+              ? ""
+              : `${fieldLabels[family] || familyConfigs[family]?.label || clause.field} could not resolve “${clause.value}”.`,
+          };
+        }
+
+        if (["title", "quote", "doi", "year", "decade"].includes(clause.field)) {
+          return {
+            ...clause,
+            kind: clause.field,
+            normalizedValue: normalizeForSearch(clause.value),
+            valid: Boolean(clause.value),
+            message: Boolean(clause.value) ? "" : `${fieldLabels[clause.field]} needs a value.`,
+          };
+        }
+
+        return {
+          ...clause,
+          kind: "unknown",
+          valid: false,
+          message: `Field “${clause.field}” is not supported.`,
+        };
+      }),
+    };
+  }
+
+  function dedupeBy(items, keyFn) {
+    const seen = new Set();
+    const output = [];
+    items.forEach((item) => {
+      const key = keyFn(item);
+      if (seen.has(key)) return;
+      seen.add(key);
+      output.push(item);
+    });
+    return output;
+  }
+
+  function articleSearchBundle(article) {
+    return {
+      title: normalizeForSearch(article.title),
+      excerpt: normalizeForSearch(article.excerpt),
+      doi: normalizeForSearch(article.doi || ""),
+      codes: normalizeForSearch(
+        [
+          article.intelligenceTypes.map((id) => lookupAnyLabel(id)).join(" "),
+          article.perspectives.map((id) => lookupAnyLabel(id)).join(" "),
+          article.signals.map((id) => lookupAnyLabel(id)).join(" "),
+          article.definitionFrames.map((id) => lookupAnyLabel(id)).join(" "),
+          article.recognitionModes.map((id) => lookupAnyLabel(id)).join(" "),
+          article.locationFrames.map((id) => lookupAnyLabel(id)).join(" "),
+          article.subjectFrames.map((id) => lookupAnyLabel(id)).join(" "),
+        ].join(" "),
+      ),
+      quotes: (article.quotes || []).map((quote) => ({
+        ...quote,
+        normalized: normalizeForSearch(quote.text),
+      })),
+    };
+  }
+
+  function relevantConfidenceEntries(article, families, matchedIdsByFamily = {}) {
+    const selectedFamilies = families?.length ? families : ["types", "perspectives", "definitions"];
+    const output = [];
+
+    selectedFamilies.forEach((family) => {
+      const config = familyConfigs[family];
+      if (!config) return;
+      const entries = article.codingConfidence?.[config.articleKey] || [];
+      const filtered = matchedIdsByFamily[family]?.length
+        ? entries.filter((entry) => matchedIdsByFamily[family].includes(entry.id))
+        : entries.slice(0, 2);
+      filtered.forEach((entry) => {
+        output.push({
+          family,
+          ...entry,
+        });
+      });
+    });
+
+    return dedupeBy(output, (item) => `${item.family}:${item.id}`).slice(0, 6);
+  }
+
+  function selectRelevantQuotes(article, context = {}) {
+    const quotes = (article.quotes || []).map((quote) => ({ ...quote }));
+    if (!quotes.length) return [];
+
+    const termList = context.terms || [];
+    const quotePhrases = (context.clauses || [])
+      .filter((clause) => clause.kind === "quote")
+      .map((clause) => clause.normalizedValue)
+      .filter(Boolean);
+    const relevantTags = new Set(Object.values(context.matchedIdsByFamily || {}).flat());
+    const focusFamilies = new Set(context.focusFamilies || []);
+
+    const ranked = quotes
+      .map((quote) => {
+        const normalized = normalizeForSearch(quote.text);
+        let score = /intelligen/i.test(quote.text) ? 1 : 0;
+        if (quotePhrases.some((phrase) => normalized.includes(phrase))) score += 6;
+        if (termList.length && termList.every((term) => normalized.includes(term))) score += 4;
+        if (quote.tags?.some((tag) => relevantTags.has(tag))) score += 3;
+        if (quote.families?.some((family) => focusFamilies.has(family))) score += 2;
+        return { ...quote, score };
+      })
+      .filter((quote) => quote.score > 0)
+      .sort((a, b) => b.score - a.score || a.text.length - b.text.length);
+
+    if (!ranked.length) {
+      return quotes.slice(0, 2);
+    }
+
+    return dedupeBy(ranked, (quote) => quote.text).slice(0, 2);
+  }
+
   function compareArticlesByImportance(a, b) {
     const aCitations = openAlexByDoi[a.doi]?.citedByCount || 0;
     const bCitations = openAlexByDoi[b.doi]?.citedByCount || 0;
@@ -375,7 +591,7 @@
   }
 
   function detailTagMarkup(ids) {
-    return ids.map((id) => `<span class="tag">${escapeHtml(lookupAnyLabel(id))}</span>`).join("");
+    return (ids || []).map((id) => `<span class="tag">${escapeHtml(lookupAnyLabel(id))}</span>`).join("");
   }
 
   function articleCardMarkup(article, options = {}) {
@@ -387,8 +603,44 @@
       cited ? `${formatNumber(cited)} citations` : null,
     ].filter(Boolean);
 
-    const emphasis = options.emphasis?.length
-      ? `<p class="evidence-why"><strong>Matched here through:</strong> ${escapeHtml(options.emphasis.join(", "))}</p>`
+    const matchReasons = options.matchReasons?.length
+      ? `
+        <div class="match-list">
+          <h5>Match reasons</h5>
+          <ul>${options.matchReasons.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}</ul>
+        </div>
+      `
+      : "";
+    const quotes = options.quotes?.length
+      ? `
+        <div class="quote-list">
+          <h5>Quote-level evidence</h5>
+          ${options.quotes
+            .map(
+              (quote) => `
+                <figure class="quote-item">
+                  <p>“${escapeHtml(quote.text)}”</p>
+                </figure>
+              `,
+            )
+            .join("")}
+        </div>
+      `
+      : "";
+    const confidenceStrip = options.confidence?.length
+      ? `
+        <div class="confidence-strip">
+          ${options.confidence
+            .map(
+              (item) => `
+                <span class="confidence-badge" data-kind="${escapeHtml(item.kind || "heuristic")}" title="${escapeHtml(item.note || "")}">
+                  ${escapeHtml(labelForFamilyItem(item.family, item.id))} · ${escapeHtml(item.label)}
+                </span>
+              `,
+            )
+            .join("")}
+        </div>
+      `
       : "";
     const conceptualDetails = options.showConcepts !== false
       ? `
@@ -402,7 +654,9 @@
         <div class="meta-line">${escapeHtml(metaBits.join(" · "))}</div>
         <h4>${escapeHtml(article.title)}</h4>
         <p>${escapeHtml(article.excerpt)}</p>
-        ${emphasis}
+        ${matchReasons}
+        ${quotes}
+        ${confidenceStrip}
         <div class="detail-tags">${detailTagMarkup(article.intelligenceTypes)}</div>
         <div class="detail-tags detail-tags-subtle">${detailTagMarkup(article.perspectives)}${detailTagMarkup(article.signals)}</div>
         ${conceptualDetails}
@@ -1788,6 +2042,56 @@
     });
   }
 
+  function renderValidation() {
+    const summary = document.getElementById("validation-summary");
+    const familyGrid = document.getElementById("validation-family-grid");
+    const auditList = document.getElementById("audit-notes");
+    const validation = corpus.validation;
+
+    if (!summary || !familyGrid || !auditList || !validation) {
+      return;
+    }
+
+    summary.textContent = `The manual gold sample checks ${validation.sampleSize} of ${validation.expectedSize} planned articles across six coding families. Quote-level evidence appears on ${formatPercent(
+      validation.quoteCoverage || 0,
+    )} of the corpus, and lower-overlap families are shown as provisional rather than hidden.`;
+
+    familyGrid.innerHTML = "";
+    (validation.familyStats || []).forEach((row) => {
+      const mismatch = row.mismatchExamples?.[0];
+      const card = document.createElement("article");
+      card.className = "validation-card";
+      card.innerHTML = `
+        <h4>${escapeHtml(row.label)}</h4>
+        <p>Exact-match rate ${Math.round((row.exactRate || 0) * 100)}% · average overlap ${Math.round(
+          (row.averageJaccard || 0) * 100,
+        )}% across ${formatNumber(row.sampleSize || 0)} audited articles.</p>
+        <div class="validation-metadata">
+          <span class="tag">${formatNumber(row.overrideCount || 0)} manual overrides visible</span>
+          <span class="tag">${formatNumber(row.inferredCount || 0)} inferred labels in corpus</span>
+        </div>
+        ${
+          mismatch
+            ? `<p class="validation-note">Example audit tension: <strong>${escapeHtml(mismatch.title)}</strong>${
+                mismatch.missing?.length ? ` missed ${escapeHtml(mismatch.missing.map((id) => lookupAnyLabel(id)).join(", "))}` : ""
+              }${
+                mismatch.extra?.length ? `${mismatch.missing?.length ? ";" : ""} added ${escapeHtml(mismatch.extra.map((id) => lookupAnyLabel(id)).join(", "))}` : ""
+              }.</p>`
+            : `<p class="validation-note">No disagreement surfaced in the current gold sample for this family.</p>`
+        }
+      `;
+      familyGrid.append(card);
+    });
+
+    auditList.innerHTML = "";
+    (validation.auditNotes || []).forEach((note) => {
+      const card = document.createElement("article");
+      card.className = "audit-card";
+      card.innerHTML = `<h4>${escapeHtml(note.title)}</h4><p>${escapeHtml(note.body)}</p>`;
+      auditList.append(card);
+    });
+  }
+
   function renderSignals() {
     const container = document.getElementById("signal-bars");
     const rows = corpus.signals.map((item) => ({
@@ -1858,69 +2162,194 @@
     populateSelect(location, corpus.locationFrames.map((item) => item.id), lookupAnyLabel);
     populateSelect(subject, corpus.subjectFrames.map((item) => item.id), lookupAnyLabel);
 
-    function currentDecade(article) {
-      return `${article.year - (article.year % 10)}s`;
+    function selectedDropdownFilters() {
+      return [
+        { family: familySelectMap.type, id: type.value, source: "filter" },
+        { family: familySelectMap.perspective, id: perspective.value, source: "filter" },
+        { family: familySelectMap.signal, id: signal.value, source: "filter" },
+        { family: familySelectMap.definition, id: definition.value, source: "filter" },
+        { family: familySelectMap.recognition, id: recognition.value, source: "filter" },
+        { family: familySelectMap.location, id: location.value, source: "filter" },
+        { family: familySelectMap.subject, id: subject.value, source: "filter" },
+      ].filter((item) => item.id);
+    }
+
+    function invalidSearchMarkup(clauses) {
+      return `
+        <article class="explorer-card">
+          <h4>Structured search needs a small correction</h4>
+          <p>${escapeHtml(clauses[0]?.message || "One or more search clauses could not be resolved.")}</p>
+          <div class="match-list">
+            <h5>What to adjust</h5>
+            <ul>${clauses.map((clause) => `<li>${escapeHtml(clause.message)}</li>`).join("")}</ul>
+          </div>
+        </article>
+      `;
+    }
+
+    function evaluateArticle(article, parsed, dropdownFilters) {
+      const bundle = articleSearchBundle(article);
+      const reasons = [];
+      const matchedIdsByFamily = {};
+      const focusFamilies = new Set();
+      const quoteMatches = [];
+
+      if (parsed.terms.length) {
+        const aggregate = [bundle.title, bundle.excerpt, bundle.doi, bundle.codes, ...bundle.quotes.map((quote) => quote.normalized)].join(
+          " ",
+        );
+        if (parsed.terms.some((term) => !aggregate.includes(term))) {
+          return null;
+        }
+
+        const sources = [];
+        if (parsed.terms.every((term) => bundle.title.includes(term))) sources.push("title");
+        if (parsed.terms.every((term) => bundle.excerpt.includes(term))) sources.push("excerpt");
+        if (parsed.terms.every((term) => bundle.codes.includes(term))) sources.push("coded labels");
+        const freeTextQuoteHits = bundle.quotes.filter((quote) => parsed.terms.every((term) => quote.normalized.includes(term)));
+        if (freeTextQuoteHits.length) {
+          sources.push("quote evidence");
+          quoteMatches.push(...freeTextQuoteHits);
+        }
+
+        reasons.push(`Free text matched ${sources.length ? sources.join(", ") : "article evidence"}.`);
+      }
+
+      for (const clause of parsed.clauses) {
+        if (clause.kind === "family") {
+          const matchedIds = clause.resolvedIds.filter((id) => articleMatchesFamily(article, clause.family, id));
+          if (!matchedIds.length) return null;
+          matchedIdsByFamily[clause.family] = [...new Set([...(matchedIdsByFamily[clause.family] || []), ...matchedIds])];
+          focusFamilies.add(clause.family);
+          reasons.push(
+            `${fieldLabels[clause.family] || familyConfigs[clause.family]?.label || clause.family} matched ${matchedIds
+              .map((id) => labelForFamilyItem(clause.family, id))
+              .join(", ")}.`,
+          );
+          continue;
+        }
+
+        if (clause.kind === "title") {
+          if (!bundle.title.includes(clause.normalizedValue)) return null;
+          reasons.push(`Title matched “${clause.value}”.`);
+          continue;
+        }
+
+        if (clause.kind === "quote") {
+          const hits = bundle.quotes.filter((quote) => quote.normalized.includes(clause.normalizedValue));
+          if (!hits.length) return null;
+          quoteMatches.push(...hits);
+          reasons.push(`Quote evidence matched “${clause.value}”.`);
+          continue;
+        }
+
+        if (clause.kind === "doi") {
+          if (!bundle.doi.includes(clause.normalizedValue)) return null;
+          reasons.push(`DOI matched “${clause.value}”.`);
+          continue;
+        }
+
+        if (clause.kind === "year") {
+          if (String(article.year) !== String(clause.value).trim()) return null;
+          reasons.push(`Year matched ${article.year}.`);
+          continue;
+        }
+
+        if (clause.kind === "decade") {
+          if (normalizeForSearch(currentDecade(article)) !== clause.normalizedValue) return null;
+          reasons.push(`Decade matched ${currentDecade(article)}.`);
+        }
+      }
+
+      dropdownFilters.forEach((filter) => {
+        if (!articleMatchesFamily(article, filter.family, filter.id)) return;
+        matchedIdsByFamily[filter.family] = [...new Set([...(matchedIdsByFamily[filter.family] || []), filter.id])];
+        focusFamilies.add(filter.family);
+        reasons.push(`Filter matched ${labelForFamilyItem(filter.family, filter.id)}.`);
+      });
+
+      for (const filter of dropdownFilters) {
+        if (!articleMatchesFamily(article, filter.family, filter.id)) {
+          return null;
+        }
+      }
+
+      const focusFamilyList = [...focusFamilies];
+      const selectedQuotes = dedupeBy(
+        [
+          ...quoteMatches,
+          ...selectRelevantQuotes(article, {
+            terms: parsed.terms,
+            clauses: parsed.clauses,
+            matchedIdsByFamily,
+            focusFamilies: focusFamilyList,
+          }),
+        ],
+        (quote) => quote.text,
+      ).slice(0, 2);
+
+      return {
+        article,
+        matchReasons: dedupeBy(reasons, (reason) => reason).slice(0, 5),
+        quotes: selectedQuotes,
+        confidence: relevantConfidenceEntries(article, focusFamilyList, matchedIdsByFamily),
+      };
     }
 
     function refresh() {
-      const query = normalizeForSearch(search.value.trim());
-      let rows = corpus.articles.filter((article) => {
-        if (query) {
-          const haystack = normalizeForSearch(
-            [
-              article.title,
-              article.excerpt,
-              article.intelligenceTypes.map((id) => lookupAnyLabel(id)).join(" "),
-              article.perspectives.map((id) => lookupAnyLabel(id)).join(" "),
-              article.signals.map((id) => lookupAnyLabel(id)).join(" "),
-              article.definitionFrames.map((id) => lookupAnyLabel(id)).join(" "),
-              article.recognitionModes.map((id) => lookupAnyLabel(id)).join(" "),
-              article.locationFrames.map((id) => lookupAnyLabel(id)).join(" "),
-              article.subjectFrames.map((id) => lookupAnyLabel(id)).join(" "),
-            ].join(" "),
-          );
-          if (!haystack.includes(query)) return false;
-        }
-        if (decade.value && currentDecade(article) !== decade.value) return false;
-        if (type.value && !article.intelligenceTypes.includes(type.value)) return false;
-        if (perspective.value && !article.perspectives.includes(perspective.value)) return false;
-        if (signal.value && !article.signals.includes(signal.value)) return false;
-        if (definition.value && !article.definitionFrames.includes(definition.value)) return false;
-        if (recognition.value && !article.recognitionModes.includes(recognition.value)) return false;
-        if (location.value && !article.locationFrames.includes(location.value)) return false;
-        if (subject.value && !article.subjectFrames.includes(subject.value)) return false;
-        return true;
-      });
+      const parsed = parseStructuredSearch(search.value.trim());
+      const invalidClauses = parsed.clauses.filter((clause) => !clause.valid);
+      const dropdownFilters = selectedDropdownFilters();
+
+      if (invalidClauses.length) {
+        summary.textContent = `${invalidClauses.length} structured ${invalidClauses.length === 1 ? "clause needs" : "clauses need"} revision before results can be shown.`;
+        results.innerHTML = invalidSearchMarkup(invalidClauses);
+        return;
+      }
+
+      let rows = corpus.articles
+        .filter((article) => !decade.value || currentDecade(article) === decade.value)
+        .map((article) => evaluateArticle(article, parsed, dropdownFilters))
+        .filter(Boolean);
 
       rows.sort((a, b) => {
-        if (sort.value === "oldest") return a.year - b.year || a.title.localeCompare(b.title);
+        const left = a.article;
+        const right = b.article;
+        if (sort.value === "oldest") return left.year - right.year || left.title.localeCompare(right.title);
         if (sort.value === "cited") {
-          const aC = openAlexByDoi[a.doi]?.citedByCount || 0;
-          const bC = openAlexByDoi[b.doi]?.citedByCount || 0;
-          return bC - aC || b.year - a.year;
+          const aC = openAlexByDoi[left.doi]?.citedByCount || 0;
+          const bC = openAlexByDoi[right.doi]?.citedByCount || 0;
+          return bC - aC || right.year - left.year;
         }
         if (sort.value === "views") {
-          return (b.articleViews || 0) - (a.articleViews || 0) || b.year - a.year;
+          return (right.articleViews || 0) - (left.articleViews || 0) || right.year - left.year;
         }
-        return b.year - a.year || a.title.localeCompare(b.title);
+        return right.year - left.year || left.title.localeCompare(right.title);
       });
 
-      const emphasis = [type.value, perspective.value, signal.value, definition.value, recognition.value, location.value, subject.value]
-        .filter(Boolean)
-        .map((id) => lookupAnyLabel(id));
+      const activeSearchPieces = [
+        parsed.terms.length ? "free text" : null,
+        ...parsed.clauses.map((clause) => `${fieldLabels[clause.family || clause.field] || clause.field}`),
+        ...dropdownFilters.map((filter) => `${fieldLabels[filter.family] || filter.family}`),
+        decade.value ? "Decade filter" : null,
+      ].filter(Boolean);
       summary.textContent =
         rows.length > 24
-          ? `${formatNumber(rows.length)} articles match the current filters. Showing the first 24 evidence cards.`
-          : `${formatNumber(rows.length)} articles match the current filters.`;
+          ? `${formatNumber(rows.length)} articles match the current search. Showing the first 24 evidence cards.${activeSearchPieces.length ? ` Active layers: ${activeSearchPieces.join(", ")}.` : ""}`
+          : `${formatNumber(rows.length)} articles match the current search.${activeSearchPieces.length ? ` Active layers: ${activeSearchPieces.join(", ")}.` : ""}`;
       results.innerHTML = "";
       if (!rows.length) {
         results.innerHTML = `<article class="explorer-card"><h4>No articles match these filters</h4><p>Try clearing one filter or searching with a broader term such as a decade, type, or perspective label.</p></article>`;
         return;
       }
 
-      rows.slice(0, 24).forEach((article) => {
+      rows.slice(0, 24).forEach((row) => {
         const card = document.createElement("div");
-        card.innerHTML = articleCardMarkup(article, { emphasis });
+        card.innerHTML = articleCardMarkup(row.article, {
+          matchReasons: row.matchReasons,
+          quotes: row.quotes,
+          confidence: row.confidence,
+        });
         results.append(card.firstElementChild);
       });
     }
@@ -2134,6 +2563,7 @@
     renderExplorer();
     renderCodebook();
     renderMethods();
+    renderValidation();
     attachCoverageNote();
     revealOnScroll();
   }

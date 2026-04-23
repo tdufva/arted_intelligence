@@ -482,8 +482,9 @@
             <div>
               <h2>Article-level evidence desk</h2>
               <p>
-                Trace the patterns back to article records, coded labels, and short excerpts. This public
-                page shows inspectable evidence cards but does not provide a downloadable dataset export.
+                Trace the patterns back to article records, coded labels, quote-level evidence, confidence
+                labels, and structured match reasons. This public page shows inspectable evidence cards but
+                does not provide a downloadable dataset export.
               </p>
             </div>
           </div>
@@ -538,6 +539,14 @@
             <p class="chart-note" id="explorer-note">
               Access note: because the site runs client-side on GitHub Pages, visible evidence remains
               inspectable in the browser. Strictly non-public corpus access would require a private backend.
+            </p>
+            <p class="chart-note" id="explorer-guide">
+              Structured search works with field syntax such as
+              <code>title:AI</code>,
+              <code>quote:\"creative intelligence\"</code>,
+              <code>definition:\"measurable faculty\"</code>,
+              <code>subject:children</code>,
+              <code>year:2023</code>, and <code>decade:2020s</code>.
             </p>
             <p class="chart-note" id="explorer-summary"></p>
             <div id="explorer-results" class="explorer-results"></div>
@@ -628,6 +637,18 @@
                   evidence and the codebook on the page, but does not offer a downloadable corpus dataset.
                 </p>
               </div>
+            </article>
+          </div>
+
+          <div class="split split-wide validation-panel">
+            <article>
+              <h3>Gold-sample validation</h3>
+              <p id="validation-summary" class="chart-note"></p>
+              <div id="validation-family-grid" class="validation-grid"></div>
+            </article>
+            <article>
+              <h3>Visible audit notes</h3>
+              <div id="audit-notes" class="audit-list"></div>
             </article>
           </div>
         </section>

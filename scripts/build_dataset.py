@@ -731,6 +731,167 @@ CONCEPTUAL_FAMILIES = [
 ]
 
 
+ALL_FAMILY_SPECS = [
+    {
+        "id": "types",
+        "articleKey": "intelligenceTypes",
+        "bucketKey": "types",
+        "definitions": INTELLIGENCE_TYPES,
+        "label": "Types",
+    },
+    {
+        "id": "perspectives",
+        "articleKey": "perspectives",
+        "bucketKey": "perspectives",
+        "definitions": PERSPECTIVES,
+        "label": "Perspectives",
+    },
+    {
+        "id": "signals",
+        "articleKey": "signals",
+        "bucketKey": "signals",
+        "definitions": SIGNALS,
+        "label": "Signals",
+    },
+    *CONCEPTUAL_FAMILIES,
+]
+
+
+VALIDATION_FAMILY_SPECS = [spec for spec in ALL_FAMILY_SPECS if spec["id"] != "signals"]
+
+
+GOLD_SAMPLE = {
+    "A Nonverbal Ability Test": {
+        "intelligenceTypes": ["communicative", "cognitive"],
+        "perspectives": ["assessment"],
+        "definitionFrames": ["measurable_faculty"],
+        "recognitionModes": ["testing_scoring"],
+        "locationFrames": ["mind_concepts"],
+        "subjectFrames": ["children_students"],
+    },
+    "A Typology of Creativity in the Visual Arts": {
+        "intelligenceTypes": ["creative", "cognitive"],
+        "perspectives": ["philosophy"],
+        "definitionFrames": ["creative_capacity"],
+        "recognitionModes": ["judgment_critique"],
+        "locationFrames": ["mind_concepts", "artworks_materials"],
+        "subjectFrames": ["artists_makers"],
+    },
+    "Learning in and through the Arts: The Question of Transfer": {
+        "intelligenceTypes": ["cognitive", "creative"],
+        "perspectives": ["pedagogy"],
+        "definitionFrames": ["measurable_faculty", "creative_capacity"],
+        "recognitionModes": ["language_reflection", "making_performance"],
+        "locationFrames": ["pedagogical_institutions", "mind_concepts"],
+        "subjectFrames": ["children_students", "teachers_educators"],
+    },
+    "The Meaning of Transfer in the Practices of Arts Education": {
+        "intelligenceTypes": ["cognitive", "social"],
+        "perspectives": ["pedagogy"],
+        "definitionFrames": ["interpretive_meaning", "situated_practice"],
+        "recognitionModes": ["language_reflection", "participation_relation"],
+        "locationFrames": ["pedagogical_institutions", "relations_culture"],
+        "subjectFrames": ["teachers_educators"],
+    },
+    "Visual Culture, Visual Brain, and (Art) Education": {
+        "intelligenceTypes": ["perceptual", "cognitive", "digital"],
+        "perspectives": ["technology", "philosophy"],
+        "definitionFrames": ["perceptual_sensitivity", "machinic_relation"],
+        "recognitionModes": ["technical_fluency", "language_reflection"],
+        "locationFrames": ["vision_perception", "media_machines"],
+        "subjectFrames": ["teachers_educators"],
+    },
+    "Creative and Critical Entanglements With AI in Art Education": {
+        "intelligenceTypes": ["digital", "creative", "social"],
+        "perspectives": ["technology", "critical"],
+        "definitionFrames": ["machinic_relation", "situated_practice"],
+        "recognitionModes": ["technical_fluency", "participation_relation"],
+        "locationFrames": ["media_machines", "relations_culture"],
+        "subjectFrames": ["machines_nonhumans", "teachers_educators"],
+    },
+    "The Physics of Art Education: New Materialism, AI, and the Tacit Knowledge of Visual Culture": {
+        "intelligenceTypes": ["digital", "affective", "social"],
+        "perspectives": ["technology", "philosophy"],
+        "definitionFrames": ["machinic_relation", "embodied_attunement"],
+        "recognitionModes": ["technical_fluency", "making_performance"],
+        "locationFrames": ["media_machines", "place_ecology", "body_affect"],
+        "subjectFrames": ["machines_nonhumans", "artists_makers"],
+    },
+    "Identification of the Gifted in Art": {
+        "intelligenceTypes": ["exceptionality", "creative"],
+        "perspectives": ["assessment"],
+        "definitionFrames": ["measurable_faculty", "creative_capacity"],
+        "recognitionModes": ["testing_scoring", "judgment_critique"],
+        "locationFrames": ["mind_concepts"],
+        "subjectFrames": ["disabled_gifted_subjects", "children_students"],
+    },
+    "An Historical Perspective on the Gifted and the Talented in Art": {
+        "intelligenceTypes": ["exceptionality", "creative"],
+        "perspectives": ["developmental"],
+        "definitionFrames": ["measurable_faculty", "creative_capacity"],
+        "recognitionModes": ["developmental_observation"],
+        "locationFrames": ["mind_concepts"],
+        "subjectFrames": ["disabled_gifted_subjects", "children_students"],
+    },
+    "Judging Children's Drawings as Measures of Art Abilities": {
+        "intelligenceTypes": ["perceptual", "creative"],
+        "perspectives": ["assessment"],
+        "definitionFrames": ["measurable_faculty", "perceptual_sensitivity"],
+        "recognitionModes": ["testing_scoring", "judgment_critique", "making_performance"],
+        "locationFrames": ["artworks_materials", "vision_perception"],
+        "subjectFrames": ["children_students"],
+    },
+    "Disability Studies and Art Education": {
+        "intelligenceTypes": ["exceptionality", "social"],
+        "perspectives": ["disability", "critical"],
+        "definitionFrames": ["situated_practice", "embodied_attunement"],
+        "recognitionModes": ["participation_relation", "language_reflection"],
+        "locationFrames": ["relations_culture", "body_affect"],
+        "subjectFrames": ["disabled_gifted_subjects", "identity_marked_subjects"],
+    },
+    "Art, Ecology and Art Education: Locating Art Education in a Critical Place-based Pedagogy": {
+        "intelligenceTypes": ["social", "cognitive"],
+        "perspectives": ["community", "critical", "pedagogy"],
+        "definitionFrames": ["situated_practice"],
+        "recognitionModes": ["participation_relation", "making_performance"],
+        "locationFrames": ["place_ecology", "relations_culture", "pedagogical_institutions"],
+        "subjectFrames": ["communities_publics", "children_students"],
+    },
+    "Midjourney Killed the Photoshop Star: Assembling the Emerging Field of Synthography": {
+        "intelligenceTypes": ["digital", "social"],
+        "perspectives": ["technology"],
+        "definitionFrames": ["machinic_relation"],
+        "recognitionModes": ["technical_fluency", "making_performance"],
+        "locationFrames": ["media_machines", "artworks_materials"],
+        "subjectFrames": ["machines_nonhumans", "artists_makers", "teachers_educators"],
+    },
+    "Art Education Beyond Anthropocentricism The Question of Nonhuman Animals in Contemporary Art": {
+        "intelligenceTypes": ["social", "cognitive"],
+        "perspectives": ["critical", "philosophy"],
+        "definitionFrames": ["situated_practice"],
+        "recognitionModes": ["language_reflection", "judgment_critique"],
+        "locationFrames": ["place_ecology", "relations_culture"],
+        "subjectFrames": ["machines_nonhumans", "artists_makers"],
+    },
+    "Beyond Traditional Art Education: Transformative Lifelong Learning in Community-Based Settings with Older Adults": {
+        "intelligenceTypes": ["social", "cognitive"],
+        "perspectives": ["community", "pedagogy"],
+        "definitionFrames": ["situated_practice"],
+        "recognitionModes": ["participation_relation", "developmental_observation"],
+        "locationFrames": ["relations_culture", "pedagogical_institutions"],
+        "subjectFrames": ["communities_publics"],
+    },
+    "Nadia's Drawings: Theorizing about an Autistic Child's Phenomenal Ability": {
+        "intelligenceTypes": ["exceptionality", "perceptual"],
+        "perspectives": ["disability"],
+        "definitionFrames": ["perceptual_sensitivity", "measurable_faculty"],
+        "recognitionModes": ["making_performance", "developmental_observation"],
+        "locationFrames": ["vision_perception", "artworks_materials"],
+        "subjectFrames": ["disabled_gifted_subjects", "children_students"],
+    },
+}
+
+
 RAW_TYPE_OVERRIDES = {
     "A Nonverbal Ability Test": ["communicative", "cognitive", "assessment"],
     "A Typology of Creativity in the Visual Arts": ["creative", "cognitive", "philosophy"],
@@ -1048,6 +1209,130 @@ def article_excerpt(text: str) -> str:
     return " ".join(picked)[:320].strip()
 
 
+def article_quote_candidates(text: str) -> list[str]:
+    cleaned = re.sub(r"Submit your article to this journal.*?journalCode=usae20", " ", text, flags=re.IGNORECASE)
+    cleaned = re.sub(r"Article views:\s*[\d,]+", " ", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"View related articles", " ", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"Full Terms .*?journalCode=usae20", " ", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+    sentences = re.split(r"(?<=[.!?])\s+", cleaned)
+    output = []
+    seen = set()
+    for sentence in sentences:
+        normalized = sentence.strip().strip('"')
+        normalized = re.sub(r"\s+", " ", normalized)
+        if len(normalized) < 70 or len(normalized) > 320:
+            continue
+        if "Studies in Art Education" in normalized:
+            continue
+        key = normalized.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        output.append(normalized)
+        if len(output) >= 60:
+            break
+    return output
+
+
+def confidence_label(score: int) -> str:
+    if score >= 8:
+        return "strong signal"
+    if score >= 4:
+        return "mixed signal"
+    return "light signal"
+
+
+def confidence_entries(
+    selected_ids: list[str],
+    matches: list[dict],
+    manual_ids: list[str] | None = None,
+    fallback_ids: list[str] | None = None,
+) -> list[dict]:
+    match_lookup = {item["id"]: item for item in matches}
+    manual = set(manual_ids or [])
+    fallback = set(fallback_ids or [])
+    entries = []
+    for item_id in selected_ids:
+        match = match_lookup.get(item_id)
+        if item_id in manual:
+            entries.append(
+                {
+                    "id": item_id,
+                    "label": "manual review",
+                    "kind": "manual",
+                    "score": match["score"] if match else 0,
+                    "note": "Manually overridden or explicitly reviewed.",
+                }
+            )
+        elif match:
+            entries.append(
+                {
+                    "id": item_id,
+                    "label": confidence_label(match["score"]),
+                    "kind": "heuristic",
+                    "score": match["score"],
+                    "note": f"{match['score']} keyword hits in title, front matter, or body text.",
+                }
+            )
+        elif item_id in fallback:
+            entries.append(
+                {
+                    "id": item_id,
+                    "label": "inferred",
+                    "kind": "inferred",
+                    "score": 0,
+                    "note": "Derived from related codes when direct textual signal was weak.",
+                }
+            )
+    return entries
+
+
+def select_quote_evidence(
+    text: str,
+    selected_ids_by_family: dict[str, list[str]],
+    family_specs: list[dict],
+    limit: int = 4,
+) -> list[dict]:
+    candidates = article_quote_candidates(text)
+    if not candidates:
+        return []
+
+    ranked = []
+    seen = set()
+    for sentence in candidates:
+        tags = []
+        family_hits = []
+        score = 2 if re.search(r"\bintelligen", sentence, re.IGNORECASE) else 0
+        for family in family_specs:
+            selected_ids = set(selected_ids_by_family.get(family["articleKey"], []))
+            if not selected_ids:
+                continue
+            matches = match_keywords(sentence, family["definitions"])
+            hit_ids = [item["id"] for item in matches if item["id"] in selected_ids]
+            if hit_ids:
+                tags.extend(hit_ids[:3])
+                family_hits.append(family["id"])
+                score += sum(item["score"] for item in matches if item["id"] in selected_ids)
+        if score <= 0:
+            continue
+        key = sentence.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        ranked.append(
+            {
+                "text": sentence.strip(),
+                "tags": unique_ids(tags, maximum=6),
+                "families": unique_ids(family_hits, maximum=6),
+                "score": score,
+            }
+        )
+
+    ranked.sort(key=lambda item: (-item["score"], len(item["text"])))
+    return [{"text": item["text"], "tags": item["tags"], "families": item["families"]} for item in ranked[:limit]]
+
+
 def build_articles(raw_records: list[dict]) -> list[dict]:
     articles = []
     for record in raw_records:
@@ -1062,16 +1347,24 @@ def build_articles(raw_records: list[dict]) -> list[dict]:
 
         type_ids = top_ids(intelligence_matches)
         perspective_ids = top_ids(perspective_matches)
+        manual_type_ids = []
+        manual_perspective_ids = []
 
         overrides = TYPE_OVERRIDES.get(title_id)
         if overrides:
-            type_ids = [value for value in overrides if value in {item["id"] for item in INTELLIGENCE_TYPES}]
-            perspective_ids = [value for value in overrides if value in {item["id"] for item in PERSPECTIVES}]
+            manual_type_ids = [value for value in overrides if value in {item["id"] for item in INTELLIGENCE_TYPES}]
+            manual_perspective_ids = [value for value in overrides if value in {item["id"] for item in PERSPECTIVES}]
+            type_ids = manual_type_ids or type_ids
+            perspective_ids = manual_perspective_ids or perspective_ids
 
+        fallback_type_ids = []
+        fallback_perspective_ids = []
         if not type_ids:
             type_ids = ["cognitive"]
+            fallback_type_ids = ["cognitive"]
         if not perspective_ids:
             perspective_ids = ["pedagogy"]
+            fallback_perspective_ids = ["pedagogy"]
 
         signals = []
         signal_text = f"{title} {normalized[:16000]}"
@@ -1083,26 +1376,103 @@ def build_articles(raw_records: list[dict]) -> list[dict]:
         signal_ids = [item["id"] for item in signals[:5]]
 
         concept_text = f"{title} {first_page[:7000]} {normalized[:22000]}"
-        definition_ids = top_ids(match_keywords(concept_text, DEFINITION_FRAMES), maximum=3)
-        recognition_ids = top_ids(match_keywords(concept_text, RECOGNITION_MODES), maximum=3)
-        location_ids = top_ids(match_keywords(concept_text, LOCATION_FRAMES), maximum=3)
-        subject_ids = top_ids(match_keywords(concept_text, SUBJECT_FRAMES), maximum=3)
+        definition_matches = match_keywords(concept_text, DEFINITION_FRAMES)
+        recognition_matches = match_keywords(concept_text, RECOGNITION_MODES)
+        location_matches = match_keywords(concept_text, LOCATION_FRAMES)
+        subject_matches = match_keywords(concept_text, SUBJECT_FRAMES)
+        definition_ids = top_ids(definition_matches, maximum=3)
+        recognition_ids = top_ids(recognition_matches, maximum=3)
+        location_ids = top_ids(location_matches, maximum=3)
+        subject_ids = top_ids(subject_matches, maximum=3)
 
+        fallback_definition_ids = []
+        fallback_recognition_ids = []
+        fallback_location_ids = []
+        fallback_subject_ids = []
         if not definition_ids:
             definition_ids = fallback_definition_frames(type_ids, perspective_ids)
+            fallback_definition_ids = definition_ids[:]
         if not recognition_ids:
             recognition_ids = fallback_recognition_modes(type_ids, perspective_ids, signal_ids)
+            fallback_recognition_ids = recognition_ids[:]
         if not location_ids:
             location_ids = fallback_location_frames(type_ids, perspective_ids, signal_ids)
+            fallback_location_ids = location_ids[:]
         if not subject_ids:
             subject_ids = fallback_subject_frames(type_ids, perspective_ids, signal_ids)
+            fallback_subject_ids = subject_ids[:]
 
         concept_overrides = CONCEPT_OVERRIDES.get(title_id, {})
+        manual_definition_ids = []
+        manual_recognition_ids = []
+        manual_location_ids = []
+        manual_subject_ids = []
         if concept_overrides:
-            definition_ids = concept_overrides.get("definitionFrames", definition_ids)
-            recognition_ids = concept_overrides.get("recognitionModes", recognition_ids)
-            location_ids = concept_overrides.get("locationFrames", location_ids)
-            subject_ids = concept_overrides.get("subjectFrames", subject_ids)
+            manual_definition_ids = concept_overrides.get("definitionFrames", [])
+            manual_recognition_ids = concept_overrides.get("recognitionModes", [])
+            manual_location_ids = concept_overrides.get("locationFrames", [])
+            manual_subject_ids = concept_overrides.get("subjectFrames", [])
+            definition_ids = manual_definition_ids or definition_ids
+            recognition_ids = manual_recognition_ids or recognition_ids
+            location_ids = manual_location_ids or location_ids
+            subject_ids = manual_subject_ids or subject_ids
+
+        selected_ids_by_family = {
+            "intelligenceTypes": type_ids,
+            "perspectives": perspective_ids,
+            "signals": signal_ids,
+            "definitionFrames": definition_ids,
+            "recognitionModes": recognition_ids,
+            "locationFrames": location_ids,
+            "subjectFrames": subject_ids,
+        }
+        coding_confidence = {
+            "intelligenceTypes": confidence_entries(
+                type_ids,
+                intelligence_matches,
+                manual_ids=manual_type_ids,
+                fallback_ids=fallback_type_ids,
+            ),
+            "perspectives": confidence_entries(
+                perspective_ids,
+                perspective_matches,
+                manual_ids=manual_perspective_ids,
+                fallback_ids=fallback_perspective_ids,
+            ),
+            "signals": confidence_entries(
+                signal_ids,
+                signals,
+            ),
+            "definitionFrames": confidence_entries(
+                definition_ids,
+                definition_matches,
+                manual_ids=manual_definition_ids,
+                fallback_ids=fallback_definition_ids,
+            ),
+            "recognitionModes": confidence_entries(
+                recognition_ids,
+                recognition_matches,
+                manual_ids=manual_recognition_ids,
+                fallback_ids=fallback_recognition_ids,
+            ),
+            "locationFrames": confidence_entries(
+                location_ids,
+                location_matches,
+                manual_ids=manual_location_ids,
+                fallback_ids=fallback_location_ids,
+            ),
+            "subjectFrames": confidence_entries(
+                subject_ids,
+                subject_matches,
+                manual_ids=manual_subject_ids,
+                fallback_ids=fallback_subject_ids,
+            ),
+        }
+        confidence_summary = {
+            key: entries[0]["label"] if entries else "not coded"
+            for key, entries in coding_confidence.items()
+        }
+        quote_evidence = select_quote_evidence(normalized, selected_ids_by_family, ALL_FAMILY_SPECS)
 
         article = {
             "file": record["file"],
@@ -1120,6 +1490,9 @@ def build_articles(raw_records: list[dict]) -> list[dict]:
             "locationFrames": location_ids,
             "subjectFrames": subject_ids,
             "excerpt": article_excerpt(normalized),
+            "quotes": quote_evidence,
+            "codingConfidence": coding_confidence,
+            "confidenceSummary": confidence_summary,
         }
         articles.append(article)
 
@@ -1875,7 +2248,162 @@ def build_methods() -> list[dict]:
             "title": "Public evidence, no export",
             "body": "The public page exposes article-level evidence cards and the codebook, but not a downloadable dataset. Because the site runs client-side on GitHub Pages, any visible evidence remains inspectable in the browser.",
         },
+        {
+            "title": "Quote-grounded evidence",
+            "body": "Each article card now includes short quote snippets drawn from the article text and tagged to the coded categories so the user can inspect claims against textual evidence.",
+        },
+        {
+            "title": "Visible validation",
+            "body": "A small manually reviewed gold sample checks how closely the heuristic coding aligns with article-level expectations. The resulting audit notes are shown on the page.",
+        },
     ]
+
+
+def jaccard_similarity(left: set[str], right: set[str]) -> float:
+    if not left and not right:
+        return 1.0
+    union = left | right
+    if not union:
+        return 1.0
+    return len(left & right) / len(union)
+
+
+def build_validation(articles: list[dict]) -> dict:
+    by_title = {article["title"]: article for article in articles}
+    sample_rows = []
+    missing_titles = []
+    family_name = lambda family: family.get("label") or family.get("title") or family["id"]
+
+    family_rollups = {
+        family["id"]: {
+            "family": family["id"],
+            "label": family_name(family),
+            "exact": 0,
+            "items": 0,
+            "jaccardTotal": 0.0,
+            "mismatches": [],
+        }
+        for family in VALIDATION_FAMILY_SPECS
+    }
+
+    for title, expected in GOLD_SAMPLE.items():
+        article = by_title.get(title)
+        if not article:
+            missing_titles.append(title)
+            continue
+
+        row = {"title": title, "year": article["year"], "families": {}}
+        for family in VALIDATION_FAMILY_SPECS:
+            article_key = family["articleKey"]
+            expected_set = set(expected.get(article_key, []))
+            predicted_set = set(article[article_key])
+            overlap = jaccard_similarity(expected_set, predicted_set)
+            exact = expected_set == predicted_set
+            missing = sorted(expected_set - predicted_set)
+            extra = sorted(predicted_set - expected_set)
+            row["families"][family["id"]] = {
+                "expected": sorted(expected_set),
+                "predicted": sorted(predicted_set),
+                "exact": exact,
+                "jaccard": round(overlap, 3),
+                "missing": missing,
+                "extra": extra,
+            }
+
+            family_rollups[family["id"]]["items"] += 1
+            family_rollups[family["id"]]["jaccardTotal"] += overlap
+            if exact:
+                family_rollups[family["id"]]["exact"] += 1
+            else:
+                family_rollups[family["id"]]["mismatches"].append(
+                    {
+                        "title": title,
+                        "missing": missing,
+                        "extra": extra,
+                        "jaccard": round(overlap, 3),
+                    }
+                )
+        sample_rows.append(row)
+
+    override_counts = {}
+    inferred_counts = {}
+    for family in ALL_FAMILY_SPECS:
+        article_key = family["articleKey"]
+        override_counts[family["id"]] = sum(
+            1 for article in articles if any(item["kind"] == "manual" for item in article["codingConfidence"][article_key])
+        )
+        inferred_counts[family["id"]] = sum(
+            1 for article in articles if any(item["kind"] == "inferred" for item in article["codingConfidence"][article_key])
+        )
+
+    family_stats = []
+    for family in VALIDATION_FAMILY_SPECS:
+        rollup = family_rollups[family["id"]]
+        items = max(rollup["items"], 1)
+        family_stats.append(
+            {
+                "family": family["id"],
+                "label": family_name(family),
+                "sampleSize": rollup["items"],
+                "exactRate": round(rollup["exact"] / items, 3),
+                "averageJaccard": round(rollup["jaccardTotal"] / items, 3),
+                "overrideCount": override_counts[family["id"]],
+                "inferredCount": inferred_counts[family["id"]],
+                "mismatchExamples": sorted(rollup["mismatches"], key=lambda item: item["jaccard"])[:3],
+            }
+        )
+
+    family_stats.sort(key=lambda item: item["averageJaccard"])
+    weakest = family_stats[:2]
+    strongest = sorted(family_stats, key=lambda item: item["averageJaccard"], reverse=True)[:2]
+
+    audit_notes = [
+        {
+            "title": "Gold sample is partial by design",
+            "body": (
+                f"The manual audit checks {len(sample_rows)} articles across six coding families. "
+                "It is meant to expose where the heuristic model is trustworthy and where it still needs closer reading."
+            ),
+        },
+        {
+            "title": f"Weakest agreement: {weakest[0]['label']}",
+            "body": (
+                f"This family has average overlap {round(weakest[0]['averageJaccard'] * 100)}% and exact match rate "
+                f"{round(weakest[0]['exactRate'] * 100)}% in the gold sample. It should be read as provisional."
+            ),
+        },
+        {
+            "title": f"Strongest agreement: {strongest[0]['label']}",
+            "body": (
+                f"This family has average overlap {round(strongest[0]['averageJaccard'] * 100)}% and exact match rate "
+                f"{round(strongest[0]['exactRate'] * 100)}% in the gold sample."
+            ),
+        },
+        {
+            "title": "Manual overrides remain visible",
+            "body": (
+                f"Manual review currently affects {override_counts['types']} articles for type coding and "
+                f"{override_counts['definitions']} for definition frames. These interventions are part of the method, not hidden cleanup."
+            ),
+        },
+        {
+            "title": "Inference is most common where textual cues are indirect",
+            "body": (
+                f"Inferred subject coding appears in {inferred_counts['subjects']} articles and inferred location coding in "
+                f"{inferred_counts['locations']}. Those are the families where direct lexical evidence is weakest."
+            ),
+        },
+    ]
+
+    return {
+        "sampleSize": len(sample_rows),
+        "expectedSize": len(GOLD_SAMPLE),
+        "missingTitles": missing_titles,
+        "familyStats": family_stats,
+        "auditNotes": audit_notes,
+        "sampleRows": sample_rows,
+        "quoteCoverage": sum(1 for article in articles if article["quotes"]) / max(len(articles), 1),
+    }
 
 
 def build_dataset() -> dict:
@@ -1893,6 +2421,7 @@ def build_dataset() -> dict:
     perspective_trends = build_trend_rows(PERSPECTIVES, "perspectives", "perspectives", decades, by_decade, articles)
     signal_trends = build_signal_trends(decades, by_decade)
     rare_pairs = build_rare_pairs(articles, matrix, type_counts, perspective_counts)
+    validation = build_validation(articles)
     conceptual_questions = {}
     conceptual_counts = {}
     for family in CONCEPTUAL_FAMILIES:
@@ -1947,6 +2476,7 @@ def build_dataset() -> dict:
         "topCited": build_top_cited(articles),
         "commonThreads": COMMON_THREADS,
         "methods": build_methods(),
+        "validation": validation,
     }
     return dataset
 
@@ -1972,6 +2502,10 @@ def main() -> None:
     print("Top subjects:")
     for item in dataset["conceptualQuestions"]["subjects"]["counts"][:5]:
         print(f"  - {item['label']}: {item['count']}")
+    print(
+        f"Gold-sample validation: {dataset['validation']['sampleSize']}/{dataset['validation']['expectedSize']} "
+        f"articles reviewed manually"
+    )
     print("Top cited from PDF front matter:")
     for article in dataset["topCited"][:10]:
         print(f"  - {article['citingArticlesPdf']:>3} | {article['year']} | {article['title']}")

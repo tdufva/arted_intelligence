@@ -1061,6 +1061,69 @@ img {
   border-top: 1px solid var(--line);
 }
 
+.match-list,
+.quote-list {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.8rem;
+}
+
+.match-list h5,
+.quote-list h5 {
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.match-list ul {
+  margin: 0;
+  padding-left: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.quote-item {
+  margin: 0;
+  padding: 0.8rem 0.85rem;
+  border-left: 3px solid rgba(173, 95, 59, 0.45);
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+
+.quote-item p {
+  margin: 0;
+}
+
+.confidence-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+
+.confidence-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.58rem;
+  border-radius: 999px;
+  background: rgba(19, 70, 71, 0.08);
+  color: var(--deep);
+  font-size: 0.79rem;
+  font-weight: 700;
+}
+
+.confidence-badge[data-kind="manual"] {
+  background: rgba(173, 95, 59, 0.14);
+}
+
+.confidence-badge[data-kind="inferred"] {
+  background: rgba(123, 75, 148, 0.1);
+}
+
 .frontier-card .tag,
 .explorer-card .tag,
 .origin-card .tag {
@@ -1208,6 +1271,11 @@ img {
   white-space: nowrap;
 }
 
+.ghost-button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
 .explorer-panel {
   padding: 1rem;
   border: 1px solid var(--line);
@@ -1228,6 +1296,10 @@ img {
 }
 
 #explorer-note {
+  margin: 0 0 0.75rem;
+}
+
+#explorer-guide {
   margin: 0 0 0.75rem;
 }
 
@@ -1361,6 +1433,47 @@ img {
   margin: 0;
   color: var(--muted);
   font-size: 0.92rem;
+}
+
+.validation-grid,
+.audit-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.validation-card,
+.audit-card {
+  padding: 1rem 1rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.validation-card h4,
+.audit-card h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.validation-card p,
+.audit-card p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+}
+
+.validation-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.7rem;
+}
+
+.validation-note {
+  margin-top: 0.8rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.88rem;
+  color: var(--muted);
 }
 
 .method-item {
