@@ -292,6 +292,15 @@
     location: "locations",
     subject: "subjects",
   };
+  const familyStateFieldMap = {
+    types: "type",
+    perspectives: "perspective",
+    signals: "signal",
+    definitions: "definition",
+    recognition: "recognition",
+    locations: "location",
+    subjects: "subject",
+  };
 
   function queryTerms(value) {
     return normalizeForSearch(value)
@@ -302,6 +311,64 @@
   function labelForFamilyItem(family, id) {
     if (family === "signals") return lookupSignalLabel(id);
     return familyConfigs[family]?.lookup[id]?.label || lookupAnyLabel(id);
+  }
+
+  function blankEvidenceState() {
+    return {
+      search: "",
+      decade: "",
+      type: "",
+      perspective: "",
+      signal: "",
+      definition: "",
+      recognition: "",
+      location: "",
+      subject: "",
+      sort: "cited",
+      titles: [],
+      evidenceLabel: "",
+    };
+  }
+
+  function titlesFromExamples(examples) {
+    if (!examples) return [];
+    const rows = Array.isArray(examples) ? examples : [...(examples.early || []), ...(examples.late || [])];
+    return [...new Set(rows.map((item) => item.title || item.firstTitle).filter(Boolean))];
+  }
+
+  function evidenceStateForFamily(family, id, extra = {}) {
+    const state = { ...blankEvidenceState(), ...extra };
+    const field = familyStateFieldMap[family];
+    if (field) {
+      state[field] = id;
+    }
+    return state;
+  }
+
+  function showEvidenceDesk(nextState = {}) {
+    if (!evidenceDeskController) return;
+    evidenceDeskController.setFilters({ ...blankEvidenceState(), ...nextState });
+    document.getElementById("evidence-desk-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function createActionButton(label, nextState, className = "ghost-button evidence-button") {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = className;
+    button.textContent = label;
+    button.addEventListener("click", () => showEvidenceDesk(nextState));
+    return button;
+  }
+
+  function appendActionButtons(container, actions = []) {
+    const validActions = actions.filter((item) => item && item.state);
+    if (!validActions.length) return;
+    const wrap = document.createElement("div");
+    wrap.className = "evidence-actions";
+    validActions.forEach((item) => {
+      wrap.append(createActionButton(item.label, item.state, item.className || "ghost-button evidence-button"));
+    });
+    container.append(wrap);
   }
 
   function resolveFamilyIds(family, value) {
@@ -666,30 +733,7 @@
   }
 
   function inspectConceptInEvidenceDesk(family, id) {
-    if (!evidenceDeskController) return;
-    const nextState = {
-      search: "",
-      decade: "",
-      type: "",
-      perspective: "",
-      signal: "",
-      definition: "",
-      recognition: "",
-      location: "",
-      subject: "",
-      sort: "cited",
-    };
-
-    if (family === "types") nextState.type = id;
-    if (family === "perspectives") nextState.perspective = id;
-    if (family === "signals") nextState.signal = id;
-    if (family === "definitions") nextState.definition = id;
-    if (family === "recognition") nextState.recognition = id;
-    if (family === "locations") nextState.location = id;
-    if (family === "subjects") nextState.subject = id;
-
-    evidenceDeskController.setFilters(nextState);
-    document.getElementById("evidence-desk-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    showEvidenceDesk(evidenceStateForFamily(family, id));
   }
 
   function topLabels(counter, limit) {
@@ -736,7 +780,7 @@
     ];
   }
 
-  function createBarRows(container, rows, tone) {
+  function createBarRows(container, rows, tone, options = {}) {
     const max = Math.max(...rows.map((item) => item.count), 1);
     container.innerHTML = "";
 
@@ -772,6 +816,14 @@
       description.textContent = item.description || "";
 
       row.append(meta, track, description);
+      if (options.family && item.id) {
+        appendActionButtons(row, [
+          {
+            label: "See evidence",
+            state: evidenceStateForFamily(options.family, item.id),
+          },
+        ]);
+      }
       row.style.transitionDelay = `${index * 35}ms`;
       container.append(row);
     });
@@ -944,6 +996,16 @@
           </div>
         </div>
       `;
+      appendActionButtons(detail, [
+        {
+          label: "Open these articles",
+          state: {
+            ...evidenceStateForFamily(familySelect.value, row.id),
+            titles: titlesFromExamples({ early: row.examples.left, late: row.examples.right }),
+            evidenceLabel: `${row.label} comparison evidence`,
+          },
+        },
+      ]);
     }
 
     function renderTakeaways(rows) {
@@ -958,14 +1020,17 @@
         {
           title: `${rightDecade} leans hardest into ${strongestRight.label}`,
           body: `${strongestRight.label} rises from ${formatPercent(strongestRight.leftShare)} to ${formatPercent(strongestRight.rightShare)} across the comparison.`,
+          row: strongestRight,
         },
         {
           title: `${leftDecade} leans harder into ${strongestLeft.label}`,
           body: `${strongestLeft.label} drops from ${formatPercent(strongestLeft.leftShare)} to ${formatPercent(strongestLeft.rightShare)}, making it more characteristic of the earlier decade.`,
+          row: strongestLeft,
         },
         {
           title: `${shared.label} stays central in both decades`,
           body: `Its minimum share across the two sides remains high, which makes it a bridge rather than a swing variable.`,
+          row: shared,
         },
       ];
 
@@ -973,6 +1038,7 @@
         cards.push({
           title: `${newOnRight.label} is newly visible on the right`,
           body: `It is absent in ${leftDecade} but present in ${formatPercent(newOnRight.rightShare)} of ${rightDecade} articles in this comparison.`,
+          row: newOnRight,
         });
       }
 
@@ -981,6 +1047,16 @@
         const card = document.createElement("article");
         card.className = "thread-card";
         card.innerHTML = `<h3>${item.title}</h3><p>${item.body}</p>`;
+        appendActionButtons(card, [
+          {
+            label: "See evidence",
+            state: {
+              ...evidenceStateForFamily(familySelect.value, item.row.id),
+              titles: titlesFromExamples({ early: item.row.examples.left, late: item.row.examples.right }),
+              evidenceLabel: item.title,
+            },
+          },
+        ]);
         takeaways.append(card);
       });
     }
@@ -1115,6 +1191,16 @@
         });
 
       detail.append(title, intro, description, tagWrap, subtitle, list);
+      appendActionButtons(detail, [
+        {
+          label: "Open exact articles",
+          state: {
+            ...evidenceStateForFamily("types", intelligence.id, { perspective: perspective.id }),
+            titles: articles.map((article) => article.title),
+            evidenceLabel: `${intelligence.label} × ${perspective.label}`,
+          },
+        },
+      ]);
     }
 
     corpus.intelligenceTypes.forEach((intelligence) => {
@@ -1168,7 +1254,7 @@
     }
   }
 
-  function renderTrendGroup(containerId, noteId, trendGroup) {
+  function renderTrendGroup(containerId, noteId, trendGroup, family) {
     const container = document.getElementById(containerId);
     const note = document.getElementById(noteId);
 
@@ -1212,6 +1298,18 @@
       `;
 
       item.append(meta, chart, noteRow);
+      if (family && row.id) {
+        appendActionButtons(item, [
+          {
+            label: "Open supporting articles",
+            state: {
+              ...evidenceStateForFamily(family, row.id),
+              titles: titlesFromExamples(row.examples),
+              evidenceLabel: `${row.label} trend evidence`,
+            },
+          },
+        ]);
+      }
       container.append(item);
     });
   }
@@ -1223,6 +1321,16 @@
       const card = document.createElement("article");
       card.className = "thread-card";
       card.innerHTML = `<h3>${thread.title}</h3><p>${thread.body}</p>${renderExampleList(thread.examples)}`;
+      appendActionButtons(card, [
+        {
+          label: "See evidence",
+          state: {
+            ...blankEvidenceState(),
+            titles: titlesFromExamples(thread.examples),
+            evidenceLabel: thread.title,
+          },
+        },
+      ]);
       container.append(card);
     });
   }
@@ -1269,7 +1377,7 @@
         return;
       }
 
-      createBarRows(target.bars, question.counts, target.tone);
+      createBarRows(target.bars, question.counts, target.tone, { family });
       target.note.textContent = target.noteText;
       target.highlights.innerHTML = "";
       const riserId = [...question.trends.rows].sort((a, b) => b.delta - a.delta)[0]?.id;
@@ -1284,7 +1392,13 @@
         const focusId = index === 0 ? question.counts[0]?.id : index === 1 ? riserId : declinerId;
         button.textContent = "Inspect evidence";
         if (focusId) {
-          button.addEventListener("click", () => inspectConceptInEvidenceDesk(family, focusId));
+          button.addEventListener("click", () =>
+            showEvidenceDesk({
+              ...evidenceStateForFamily(family, focusId),
+              titles: titlesFromExamples(item.examples),
+              evidenceLabel: item.title,
+            }),
+          );
         } else {
           button.disabled = true;
         }
@@ -1308,6 +1422,16 @@
       const card = document.createElement("article");
       card.className = "thread-card";
       card.innerHTML = `<h3>${story.title}</h3><p>${story.body}</p>${renderExampleList(story.examples)}`;
+      appendActionButtons(card, [
+        {
+          label: "See evidence",
+          state: {
+            ...blankEvidenceState(),
+            titles: titlesFromExamples(story.examples),
+            evidenceLabel: story.title,
+          },
+        },
+      ]);
       storyTarget.append(card);
     });
 
@@ -1352,6 +1476,16 @@
           <h4>${typeLookup[row.id]?.label || perspectiveLookup[row.id]?.label || lookupSignalLabel(row.id)}</h4>
           <p><span class="delta">${formatPercent(row.earlyShare)} → ${formatPercent(row.lateShare)}</span> · ${row.direction}</p>
         `;
+        appendActionButtons(card, [
+          {
+            label: "See evidence",
+            state: {
+              ...evidenceStateForFamily(row.family, row.id),
+              titles: titlesFromExamples(row.examples),
+              evidenceLabel: row.label,
+            },
+          },
+        ]);
         container.append(card);
       });
     }
@@ -1387,6 +1521,17 @@
           <span class="tag">${formatNumber(item.totalCount)} articles overall</span>
         </div>
       `;
+      const family = item.kind === "type" ? "types" : item.kind === "perspective" ? "perspectives" : "signals";
+      appendActionButtons(card, [
+        {
+          label: "Open first appearance",
+          state: {
+            ...evidenceStateForFamily(family, item.id),
+            titles: [item.firstTitle],
+            evidenceLabel: item.label,
+          },
+        },
+      ]);
       container.append(card);
     });
   }
@@ -1411,6 +1556,16 @@
           </div>
         </div>
       `;
+      appendActionButtons(card, [
+        {
+          label: "Open exact pair",
+          state: {
+            ...evidenceStateForFamily("types", item.intelligenceId, { perspective: item.perspectiveId }),
+            titles: item.examples.map((row) => row.title),
+            evidenceLabel: `${item.intelligenceLabel} × ${item.perspectiveLabel}`,
+          },
+        },
+      ]);
       container.append(card);
     });
   }
@@ -1436,6 +1591,16 @@
         <p>${article.excerpt}</p>
         <div class="detail-tags">${tags}</div>
       `;
+      appendActionButtons(card, [
+        {
+          label: "Open article",
+          state: {
+            ...blankEvidenceState(),
+            titles: [article.title],
+            evidenceLabel: article.title,
+          },
+        },
+      ]);
       container.append(card);
     });
   }
@@ -1465,13 +1630,20 @@
       typeBars.className = "mini-bars";
 
       row.topTypes.forEach((item) => {
-        const entry = document.createElement("div");
+        const entry = document.createElement("button");
         entry.className = "mini-bar";
+        entry.type = "button";
         entry.innerHTML = `
           <span>${typeLookup[item.id].label}</span>
           <span class="track"><span class="fill" style="width:${(item.count / typeMax) * 100}%"></span></span>
           <span class="count">${item.count}</span>
         `;
+        entry.addEventListener("click", () =>
+          showEvidenceDesk({
+            ...evidenceStateForFamily("types", item.id, { decade: row.decade }),
+            evidenceLabel: `${row.decade} · ${typeLookup[item.id].label}`,
+          }),
+        );
         typeBars.append(entry);
       });
       typeBlock.append(typeHeading, typeBars);
@@ -1483,13 +1655,20 @@
       perspectiveBars.className = "mini-bars";
 
       row.topPerspectives.forEach((item) => {
-        const entry = document.createElement("div");
+        const entry = document.createElement("button");
         entry.className = "mini-bar";
+        entry.type = "button";
         entry.innerHTML = `
           <span>${perspectiveLookup[item.id].label}</span>
           <span class="track"><span class="fill" style="width:${(item.count / perspectiveMax) * 100}%"></span></span>
           <span class="count">${item.count}</span>
         `;
+        entry.addEventListener("click", () =>
+          showEvidenceDesk({
+            ...evidenceStateForFamily("perspectives", item.id, { decade: row.decade }),
+            evidenceLabel: `${row.decade} · ${perspectiveLookup[item.id].label}`,
+          }),
+        );
         perspectiveBars.append(entry);
       });
       perspectiveBlock.append(perspectiveHeading, perspectiveBars);
@@ -1512,6 +1691,14 @@
         <p>${spot.body}</p>
         ${spot.contrast ? `<p class="contrast-note">${spot.contrast}</p>` : ""}
       `;
+      if (spot.evidenceQuery) {
+        appendActionButtons(card, [
+          {
+            label: "Inspect evidence",
+            state: { ...blankEvidenceState(), ...spot.evidenceQuery, evidenceLabel: spot.title },
+          },
+        ]);
+      }
       container.append(card);
     });
   }
@@ -1531,9 +1718,12 @@
       "How is intelligence recognized in these articles?",
       "Where is intelligence located in the corpus?",
       "Whose intelligence counts here?",
+      "When intelligence appears, is it closer to creativity or talent?",
       "Which articles connect AI and intelligence?",
       "What are the biggest blind spots in the corpus?",
     ];
+    const articleByTitle = Object.fromEntries(corpus.articles.map((article) => [normalizeForSearch(article.title), article]));
+    const neighborLookup = Object.fromEntries(corpus.conceptNeighbors.terms.map((item) => [item.id, item]));
 
     suggestions.innerHTML = "";
     prompts.forEach((prompt) => {
@@ -1551,6 +1741,17 @@
     function detectConcepts(query) {
       const normalized = normalizeForSearch(query);
       return conceptCatalog.filter((item) => item.search.split(" ").some((token) => normalized.includes(token)));
+    }
+
+    function detectNeighborTerms(query) {
+      const normalized = normalizeForSearch(query);
+      return corpus.conceptNeighbors.terms.filter((item) => normalized.includes(normalizeForSearch(item.label)));
+    }
+
+    function resolveArticle(item) {
+      if (!item) return null;
+      const title = item.title || item.firstTitle;
+      return title ? articleByTitle[normalizeForSearch(title)] || null : null;
     }
 
     function getMatchedArticles(query, concepts, decades) {
@@ -1579,14 +1780,95 @@
         .map((item) => item.article);
     }
 
+    function buildEvidenceRowsFromArticles(articles, query, concepts, neighborTerms, limit = 4) {
+      const uniqueArticles = dedupeBy(articles.filter(Boolean), (article) => article.title);
+      const matchedIdsByFamily = {};
+      concepts.forEach((concept) => {
+        matchedIdsByFamily[concept.family] = [...new Set([...(matchedIdsByFamily[concept.family] || []), concept.id])];
+      });
+      const focusFamilies = Object.keys(matchedIdsByFamily);
+      const terms = queryTerms(`${query} ${neighborTerms.map((item) => item.label).join(" ")}`);
+
+      return uniqueArticles
+        .slice(0, limit)
+        .map((article) => {
+          const quotes = selectRelevantQuotes(article, {
+            terms,
+            clauses: [],
+            matchedIdsByFamily,
+            focusFamilies,
+          });
+          const topQuote = quotes[0] || article.quotes?.[0] || null;
+          const reasonParts = [];
+          if (concepts.length) {
+            reasonParts.push(concepts.slice(0, 2).map((concept) => concept.label).join(", "));
+          }
+          if (neighborTerms.length) {
+            reasonParts.push(neighborTerms.map((item) => item.label).join(", "));
+          }
+          return {
+            title: article.title,
+            year: article.year,
+            quote: topQuote?.text || "",
+            article,
+            reason: reasonParts.length ? `Matched through ${reasonParts.join(" and ")}.` : "Representative supporting article.",
+          };
+        });
+    }
+
+    function confidenceNote(matchCount, evidenceRows) {
+      if (matchCount >= 10 && evidenceRows.length >= 3) {
+        return {
+          label: "High",
+          note: "The answer draws on a broad matching set and multiple quoted articles.",
+        };
+      }
+      if (matchCount >= 4 && evidenceRows.length >= 2) {
+        return {
+          label: "Moderate",
+          note: "The answer is grounded in a smaller but still substantive matching set.",
+        };
+      }
+      return {
+        label: "Exploratory",
+        note: "The answer is inferential and should be read as a lead for closer reading, not a settled claim.",
+      };
+    }
+
+    function buildNeighborAnswer(neighborTerms) {
+      const rows = neighborTerms.length ? neighborTerms : corpus.conceptNeighbors.terms.slice(0, 2);
+      const evidenceArticles = rows.flatMap((item) => titlesFromExamples(item.examples).map((title) => resolveArticle({ title }))).filter(Boolean);
+      return {
+        title: "Concept neighbors of intelligence",
+        summary:
+          rows.length === 1
+            ? `${rows[0].label} appears in ${formatPercent(rows[0].share)} of the corpus, with ${formatPercent(rows[0].coMentionShare)} of those articles co-mentioning it with intelligence in the same sentence.`
+            : `${rows[0].label} and ${rows[1].label} let us compare what intelligence is being asked to resemble, rival, or borrow from.`,
+        bullets: rows.map((row) => {
+          const topDefinition = row.topDefinitions?.[0]?.label || "weakly coded";
+          const topPerspective = row.topPerspectives?.[0]?.label || "weakly coded";
+          return `${row.label}: ${formatPercent(row.earlyShare)} → ${formatPercent(row.lateShare)} over time, most often through ${topPerspective} and ${topDefinition}.`;
+        }),
+        evidenceRows: buildEvidenceRowsFromArticles(evidenceArticles, rows.map((item) => item.label).join(" "), [], rows),
+        confidence: confidenceNote(evidenceArticles.length, buildEvidenceRowsFromArticles(evidenceArticles, rows.map((item) => item.label).join(" "), [], rows)),
+        evidenceLabel: rows.map((item) => item.label).join(", "),
+      };
+    }
+
     function buildTrendAnswer(concepts, decades) {
       if (!concepts.length) {
+        const evidenceArticles = corpus.trends.highlights
+          .flatMap((item) => titlesFromExamples(item.examples).map((title) => resolveArticle({ title })))
+          .filter(Boolean);
+        const evidenceRows = buildEvidenceRowsFromArticles(evidenceArticles, "trend shifts over time", [], []);
         return {
           title: "Strongest overall shifts",
           summary:
             "The broadest shift is from developmental and measurement-heavy framings toward more social, technological, and justice-oriented readings of intelligence.",
           bullets: corpus.trends.highlights.map((item) => item.title),
-          evidence: openAlex.topCited.slice(0, 3),
+          evidenceRows,
+          confidence: confidenceNote(evidenceArticles.length, evidenceRows),
+          evidenceLabel: "trend highlights",
         };
       }
 
@@ -1595,6 +1877,13 @@
         if (!source) return `${concept.label} appears in the corpus, but the trend summary is weak.`;
         return `${concept.label}: ${formatPercent(source.earlyShare)} → ${formatPercent(source.lateShare)} (${source.direction}).`;
       });
+      const evidenceArticles = concepts
+        .flatMap((concept) => {
+          const source = familyConfigs[concept.family]?.trends?.rows.find((row) => row.id === concept.id);
+          return titlesFromExamples(source?.examples).map((title) => resolveArticle({ title }));
+        })
+        .filter(Boolean);
+      const evidenceRows = buildEvidenceRowsFromArticles(evidenceArticles, decades.join(" "), concepts, []);
 
       return {
         title: "Trend answer",
@@ -1603,12 +1892,9 @@
             ? `The question points to change over time, so the answer draws on decade-level shifts and the selected decades ${decades.join(" and ")}.`
             : "The question points to change over time, so the answer draws on the corpus-wide trend windows.",
         bullets,
-        evidence: concepts
-          .flatMap((concept) => {
-            const source = familyConfigs[concept.family]?.trends?.rows.find((row) => row.id === concept.id);
-            return source?.examples?.late || [];
-          })
-          .slice(0, 4),
+        evidenceRows,
+        confidence: confidenceNote(evidenceArticles.length, evidenceRows),
+        evidenceLabel: concepts.map((concept) => concept.label).join(", "),
       };
     }
 
@@ -1624,23 +1910,51 @@
         summary:
           "The strongest blind spots are real absences or thin zones inside this selected corpus, especially where categories exist separately but do not meet each other.",
         bullets: chosen.slice(0, 4).map((item) => `${item.title}. ${item.contrast || item.body}`),
-        evidence: [],
+        evidenceRows: buildEvidenceRowsFromArticles(
+          chosen
+            .flatMap((item) => {
+              if (item.evidenceQuery?.type && item.evidenceQuery?.perspective) {
+                return corpus.articles.filter(
+                  (article) => article.intelligenceTypes.includes(item.evidenceQuery.type) || article.perspectives.includes(item.evidenceQuery.perspective),
+                );
+              }
+              if (item.evidenceQuery?.type) {
+                return corpus.articles.filter((article) => article.intelligenceTypes.includes(item.evidenceQuery.type));
+              }
+              if (item.evidenceQuery?.perspective) {
+                return corpus.articles.filter((article) => article.perspectives.includes(item.evidenceQuery.perspective));
+              }
+              if (item.evidenceQuery?.signal) {
+                return corpus.articles.filter((article) => article.signals.includes(item.evidenceQuery.signal));
+              }
+              return [];
+            })
+            .sort(compareArticlesByImportance),
+          concepts.map((item) => item.label).join(" "),
+          concepts,
+          [],
+        ),
+        confidence: { label: "Moderate", note: "Blind-spot answers are grounded in surrounding articles because absence claims do not have direct article quotes of their own." },
+        evidenceLabel: "blind spots",
       };
     }
 
-    function buildCitationAnswer(matchedArticles) {
+    function buildCitationAnswer(matchedArticles, concepts, query) {
       const rows = matchedArticles.length
         ? [...matchedArticles]
             .sort((a, b) => (openAlexByDoi[b.doi]?.citedByCount || 0) - (openAlexByDoi[a.doi]?.citedByCount || 0))
             .slice(0, 5)
         : openAlex.topCited.slice(0, 5);
+      const evidenceRows = buildEvidenceRowsFromArticles(rows, query, concepts, []);
       return {
         title: "Most cited relevant articles",
         summary: matchedArticles.length
           ? "These are the highest-cited matches for your question in the current OpenAlex snapshot."
           : "These are the most cited articles in the corpus-wide OpenAlex snapshot.",
         bullets: rows.map((article) => `${article.title} (${article.year}) · ${formatNumber(openAlexByDoi[article.doi]?.citedByCount || article.openAlexCitations || 0)} citations`),
-        evidence: rows,
+        evidenceRows,
+        confidence: confidenceNote(rows.length, evidenceRows),
+        evidenceLabel: "most cited research",
       };
     }
 
@@ -1661,7 +1975,16 @@
         title: "Origins in the corpus",
         summary: "This answer traces where a theme or lens first becomes visible in the corpus.",
         bullets: rows.slice(0, 6).map((row) => `${row.label}: ${row.firstYear}, ${row.firstTitle}`),
-        evidence: rows.slice(0, 4),
+        evidenceRows: buildEvidenceRowsFromArticles(
+          rows
+            .map((row) => resolveArticle(row))
+            .filter(Boolean),
+          "origins first appearance",
+          concepts,
+          [],
+        ),
+        confidence: confidenceNote(rows.length, buildEvidenceRowsFromArticles(rows.map((row) => resolveArticle(row)).filter(Boolean), "origins first appearance", concepts, [])),
+        evidenceLabel: "origins",
       };
     }
 
@@ -1704,6 +2027,7 @@
       const topRecognition = Object.entries(recognitionCounts).sort((a, b) => b[1] - a[1])[0];
       const topLocation = Object.entries(locationCounts).sort((a, b) => b[1] - a[1])[0];
       const topSubject = Object.entries(subjectCounts).sort((a, b) => b[1] - a[1])[0];
+      const evidenceRows = buildEvidenceRowsFromArticles(matchedArticles, query, concepts, []);
       return {
         title: "Best-matching answer",
         summary: matchedArticles.length
@@ -1719,21 +2043,32 @@
           topSubject ? `Most visible subject position: ${lookupAnyLabel(topSubject[0])} (${topSubject[1]}).` : null,
           concepts.length ? `Detected themes: ${concepts.map((concept) => concept.label).join(", ")}.` : null,
         ].filter(Boolean),
-        evidence: matchedArticles.slice(0, 5),
+        evidenceRows,
+        confidence: confidenceNote(matchedArticles.length, evidenceRows),
+        evidenceLabel: query,
       };
     }
 
     function renderAnswer(answer) {
-      const evidenceHtml = answer.evidence?.length
+      const confidenceHtml = answer.confidence
+        ? `<p class="answer-confidence"><strong>Confidence:</strong> ${escapeHtml(answer.confidence.label)}. ${escapeHtml(answer.confidence.note)}</p>`
+        : "";
+      const evidenceHtml = answer.evidenceRows?.length
         ? `
           <div class="evidence-block">
-            <div class="evidence-grid">
-              <div>
-                <h4>Evidence</h4>
-                <ul>${answer.evidence
-                  .map((item) => `<li>${item.year}: ${item.title || item.firstTitle}</li>`)
-                  .join("")}</ul>
-              </div>
+            <div class="quote-list">
+              <h5>Quoted sources used</h5>
+              ${answer.evidenceRows
+                .map(
+                  (item) => `
+                    <figure class="quote-item">
+                      <p><strong>${escapeHtml(`${item.year} · ${item.title}`)}</strong></p>
+                      ${item.quote ? `<p>“${escapeHtml(item.quote)}”</p>` : ""}
+                      <p class="evidence-meta">${escapeHtml(item.reason)}</p>
+                    </figure>
+                  `,
+                )
+                .join("")}
             </div>
           </div>
         `
@@ -1743,15 +2078,29 @@
         <article class="answer-card">
           <h3>${answer.title}</h3>
           <p>${answer.summary}</p>
+          ${confidenceHtml}
           <ul class="answer-list">${answer.bullets.map((item) => `<li>${item}</li>`).join("")}</ul>
           ${evidenceHtml}
         </article>
       `;
+      if (answer.evidenceRows?.length) {
+        appendActionButtons(output.firstElementChild, [
+          {
+            label: "Open these sources",
+            state: {
+              ...blankEvidenceState(),
+              titles: answer.evidenceRows.map((item) => item.title),
+              evidenceLabel: answer.evidenceLabel || answer.title,
+            },
+          },
+        ]);
+      }
     }
 
     function answer(query) {
       const normalized = normalizeForSearch(query);
       const concepts = detectConcepts(query);
+      const neighborTerms = detectNeighborTerms(query);
       const decades = allDecades.filter((decade) => normalized.includes(decade.toLowerCase()));
       const matchedArticles = getMatchedArticles(query, concepts, decades);
 
@@ -1759,17 +2108,22 @@
       const wantsCitations = /cited|influential|important|key research|most cited/.test(normalized);
       const wantsOrigins = /first|origin|start|appear|emerge/.test(normalized);
       const wantsTrend = /trend|rise|rising|declin|shift|change|over time|compare|difference|vs|versus/.test(normalized);
+      const wantsNeighbors = /creativity|talent|skill|judgment|imagination/.test(normalized);
 
       if (wantsBlindSpots) {
         renderAnswer(buildBlindSpotAnswer(concepts));
         return;
       }
       if (wantsCitations) {
-        renderAnswer(buildCitationAnswer(matchedArticles));
+        renderAnswer(buildCitationAnswer(matchedArticles, concepts, query));
         return;
       }
       if (wantsOrigins) {
         renderAnswer(buildOriginAnswer(concepts));
+        return;
+      }
+      if (wantsNeighbors) {
+        renderAnswer(buildNeighborAnswer(neighborTerms));
         return;
       }
       if (wantsTrend) {
@@ -1942,21 +2296,48 @@
         }))
         .sort((a, b) => a.spread - b.spread)[0];
 
-      takeaways.innerHTML = `
-        <h3>Graph takeaways</h3>
-        <p>${rows.length ? `${rows.length} themes are selected.` : "Choose one or more themes to graph them."}</p>
-        ${
-          rows.length
-            ? `<ul class="answer-list">
-                <li>Strongest rise: ${biggestRise.label} (${metricSelect.value === "share" ? formatPercent(biggestRise.delta) : Math.round(biggestRise.delta)} change from first to last decade).</li>
-                <li>Highest peak: ${biggestPeak.label} reaches its maximum in ${
-                  biggestPeak.points.slice().sort((a, b) => b.value - a.value)[0].decade
-                }.</li>
-                <li>Most stable: ${steadiest.label} changes least across the selected decades.</li>
-              </ul>`
-            : ""
-        }
-      `;
+      takeaways.innerHTML = "";
+      const heading = document.createElement("h3");
+      heading.textContent = "Graph takeaways";
+      const intro = document.createElement("p");
+      intro.textContent = rows.length ? `${rows.length} themes are selected.` : "Choose one or more themes to graph them.";
+      takeaways.append(heading, intro);
+
+      if (!rows.length) {
+        return;
+      }
+
+      const peakPoint = biggestPeak.points.slice().sort((a, b) => b.value - a.value)[0];
+      const cards = [
+        {
+          title: "Strongest rise",
+          body: `${biggestRise.label} shows the largest first-to-last change.`,
+          state: evidenceStateForFamily(familySelect.value, biggestRise.id),
+        },
+        {
+          title: "Highest peak",
+          body: `${biggestPeak.label} reaches its maximum in ${peakPoint.decade}.`,
+          state: evidenceStateForFamily(familySelect.value, biggestPeak.id, { decade: peakPoint.decade }),
+        },
+        {
+          title: "Most stable",
+          body: `${steadiest.label} changes least across the selected decades.`,
+          state: evidenceStateForFamily(familySelect.value, steadiest.id),
+        },
+      ];
+
+      cards.forEach((item) => {
+        const card = document.createElement("article");
+        card.className = "thread-card";
+        card.innerHTML = `<h3>${item.title}</h3><p>${item.body}</p>`;
+        appendActionButtons(card, [
+          {
+            label: "See evidence",
+            state: item.state,
+          },
+        ]);
+        takeaways.append(card);
+      });
     }
 
     familySelect.addEventListener("change", () => {
@@ -2026,7 +2407,17 @@
     corpus.commonThreads.forEach((thread) => {
       const card = document.createElement("article");
       card.className = "thread-card";
-      card.innerHTML = `<h3>${thread.title}</h3><p>${thread.body}</p>`;
+      card.innerHTML = `<h3>${thread.title}</h3><p>${thread.body}</p>${renderExampleList(thread.examples)}`;
+      appendActionButtons(card, [
+        {
+          label: "See evidence",
+          state: {
+            ...blankEvidenceState(),
+            titles: titlesFromExamples(thread.examples),
+            evidenceLabel: thread.title,
+          },
+        },
+      ]);
       container.append(card);
     });
   }
@@ -2040,6 +2431,105 @@
       item.innerHTML = `<h4>${method.title}</h4><p>${method.body}</p>`;
       container.append(item);
     });
+  }
+
+  function renderConceptNeighbors() {
+    const note = document.getElementById("neighbor-note");
+    const chart = document.getElementById("neighbor-chart");
+    const detail = document.getElementById("neighbor-detail");
+    const takeaways = document.getElementById("neighbor-takeaways");
+
+    if (!note || !chart || !detail || !takeaways || !corpus.conceptNeighbors) {
+      return;
+    }
+
+    note.textContent = corpus.conceptNeighbors.note;
+    const rows = [...corpus.conceptNeighbors.terms].sort((a, b) => b.share - a.share || b.delta - a.delta);
+    const maxShare = Math.max(...rows.map((row) => row.share), 0.01);
+    const buttons = [];
+
+    function renderDetail(row) {
+      detail.innerHTML = `
+        <h3>${row.label}</h3>
+        <p>${row.description}</p>
+        <p>${formatPercent(row.share)} of the corpus mentions ${row.label.toLowerCase()}, and ${formatPercent(row.coMentionShare)} of those articles co-mention it with intelligence in the same sentence.</p>
+        <p>Early window: ${formatPercent(row.earlyShare)} · late window: ${formatPercent(row.lateShare)}.</p>
+        <div class="detail-tags">
+          ${row.topDefinitions.map((item) => `<span class="tag">${item.label}</span>`).join("")}
+          ${row.topPerspectives.map((item) => `<span class="tag">${item.label}</span>`).join("")}
+        </div>
+        ${
+          row.quotes?.length
+            ? `<div class="quote-list">
+                <h5>Quote-level evidence</h5>
+                ${row.quotes.map((item) => `<figure class="quote-item"><p><strong>${item.year} · ${escapeHtml(item.title)}</strong></p><p>“${escapeHtml(item.quote)}”</p></figure>`).join("")}
+              </div>`
+            : ""
+        }
+        ${renderExampleList(row.examples)}
+      `;
+      appendActionButtons(detail, [
+        {
+          label: "Open exact articles",
+          state: {
+            ...blankEvidenceState(),
+            titles: titlesFromExamples(row.examples),
+            evidenceLabel: row.label,
+          },
+        },
+      ]);
+    }
+
+    chart.innerHTML = "";
+    rows.forEach((row) => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "comparison-row";
+      const button = document.createElement("button");
+      button.type = "button";
+      button.innerHTML = `
+        <div class="comparison-meta">
+          <strong>${row.label}</strong>
+          <span class="comparison-values">${formatPercent(row.share)} of corpus</span>
+        </div>
+        <div class="comparison-bars">
+          <div class="comparison-side left"><div class="comparison-fill left" style="width:${(row.earlyShare / maxShare) * 100}%"></div></div>
+          <div class="comparison-axis" aria-hidden="true"></div>
+          <div class="comparison-side right"><div class="comparison-fill right" style="width:${(row.lateShare / maxShare) * 100}%"></div></div>
+        </div>
+        <div class="comparison-delta">${row.delta >= 0 ? `late +${Math.round(row.delta * 100)} pts` : `early +${Math.round(Math.abs(row.delta) * 100)} pts`}</div>
+      `;
+      button.addEventListener("click", () => {
+        buttons.forEach((item) => item.wrapper.classList.remove("is-active"));
+        wrapper.classList.add("is-active");
+        renderDetail(row);
+      });
+      wrapper.append(button);
+      chart.append(wrapper);
+      buttons.push({ wrapper, row });
+    });
+
+    takeaways.innerHTML = "";
+    corpus.conceptNeighbors.takeaways.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "thread-card";
+      card.innerHTML = `<h3>${item.title}</h3><p>${item.body}</p>${renderExampleList(item.examples)}`;
+      appendActionButtons(card, [
+        {
+          label: "See evidence",
+          state: {
+            ...blankEvidenceState(),
+            titles: titlesFromExamples(item.examples),
+            evidenceLabel: item.title,
+          },
+        },
+      ]);
+      takeaways.append(card);
+    });
+
+    if (buttons[0]) {
+      buttons[0].wrapper.classList.add("is-active");
+      renderDetail(buttons[0].row);
+    }
   }
 
   function renderValidation() {
@@ -2071,6 +2561,20 @@
           <span class="tag">${formatNumber(row.inferredCount || 0)} inferred labels in corpus</span>
         </div>
         ${
+          row.falseNegativePatterns?.length
+            ? `<p class="validation-note"><strong>False negatives:</strong> ${escapeHtml(
+                row.falseNegativePatterns.map((item) => `${item.label} (${item.count})`).join(" · "),
+              )}</p>`
+            : ""
+        }
+        ${
+          row.falsePositivePatterns?.length
+            ? `<p class="validation-note"><strong>False positives:</strong> ${escapeHtml(
+                row.falsePositivePatterns.map((item) => `${item.label} (${item.count})`).join(" · "),
+              )}</p>`
+            : ""
+        }
+        ${
           mismatch
             ? `<p class="validation-note">Example audit tension: <strong>${escapeHtml(mismatch.title)}</strong>${
                 mismatch.missing?.length ? ` missed ${escapeHtml(mismatch.missing.map((id) => lookupAnyLabel(id)).join(", "))}` : ""
@@ -2100,7 +2604,7 @@
       count: item.count,
       description: "",
     }));
-    createBarRows(container, rows, "warm");
+    createBarRows(container, rows, "warm", { family: "signals" });
   }
 
   function renderSignalTrends() {
@@ -2117,6 +2621,7 @@
         ...corpus.trends.signals,
         rows,
       },
+      "signals",
     );
   }
 
@@ -2151,6 +2656,8 @@
     const sort = document.getElementById("explorer-sort");
     const summary = document.getElementById("explorer-summary");
     const results = document.getElementById("explorer-results");
+    let pinnedTitles = [];
+    let pinnedLabel = "";
 
     const decades = [...new Set(corpus.articles.map((article) => `${article.year - (article.year % 10)}s`))].sort();
     populateSelect(decade, decades, (value) => value);
@@ -2307,7 +2814,9 @@
         return;
       }
 
+      const pinnedTitleKeys = new Set(pinnedTitles.map((title) => normalizeForSearch(title)));
       let rows = corpus.articles
+        .filter((article) => !pinnedTitles.length || pinnedTitleKeys.has(normalizeForSearch(article.title)))
         .filter((article) => !decade.value || currentDecade(article) === decade.value)
         .map((article) => evaluateArticle(article, parsed, dropdownFilters))
         .filter(Boolean);
@@ -2335,8 +2844,8 @@
       ].filter(Boolean);
       summary.textContent =
         rows.length > 24
-          ? `${formatNumber(rows.length)} articles match the current search. Showing the first 24 evidence cards.${activeSearchPieces.length ? ` Active layers: ${activeSearchPieces.join(", ")}.` : ""}`
-          : `${formatNumber(rows.length)} articles match the current search.${activeSearchPieces.length ? ` Active layers: ${activeSearchPieces.join(", ")}.` : ""}`;
+          ? `${formatNumber(rows.length)} articles match the current search. Showing the first 24 evidence cards.${activeSearchPieces.length ? ` Active layers: ${activeSearchPieces.join(", ")}.` : ""}${pinnedLabel ? ` Evidence set: ${pinnedLabel}.` : ""}`
+          : `${formatNumber(rows.length)} articles match the current search.${activeSearchPieces.length ? ` Active layers: ${activeSearchPieces.join(", ")}.` : ""}${pinnedLabel ? ` Evidence set: ${pinnedLabel}.` : ""}`;
       results.innerHTML = "";
       if (!rows.length) {
         results.innerHTML = `<article class="explorer-card"><h4>No articles match these filters</h4><p>Try clearing one filter or searching with a broader term such as a decade, type, or perspective label.</p></article>`;
@@ -2366,13 +2875,22 @@
         location.value = nextState.location ?? "";
         subject.value = nextState.subject ?? "";
         sort.value = nextState.sort ?? "cited";
+        pinnedTitles = nextState.titles ?? [];
+        pinnedLabel = nextState.evidenceLabel ?? "";
         refresh();
       },
     };
 
     [search, decade, type, perspective, signal, definition, recognition, location, subject, sort].forEach((element) => {
-      element.addEventListener("input", refresh);
-      element.addEventListener("change", refresh);
+      const handle = () => {
+        if (pinnedTitles.length) {
+          pinnedTitles = [];
+          pinnedLabel = "";
+        }
+        refresh();
+      };
+      element.addEventListener("input", handle);
+      element.addEventListener("change", handle);
     });
 
     refresh();
@@ -2541,10 +3059,10 @@
     renderHeroStats();
     renderConceptualQuestions();
     renderMeaningShifts();
-    createBarRows(document.getElementById("type-bars"), corpus.typeCounts, "cool");
-    createBarRows(document.getElementById("perspective-bars"), corpus.perspectiveCounts, "warm");
-    renderTrendGroup("type-trends", "type-trend-note", corpus.trends.types);
-    renderTrendGroup("perspective-trends", "perspective-trend-note", corpus.trends.perspectives);
+    createBarRows(document.getElementById("type-bars"), corpus.typeCounts, "cool", { family: "types" });
+    createBarRows(document.getElementById("perspective-bars"), corpus.perspectiveCounts, "warm", { family: "perspectives" });
+    renderTrendGroup("type-trends", "type-trend-note", corpus.trends.types, "types");
+    renderTrendGroup("perspective-trends", "perspective-trend-note", corpus.trends.perspectives, "perspectives");
     renderSignalTrends();
     renderTrendHighlights();
     renderScorecards();
@@ -2557,6 +3075,7 @@
     renderFrontierArticles();
     renderTopCited();
     renderThreads();
+    renderConceptNeighbors();
     renderSignals();
     renderAskCorpus();
     renderGraphLab();

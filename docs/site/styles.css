@@ -529,6 +529,10 @@ img {
   color: var(--muted);
 }
 
+.answer-confidence {
+  color: var(--deep);
+}
+
 .answer-list {
   margin: 0.75rem 0 0;
   padding-left: 1rem;
@@ -897,6 +901,22 @@ img {
   gap: 0.7rem;
   align-items: center;
   font-size: 0.92rem;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.mini-bar:hover span:first-child,
+.mini-bar:focus-visible span:first-child {
+  color: var(--accent);
+}
+
+.mini-bar:focus-visible {
+  outline: 2px solid rgba(173, 95, 59, 0.22);
+  border-radius: 0.75rem;
 }
 
 .mini-bar .track {
@@ -1169,6 +1189,17 @@ img {
 .thread-card p {
   margin: 0;
   color: var(--muted);
+}
+
+.evidence-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.9rem;
+}
+
+.evidence-button {
+  border-color: rgba(19, 70, 71, 0.18);
 }
 
 .question-button {

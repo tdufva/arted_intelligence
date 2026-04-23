@@ -889,7 +889,193 @@ GOLD_SAMPLE = {
         "locationFrames": ["vision_perception", "artworks_materials"],
         "subjectFrames": ["disabled_gifted_subjects", "children_students"],
     },
+    "The Effects of Perceptual Training and Modes of Perceiving upon Individual Differences in Abil": {
+        "intelligenceTypes": ["perceptual", "cognitive"],
+        "perspectives": ["assessment", "developmental"],
+        "definitionFrames": ["measurable_faculty", "perceptual_sensitivity"],
+        "recognitionModes": ["testing_scoring", "developmental_observation"],
+        "locationFrames": ["vision_perception", "mind_concepts"],
+        "subjectFrames": ["children_students"],
+    },
+    "The Eﬀects of Perceptual Training upon the Two-Dimensional Drawings of Children": {
+        "intelligenceTypes": ["perceptual"],
+        "perspectives": ["assessment", "pedagogy"],
+        "definitionFrames": ["perceptual_sensitivity"],
+        "recognitionModes": ["making_performance", "testing_scoring"],
+        "locationFrames": ["artworks_materials", "vision_perception"],
+        "subjectFrames": ["children_students"],
+    },
+    "The Effectiveness of a Children's Workshop in the Creative Arts in Forwarding Personal and Int": {
+        "intelligenceTypes": ["creative", "cognitive"],
+        "perspectives": ["pedagogy", "developmental"],
+        "definitionFrames": ["creative_capacity"],
+        "recognitionModes": ["participation_relation", "developmental_observation"],
+        "locationFrames": ["pedagogical_institutions", "artworks_materials"],
+        "subjectFrames": ["children_students"],
+    },
+    "Conceptual Modes of Children in Responding to Art Objects": {
+        "intelligenceTypes": ["cognitive", "communicative"],
+        "perspectives": ["developmental", "philosophy"],
+        "definitionFrames": ["interpretive_meaning", "measurable_faculty"],
+        "recognitionModes": ["language_reflection", "developmental_observation"],
+        "locationFrames": ["mind_concepts"],
+        "subjectFrames": ["children_students"],
+    },
+    "Testing an Advance Organizer Model in the Development of Aesthetic Perception": {
+        "intelligenceTypes": ["perceptual", "cognitive"],
+        "perspectives": ["assessment", "pedagogy"],
+        "definitionFrames": ["perceptual_sensitivity", "measurable_faculty"],
+        "recognitionModes": ["testing_scoring"],
+        "locationFrames": ["vision_perception"],
+        "subjectFrames": ["children_students"],
+    },
+    "The Child as Image-Maker: The Invention of Representational Models and the Eﬀects of the Medium": {
+        "intelligenceTypes": ["perceptual", "cognitive", "digital"],
+        "perspectives": ["developmental", "philosophy"],
+        "definitionFrames": ["perceptual_sensitivity"],
+        "recognitionModes": ["making_performance", "developmental_observation"],
+        "locationFrames": ["artworks_materials", "vision_perception"],
+        "subjectFrames": ["children_students"],
+    },
+    "The Acquisition of Language Concepts by Hearing Impaired Children through Selected Aspects of an Experimental Core Art Curriculum": {
+        "intelligenceTypes": ["exceptionality", "communicative", "cognitive"],
+        "perspectives": ["disability", "pedagogy"],
+        "definitionFrames": ["interpretive_meaning"],
+        "recognitionModes": ["language_reflection", "developmental_observation"],
+        "locationFrames": ["pedagogical_institutions", "mind_concepts"],
+        "subjectFrames": ["disabled_gifted_subjects", "children_students"],
+    },
+    "If and where to Plug in the Computer: A Conceptual Framework for Computer Assisted Art Instruction": {
+        "intelligenceTypes": ["digital", "cognitive"],
+        "perspectives": ["technology", "pedagogy"],
+        "definitionFrames": ["machinic_relation"],
+        "recognitionModes": ["technical_fluency"],
+        "locationFrames": ["media_machines", "pedagogical_institutions"],
+        "subjectFrames": ["teachers_educators", "children_students"],
+    },
+    "A Structure for Pedagogical Art Criticism": {
+        "intelligenceTypes": ["communicative", "cognitive"],
+        "perspectives": ["pedagogy", "philosophy"],
+        "definitionFrames": ["interpretive_meaning"],
+        "recognitionModes": ["judgment_critique", "language_reflection"],
+        "locationFrames": ["artworks_materials", "mind_concepts"],
+        "subjectFrames": ["teachers_educators", "children_students"],
+    },
+    "Multi-Cultural Approaches to Art Criticism": {
+        "intelligenceTypes": ["social", "communicative"],
+        "perspectives": ["community", "philosophy"],
+        "definitionFrames": ["interpretive_meaning", "situated_practice"],
+        "recognitionModes": ["judgment_critique", "language_reflection"],
+        "locationFrames": ["relations_culture", "artworks_materials"],
+        "subjectFrames": ["children_students", "teachers_educators"],
+    },
+    "Eﬀects of Art Education on Visual-Spatial Ability and Aesthetic Perception: A Quantitative Review": {
+        "intelligenceTypes": ["perceptual", "cognitive"],
+        "perspectives": ["assessment", "philosophy"],
+        "definitionFrames": ["measurable_faculty", "perceptual_sensitivity"],
+        "recognitionModes": ["testing_scoring", "judgment_critique"],
+        "locationFrames": ["vision_perception", "mind_concepts"],
+        "subjectFrames": ["children_students"],
+    },
+    "Art, Ecological Restoration, and Art Education": {
+        "intelligenceTypes": ["social", "cognitive"],
+        "perspectives": ["community", "philosophy"],
+        "definitionFrames": ["situated_practice"],
+        "recognitionModes": ["participation_relation", "making_performance"],
+        "locationFrames": ["place_ecology", "relations_culture"],
+        "subjectFrames": ["communities_publics", "artists_makers"],
+    },
+    "Museum Education as Curriculum: Four Models, Leading to a Fifth": {
+        "intelligenceTypes": ["social", "communicative", "cognitive"],
+        "perspectives": ["pedagogy", "community"],
+        "definitionFrames": ["situated_practice"],
+        "recognitionModes": ["participation_relation", "language_reflection"],
+        "locationFrames": ["pedagogical_institutions", "relations_culture"],
+        "subjectFrames": ["communities_publics", "teachers_educators"],
+    },
+    "Ecology of Place: Art Education in a Relational World": {
+        "intelligenceTypes": ["social", "affective", "cognitive"],
+        "perspectives": ["community", "critical", "pedagogy"],
+        "definitionFrames": ["situated_practice", "embodied_attunement"],
+        "recognitionModes": ["participation_relation", "language_reflection"],
+        "locationFrames": ["place_ecology", "relations_culture"],
+        "subjectFrames": ["communities_publics", "teachers_educators"],
+    },
+    "Urban Children and Intellectual Emancipation: Video Narratives of Self and Place in the City of Milwaukee": {
+        "intelligenceTypes": ["digital", "social", "cognitive"],
+        "perspectives": ["technology", "community"],
+        "definitionFrames": ["situated_practice", "machinic_relation"],
+        "recognitionModes": ["technical_fluency", "participation_relation"],
+        "locationFrames": ["place_ecology", "pedagogical_institutions"],
+        "subjectFrames": ["children_students", "communities_publics"],
+    },
+    "Post Stereotypes: Deconstructing Racial Assumptions and Biases through Visual Culture and Confrontational Pedagogy": {
+        "intelligenceTypes": ["social", "perceptual"],
+        "perspectives": ["critical", "pedagogy"],
+        "definitionFrames": ["situated_practice", "interpretive_meaning"],
+        "recognitionModes": ["language_reflection", "participation_relation"],
+        "locationFrames": ["relations_culture", "vision_perception"],
+        "subjectFrames": ["identity_marked_subjects", "children_students"],
+    },
+    "Art in Institutions: The Emergence of (Disabled) Outsiders": {
+        "intelligenceTypes": ["exceptionality", "social"],
+        "perspectives": ["disability", "community", "critical"],
+        "definitionFrames": ["situated_practice"],
+        "recognitionModes": ["participation_relation", "making_performance"],
+        "locationFrames": ["relations_culture", "artworks_materials"],
+        "subjectFrames": ["disabled_gifted_subjects", "communities_publics"],
+    },
+    "Inclusive Artmaking in High School Visual Arts Classes": {
+        "intelligenceTypes": ["exceptionality", "social", "affective"],
+        "perspectives": ["disability", "pedagogy"],
+        "definitionFrames": ["situated_practice", "embodied_attunement"],
+        "recognitionModes": ["making_performance", "participation_relation"],
+        "locationFrames": ["pedagogical_institutions", "artworks_materials"],
+        "subjectFrames": ["disabled_gifted_subjects", "children_students"],
+    },
+    "Building Dispositions and Self- Eﬃcacy in Preservice Art Teachers": {
+        "intelligenceTypes": ["affective", "social"],
+        "perspectives": ["pedagogy", "assessment"],
+        "definitionFrames": ["embodied_attunement", "situated_practice"],
+        "recognitionModes": ["developmental_observation", "participation_relation"],
+        "locationFrames": ["body_affect", "pedagogical_institutions"],
+        "subjectFrames": ["teachers_educators"],
+    },
 }
+
+
+CONCEPT_NEIGHBOR_TERMS = [
+    {
+        "id": "creativity",
+        "label": "Creativity",
+        "description": "How often intelligence sits beside creativity and creative capacity.",
+        "patterns": [r"\bcreativity\b", r"\bcreative\b", r"\bcreativeness\b"],
+    },
+    {
+        "id": "talent",
+        "label": "Talent",
+        "description": "How often intelligence is framed alongside talent, giftedness, and exceptionality discourse.",
+        "patterns": [r"\btalent\b", r"\btalented\b", r"\bgifted\b", r"\bgiftedness\b"],
+    },
+    {
+        "id": "skill",
+        "label": "Skill",
+        "description": "How often intelligence is paired with skill, technique, and practical competence.",
+        "patterns": [r"\bskill\b", r"\bskills\b", r"\bskilled\b"],
+    },
+    {
+        "id": "judgment",
+        "label": "Judgment",
+        "description": "How often intelligence is discussed through judgment, critique, and evaluation.",
+        "patterns": [r"\bjudgment\b", r"\bjudgements?\b", r"\bjudgments?\b", r"\bjudging\b"],
+    },
+    {
+        "id": "imagination",
+        "label": "Imagination",
+        "description": "How often intelligence is connected to imagination and imaginative practice.",
+        "patterns": [r"\bimagination\b", r"\bimaginative\b"],
+    },
+]
 
 
 RAW_TYPE_OVERRIDES = {
@@ -968,18 +1154,58 @@ COMMON_THREADS = [
     {
         "title": "Art intelligence is repeatedly treated as more than IQ",
         "body": "Across decades, the journal uses intelligence to name creative, perceptual, embodied, social, and technological capacities. Even the more psychometric studies rarely confine art learning to a single measurable faculty.",
+        "examples": {
+            "early": [
+                {"title": "A Typology of Creativity in the Visual Arts", "year": 1962},
+                {"title": "Perceptual Style, Creativity, and Various Drawing Abilities", "year": 1970},
+            ],
+            "late": [
+                {"title": "Creative and Critical Entanglements With AI in Art Education", "year": 2023},
+                {"title": "The Physics of Art Education: New Materialism, AI, and the Tacit Knowledge of Visual Culture", "year": 2025},
+            ],
+        },
     },
     {
         "title": "The corpus moves from testing abilities toward situating them",
         "body": "Earlier work leans heavily on measurement, developmental psychology, and perceptual training. Later work shifts toward social justice, community, ecology, disability, and relational accounts of knowing.",
+        "examples": {
+            "early": [
+                {"title": "A Nonverbal Ability Test", "year": 1979},
+                {"title": "Judging Children's Drawings as Measures of Art Abilities", "year": 1993},
+            ],
+            "late": [
+                {"title": "Ecology of Place: Art Education in a Relational World", "year": 2007},
+                {"title": "Post Stereotypes: Deconstructing Racial Assumptions and Biases through Visual Culture and Confrontational Pedagogy", "year": 2015},
+            ],
+        },
     },
     {
         "title": "Visual thinking is central, but not isolated",
         "body": "Perception and visual-spatial reasoning are a constant thread, yet they are often tied to language, culture, identity, and classroom practice rather than treated as purely internal cognition.",
+        "examples": {
+            "early": [
+                {"title": "Testing an Advance Organizer Model in the Development of Aesthetic Perception", "year": 1973},
+                {"title": "Cognitive Style Revisited: Implications for Research in Art Production and Art Criticism", "year": 1983},
+            ],
+            "late": [
+                {"title": "Visual Culture, Visual Brain, and (Art) Education", "year": 2007},
+                {"title": "Viewer-Centered Learning in the Museum: Tensions in Children’s Books About Why and How", "year": 2022},
+            ],
+        },
     },
     {
         "title": "Technology revives intelligence debates in new forms",
         "body": "Computing, digital culture, games, and AI re-open old questions about creativity, judgment, expertise, and tacit knowledge while also exposing who benefits and who gets excluded.",
+        "examples": {
+            "early": [
+                {"title": "If and where to Plug in the Computer: A Conceptual Framework for Computer Assisted Art Instruction", "year": 1983},
+                {"title": "Art Education and Computing: Building a Perspective", "year": 1988},
+            ],
+            "late": [
+                {"title": "Midjourney Killed the Photoshop Star: Assembling the Emerging Field of Synthography", "year": 2023},
+                {"title": "Creative and Critical Entanglements With AI in Art Education", "year": 2023},
+            ],
+        },
     },
 ]
 
@@ -1235,6 +1461,25 @@ def article_quote_candidates(text: str) -> list[str]:
     return output
 
 
+def count_pattern_hits(text: str, patterns: list[str]) -> int:
+    return sum(len(re.findall(pattern, text, re.IGNORECASE)) for pattern in patterns)
+
+
+def analyze_concept_neighbors(text: str) -> dict[str, dict]:
+    quotes = article_quote_candidates(text)
+    output = {}
+    for term in CONCEPT_NEIGHBOR_TERMS:
+        count = count_pattern_hits(text, term["patterns"])
+        term_quotes = [quote for quote in quotes if any(re.search(pattern, quote, re.IGNORECASE) for pattern in term["patterns"])]
+        co_quotes = [quote for quote in term_quotes if re.search(r"\bintelligen", quote, re.IGNORECASE)]
+        output[term["id"]] = {
+            "count": count,
+            "coMentionCount": len(co_quotes),
+            "quote": (co_quotes or term_quotes or [""])[0],
+        }
+    return output
+
+
 def confidence_label(score: int) -> str:
     if score >= 8:
         return "strong signal"
@@ -1473,6 +1718,7 @@ def build_articles(raw_records: list[dict]) -> list[dict]:
             for key, entries in coding_confidence.items()
         }
         quote_evidence = select_quote_evidence(normalized, selected_ids_by_family, ALL_FAMILY_SPECS)
+        concept_neighbor_meta = analyze_concept_neighbors(normalized)
 
         article = {
             "file": record["file"],
@@ -1493,6 +1739,7 @@ def build_articles(raw_records: list[dict]) -> list[dict]:
             "quotes": quote_evidence,
             "codingConfidence": coding_confidence,
             "confidenceSummary": confidence_summary,
+            "_conceptNeighborMeta": concept_neighbor_meta,
         }
         articles.append(article)
 
@@ -1756,7 +2003,7 @@ def build_trend_highlights(type_trends: dict, perspective_trends: dict) -> list[
     ]
 
 
-def build_signal_trends(decades: list[str], by_decade: dict) -> dict:
+def build_signal_trends(decades: list[str], by_decade: dict, articles: list[dict]) -> dict:
     early_window = decades[:3]
     late_window = decades[-3:]
     early_total = sum(by_decade[decade]["articles"] for decade in early_window) or 1
@@ -1779,6 +2026,12 @@ def build_signal_trends(decades: list[str], by_decade: dict) -> dict:
                 "lateShare": round(late_share, 3),
                 "delta": round(delta, 3),
                 "direction": classify_delta(delta),
+                "examples": sample_articles_for_bucket(
+                    articles,
+                    "signals",
+                    signal["id"],
+                    decades,
+                ),
             }
         )
 
@@ -1786,15 +2039,173 @@ def build_signal_trends(decades: list[str], by_decade: dict) -> dict:
     return {"earlyWindow": early_window, "lateWindow": late_window, "rows": rows}
 
 
+def build_concept_neighbors(articles: list[dict], decades: list[str]) -> dict:
+    early_window = set(decades[:3])
+    late_window = set(decades[-3:])
+    total_articles = max(len(articles), 1)
+    early_total = max(sum(1 for article in articles if article_decade(article) in early_window), 1)
+    late_total = max(sum(1 for article in articles if article_decade(article) in late_window), 1)
+
+    terms = []
+    for term in CONCEPT_NEIGHBOR_TERMS:
+        matching = [article for article in articles if article["_conceptNeighborMeta"][term["id"]]["count"] > 0]
+        co_matching = [article for article in matching if article["_conceptNeighborMeta"][term["id"]]["coMentionCount"] > 0]
+        article_count = len(matching)
+        co_count = len(co_matching)
+        early_count = sum(1 for article in matching if article_decade(article) in early_window)
+        late_count = sum(1 for article in matching if article_decade(article) in late_window)
+        definition_counter = Counter()
+        perspective_counter = Counter()
+        for article in matching:
+            definition_counter.update(article["definitionFrames"])
+            perspective_counter.update(article["perspectives"])
+
+        def compress(counter: Counter, lookup_rows: list[dict], limit: int = 2) -> list[dict]:
+            lookup = {item["id"]: item["label"] for item in lookup_rows}
+            return [
+                {
+                    "id": item_id,
+                    "label": lookup[item_id],
+                    "count": count,
+                    "share": round(count / max(article_count, 1), 3),
+                }
+                for item_id, count in counter.most_common(limit)
+                if item_id in lookup
+            ]
+
+        def example_rows(rows: list[dict]) -> list[dict]:
+            return [
+                {"title": article["title"], "year": article["year"], "doi": article.get("doi")}
+                for article in sorted(rows, key=article_importance_key)[:3]
+            ]
+
+        quote_rows = []
+        for article in sorted(co_matching or matching, key=article_importance_key)[:4]:
+            meta = article["_conceptNeighborMeta"][term["id"]]
+            if not meta["quote"]:
+                continue
+            quote_rows.append(
+                {
+                    "title": article["title"],
+                    "year": article["year"],
+                    "quote": meta["quote"],
+                }
+            )
+
+        terms.append(
+            {
+                "id": term["id"],
+                "label": term["label"],
+                "description": term["description"],
+                "articleCount": article_count,
+                "share": round(article_count / total_articles, 3),
+                "coMentionCount": co_count,
+                "coMentionShare": round(co_count / max(article_count, 1), 3),
+                "earlyShare": round(early_count / early_total, 3),
+                "lateShare": round(late_count / late_total, 3),
+                "delta": round((late_count / late_total) - (early_count / early_total), 3),
+                "examples": {
+                    "early": example_rows([article for article in matching if article_decade(article) in early_window]),
+                    "late": example_rows([article for article in matching if article_decade(article) in late_window]),
+                },
+                "quotes": quote_rows[:2],
+                "topDefinitions": compress(definition_counter, DEFINITION_FRAMES),
+                "topPerspectives": compress(perspective_counter, PERSPECTIVES),
+            }
+        )
+
+    terms.sort(key=lambda item: (-item["share"], -item["coMentionShare"], item["label"]))
+
+    most_common = max(terms, key=lambda item: item["share"])
+    strongest_riser = max(terms, key=lambda item: item["delta"])
+    strongest_decliner = min(terms, key=lambda item: item["delta"])
+    most_measured = max(
+        terms,
+        key=lambda item: next((row["share"] for row in item["topDefinitions"] if row["id"] == "measurable_faculty"), 0),
+    )
+    most_situated = max(
+        terms,
+        key=lambda item: next((row["share"] for row in item["topDefinitions"] if row["id"] == "situated_practice"), 0),
+    )
+
+    takeaways = [
+        {
+            "title": f"Intelligence most often sits beside {most_common['label'].lower()}",
+            "body": (
+                f"{most_common['label']} appears in {most_common['articleCount']} articles, or "
+                f"{round(most_common['share'] * 100)}% of the intelligence corpus."
+            ),
+            "termId": most_common["id"],
+            "examples": most_common["examples"],
+        },
+        {
+            "title": f"{strongest_riser['label']} rises most over time",
+            "body": (
+                f"It moves from {round(strongest_riser['earlyShare'] * 100)}% of the early window to "
+                f"{round(strongest_riser['lateShare'] * 100)}% of the late window."
+            ),
+            "termId": strongest_riser["id"],
+            "examples": strongest_riser["examples"],
+        },
+        {
+            "title": f"{most_measured['label']} is closest to measurable intelligence",
+            "body": (
+                f"In articles that mention {most_measured['label'].lower()}, the dominant definition frame is "
+                f"{most_measured['topDefinitions'][0]['label'] if most_measured['topDefinitions'] else 'weakly defined'}."
+            ),
+            "termId": most_measured["id"],
+            "examples": most_measured["examples"],
+        },
+        {
+            "title": f"{most_situated['label']} most often pulls intelligence into social relation",
+            "body": (
+                f"When {most_situated['label'].lower()} appears, intelligence is most often coded as "
+                f"{most_situated['topDefinitions'][0]['label'] if most_situated['topDefinitions'] else 'weakly defined'}."
+            ),
+            "termId": most_situated["id"],
+            "examples": most_situated["examples"],
+        },
+    ]
+
+    if strongest_decliner["delta"] <= -0.02:
+        takeaways.append(
+            {
+                "title": f"{strongest_decliner['label']} recedes as a neighbor term",
+                "body": (
+                    f"It falls from {round(strongest_decliner['earlyShare'] * 100)}% of the early window to "
+                    f"{round(strongest_decliner['lateShare'] * 100)}% of the late window."
+                ),
+                "termId": strongest_decliner["id"],
+                "examples": strongest_decliner["examples"],
+            }
+        )
+
+    return {
+        "note": (
+            "These terms do not replace the intelligence coding. They show which adjacent concepts intelligence is most often made to lean on, contest, or borrow from."
+        ),
+        "terms": terms,
+        "takeaways": takeaways,
+    }
+
+
 def build_trend_scorecards(type_trends: dict, perspective_trends: dict, signal_trends: dict) -> dict:
     pools = {
         "rising": sorted(
-            [*type_trends["rows"], *perspective_trends["rows"], *signal_trends["rows"]],
+            [
+                *[{**row, "family": "types"} for row in type_trends["rows"]],
+                *[{**row, "family": "perspectives"} for row in perspective_trends["rows"]],
+                *[{**row, "family": "signals"} for row in signal_trends["rows"]],
+            ],
             key=lambda item: item["delta"],
             reverse=True,
         ),
         "fading": sorted(
-            [*type_trends["rows"], *perspective_trends["rows"], *signal_trends["rows"]],
+            [
+                *[{**row, "family": "types"} for row in type_trends["rows"]],
+                *[{**row, "family": "perspectives"} for row in perspective_trends["rows"]],
+                *[{**row, "family": "signals"} for row in signal_trends["rows"]],
+            ],
             key=lambda item: item["delta"],
         ),
     }
@@ -1810,11 +2221,13 @@ def build_trend_scorecards(type_trends: dict, perspective_trends: dict, signal_t
             compact.append(
                 {
                     "id": row["id"],
+                    "family": row["family"],
                     "label": row["label"],
                     "delta": row["delta"],
                     "direction": row["direction"],
                     "earlyShare": row["earlyShare"],
                     "lateShare": row["lateShare"],
+                    "examples": row.get("examples", {"early": [], "late": []}),
                 }
             )
             if len(compact) == 5:
@@ -1994,6 +2407,7 @@ def build_blind_spots(
                     f"but it does mark a real blind spot within the selected Studies in Art Education set."
                 ),
                 "contrast": f"{intelligence['label']} appears in {type_lookup[intelligence['id']]} articles overall; {perspective['label']} appears in {perspective_lookup[perspective['id']]}.",
+                "evidenceQuery": {"type": intelligence["id"], "perspective": perspective["id"]},
             }
         )
 
@@ -2009,6 +2423,7 @@ def build_blind_spots(
                     f"even when both categories appear elsewhere."
                 ),
                 "contrast": f"The type total is {type_lookup[intelligence['id']]} and the perspective total is {perspective_lookup[perspective['id']]}.",
+                "evidenceQuery": {"type": intelligence["id"], "perspective": perspective["id"]},
             }
         )
 
@@ -2023,6 +2438,7 @@ def build_blind_spots(
                     f"are present, but not structurally central."
                 ),
                 "contrast": f"That is {round((least_type['count'] / summary['articleCount']) * 100)}% of the corpus.",
+                "evidenceQuery": {"type": least_type["id"]},
             },
             {
                 "kind": "underrepresented perspective",
@@ -2032,6 +2448,7 @@ def build_blind_spots(
                     f"That makes disability a recurring but still thin interpretive strand."
                 ),
                 "contrast": f"That is {round((least_perspective['count'] / summary['articleCount']) * 100)}% of the corpus.",
+                "evidenceQuery": {"perspective": least_perspective["id"]},
             },
             {
                 "kind": "weak social signal",
@@ -2042,6 +2459,7 @@ def build_blind_spots(
                     f"({signal_lookup.get('place', 0)}). The field touches these issues more often than it centers them."
                 ),
                 "contrast": "The signal layer shows justice-adjacent concerns are visible, but not yet dominant organizing devices.",
+                "evidenceQuery": {"signal": "equity"},
             },
         ]
     )
@@ -2273,6 +2691,10 @@ def build_validation(articles: list[dict]) -> dict:
     sample_rows = []
     missing_titles = []
     family_name = lambda family: family.get("label") or family.get("title") or family["id"]
+    family_lookup = {
+        family["id"]: {item["id"]: item["label"] for item in family["definitions"]}
+        for family in VALIDATION_FAMILY_SPECS
+    }
 
     family_rollups = {
         family["id"]: {
@@ -2350,8 +2772,29 @@ def build_validation(articles: list[dict]) -> dict:
                 "overrideCount": override_counts[family["id"]],
                 "inferredCount": inferred_counts[family["id"]],
                 "mismatchExamples": sorted(rollup["mismatches"], key=lambda item: item["jaccard"])[:3],
+                "falseNegativePatterns": [],
+                "falsePositivePatterns": [],
             }
         )
+
+    for item in family_stats:
+        false_negatives = Counter()
+        false_positives = Counter()
+        for sample in sample_rows:
+            row = sample["families"][item["family"]]
+            false_negatives.update(row["missing"])
+            false_positives.update(row["extra"])
+        lookup = family_lookup[item["family"]]
+        item["falseNegativePatterns"] = [
+            {"id": item_id, "label": lookup[item_id], "count": count}
+            for item_id, count in false_negatives.most_common(3)
+            if item_id in lookup
+        ]
+        item["falsePositivePatterns"] = [
+            {"id": item_id, "label": lookup[item_id], "count": count}
+            for item_id, count in false_positives.most_common(3)
+            if item_id in lookup
+        ]
 
     family_stats.sort(key=lambda item: item["averageJaccard"])
     weakest = family_stats[:2]
@@ -2419,9 +2862,12 @@ def build_dataset() -> dict:
     decades, by_decade = build_windowed_counts(articles)
     type_trends = build_trend_rows(INTELLIGENCE_TYPES, "types", "intelligenceTypes", decades, by_decade, articles)
     perspective_trends = build_trend_rows(PERSPECTIVES, "perspectives", "perspectives", decades, by_decade, articles)
-    signal_trends = build_signal_trends(decades, by_decade)
+    signal_trends = build_signal_trends(decades, by_decade, articles)
     rare_pairs = build_rare_pairs(articles, matrix, type_counts, perspective_counts)
+    concept_neighbors = build_concept_neighbors(articles, decades)
     validation = build_validation(articles)
+    for article in articles:
+        article.pop("_conceptNeighborMeta", None)
     conceptual_questions = {}
     conceptual_counts = {}
     for family in CONCEPTUAL_FAMILIES:
@@ -2460,6 +2906,7 @@ def build_dataset() -> dict:
         "matrix": matrix,
         "timeline": build_timeline(articles),
         "signals": signals,
+        "conceptNeighbors": concept_neighbors,
         "conceptualQuestions": conceptual_questions,
         "meaningShifts": build_meaning_shifts(conceptual_questions, decades, by_decade),
         "origins": build_origins(articles, type_counts, perspective_counts, signals, conceptual_counts),
