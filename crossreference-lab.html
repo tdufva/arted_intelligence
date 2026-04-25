@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crossreference Lab</title>
+    <meta
+      name="description"
+      content="A corpus-only research lab for crossreferencing themes, perspectives, definitions, recognition modes, locations, subjects, and signals in Studies in Art Education."
+    />
+    <link rel="stylesheet" href="site/styles.css" />
+    <link rel="stylesheet" href="site/crossreference.css" />
+  </head>
+  <body class="crossreference-page">
+    <div class="page-shell">
+      <nav class="site-nav reveal" aria-label="Primary">
+        <a class="site-nav__brand" href="index.html">Intelligence Atlas</a>
+        <div class="site-nav__links">
+          <a class="site-nav__link" href="index.html">Corpus Atlas</a>
+          <a class="site-nav__link is-active" href="crossreference-lab.html" aria-current="page"
+            >Crossreference Lab</a
+          >
+          <a class="site-nav__link" href="ai-ecologies.html">AI / Umwelt Comparison</a>
+        </div>
+      </nav>
+
+      <header class="hero crossref-hero reveal">
+        <div class="eyebrow">Corpus-only Research Lab</div>
+        <div class="hero-grid crossref-hero-grid">
+          <div class="hero-copy">
+            <p class="kicker">Studies in Art Education</p>
+            <h1>Crossreference the corpus and surface research leads.</h1>
+            <p class="lede">
+              This lab lets you combine concept families from the PDF corpus, rank intersections by
+              strength or surprise, and move directly from a promising pattern to the articles and
+              quotes behind it.
+            </p>
+            <div class="source-boundary-banner">
+              <div class="scope-kicker">Source Boundary</div>
+              <p>
+                Everything on this page is computed from the provided PDF corpus only. No outside
+                research is used here, and every lead can be checked against the coded articles below.
+              </p>
+            </div>
+          </div>
+          <div class="hero-panel">
+            <div class="hero-stats" id="crossref-hero-stats"></div>
+            <div class="hero-note">
+              <h2>What makes a good point here</h2>
+              <p>
+                The lab does not only reward large counts. It also surfaces unexpectedly tight
+                pairings, later-emerging strands, citation-dense overlaps, and rare but real
+                intersections worth qualitative follow-up.
+              </p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">01</p>
+            <div>
+              <h2>Research workspace</h2>
+              <p>
+                Start with one concept, choose a family to crossreference it against, and optionally
+                narrow the slice with a third lens. The ranking stays transparent: count, lift,
+                decade distribution, and citation density remain visible.
+              </p>
+            </div>
+          </div>
+          <div class="crossref-panel">
+            <div class="crossref-controls" id="crossref-controls">
+              <label>
+                <span>Primary family</span>
+                <select id="crossref-primary-family"></select>
+              </label>
+              <label>
+                <span>Primary concept</span>
+                <select id="crossref-primary-id"></select>
+              </label>
+              <label>
+                <span>Crossreference family</span>
+                <select id="crossref-secondary-family"></select>
+              </label>
+              <label>
+                <span>Exact crossreference</span>
+                <select id="crossref-secondary-id"></select>
+              </label>
+              <label>
+                <span>Lens family</span>
+                <select id="crossref-lens-family"></select>
+              </label>
+              <label>
+                <span>Lens concept</span>
+                <select id="crossref-lens-id"></select>
+              </label>
+              <label>
+                <span>Corpus window</span>
+                <select id="crossref-scope"></select>
+              </label>
+              <label>
+                <span>Rank by</span>
+                <select id="crossref-sort">
+                  <option value="association">Unexpectedly tight pairings</option>
+                  <option value="strength">Largest overlaps</option>
+                  <option value="frontier">Later-emerging leads</option>
+                  <option value="cited">Citation-dense leads</option>
+                  <option value="hidden">Rare but meaningful leads</option>
+                </select>
+              </label>
+            </div>
+            <p id="crossref-note" class="chart-note"></p>
+            <div id="crossref-stats" class="crossref-stats"></div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">02</p>
+            <div>
+              <h2>Ranked overlaps</h2>
+              <p>
+                The list below ranks the chosen crossreferences inside the current workspace. Click a
+                row to inspect the pairing in more detail and open the supporting articles.
+              </p>
+            </div>
+          </div>
+          <div class="split split-wide">
+            <article>
+              <h3>Current ranking</h3>
+              <div id="crossref-list" class="crossref-list"></div>
+            </article>
+            <article class="comparison-detail crossref-detail" id="crossref-detail" aria-live="polite"></article>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">03</p>
+            <div>
+              <h2>Good points finder</h2>
+              <p>
+                These cards surface different kinds of research leads from the current ranking, so you
+                can move quickly between the biggest overlap, the tightest coupling, the newest frontier,
+                and the rare but signal-rich edge cases.
+              </p>
+            </div>
+          </div>
+          <div id="crossref-leads" class="thread-list"></div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">04</p>
+            <div>
+              <h2>Article-level evidence</h2>
+              <p>
+                The active lead opens to the exact articles, with quote-level evidence, article metadata,
+                and coding confidence so promising points can be checked before they become arguments.
+              </p>
+            </div>
+          </div>
+          <div class="split split-wide">
+            <article>
+              <h3>Distribution across decades</h3>
+              <p class="chart-note" id="crossref-decade-note"></p>
+              <div id="crossref-decade-chart" class="crossref-decade-chart"></div>
+            </article>
+            <article>
+              <h3>What makes this lead useful</h3>
+              <div id="crossref-rationale" class="thread-list crossref-rationale"></div>
+            </article>
+          </div>
+          <div class="section-spacer"></div>
+          <div id="crossref-results" class="evidence-results"></div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">05</p>
+            <div>
+              <h2>Method and cautions</h2>
+              <p>
+                The lab is explicit about what it is doing so the ranking remains interpretable and does
+                not masquerade as neutral discovery.
+              </p>
+            </div>
+          </div>
+          <div class="split split-wide">
+            <article>
+              <h3>How the ranking works</h3>
+              <div class="method-list">
+                <div class="method-item">
+                  <h4>Observed overlap</h4>
+                  <p>The number of articles carrying both the primary concept and the crossreference concept inside the selected scope.</p>
+                </div>
+                <div class="method-item">
+                  <h4>Lift</h4>
+                  <p>The observed overlap divided by the overlap expected if the two concepts were independent in the current scope.</p>
+                </div>
+                <div class="method-item">
+                  <h4>Frontier signal</h4>
+                  <p>The change in pairing share between the early and late corpus windows, using the selected primary concept as the denominator.</p>
+                </div>
+                <div class="method-item">
+                  <h4>Evidence first</h4>
+                  <p>Every lead stays tied to article-level quotes and coding confidence so pattern finding does not outrun the source material.</p>
+                </div>
+              </div>
+            </article>
+            <article>
+              <h3>Interpretive cautions</h3>
+              <div class="method-list">
+                <div class="method-item">
+                  <h4>Multi-label corpus</h4>
+                  <p>Articles can carry multiple codes at once, so intersections show co-presence, not exclusive classification.</p>
+                </div>
+                <div class="method-item">
+                  <h4>Small-N edges</h4>
+                  <p>Rare pairings can be genuinely interesting, but they should be treated as prompts for closer reading rather than settled trends.</p>
+                </div>
+                <div class="method-item">
+                  <h4>Citation caution</h4>
+                  <p>PDF citation metadata is partial in this corpus, so citation-dense leads are suggestive rather than a complete impact measure.</p>
+                </div>
+                <div class="method-item">
+                  <h4>Data feminism principle</h4>
+                  <p>The page tries to reward marginal yet meaningful strands, not just majoritarian centers of the field.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="site/data/corpus-data.js"></script>
+    <script src="site/crossreference.js"></script>
+  </body>
+</html>

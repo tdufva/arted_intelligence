@@ -12,10 +12,13 @@ DOCS = ROOT / "docs"
 
 FILES_TO_COPY = [
     ("index.html", "index.html"),
+    ("crossreference-lab.html", "crossreference-lab.html"),
     ("ai-ecologies.html", "ai-ecologies.html"),
     ("site/styles.css", "site/styles.css"),
+    ("site/crossreference.css", "site/crossreference.css"),
     ("site/ai-ecologies.css", "site/ai-ecologies.css"),
     ("site/app.js", "site/app.js"),
+    ("site/crossreference.js", "site/crossreference.js"),
     ("site/ai-ecologies.js", "site/ai-ecologies.js"),
     ("site/data/corpus-data.js", "site/data/corpus-data.js"),
     ("site/data/ai-ecologies-data.js", "site/data/ai-ecologies-data.js"),

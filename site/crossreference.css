@@ -1,0 +1,239 @@
+.crossref-hero {
+  min-height: min(84svh, 56rem);
+}
+
+.crossref-hero-grid {
+  align-items: stretch;
+}
+
+.source-boundary-banner {
+  max-width: 40rem;
+  margin-top: 1.2rem;
+  padding: 1rem 1rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.source-boundary-banner p {
+  margin: 0.35rem 0 0;
+  color: rgba(248, 245, 238, 0.9);
+}
+
+.section-spacer {
+  height: 1.5rem;
+}
+
+.crossref-panel {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1.15rem;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.crossref-controls {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.crossref-controls label {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.crossref-controls span {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.crossref-controls select {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid rgba(19, 70, 71, 0.16);
+  border-radius: 0.85rem;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--ink);
+  font: inherit;
+}
+
+.crossref-controls select:focus {
+  outline: 2px solid rgba(173, 95, 59, 0.22);
+  border-color: rgba(173, 95, 59, 0.45);
+}
+
+.crossref-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 0.9rem;
+}
+
+.crossref-stat {
+  padding: 1rem 1rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.crossref-stat .value {
+  display: block;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: 1.95rem;
+  line-height: 1;
+  color: var(--deep);
+}
+
+.crossref-stat strong {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.98rem;
+}
+
+.crossref-stat p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.crossref-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.crossref-row button {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.66);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.crossref-row button:hover,
+.crossref-row.is-active button {
+  border-color: rgba(19, 70, 71, 0.26);
+  box-shadow: var(--shadow);
+}
+
+.crossref-row__meta,
+.crossref-decade-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.crossref-row__meta strong,
+.crossref-decade-meta strong {
+  font-size: 1rem;
+}
+
+.crossref-row__meta span,
+.crossref-decade-meta span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.crossref-row__bar,
+.crossref-decade-track {
+  overflow: hidden;
+  height: 0.78rem;
+  margin-top: 0.6rem;
+  border-radius: 999px;
+  background: rgba(19, 70, 71, 0.08);
+}
+
+.crossref-row__fill,
+.crossref-decade-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--deep), var(--accent));
+}
+
+.crossref-row__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.8rem;
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.crossref-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.95rem;
+}
+
+.crossref-metric {
+  padding: 0.9rem 0.85rem;
+  border-radius: 1rem;
+  background: rgba(19, 70, 71, 0.05);
+}
+
+.crossref-metric .value {
+  display: block;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--deep);
+}
+
+.crossref-metric strong {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 0.9rem;
+}
+
+.crossref-rationale {
+  grid-template-columns: 1fr;
+}
+
+.crossref-decade-chart {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.crossref-decade-row {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.crossref-decade-row:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.evidence-results {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (max-width: 1100px) {
+  .crossref-controls,
+  .crossref-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .crossref-controls,
+  .crossref-stats,
+  .crossref-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .crossref-row__meta,
+  .crossref-decade-meta {
+    flex-direction: column;
+    align-items: start;
+  }
+}
