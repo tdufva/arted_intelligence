@@ -135,6 +135,21 @@
     lensId: "",
     scope: "all",
     sort: "association",
+    researchNoteMode: "pair",
+    pair: {
+      a: {
+        familyOne: "types",
+        idOne: "digital",
+        familyTwo: "perspectives",
+        idTwo: "technology",
+      },
+      b: {
+        familyOne: "types",
+        idOne: "social",
+        familyTwo: "perspectives",
+        idTwo: "community",
+      },
+    },
   };
 
   function formatNumber(value) {
@@ -197,6 +212,32 @@
       .sort((left, right) => right.corpusCount - left.corpusCount || left.label.localeCompare(right.label));
   }
 
+  function preferredDefinitionId(family, preferredIds = []) {
+    const rows = definitionRowsForFamily(family);
+    const hit = preferredIds.find((candidate) => rows.some((row) => row.id === candidate));
+    return hit || rows[0]?.id || "";
+  }
+
+  function pairLabel(pair) {
+    if (!pair) return "";
+    return `${lookupAnyLabel(pair.idOne)} × ${lookupAnyLabel(pair.idTwo)}`;
+  }
+
+  function pairMatches(article, pair) {
+    return articleMatchesFamily(article, pair.familyOne, pair.idOne) && articleMatchesFamily(article, pair.familyTwo, pair.idTwo);
+  }
+
+  function pairConcepts(pair) {
+    const items = [
+      { family: pair.familyOne, id: pair.idOne },
+      { family: pair.familyTwo, id: pair.idTwo },
+    ];
+    if (state.lensFamily && state.lensId) {
+      items.push({ family: state.lensFamily, id: state.lensId });
+    }
+    return items;
+  }
+
   function ensureStateValidity() {
     if (!familyConfigs[state.primaryFamily]) state.primaryFamily = "types";
     const primaryRows = definitionRowsForFamily(state.primaryFamily);
@@ -221,6 +262,37 @@
       state.lensId = "";
     }
     if (!scopeOptions.some((item) => item.id === state.scope)) state.scope = "all";
+
+    ["a", "b"].forEach((slot, index) => {
+      const pair = state.pair[slot];
+      if (!familyConfigs[pair.familyOne]) pair.familyOne = "types";
+      if (!familyConfigs[pair.familyTwo]) pair.familyTwo = "perspectives";
+
+      const familyOneRows = definitionRowsForFamily(pair.familyOne);
+      if (!familyOneRows.some((item) => item.id === pair.idOne)) {
+        pair.idOne = preferredDefinitionId(
+          pair.familyOne,
+          index === 0 ? ["digital", "cognitive"] : ["social", "creative", "cognitive"],
+        );
+      }
+
+      const familyTwoRows = definitionRowsForFamily(pair.familyTwo).filter(
+        (item) => !(pair.familyOne === pair.familyTwo && item.id === pair.idOne),
+      );
+      if (!familyTwoRows.some((item) => item.id === pair.idTwo)) {
+        pair.idTwo = preferredDefinitionId(
+          pair.familyTwo,
+          index === 0 ? ["technology", "assessment", "pedagogy"] : ["community", "critical", "pedagogy"],
+        );
+        if (pair.familyOne === pair.familyTwo && pair.idTwo === pair.idOne) {
+          pair.idTwo = familyTwoRows[0]?.id || "";
+        }
+      }
+    });
+
+    if (!["lead", "pair"].includes(state.researchNoteMode)) {
+      state.researchNoteMode = "pair";
+    }
   }
 
   function populateSelect(select, rows, selectedId, placeholder) {
@@ -250,6 +322,17 @@
     const lensId = document.getElementById("crossref-lens-id");
     const scope = document.getElementById("crossref-scope");
     const sort = document.getElementById("crossref-sort");
+    const noteMode = document.getElementById("research-note-mode");
+    const pairAFamilyOne = document.getElementById("pair-a-family-one");
+    const pairAIdOne = document.getElementById("pair-a-id-one");
+    const pairAFamilyTwo = document.getElementById("pair-a-family-two");
+    const pairAIdTwo = document.getElementById("pair-a-id-two");
+    const pairBFamilyOne = document.getElementById("pair-b-family-one");
+    const pairBIdOne = document.getElementById("pair-b-id-one");
+    const pairBFamilyTwo = document.getElementById("pair-b-family-two");
+    const pairBIdTwo = document.getElementById("pair-b-id-two");
+    const pairLoadActive = document.getElementById("pair-load-active");
+    const pairSwap = document.getElementById("pair-swap");
 
     if (!primaryFamily || !primaryId || !secondaryFamily || !secondaryId || !lensFamily || !lensId || !scope || !sort) {
       return;
@@ -279,6 +362,29 @@
     lensId.disabled = !state.lensFamily;
     populateSelect(scope, scopeOptions, state.scope);
     sort.value = state.sort;
+    if (noteMode) noteMode.value = state.researchNoteMode;
+
+    const renderPairSlot = (slotPrefix, pair) => {
+      const familyOne = document.getElementById(`${slotPrefix}-family-one`);
+      const idOne = document.getElementById(`${slotPrefix}-id-one`);
+      const familyTwo = document.getElementById(`${slotPrefix}-family-two`);
+      const idTwo = document.getElementById(`${slotPrefix}-id-two`);
+      if (!familyOne || !idOne || !familyTwo || !idTwo) return;
+
+      populateSelect(familyOne, familyOptions, pair.familyOne);
+      populateSelect(familyTwo, familyOptions, pair.familyTwo);
+      populateSelect(idOne, definitionRowsForFamily(pair.familyOne), pair.idOne);
+      populateSelect(
+        idTwo,
+        definitionRowsForFamily(pair.familyTwo).filter(
+          (item) => !(pair.familyOne === pair.familyTwo && item.id === pair.idOne),
+        ),
+        pair.idTwo,
+      );
+    };
+
+    renderPairSlot("pair-a", state.pair.a);
+    renderPairSlot("pair-b", state.pair.b);
 
     if (!primaryFamily.dataset.bound) {
       primaryFamily.addEventListener("change", () => {
@@ -351,6 +457,75 @@
         renderAll();
       });
       sort.dataset.bound = "true";
+    }
+
+    const bindPairSelect = (element, updater) => {
+      if (!element || element.dataset.bound) return;
+      element.addEventListener("change", () => {
+        updater(element.value);
+        renderAll();
+      });
+      element.dataset.bound = "true";
+    };
+
+    bindPairSelect(pairAFamilyOne, (value) => {
+      state.pair.a.familyOne = value;
+      state.pair.a.idOne = "";
+    });
+    bindPairSelect(pairAIdOne, (value) => {
+      state.pair.a.idOne = value;
+    });
+    bindPairSelect(pairAFamilyTwo, (value) => {
+      state.pair.a.familyTwo = value;
+      state.pair.a.idTwo = "";
+    });
+    bindPairSelect(pairAIdTwo, (value) => {
+      state.pair.a.idTwo = value;
+    });
+    bindPairSelect(pairBFamilyOne, (value) => {
+      state.pair.b.familyOne = value;
+      state.pair.b.idOne = "";
+    });
+    bindPairSelect(pairBIdOne, (value) => {
+      state.pair.b.idOne = value;
+    });
+    bindPairSelect(pairBFamilyTwo, (value) => {
+      state.pair.b.familyTwo = value;
+      state.pair.b.idTwo = "";
+    });
+    bindPairSelect(pairBIdTwo, (value) => {
+      state.pair.b.idTwo = value;
+    });
+
+    if (noteMode && !noteMode.dataset.bound) {
+      noteMode.addEventListener("change", () => {
+        state.researchNoteMode = noteMode.value;
+        renderAll();
+      });
+      noteMode.dataset.bound = "true";
+    }
+
+    if (pairLoadActive && !pairLoadActive.dataset.bound) {
+      pairLoadActive.addEventListener("click", () => {
+        const activeRow = computeRows().active;
+        state.pair.a.familyOne = state.primaryFamily;
+        state.pair.a.idOne = state.primaryId;
+        state.pair.a.familyTwo = state.secondaryFamily;
+        state.pair.a.idTwo = activeRow?.id || state.secondaryId || state.pair.a.idTwo;
+        renderAll();
+      });
+      pairLoadActive.dataset.bound = "true";
+    }
+
+    if (pairSwap && !pairSwap.dataset.bound) {
+      pairSwap.addEventListener("click", () => {
+        const nextA = { ...state.pair.b };
+        const nextB = { ...state.pair.a };
+        state.pair.a = nextA;
+        state.pair.b = nextB;
+        renderAll();
+      });
+      pairSwap.dataset.bound = "true";
     }
   }
 
@@ -562,6 +737,288 @@
     };
   }
 
+  function computePairMetrics(pair, baseArticles) {
+    const firstArticles = baseArticles.filter((article) => articleMatchesFamily(article, pair.familyOne, pair.idOne));
+    const secondArticles = baseArticles.filter((article) => articleMatchesFamily(article, pair.familyTwo, pair.idTwo));
+    const matchedArticles = baseArticles.filter((article) => pairMatches(article, pair));
+    const observed = matchedArticles.length;
+    const expected = baseArticles.length ? (firstArticles.length * secondArticles.length) / baseArticles.length : 0;
+    const totalCitation = matchedArticles.reduce((sum, article) => sum + pdfCitationCount(article), 0);
+    const avgCitation = observed ? totalCitation / observed : 0;
+    const totalViews = matchedArticles.reduce((sum, article) => sum + (article.articleViews || 0), 0);
+    const avgViews = observed ? totalViews / observed : 0;
+    const earlyScopeCount = baseArticles.filter((article) => earlyWindow.includes(currentDecade(article))).length;
+    const lateScopeCount = baseArticles.filter((article) => lateWindow.includes(currentDecade(article))).length;
+    const earlyCount = matchedArticles.filter((article) => earlyWindow.includes(currentDecade(article))).length;
+    const lateCount = matchedArticles.filter((article) => lateWindow.includes(currentDecade(article))).length;
+    const earlyScopeShare = earlyScopeCount ? earlyCount / earlyScopeCount : 0;
+    const lateScopeShare = lateScopeCount ? lateCount / lateScopeCount : 0;
+    const decadeCounts = allDecades.map((decade) => {
+      const scopeCount = baseArticles.filter((article) => currentDecade(article) === decade).length;
+      const count = matchedArticles.filter((article) => currentDecade(article) === decade).length;
+      return {
+        decade,
+        count,
+        shareWithinScope: scopeCount ? count / scopeCount : 0,
+      };
+    });
+
+    return {
+      ...pair,
+      label: pairLabel(pair),
+      observed,
+      expected,
+      lift: expected > 0 ? observed / expected : 0,
+      firstCount: firstArticles.length,
+      secondCount: secondArticles.length,
+      scopeShare: baseArticles.length ? observed / baseArticles.length : 0,
+      firstShare: firstArticles.length ? observed / firstArticles.length : 0,
+      secondShare: secondArticles.length ? observed / secondArticles.length : 0,
+      totalCitation,
+      avgCitation,
+      avgViews,
+      earlyScopeShare,
+      lateScopeShare,
+      frontierDelta: lateScopeShare - earlyScopeShare,
+      recentShare: observed ? lateCount / observed : 0,
+      decadeCounts,
+      articles: [...matchedArticles].sort(compareArticlesByImportance),
+    };
+  }
+
+  function computePairContext(context) {
+    return {
+      baseArticles: context.baseArticles,
+      a: computePairMetrics(state.pair.a, context.baseArticles),
+      b: computePairMetrics(state.pair.b, context.baseArticles),
+    };
+  }
+
+  function pairWinnerKey(left, right, key, higherWins = true) {
+    if (Math.abs((left[key] || 0) - (right[key] || 0)) < 0.0001) return "tie";
+    if (higherWins) return left[key] > right[key] ? "a" : "b";
+    return left[key] < right[key] ? "a" : "b";
+  }
+
+  function pairWinnerLabel(pairContext, key, formatter) {
+    const winner = pairWinnerKey(pairContext.a, pairContext.b, key, true);
+    if (winner === "tie") return "Near tie";
+    const pair = pairContext[winner];
+    return `${winner === "a" ? "Pair A" : "Pair B"} · ${formatter(pair[key])}`;
+  }
+
+  function pairDifferenceNarrative(pairContext) {
+    const bigger = pairWinnerKey(pairContext.a, pairContext.b, "observed", true);
+    const tighter = pairWinnerKey(pairContext.a, pairContext.b, "lift", true);
+    const newer = pairWinnerKey(pairContext.a, pairContext.b, "frontierDelta", true);
+    const cited = pairWinnerKey(pairContext.a, pairContext.b, "avgCitation", true);
+    const lines = [];
+
+    if (bigger !== "tie") {
+      lines.push(`${bigger === "a" ? "Pair A" : "Pair B"} is the larger overlap in the current scope.`);
+    } else {
+      lines.push("Both pairs have a similar overlap size in the current scope.");
+    }
+
+    if (tighter !== "tie") {
+      lines.push(`${tighter === "a" ? "Pair A" : "Pair B"} is the tighter coupling once frequency is normalized through lift.`);
+    }
+
+    if (newer !== "tie") {
+      lines.push(
+        (pairContext[newer].frontierDelta > 0.02 ? `${newer === "a" ? "Pair A" : "Pair B"} has the stronger later-corpus signal.` : "Neither pair shows a strong late-window advantage."),
+      );
+    }
+
+    if (cited !== "tie") {
+      lines.push(`${cited === "a" ? "Pair A" : "Pair B"} is more citation-dense in the available PDF metadata.`);
+    }
+
+    return lines.join(" ");
+  }
+
+  function formatReference(article) {
+    const doiText = article.doi ? `DOI: https://doi.org/${article.doi}` : "DOI not available in extracted metadata.";
+    return `- ${article.title} (${article.year}). ${doiText}`;
+  }
+
+  function collectQuoteEvidence(articles, concepts, limit = 4) {
+    const output = [];
+    articles.forEach((article) => {
+      if (output.length >= limit) return;
+      const quotes = selectRelevantQuotes(article, concepts);
+      if (!quotes.length) return;
+      output.push({
+        title: article.title,
+        year: article.year,
+        text: quotes[0].text,
+      });
+    });
+    return output.slice(0, limit);
+  }
+
+  function slugify(value) {
+    return String(value || "research-note")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(0, 80);
+  }
+
+  function buildLeadNote(context) {
+    const row = context.active;
+    if (!row) {
+      return {
+        text: "No active ranked lead is available for note generation.",
+        citations: "",
+        filename: "crossreference-note.md",
+      };
+    }
+
+    const primaryLabel = lookupAnyLabel(state.primaryId);
+    const title = `${primaryLabel} × ${row.label}`;
+    const concepts = selectedConcepts(row);
+    const topArticles = row.articles.slice(0, 8);
+    const quotes = collectQuoteEvidence(topArticles, concepts, 4);
+    const lensText = state.lensFamily && state.lensId ? `${lookupAnyLabel(state.lensId)} (${labelForFamily(state.lensFamily)})` : "None";
+    const citations = topArticles.map(formatReference).join("\n");
+
+    return {
+      filename: `${slugify(title)}-note.md`,
+      citations,
+      text: [
+        `# Research note: ${title}`,
+        ``,
+        `## Corpus scope`,
+        `- Source: Studies in Art Education PDF corpus only`,
+        `- Window: ${state.scope === "all" ? "All decades" : state.scope}`,
+        `- Additional lens: ${lensText}`,
+        `- Primary slice size: ${formatNumber(context.primaryArticles.length)} articles`,
+        ``,
+        `## Working lead`,
+        `- Matched articles: ${formatNumber(row.observed)}`,
+        `- Share of primary slice: ${formatPercent(row.primaryShare)}`,
+        `- Observed / expected: ${row.lift.toFixed(2)}x`,
+        `- Average PDF citation count: ${formatNumber(row.avgCitation)}`,
+        `- Early-to-late shift: ${formatPercent(row.earlyShare)} -> ${formatPercent(row.lateShare)}`,
+        ``,
+        `## Interpretive note`,
+        rowNarrative(row),
+        ``,
+        `## Supporting articles`,
+        citations || "- No articles available in the current slice.",
+        ``,
+        `## Quote evidence`,
+        ...(quotes.length
+          ? quotes.map((item) => `- ${item.year}, ${item.title}: "${item.text}"`)
+          : ["- No quote-level evidence available in the current slice."]),
+        ``,
+        `## Method and cautions`,
+        `- Multi-label corpus: intersections show co-presence rather than exclusive classification.`,
+        `- PDF citation metadata is partial in this dataset.`,
+        `- This note is a research lead, not a finished claim; the supporting articles should be read closely before interpretation is finalized.`,
+      ].join("\n"),
+    };
+  }
+
+  function buildPairNote(pairContext) {
+    const pairA = pairContext.a;
+    const pairB = pairContext.b;
+    const citationsA = pairA.articles.slice(0, 6).map(formatReference);
+    const citationsB = pairB.articles.slice(0, 6).map(formatReference);
+    const quotesA = collectQuoteEvidence(pairA.articles.slice(0, 6), pairConcepts(pairA), 3);
+    const quotesB = collectQuoteEvidence(pairB.articles.slice(0, 6), pairConcepts(pairB), 3);
+    const lensText = state.lensFamily && state.lensId ? `${lookupAnyLabel(state.lensId)} (${labelForFamily(state.lensFamily)})` : "None";
+
+    return {
+      filename: `${slugify(`${pairA.label}-vs-${pairB.label}`)}.md`,
+      citations: [`## Pair A`, ...citationsA, ``, `## Pair B`, ...citationsB].join("\n"),
+      text: [
+        `# Pair comparison note: ${pairA.label} vs ${pairB.label}`,
+        ``,
+        `## Corpus scope`,
+        `- Source: Studies in Art Education PDF corpus only`,
+        `- Window: ${state.scope === "all" ? "All decades" : state.scope}`,
+        `- Additional lens: ${lensText}`,
+        `- Articles in scope: ${formatNumber(pairContext.baseArticles.length)}`,
+        ``,
+        `## Pair A`,
+        `- Pair: ${pairA.label}`,
+        `- Matched articles: ${formatNumber(pairA.observed)}`,
+        `- Share of scope: ${formatPercent(pairA.scopeShare)}`,
+        `- Lift: ${pairA.lift.toFixed(2)}x`,
+        `- Average PDF citation count: ${formatNumber(pairA.avgCitation)}`,
+        `- Early-to-late scope shift: ${formatPercent(pairA.earlyScopeShare)} -> ${formatPercent(pairA.lateScopeShare)}`,
+        ``,
+        `## Pair B`,
+        `- Pair: ${pairB.label}`,
+        `- Matched articles: ${formatNumber(pairB.observed)}`,
+        `- Share of scope: ${formatPercent(pairB.scopeShare)}`,
+        `- Lift: ${pairB.lift.toFixed(2)}x`,
+        `- Average PDF citation count: ${formatNumber(pairB.avgCitation)}`,
+        `- Early-to-late scope shift: ${formatPercent(pairB.earlyScopeShare)} -> ${formatPercent(pairB.lateScopeShare)}`,
+        ``,
+        `## Comparative takeaways`,
+        `- ${pairDifferenceNarrative(pairContext)}`,
+        ``,
+        `## Supporting articles for Pair A`,
+        ...(citationsA.length ? citationsA : ["- No articles available for Pair A in the current scope."]),
+        ``,
+        `## Supporting articles for Pair B`,
+        ...(citationsB.length ? citationsB : ["- No articles available for Pair B in the current scope."]),
+        ``,
+        `## Quote evidence for Pair A`,
+        ...(quotesA.length ? quotesA.map((item) => `- ${item.year}, ${item.title}: "${item.text}"`) : ["- No quote-level evidence available."]),
+        ``,
+        `## Quote evidence for Pair B`,
+        ...(quotesB.length ? quotesB.map((item) => `- ${item.year}, ${item.title}: "${item.text}"`) : ["- No quote-level evidence available."]),
+        ``,
+        `## Method and cautions`,
+        `- Pair comparison uses the same scope and lens for both pairs.`,
+        `- Lift is used to distinguish unusually tight pairings from merely common ones.`,
+        `- Citation density uses the PDF-derived metadata available in this corpus and is not a complete citation index.`,
+      ].join("\n"),
+    };
+  }
+
+  async function copyTextToClipboard(text) {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    } catch (error) {
+      // Fall through to the textarea fallback.
+    }
+
+    try {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "true");
+      textarea.style.position = "absolute";
+      textarea.style.left = "-9999px";
+      document.body.append(textarea);
+      textarea.select();
+      const success = document.execCommand("copy");
+      textarea.remove();
+      return success;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function downloadTextFile(text, filename) {
+    const blob = new Blob([text], { type: "text/markdown;charset=utf-8" });
+    const href = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = href;
+    link.download = filename;
+    document.body.append(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(href);
+  }
+
   function metricCards(context) {
     const target = document.getElementById("crossref-stats");
     const note = document.getElementById("crossref-note");
@@ -735,6 +1192,131 @@
     target.append(actions);
   }
 
+  function renderPairComparison(pairContext) {
+    const note = document.getElementById("pair-note");
+    const stats = document.getElementById("pair-stats");
+    const chart = document.getElementById("pair-decade-chart");
+    const detail = document.getElementById("pair-detail");
+    if (!note || !stats || !chart || !detail) return;
+
+    const lensText =
+      state.lensFamily && state.lensId ? ` and lens-filtered by ${lookupAnyLabel(state.lensId)}` : "";
+    note.textContent = `${formatNumber(pairContext.baseArticles.length)} articles are in scope for both pairs. Pair A and Pair B are evaluated under the same corpus window${lensText}.`;
+
+    const cards = [
+      {
+        title: "Larger overlap",
+        value: pairWinnerLabel(pairContext, "observed", (value) => `${formatNumber(value)} articles`),
+        note: `A ${formatNumber(pairContext.a.observed)} · B ${formatNumber(pairContext.b.observed)}`,
+      },
+      {
+        title: "Tighter coupling",
+        value: pairWinnerLabel(pairContext, "lift", (value) => `${value.toFixed(2)}x`),
+        note: `A ${pairContext.a.lift.toFixed(2)}x · B ${pairContext.b.lift.toFixed(2)}x`,
+      },
+      {
+        title: "Stronger later signal",
+        value: pairWinnerLabel(pairContext, "frontierDelta", (value) => `${Math.round(value * 100)} pts`),
+        note: `A ${Math.round(pairContext.a.frontierDelta * 100)} pts · B ${Math.round(pairContext.b.frontierDelta * 100)} pts`,
+      },
+      {
+        title: "Higher citation density",
+        value: pairWinnerLabel(pairContext, "avgCitation", (value) => `${formatNumber(value)}`),
+        note: `A ${formatNumber(pairContext.a.avgCitation)} · B ${formatNumber(pairContext.b.avgCitation)}`,
+      },
+    ];
+
+    stats.innerHTML = "";
+    cards.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "crossref-stat";
+      card.innerHTML = `<span class="value">${escapeHtml(item.value)}</span><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.note)}</p>`;
+      stats.append(card);
+    });
+
+    const maxShare = Math.max(
+      ...pairContext.a.decadeCounts.map((item) => item.shareWithinScope),
+      ...pairContext.b.decadeCounts.map((item) => item.shareWithinScope),
+      0.01,
+    );
+    chart.innerHTML = "";
+    allDecades.forEach((decade) => {
+      const aRow = pairContext.a.decadeCounts.find((item) => item.decade === decade) || { count: 0, shareWithinScope: 0 };
+      const bRow = pairContext.b.decadeCounts.find((item) => item.decade === decade) || { count: 0, shareWithinScope: 0 };
+      const node = document.createElement("div");
+      node.className = "pair-decade-row";
+      node.innerHTML = `
+        <div class="pair-decade-meta">
+          <strong>${escapeHtml(decade)}</strong>
+          <span>A ${formatPercent(aRow.shareWithinScope)} · B ${formatPercent(bRow.shareWithinScope)}</span>
+        </div>
+        <div class="pair-decade-bars">
+          <div class="pair-decade-lane"><span class="pair-decade-fill pair-a" style="width:${(aRow.shareWithinScope / maxShare) * 100}%"></span></div>
+          <div class="pair-decade-lane"><span class="pair-decade-fill pair-b" style="width:${(bRow.shareWithinScope / maxShare) * 100}%"></span></div>
+        </div>
+      `;
+      chart.append(node);
+    });
+
+    const topA = pairContext.a.articles.slice(0, 4);
+    const topB = pairContext.b.articles.slice(0, 4);
+    detail.innerHTML = `
+      <h3>${escapeHtml(pairContext.a.label)} vs ${escapeHtml(pairContext.b.label)}</h3>
+      <p>${escapeHtml(pairDifferenceNarrative(pairContext))}</p>
+      <div class="pair-legend">
+        <span class="pair-chip pair-chip-a">Pair A</span>
+        <span>${escapeHtml(pairContext.a.label)}</span>
+        <span class="pair-chip pair-chip-b">Pair B</span>
+        <span>${escapeHtml(pairContext.b.label)}</span>
+      </div>
+      <div class="codebook-block">
+        <h4>Representative articles for Pair A</h4>
+        <ul class="codebook-list">
+          ${topA.length ? topA.map((article) => `<li><strong>${article.year}</strong> ${escapeHtml(article.title)}</li>`).join("") : "<li>No articles in scope.</li>"}
+        </ul>
+      </div>
+      <div class="codebook-block">
+        <h4>Representative articles for Pair B</h4>
+        <ul class="codebook-list">
+          ${topB.length ? topB.map((article) => `<li><strong>${article.year}</strong> ${escapeHtml(article.title)}</li>`).join("") : "<li>No articles in scope.</li>"}
+        </ul>
+      </div>
+    `;
+  }
+
+  function renderResearchNote(context, pairContext) {
+    const mode = document.getElementById("research-note-mode");
+    const status = document.getElementById("research-note-status");
+    const output = document.getElementById("research-note-output");
+    const copyButton = document.getElementById("research-note-copy");
+    const downloadButton = document.getElementById("research-note-download");
+    const copyCitationsButton = document.getElementById("research-note-copy-citations");
+    if (!mode || !status || !output || !copyButton || !downloadButton || !copyCitationsButton) return;
+
+    const noteData = state.researchNoteMode === "pair" ? buildPairNote(pairContext) : buildLeadNote(context);
+    mode.value = state.researchNoteMode;
+    output.textContent = noteData.text;
+    status.textContent =
+      state.researchNoteMode === "pair"
+        ? "The note is built from the current pair comparison and keeps the same scope, lens, and metric frame."
+        : "The note is built from the active ranked lead and includes the supporting articles and quotes now in view.";
+
+    copyButton.onclick = async () => {
+      const success = await copyTextToClipboard(noteData.text);
+      status.textContent = success ? "Research note copied to the clipboard." : "Clipboard copy failed in this browser; use the note preview to copy manually.";
+    };
+
+    downloadButton.onclick = () => {
+      downloadTextFile(noteData.text, noteData.filename);
+      status.textContent = `Downloaded ${noteData.filename}.`;
+    };
+
+    copyCitationsButton.onclick = async () => {
+      const success = await copyTextToClipboard(noteData.citations || "");
+      status.textContent = success ? "Citation list copied to the clipboard." : "Clipboard copy failed for the citation list.";
+    };
+  }
+
   function pickLead(rows, mode, used = new Set()) {
     return [...rows]
       .sort((left, right) => scoreForRow(right, mode) - scoreForRow(left, mode) || right.observed - left.observed)
@@ -902,9 +1484,12 @@
   function renderAll() {
     renderControls();
     const context = computeRows();
+    const pairContext = computePairContext(context);
     metricCards(context);
     renderList(context);
     renderDetail(context);
+    renderPairComparison(pairContext);
+    renderResearchNote(context, pairContext);
     renderLeadCards(context);
     renderDecadeChart(context);
     renderRationale(context);

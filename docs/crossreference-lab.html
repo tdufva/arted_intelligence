@@ -140,6 +140,112 @@
           <div class="section-header">
             <p class="section-index">03</p>
             <div>
+              <h2>Pair vs pair studio</h2>
+              <p>
+                Compare two explicit pairings side by side. This lets you test whether one discourse
+                cluster is larger, tighter, newer, or more citation-dense than another in the same
+                corpus window.
+              </p>
+            </div>
+          </div>
+          <div class="crossref-panel">
+            <div class="pair-actions">
+              <button id="pair-load-active" type="button" class="ghost-button">Use active workspace lead as Pair A</button>
+              <button id="pair-swap" type="button" class="ghost-button">Swap Pair A and Pair B</button>
+            </div>
+            <div class="pair-grid">
+              <article class="pair-panel">
+                <h3>Pair A</h3>
+                <div class="pair-controls">
+                  <label>
+                    <span>Family 1</span>
+                    <select id="pair-a-family-one"></select>
+                  </label>
+                  <label>
+                    <span>Concept 1</span>
+                    <select id="pair-a-id-one"></select>
+                  </label>
+                  <label>
+                    <span>Family 2</span>
+                    <select id="pair-a-family-two"></select>
+                  </label>
+                  <label>
+                    <span>Concept 2</span>
+                    <select id="pair-a-id-two"></select>
+                  </label>
+                </div>
+              </article>
+              <article class="pair-panel">
+                <h3>Pair B</h3>
+                <div class="pair-controls">
+                  <label>
+                    <span>Family 1</span>
+                    <select id="pair-b-family-one"></select>
+                  </label>
+                  <label>
+                    <span>Concept 1</span>
+                    <select id="pair-b-id-one"></select>
+                  </label>
+                  <label>
+                    <span>Family 2</span>
+                    <select id="pair-b-family-two"></select>
+                  </label>
+                  <label>
+                    <span>Concept 2</span>
+                    <select id="pair-b-id-two"></select>
+                  </label>
+                </div>
+              </article>
+            </div>
+            <p id="pair-note" class="chart-note"></p>
+            <div id="pair-stats" class="pair-stats"></div>
+          </div>
+          <div class="section-spacer"></div>
+          <div class="split split-wide">
+            <article>
+              <h3>How the pairs diverge across decades</h3>
+              <div id="pair-decade-chart" class="pair-decade-chart"></div>
+            </article>
+            <article class="comparison-detail" id="pair-detail" aria-live="polite"></article>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">04</p>
+            <div>
+              <h2>Research note desk</h2>
+              <p>
+                Turn either the active ranked lead or the active pair comparison into a compact,
+                citation-ready Markdown note with metrics, cautions, supporting articles, and quote
+                evidence.
+              </p>
+            </div>
+          </div>
+          <div class="crossref-panel">
+            <div class="note-toolbar">
+              <label>
+                <span>Build note from</span>
+                <select id="research-note-mode">
+                  <option value="lead">Active ranked lead</option>
+                  <option value="pair">Current pair comparison</option>
+                </select>
+              </label>
+              <div class="note-buttons">
+                <button id="research-note-copy" type="button" class="ghost-button">Copy note</button>
+                <button id="research-note-download" type="button" class="ghost-button">Download Markdown</button>
+                <button id="research-note-copy-citations" type="button" class="ghost-button">Copy citations</button>
+              </div>
+            </div>
+            <p id="research-note-status" class="chart-note"></p>
+            <pre id="research-note-output" class="research-note-output"></pre>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-header">
+            <p class="section-index">05</p>
+            <div>
               <h2>Good points finder</h2>
               <p>
                 These cards surface different kinds of research leads from the current ranking, so you
@@ -153,7 +259,7 @@
 
         <section class="section reveal">
           <div class="section-header">
-            <p class="section-index">04</p>
+            <p class="section-index">06</p>
             <div>
               <h2>Article-level evidence</h2>
               <p>
@@ -179,7 +285,7 @@
 
         <section class="section reveal">
           <div class="section-header">
-            <p class="section-index">05</p>
+            <p class="section-index">07</p>
             <div>
               <h2>Method and cautions</h2>
               <p>
