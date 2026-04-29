@@ -1,9 +1,19 @@
 (function () {
   const data = window.AI_ECOLOGIES_DATA;
+  const corpus = window.CORPUS_DATA;
 
   if (!data) {
     return;
   }
+
+  const familyArticleKeys = {
+    definitions: "definitionFrames",
+    recognition: "recognitionModes",
+    locations: "locationFrames",
+    types: "intelligenceTypes",
+    perspectives: "perspectives",
+    subjects: "subjectFrames",
+  };
 
   function escapeHtml(value) {
     return String(value ?? "")
@@ -20,6 +30,10 @@
 
   function formatNumber(value) {
     return new Intl.NumberFormat("en-US").format(value || 0);
+  }
+
+  function pdfCitationCount(article) {
+    return article?.citingArticlesPdf || 0;
   }
 
   function lookupLabel(family, id) {
@@ -39,6 +53,59 @@
 
   function detailTags(family, ids) {
     return (ids || []).map((id) => `<span class="tag">${escapeHtml(lookupLabel(family, id))}</span>`).join("");
+  }
+
+  function compareArticlesByImportance(left, right) {
+    return (
+      pdfCitationCount(right) - pdfCitationCount(left) ||
+      (right.articleViews || 0) - (left.articleViews || 0) ||
+      right.year - left.year ||
+      left.title.localeCompare(right.title)
+    );
+  }
+
+  function corpusArticlesFor(family, id, limit = 3) {
+    if (!corpus) return [];
+    const key = familyArticleKeys[family];
+    if (!key) return [];
+    return [...corpus.articles]
+      .filter((article) => article[key]?.includes(id))
+      .sort(compareArticlesByImportance)
+      .slice(0, limit);
+  }
+
+  function aiPapersFor(family, id, limit = 3) {
+    return [...data.arxivPapers]
+      .filter((paper) => paper.codes[family]?.includes(id))
+      .sort((left, right) => left.year - right.year || left.title.localeCompare(right.title))
+      .slice(0, limit);
+  }
+
+  function articleReferenceMarkup(article) {
+    const label = `${article.title} (${article.year})`;
+    return article.doi
+      ? `<a href="https://doi.org/${escapeHtml(article.doi)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`
+      : escapeHtml(label);
+  }
+
+  function paperReferenceMarkup(paper) {
+    return `<a href="${escapeHtml(paper.url)}" target="_blank" rel="noreferrer">${escapeHtml(`${paper.title} (${paper.year})`)}</a>`;
+  }
+
+  function referenceListMarkup(items, kind, heading) {
+    if (!items?.length) {
+      return `<div class="codebook-block"><h4>${escapeHtml(heading)}</h4><p class="chart-note">No references available in the current slice.</p></div>`;
+    }
+    const markup =
+      kind === "paper"
+        ? items.map((item) => `<li class="scholar-reference">${paperReferenceMarkup(item)}</li>`).join("")
+        : items.map((item) => `<li class="scholar-reference">${articleReferenceMarkup(item)}</li>`).join("");
+    return `
+      <div class="codebook-block">
+        <h4>${escapeHtml(heading)}</h4>
+        <ul class="scholar-citation-list">${markup}</ul>
+      </div>
+    `;
   }
 
   function renderHeroStats() {
@@ -72,6 +139,41 @@
     });
   }
 
+  function renderSourceMap() {
+    const target = document.getElementById("ai-source-map");
+    if (!target) return;
+    const cards = [
+      {
+        title: "Curated arXiv sample",
+        meta: `${data.heroStats.arxivPaperCount} papers · ${data.heroStats.arxivYearRange[0]}–${data.heroStats.arxivYearRange[1]}`,
+        body: "The outside research layer is a curated arXiv sample on intelligence in AI research, selected to cover definition, benchmarking, explanation, collectives, embodiment, social AI, and research automation.",
+      },
+      {
+        title: "Local art-education corpus",
+        meta: `${data.heroStats.artCorpusArticles} PDF articles`,
+        body: "The comparison baseline is the local Studies in Art Education intelligence corpus already used on the main atlas page, rather than material fetched from outside search.",
+      },
+      {
+        title: "Umwelt and Bridle sources",
+        meta: `${data.umwelt.sources.length + data.umwelt.bridleSources.length} conceptual texts`,
+        body: "Umwelt references and James Bridle texts are used as an interpretive bridge for re-reading both corpora as ecologies of intelligence rather than as a third quantitative dataset.",
+      },
+      {
+        title: "Reference trail",
+        meta: `${data.references.length} linked references`,
+        body: "Every outside source used on this page is listed in the references section below, while representative corpus articles are cited directly inside the comparison abstracts.",
+      },
+    ];
+
+    target.innerHTML = "";
+    cards.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "source-card";
+      card.innerHTML = `<h3>${escapeHtml(item.title)}</h3><p class="meta-line">${escapeHtml(item.meta)}</p><p>${escapeHtml(item.body)}</p>`;
+      target.append(card);
+    });
+  }
+
   function renderTakeaways() {
     const target = document.getElementById("ai-takeaways");
     if (!target) return;
@@ -80,6 +182,57 @@
       const card = document.createElement("article");
       card.className = "thread-card";
       card.innerHTML = `<h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.body)}</p>`;
+      target.append(card);
+    });
+  }
+
+  function renderAbstracts() {
+    const target = document.getElementById("ai-abstracts");
+    if (!target) return;
+
+    const definitionPoint = data.pressurePoints.find((item) => item.family === "definitions");
+    const perspectivePoint = data.pressurePoints.find((item) => item.family === "perspectives");
+    const bridgePoint = [...data.pressurePoints].sort(
+      (left, right) => right.sharedGround.sharedShare - left.sharedGround.sharedShare,
+    )[0];
+
+    const cards = [
+      definitionPoint
+        ? {
+            title: "Definitional split",
+            body: `The strongest definitional contrast remains between ${definitionPoint.aiDominant.label.toLowerCase()} in the AI sample and ${definitionPoint.artDominant.label.toLowerCase()} in the art-education corpus. This suggests that AI research still leans toward intelligence as a machinic relation, whereas the journal more often situates intelligence in creative, social, and interpretive educational practice.`,
+            aiRefs: aiPapersFor("definitions", definitionPoint.aiDominant.id, 2),
+            artRefs: corpusArticlesFor("definitions", definitionPoint.artDominant.id, 2),
+          }
+        : null,
+      perspectivePoint
+        ? {
+            title: "Institutional contrast",
+            body: `${perspectivePoint.aiDominant.label} dominates the AI sample, while ${perspectivePoint.artDominant.label} remains structurally central in the art-education corpus. In practice this means that intelligence in AI is often framed through technical systems and evaluation cultures, whereas in Studies in Art Education it is still most often worked through teaching, curriculum, and pedagogical formation.`,
+            aiRefs: aiPapersFor("perspectives", perspectivePoint.aiDominant.id, 2),
+            artRefs: corpusArticlesFor("perspectives", perspectivePoint.artDominant.id, 2),
+          }
+        : null,
+      bridgePoint
+        ? {
+            title: "Shared bridge",
+            body: `${bridgePoint.sharedGround.label} is one of the strongest overlaps across the two corpora. That shared ground matters because it shows the comparison is not a simple opposition between technical AI and humanistic art education; both fields still meet around recurring questions of ${bridgePoint.sharedGround.label.toLowerCase()}, even if they mobilize them differently.`,
+            aiRefs: aiPapersFor(bridgePoint.family, bridgePoint.sharedGround.id, 2),
+            artRefs: corpusArticlesFor(bridgePoint.family, bridgePoint.sharedGround.id, 2),
+          }
+        : null,
+    ].filter(Boolean);
+
+    target.innerHTML = "";
+    cards.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "thread-card";
+      card.innerHTML = `
+        <h3>${escapeHtml(item.title)}</h3>
+        <p>${escapeHtml(item.body)}</p>
+        ${referenceListMarkup(item.aiRefs, "paper", "Outside research references")}
+        ${referenceListMarkup(item.artRefs, "article", "Art-education references")}
+      `;
       target.append(card);
     });
   }
@@ -327,22 +480,33 @@
     }
 
     function renderDetail(row) {
-      const aiMatches = data.arxivPapers.filter((paper) => paper.codes[activeFamily].includes(row.id)).slice(0, 4);
+      const aiMatches = aiPapersFor(activeFamily, row.id, 4);
+      const artMatches = corpusArticlesFor(activeFamily, row.id, 4);
+      const abstract = row.delta > 0.18
+        ? `${row.label} is distinctly more characteristic of the AI sample than of the art-education corpus, which suggests that this frame operates as part of AI research's own conceptual center rather than as a marginal supplement.`
+        : row.delta < -0.18
+          ? `${row.label} is distinctly more characteristic of the art-education corpus than of the AI sample, which suggests that this frame remains more integral to how intelligence is discussed in educational and artistic contexts than in the selected AI research sample.`
+          : `${row.label} remains legible in both corpora, but the representative sources below show that the two fields mobilize the frame for different argumentative purposes.`;
       detailTarget.innerHTML = `
         <h3>${escapeHtml(row.label)}</h3>
         <p>${escapeHtml(sentenceForDelta(row))}</p>
         <p><strong>Art education:</strong> ${formatPercent(row.artShare)} (${formatNumber(row.artCount)} articles)</p>
         <p><strong>AI sample:</strong> ${formatPercent(row.aiShare)} (${formatNumber(row.aiCount)} of ${data.arxivPapers.length} papers)</p>
+        <div class="codebook-block">
+          <h4>Short academic comparison</h4>
+          <p>${escapeHtml(abstract)}</p>
+        </div>
         ${
           aiMatches.length
             ? `<div class="codebook-block">
-                <h4>Matched arXiv papers</h4>
-                <ul class="codebook-list">
-                  ${aiMatches.map((paper) => `<li><strong>${paper.year}</strong> ${escapeHtml(paper.title)}</li>`).join("")}
+                <h4>Outside research references</h4>
+                <ul class="scholar-citation-list">
+                  ${aiMatches.map((paper) => `<li class="scholar-reference">${paperReferenceMarkup(paper)}</li>`).join("")}
                 </ul>
               </div>`
             : ""
         }
+        ${referenceListMarkup(artMatches, "article", "Art-education references")}
         <p class="chart-note">For article-level evidence on the art-education side, use the corpus atlas page.</p>
         <div class="evidence-actions">
           <a class="ghost-button" href="index.html#evidence-desk-section">Open corpus evidence desk</a>
@@ -565,7 +729,9 @@
   }
 
   renderHeroStats();
+  renderSourceMap();
   renderTakeaways();
+  renderAbstracts();
   renderCautions();
   renderClusterSummary();
   renderAxes();

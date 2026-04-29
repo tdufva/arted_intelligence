@@ -182,6 +182,38 @@
       .replace(/'/g, "&#39;");
   }
 
+  function articleReferenceMarkup(article) {
+    const label = `${article.title} (${article.year})`;
+    return article.doi
+      ? `<a href="https://doi.org/${escapeHtml(article.doi)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`
+      : escapeHtml(label);
+  }
+
+  function articleReferenceListMarkup(articles, heading = "Representative references", limit = 4) {
+    const rows = (articles || []).slice(0, limit);
+    if (!rows.length) {
+      return `<div class="codebook-block"><h4>${escapeHtml(heading)}</h4><p class="chart-note">No article references are available in the current slice.</p></div>`;
+    }
+    return `
+      <div class="codebook-block">
+        <h4>${escapeHtml(heading)}</h4>
+        <ul class="scholar-citation-list">
+          ${rows.map((article) => `<li class="scholar-reference">${articleReferenceMarkup(article)}</li>`).join("")}
+        </ul>
+      </div>
+    `;
+  }
+
+  function temporalSummary(frontierDelta, earlyShare, lateShare, unitLabel = "pairing") {
+    if (frontierDelta > 0.08) {
+      return `The ${unitLabel} is more characteristic of the later corpus window, rising from ${formatPercent(earlyShare)} to ${formatPercent(lateShare)}.`;
+    }
+    if (frontierDelta < -0.08) {
+      return `The ${unitLabel} is more characteristic of the earlier corpus window, falling from ${formatPercent(earlyShare)} to ${formatPercent(lateShare)} in the later window.`;
+    }
+    return `The ${unitLabel} remains comparatively stable across the early and late windows, moving from ${formatPercent(earlyShare)} to ${formatPercent(lateShare)}.`;
+  }
+
   function articleMatchesFamily(article, family, id) {
     if (!family || !id) return true;
     const config = familyConfigs[family];
@@ -632,6 +664,42 @@
       stat.className = "stat";
       stat.innerHTML = `<span class="value">${escapeHtml(item.value)}</span><span class="label">${escapeHtml(item.label)}</span>`;
       target.append(stat);
+    });
+  }
+
+  function renderSourceMap() {
+    const target = document.getElementById("crossref-source-map");
+    if (!target) return;
+
+    const sourceCards = [
+      {
+        title: "Provided PDF corpus",
+        meta: `${formatNumber(corpus.summary.articleCount)} articles · ${corpus.summary.yearRange[0]}–${corpus.summary.yearRange[1]}`,
+        body: "All results on this page are computed from the provided Studies in Art Education PDF corpus and its locally extracted text.",
+      },
+      {
+        title: "Local coding layers",
+        meta: `${familyList.length} concept families`,
+        body: "The lab crossreferences intelligence types, perspectives, signals, definition frames, recognition modes, location frames, and subject frames.",
+      },
+      {
+        title: "Evidence and validation",
+        meta: `${formatNumber(corpus.validation.sampleSize)} gold-sample articles · ${formatNumber(corpus.summary.withPdfCitationCounts)} with PDF citation metadata`,
+        body: "The page draws on article excerpts, quote-level evidence, coding-confidence traces, and the visible validation layer already built into the corpus atlas.",
+      },
+      {
+        title: "Method boundary",
+        meta: "No outside research on this page",
+        body: corpus.methods?.[0]?.body || "This page remains corpus-only and does not draw on external literature or citation indexes for its analytical claims.",
+      },
+    ];
+
+    target.innerHTML = "";
+    sourceCards.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "source-card";
+      card.innerHTML = `<h3>${escapeHtml(item.title)}</h3><p class="meta-line">${escapeHtml(item.meta)}</p><p>${escapeHtml(item.body)}</p>`;
+      target.append(card);
     });
   }
 
@@ -1147,6 +1215,7 @@
     }
 
     const topArticles = row.articles.slice(0, 5);
+    const abstract = `Within the ${state.scope === "all" ? "full corpus" : "selected corpus window"}, ${primaryLabel} co-occurs with ${row.label} in ${formatNumber(row.observed)} articles, representing ${formatPercent(row.primaryShare)} of the primary slice. With an observed-to-expected ratio of ${row.lift.toFixed(2)}x, the overlap reads as ${row.lift >= 1.35 ? "a comparatively tight discursive coupling rather than a background coincidence" : row.lift <= 0.85 ? "a relatively loose association despite the two concepts appearing separately in the same field" : "a recurrent but not unusually concentrated association"}. ${temporalSummary(row.frontierDelta, row.earlyShare, row.lateShare, "pairing")}`;
 
     target.innerHTML = `
       <h3>${escapeHtml(primaryLabel)} × ${escapeHtml(row.label)}</h3>
@@ -1163,6 +1232,10 @@
         ${lensLabel ? `<span class="tag">${escapeHtml(lensLabel)}</span>` : ""}
       </div>
       <div class="codebook-block">
+        <h4>Short academic description</h4>
+        <p>${escapeHtml(abstract)}</p>
+      </div>
+      <div class="codebook-block">
         <h4>Representative articles</h4>
         <ul class="codebook-list">
           ${
@@ -1172,6 +1245,7 @@
           }
         </ul>
       </div>
+      ${articleReferenceListMarkup(topArticles, "Reference trail")}
     `;
 
     const actions = document.createElement("div");
@@ -1260,6 +1334,7 @@
 
     const topA = pairContext.a.articles.slice(0, 4);
     const topB = pairContext.b.articles.slice(0, 4);
+    const pairAbstract = `In the current corpus scope, ${pairContext.a.label} appears in ${formatNumber(pairContext.a.observed)} articles and ${pairContext.b.label} in ${formatNumber(pairContext.b.observed)}. ${pairDifferenceNarrative(pairContext)} ${temporalSummary(pairContext.a.frontierDelta, pairContext.a.earlyScopeShare, pairContext.a.lateScopeShare, "Pair A linkage")} ${temporalSummary(pairContext.b.frontierDelta, pairContext.b.earlyScopeShare, pairContext.b.lateScopeShare, "Pair B linkage")}`;
     detail.innerHTML = `
       <h3>${escapeHtml(pairContext.a.label)} vs ${escapeHtml(pairContext.b.label)}</h3>
       <p>${escapeHtml(pairDifferenceNarrative(pairContext))}</p>
@@ -1268,6 +1343,10 @@
         <span>${escapeHtml(pairContext.a.label)}</span>
         <span class="pair-chip pair-chip-b">Pair B</span>
         <span>${escapeHtml(pairContext.b.label)}</span>
+      </div>
+      <div class="codebook-block">
+        <h4>Short academic comparison</h4>
+        <p>${escapeHtml(pairAbstract)}</p>
       </div>
       <div class="codebook-block">
         <h4>Representative articles for Pair A</h4>
@@ -1281,6 +1360,8 @@
           ${topB.length ? topB.map((article) => `<li><strong>${article.year}</strong> ${escapeHtml(article.title)}</li>`).join("") : "<li>No articles in scope.</li>"}
         </ul>
       </div>
+      ${articleReferenceListMarkup(topA, "Pair A references")}
+      ${articleReferenceListMarkup(topB, "Pair B references")}
     `;
   }
 
@@ -1514,6 +1595,7 @@
   }
 
   heroStats();
+  renderSourceMap();
   renderAll();
   revealOnScroll();
 })();

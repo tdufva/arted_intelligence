@@ -25,6 +25,29 @@
   height: 1.5rem;
 }
 
+.source-map {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.source-card {
+  padding: 1rem 1rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.source-card h3 {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.source-card p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+}
+
 .caution-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -261,6 +284,21 @@
   line-height: 1.45;
 }
 
+.scholar-citation-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.scholar-citation-list li + li {
+  margin-top: 0.45rem;
+}
+
+.scholar-reference a {
+  color: var(--deep);
+  font-weight: 700;
+}
+
 .method-listing {
   margin: 0;
   padding-left: 1.2rem;
@@ -285,7 +323,8 @@
 
 @media (max-width: 1024px) {
   .caution-strip,
-  .pressure-split {
+  .pressure-split,
+  .source-map {
     grid-template-columns: 1fr;
   }
 
